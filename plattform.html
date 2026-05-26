@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="de">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Itera | Plattform für grenzüberschreitende Zusammenarbeit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9fa",
+                        "tertiary-fixed": "#68fadd",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#021f29",
+                        "inverse-primary": "#9acee1",
+                        "on-error": "#ffffff",
+                        "tertiary": "#00362d",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f9f9fa",
+                        "on-tertiary-container": "#23c9ae",
+                        "surface-variant": "#e1e2e4",
+                        "secondary": "#48626e",
+                        "secondary-fixed-dim": "#afcbd8",
+                        "outline-variant": "#c0c8cb",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed": "#b6ebfe",
+                        "primary": "#003441",
+                        "tertiary-container": "#004f43",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed-variant": "#304a55",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001f28",
+                        "secondary-fixed": "#cbe7f5",
+                        "background": "#f9f9fa",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-fixed-variant": "#005145",
+                        "on-tertiary-fixed": "#00201a",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#0f4c5c",
+                        "on-surface": "#191c1d",
+                        "on-primary-container": "#87bbce",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#9acee1",
+                        "on-primary-fixed-variant": "#114d5d",
+                        "on-background": "#191c1d",
+                        "surface-tint": "#306576",
+                        "tertiary-fixed-dim": "#44ddc1",
+                        "outline": "#70787c",
+                        "on-secondary-container": "#4e6874",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#cbe7f5",
+                        "on-surface-variant": "#40484b",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+</style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+  <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+      Itera
+    </a></div>
+
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="leistungen.html">
+        Leistungen
+      </a>
+
+      <a class="text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight font-semibold" href="plattform.html">
+        Plattform
+      </a>
+
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="einblicke.html">
+        Einblicke
+      </a>
+
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="uberuns.html">
+        Über uns
+      </a>
+
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="kontakt.html">
+        Kontakt
+      </a>
+    </div>
+
+    <!-- Right Side -->
+    <div class="flex items-center gap-4">
+
+
+
+      <!-- Language Switcher -->
+      <div class="relative group language-switcher">
+        <button
+          type="button"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#0F4C5C]/30 transition-all bg-white"
+          onclick="this.nextElementSibling.classList.toggle('hidden')"
+          aria-label="Sprache auswählen"
+        >
+          <span class="text-lg select-none">🇩🇪</span>
+          <span class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">DE</span>
+          <span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-[#0F4C5C] transition-colors">
+            expand_more
+          </span>
+        </button>
+
+        <div class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-[60] hidden language-menu">
+          <div class="p-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="english_landingpage.html">
+              <span class="text-lg">🇬🇧</span>
+              <span class="text-xs font-semibold text-slate-600 group-hover/item:text-[#0F4C5C]">English</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="spanish_landingpage.html">
+              <span class="text-lg">🇪🇸</span>
+              <span class="text-xs font-semibold text-slate-600 group-hover/item:text-[#0F4C5C]">Español</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login -->
+      <a href="anmelden.html"
+         class="px-6 py-2 bg-primary text-on-primary font-medium hover:opacity-90 active:scale-[0.98] transition-all rounded-full inline-block">
+        Einloggen
+      </a>
+
+    </div>
+
+  </div>
+
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="reveal relative overflow-hidden py-24 md:py-32 bg-surface">
+<div class="absolute inset-0 z-0 opacity-10">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-primary-container rounded-l-full blur-3xl"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase" style="">
+                        Plattform Ökosystem
+                    </div>
+<h1 class="text-3xl md:text-5xl md:text-6xl font-black text-primary leading-tight tracking-tight" style="">
+                        Eine Plattform für echte grenzüberschreitende Zusammenarbeit
+                    </h1>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-xl" style="">
+                        Risiken identifizieren, Teams aufeinander abstimmen und Markteintritte zwischen Deutschland und Lateinamerika erfolgreich umsetzen.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="kontakt.html#contact-form"
+         class="px-4 md:px-8 py-4 bg-[#0F4C5C] text-white rounded-full font-bold shadow-lg shadow-primary/10 transition-transform hover:scale-[1.02]">
+        Demo anfordern
+      </a>
+<a href="index.html#methodik" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
+                       Methodik ansehen
+                    </a>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-3">
+<img class="w-full h-full object-cover" data-alt="modern corporate team collaborating in a bright high-tech office with data dashboards on large screens and panoramic city view" src="https://i.ibb.co/nNYksrdp/IMG-3440.jpg" style="">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs -rotate-3 border border-surface-variant">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="verified" style="">verified</span>
+<span class="font-bold text-primary" style="">Compliance Check</span>
+</div>
+<p class="text-sm text-on-surface-variant" style="">Regulatorische Hürden in Echtzeit überwacht für den LATAM-Markt.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="reveal py-24 bg-white">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-black text-primary mb-6" style="">
+                        Warum grenzüberschreitende Zusammenarbeit in der Praxis scheitert
+                    </h2>
+<p class="text-lg text-on-surface-variant" style="">
+                        Trotz strategischer Absichten scheitern viele Vorhaben an der operativen Realität komplexer internationaler Märkte.
+                    </p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
+<div class="w-12 h-12 bg-[#19839e] rounded-2xl flex items-center justify-center mb-6 text-white backdrop-blur-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="groups" style="">groups</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3" style="">Fehlende Abstimmung</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Teams arbeiten in Silos ohne gemeinsame Sicht auf Ziele und Fortschritte.</p>
+</div>
+<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
+<div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_tree" style="">account_tree</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3 hyphens-auto" lang="de">Entscheidungsstrukturen</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Langsame Freigabeprozesse durch unklare Hierarchien zwischen den Kontinenten.</p>
+</div>
+<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
+<div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="gavel" style="">gavel</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3" style="">Regulatorik</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Komplexität lokaler Gesetze und Compliance-Anforderungen wird unterschätzt.</p>
+</div>
+<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
+<div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="public" style="">public</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3" style="">Kulturelle Barrieren</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Unterschiedliche Arbeitsweisen führen zu Reibungsverlusten in der Kommunikation.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Process Section -->
+<section class="reveal py-24 bg-primary text-on-primary">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<div class="mb-20">
+<h2 class="text-4xl font-black mb-4" style="">Der Weg zum Erfolg</h2>
+<div class="h-1.5 w-32 bg-tertiary-fixed rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-12 relative">
+
+
+<!-- Step 1 -->
+<div class="relative z-10 space-y-6">
+<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-2xl font-black border-4 border-primary shadow-xl" style="">
+                            01
+                        </div>
+<h3 class="text-2xl font-bold" style="">Diagnose Ihrer Bereitschaft</h3>
+<p class="text-on-primary-container leading-relaxed" style="">
+                            Wir bewerten die Marktfähigkeit und den organisatorischen Fit Ihres Unternehmens für die Expansion.
+                        </p>
+<ul class="space-y-3 pt-4">
+<li class="flex items-center gap-3 text-sm opacity-90" style="">
+<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="check_circle" style="">check_circle</span>
+                                Market Readiness Score
+                            </li>
+<li class="flex items-center gap-3 text-sm opacity-90" style="">
+<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="check_circle" style="">check_circle</span>
+                                Organizational Alignment Audit
+                            </li>
+</ul>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 space-y-6">
+<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-2xl font-black border-4 border-primary shadow-xl" style="">
+                            02
+                        </div>
+<h3 class="text-2xl font-bold" style="">Risiken und Lücken identifizieren</h3>
+<p class="text-on-primary-container leading-relaxed" style="">
+                            Detaillierte Analyse von Stärken, Schwächen und potenziellen operativen Risiken in der Zielregion.
+                        </p>
+<ul class="space-y-3 pt-4">
+<li class="flex items-center gap-3 text-sm opacity-90" style="">
+<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="analytics" style="">analytics</span>
+                                Risikomatrix &amp; Gap-Analyse
+                            </li>
+<li class="flex items-center gap-3 text-sm opacity-90" style="">
+<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="analytics" style="">analytics</span>
+                                Szenario-Planung
+                            </li>
+</ul>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 space-y-6">
+<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-2xl font-black border-4 border-primary shadow-xl" style="">
+                            03
+                        </div>
+<h3 class="text-2xl font-bold" style="">Erkenntnisse in Taten umsetzen</h3>
+<p class="text-on-primary-container leading-relaxed" style="">
+                            Ein strukturiertes Playbook mit praktischen Empfehlungen führt Sie Schritt für Schritt durch die Umsetzung.
+                        </p>
+<ul class="space-y-3 pt-4">
+<li class="flex items-center gap-3 text-sm opacity-90" style="">
+<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="rocket_launch" style="">rocket_launch</span>
+                                Operatives Playbook
+                            </li>
+<li class="flex items-center gap-3 text-sm opacity-90" style="">
+<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="rocket_launch" style="">rocket_launch</span>
+                                Kontinuierliche Begleitung
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Differentiation Section -->
+<section class="reveal py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black text-primary mb-4" style="">Jenseits der Strategie. Fokus auf die Umsetzung.</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto" style="">Warum Itera den Unterschied für Ihr grenzüberschreitende Wachstum macht.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 bg-white rounded-3xl p-10 flex flex-col justify-between border border-surface-variant overflow-hidden relative group">
+<div class="relative z-10">
+<h3 class="text-3xl font-black text-primary mb-4" style="">Interaktive Plattform statt statischer Slides</h3>
+<p class="text-on-surface-variant text-lg max-w-lg" style="">
+                                Wir liefern keine dicken PDF-Berichte, die in der Schublade landen. Unsere Plattform bietet ein lebendiges Ökosystem für das Management Ihrer Internationalisierung.
+                            </p>
+</div>
+<div class="absolute -right-20 -bottom-20 w-2/3 opacity-20 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-[300px]" data-icon="dashboard" style="">dashboard</span>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary-container rounded-3xl p-10 flex flex-col text-on-primary-container border border-primary relative overflow-hidden">
+<span class="material-symbols-outlined text-3xl md:text-5xl mb-6 text-tertiary-fixed" data-icon="settings_suggest" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">settings_suggest</span>
+<h3 class="text-2xl font-bold text-white mb-4" style="">Operativer Fokus</h3>
+<p class="text-on-primary-container/80 text-sm leading-relaxed" style="">
+                            Theoretische Frameworks sind gut, operative Umsetzung ist besser. Wir begleiten Sie bei jedem realen Schritt auf dem Zielmarkt.
+                        </p>
+</div>
+<div class="md:col-span-4 bg-primary rounded-3xl p-10 flex flex-col text-on-primary border border-primary">
+<span class="material-symbols-outlined text-3xl md:text-5xl mb-6 text-tertiary-fixed" data-icon="monitoring" style="">monitoring</span>
+<h3 class="text-2xl font-bold mb-4" style="">Echtzeit-Tracking</h3>
+<p class="opacity-80 text-sm" style="">Überwachen Sie Meilensteine und KPIs direkt über Ihr personalisiertes Dashboard.</p>
+</div>
+<div class="md:col-span-8 bg-white rounded-3xl p-10 flex items-center gap-10 border border-surface-variant overflow-hidden group">
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-primary mb-4" style="">Lokales Expertenwissen</h3>
+<p class="text-on-surface-variant text-sm" style="">Nutzen Sie den Zugang zu unserem Netzwerk aus Fachleuten in Deutschland und Lateinamerika.</p>
+</div>
+<div class="hidden lg:block w-48 h-48 rounded-2xl overflow-hidden shadow-lg rotate-6 group-hover:rotate-0 transition-transform">
+<img class="w-full h-full object-cover" data-alt="diverse group of business professionals in a high-end modern boardroom discussing global strategy over a world map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhJwNBRf5oAYRTu9BNSyR9TKFOLiJtx8NW8sMtYAv6_SIS9VxTGoteaYcwfZl7K8il2OieDjH75X12qHWoS8lIlo0UFjUiYLtCeh6gZEHBQQdrr-aB-GmdnwHHg-f21QRrm6nK7lv0WcYtfujOFFaYjsQC5EPoN9g_dLFVAOOxImoxYIl6ppN7nfxFrXF21vj-TRdJI8rJ1V3yVxzs_v0UoTFKtH_pvYx9HuPkiXgw8G_LrVNDJAVDWHsQe5bdWlw5YK9PoRTwPOmF" style="">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Buttons -->
+<section class="reveal py-32 px-4 md:px-8 bg-[#0F4C5C] text-white">
+  <div class="max-w-screen-xl mx-auto text-center">
+    <h2 class="text-4xl md:text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">
+      Starten Sie Ihre internationale Expansion strukturiert und erfolgreich
+    </h2>
+    <p class="text-lg md:text-xl opacity-80 mb-14 max-w-2xl mx-auto leading-relaxed">
+      Wir unterstützen Sie dabei, Ihre grenzüberschreitende Zusammenarbeit effizient aufzubauen, von der Strategie bis zur operativen Umsetzung.
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-10">
+      <a href="kontakt.html#contact-form"
+         class="px-10 py-5 bg-[#23c9ae] text-[#0F4C5C] font-black rounded-full hover:scale-[1.02] transition-all">
+        Erstgespräch vereinbaren
+      </a>
+      <a href="plattform.html"
+         class="px-10 py-5 bg-white/10 text-white border border-white/20 font-bold rounded-full hover:bg-white/20 transition-all">
+        Plattform entdecken
+      </a>
+    </div>
+    <!-- Trust line -->
+    <p class="text-sm opacity-50">
+      Kostenloses Erstgespräch · Keine Verpflichtung
+    </p>
+  </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="font-black text-[#0F4C5C] text-xl" style="">Itera</div>
+<div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+</div>
+<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Itera. Alle Rechte vorbehalten.</div>
+</div>
+</footer>
+<script>
+  document.addEventListener('click', function (event) {
+    document.querySelectorAll('.language-switcher').forEach(wrapper => {
+      const menu = wrapper.querySelector('.language-menu');
+      if (!wrapper.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  });
+</script>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
+</script>
+
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body></html>

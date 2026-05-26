@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Itera | Neues Passwort</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'on-primary-fixed-variant': '#114d5d',
+            'surface-variant': '#e1e2e4',
+            'surface': '#f9f9fa',
+            'secondary-container': '#cbe7f5',
+            'secondary-fixed': '#cbe7f5',
+            'on-background': '#191c1d',
+            'surface-tint': '#306576',
+            'primary-fixed-dim': '#9acee1',
+            'on-secondary-fixed': '#021f29',
+            'on-tertiary-fixed': '#00201a',
+            'primary-fixed': '#b6ebfe',
+            'tertiary-container': '#004f43',
+            'surface-container-lowest': '#ffffff',
+            'primary-container': '#0f4c5c',
+            'outline-variant': '#c0c8cb',
+            'surface-dim': '#d9dadb',
+            'surface-container': '#edeeef',
+            'secondary-fixed-dim': '#afcbd8',
+            'on-tertiary-fixed-variant': '#005145',
+            'on-tertiary': '#ffffff',
+            'on-primary': '#ffffff',
+            'error-container': '#ffdad6',
+            'secondary': '#48626e',
+            'background': '#f9f9fa',
+            'tertiary-fixed-dim': '#44ddc1',
+            'inverse-surface': '#2e3132',
+            'inverse-on-surface': '#f0f1f2',
+            'inverse-primary': '#9acee1',
+            'surface-container-high': '#e7e8e9',
+            'on-surface': '#191c1d',
+            'primary': '#003441',
+            'tertiary-fixed': '#68fadd',
+            'surface-container-low': '#f3f4f5',
+            'on-error-container': '#93000a',
+            'on-primary-fixed': '#001f28',
+            'outline': '#70787c',
+            'on-surface-variant': '#40484b',
+            'on-primary-container': '#87bbce',
+            'surface-container-highest': '#e1e2e4',
+            'tertiary': '#00362d',
+            'on-secondary-fixed-variant': '#304a55',
+            'error': '#ba1a1a',
+            'on-tertiary-container': '#23c9ae',
+            'on-secondary-container': '#4e6874',
+            'on-secondary': '#ffffff',
+            'on-error': '#ffffff',
+            'surface-bright': '#f9f9fa'
+          },
+          borderRadius: {
+            DEFAULT: '1rem',
+            lg: '2rem',
+            xl: '3rem',
+            full: '9999px'
+          },
+          fontFamily: {
+            headline: ['Inter'],
+            display: ['Inter'],
+            body: ['Inter'],
+            label: ['Inter']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up { animation: fadeInUp 0.45s ease both; }
+
+    @keyframes checkPop {
+      0%   { transform: scale(0.5); opacity: 0; }
+      70%  { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .check-pop { animation: checkPop 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+
+    /* Strength bar */
+    .strength-bar { transition: width 0.3s ease, background-color 0.3s ease; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+    <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
+      <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">Itera</a></div>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="leistungen.html">Leistungen</a>
+        <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="plattform.html">Plattform</a>
+        <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="einblicke.html">Einblicke</a>
+        <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="uberuns.html">Über uns</a>
+        <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="kontakt.html">Kontakt</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+
+
+        <div class="relative group language-switcher">
+          <button
+            type="button"
+            class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#0F4C5C]/30 transition-all bg-white"
+            onclick="this.nextElementSibling.classList.toggle('hidden')"
+            aria-label="Sprache auswählen"
+          >
+            <span class="text-lg select-none">🇩🇪</span>
+            <span class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">DE</span>
+            <span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-[#0F4C5C] transition-colors">expand_more</span>
+          </button>
+          <div class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-[60] hidden language-menu">
+            <div class="p-1">
+              <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors" href="english_landingpage.html">
+                <span class="text-lg">🇬🇧</span>
+                <span class="text-xs font-semibold text-slate-600">English</span>
+              </a>
+              <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors" href="spanish_landingpage.html">
+                <span class="text-lg">🇪🇸</span>
+                <span class="text-xs font-semibold text-slate-600">Español</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="anmelden.html" class="px-6 py-2 bg-primary text-on-primary font-medium hover:opacity-90 active:scale-[0.98] transition-all rounded-full inline-block">Einloggen</a>
+      </div>
+    </div>
+  
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-40">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-secondary-container rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-tertiary-fixed-dim rounded-full blur-3xl opacity-20"></div>
+    </div>
+
+    <div class="w-full max-w-md bg-surface-container-lowest p-8 md:p-10 rounded-lg shadow-2xl shadow-primary-container/5 border border-surface-variant flex flex-col gap-8 fade-in-up">
+
+      <!-- STATE: Invalid / expired link -->
+      <div id="state-invalid" class="hidden flex flex-col items-center text-center gap-6 py-4">
+        <div class="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center">
+          <span class="material-symbols-outlined text-4xl text-red-600" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">error</span>
+        </div>
+        <div class="space-y-2">
+          <h2 class="text-2xl font-bold tracking-tight text-primary-container">Link ungültig oder abgelaufen</h2>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Dieser Passwort-Reset-Link ist nicht mehr gültig. Bitte fordern Sie einen neuen Link an.</p>
+        </div>
+        <a href="passwort-vergessen.html" class="w-full bg-primary-container text-white py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          Neuen Link anfordern
+          <span class="material-symbols-outlined">refresh</span>
+        </a>
+      </div>
+
+      <!-- STATE: Form -->
+      <div id="state-form" class="hidden flex flex-col gap-8">
+        <div class="space-y-2 text-center">
+          <div class="flex justify-center mb-4">
+            <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-3xl text-primary-container">lock</span>
+            </div>
+          </div>
+          <h1 class="text-3xl font-bold tracking-tight text-primary-container">Neues Passwort</h1>
+          <p class="text-on-surface-variant text-sm">Wählen Sie ein neues, sicheres Passwort für Ihr Itera-Konto.</p>
+        </div>
+
+        <form id="new-password-form" class="space-y-6" novalidate>
+          <!-- New password -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider pl-1" for="password">Neues Passwort</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg">lock</span>
+              <input
+                class="w-full pl-12 pr-12 py-3.5 bg-surface-container border border-outline-variant rounded-full focus:ring-2 focus:ring-primary-container focus:border-transparent outline-none transition-all"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+              <button id="toggle-password" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary-container" type="button" aria-label="Passwort anzeigen oder verbergen">
+                <span class="material-symbols-outlined text-lg">visibility</span>
+              </button>
+            </div>
+            <!-- Strength indicator -->
+            <div class="px-1 space-y-1 mt-2">
+              <div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+                <div id="strength-bar" class="strength-bar h-full w-0 rounded-full bg-red-400"></div>
+              </div>
+              <p id="strength-label" class="text-xs text-on-surface-variant"></p>
+            </div>
+          </div>
+
+          <!-- Confirm password -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider pl-1" for="confirm-password">Passwort bestätigen</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg">lock_open</span>
+              <input
+                class="w-full pl-12 pr-12 py-3.5 bg-surface-container border border-outline-variant rounded-full focus:ring-2 focus:ring-primary-container focus:border-transparent outline-none transition-all"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="••••••••"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+              <button id="toggle-confirm" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary-container" type="button" aria-label="Passwort anzeigen oder verbergen">
+                <span class="material-symbols-outlined text-lg">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <p id="form-error" class="hidden rounded-2xl bg-red-50 text-red-700 text-sm px-4 py-3"></p>
+
+          <button id="submit-button" class="w-full bg-primary-container text-white py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed" type="submit">
+            <span id="submit-text">Passwort speichern</span>
+            <span class="material-symbols-outlined" id="submit-icon">save</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- STATE: Success -->
+      <div id="state-success" class="hidden flex flex-col items-center text-center gap-6 py-4">
+        <div class="w-20 h-20 rounded-full bg-[#e6f7f4] flex items-center justify-center check-pop">
+          <span class="material-symbols-outlined text-4xl text-[#0F4C5C]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">check_circle</span>
+        </div>
+        <div class="space-y-2">
+          <h2 class="text-2xl font-bold tracking-tight text-primary-container">Passwort geändert!</h2>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Ihr Passwort wurde erfolgreich aktualisiert. Sie können sich jetzt mit Ihrem neuen Passwort anmelden.</p>
+        </div>
+        <a href="anmelden.html" class="w-full bg-primary-container text-white py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2 fade-in-up">
+          Zum Login
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+      <div class="font-black text-[#0F4C5C] text-xl">Itera</div>
+      <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest text-slate-400">
+        <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+        <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+        <a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+        <a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Itera. Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const SUPABASE_URL = 'https://fhwdlgjrgdoaerjfqflb.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+    // Language switcher
+    document.addEventListener('click', function (event) {
+      document.querySelectorAll('.language-switcher').forEach(wrapper => {
+        const menu = wrapper.querySelector('.language-menu');
+        if (!wrapper.contains(event.target)) menu.classList.add('hidden');
+      });
+    });
+
+    const stateInvalid = document.getElementById('state-invalid');
+    const stateForm    = document.getElementById('state-form');
+    const stateSuccess = document.getElementById('state-success');
+
+    // Supabase sends the token in the URL hash as #access_token=...&type=recovery
+    // The JS client picks it up automatically when initialised.
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        // Valid recovery session — show the form
+        stateForm.classList.remove('hidden');
+        stateForm.classList.add('fade-in-up');
+      } else if (!session) {
+        // No valid session at all — show the invalid-link state
+        stateInvalid.classList.remove('hidden');
+        stateInvalid.classList.add('fade-in-up');
+      }
+    });
+
+    // Password strength
+    const passwordInput  = document.getElementById('password');
+    const strengthBar    = document.getElementById('strength-bar');
+    const strengthLabel  = document.getElementById('strength-label');
+
+    const levels = [
+      { label: 'Sehr schwach', color: '#ef4444', width: '20%' },
+      { label: 'Schwach',      color: '#f97316', width: '40%' },
+      { label: 'Mittel',       color: '#eab308', width: '60%' },
+      { label: 'Stark',        color: '#22c55e', width: '80%' },
+      { label: 'Sehr stark',   color: '#0f4c5c', width: '100%' },
+    ];
+
+    function getStrength(pw) {
+      let score = 0;
+      if (pw.length >= 8)  score++;
+      if (pw.length >= 12) score++;
+      if (/[A-Z]/.test(pw)) score++;
+      if (/[0-9]/.test(pw)) score++;
+      if (/[^A-Za-z0-9]/.test(pw)) score++;
+      return Math.min(score, 4);
+    }
+
+    passwordInput.addEventListener('input', () => {
+      const pw = passwordInput.value;
+      if (!pw) { strengthBar.style.width = '0'; strengthLabel.textContent = ''; return; }
+      const lvl = levels[getStrength(pw)];
+      strengthBar.style.width = lvl.width;
+      strengthBar.style.backgroundColor = lvl.color;
+      strengthLabel.textContent = lvl.label;
+    });
+
+    // Toggle visibility
+    function setupToggle(inputId, btnId) {
+      const inp = document.getElementById(inputId);
+      const btn = document.getElementById(btnId);
+      btn.addEventListener('click', () => {
+        const hidden = inp.type === 'password';
+        inp.type = hidden ? 'text' : 'password';
+        btn.querySelector('span').textContent = hidden ? 'visibility_off' : 'visibility';
+      });
+    }
+    setupToggle('password', 'toggle-password');
+    setupToggle('confirm-password', 'toggle-confirm');
+
+    // Form submit
+    const form         = document.getElementById('new-password-form');
+    const errorBox     = document.getElementById('form-error');
+    const submitButton = document.getElementById('submit-button');
+    const submitText   = document.getElementById('submit-text');
+    const submitIcon   = document.getElementById('submit-icon');
+
+    function showError(msg) { errorBox.textContent = msg; errorBox.classList.remove('hidden'); }
+    function clearError()   { errorBox.textContent = ''; errorBox.classList.add('hidden'); }
+    function setLoading(on) {
+      submitButton.disabled = on;
+      submitText.textContent = on ? 'Wird gespeichert...' : 'Passwort speichern';
+      submitIcon.textContent = on ? 'hourglass_top' : 'save';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearError();
+
+      const pw      = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm-password').value;
+
+      if (pw.length < 8) {
+        showError('Das Passwort muss mindestens 8 Zeichen lang sein.');
+        return;
+      }
+      if (pw !== confirm) {
+        showError('Die Passwörter stimmen nicht überein.');
+        return;
+      }
+
+      setLoading(true);
+
+      const { error } = await supabase.auth.updateUser({ password: pw });
+
+      setLoading(false);
+
+      if (error) {
+        showError(error.message || 'Fehler beim Speichern des Passworts. Bitte versuchen Sie es erneut.');
+        return;
+      }
+
+      stateForm.classList.add('hidden');
+      stateSuccess.classList.remove('hidden');
+      stateSuccess.classList.add('fade-in-up');
+    });
+  </script>
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body>
+</html>

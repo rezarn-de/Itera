@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-fixed-dim": "#afcbd8", "tertiary-fixed-dim": "#44ddc1", "primary-fixed-dim": "#9acee1", "on-background": "#191c1d", "surface-tint": "#306576", "on-tertiary": "#ffffff", "surface-container": "#edeeef", "surface-container-low": "#f3f4f5", "on-surface": "#191c1d", background: "#f9f9fa", "on-secondary-fixed": "#021f29", "primary-fixed": "#b6ebfe", "inverse-primary": "#9acee1", outline: "#70787c", "on-secondary": "#ffffff", tertiary: "#00362d", "on-tertiary-fixed-variant": "#005145", "on-tertiary-container": "#23c9ae", "on-primary-fixed-variant": "#114d5d", "error-container": "#ffdad6", "primary-container": "#0f4c5c", "inverse-on-surface": "#f0f1f2", secondary: "#48626e", "on-secondary-container": "#4e6874", "on-primary-fixed": "#001f28", "secondary-container": "#cbe7f5", "secondary-fixed": "#cbe7f5", "surface-dim": "#d9dadb", "surface-bright": "#f9f9fa", "surface-container-high": "#e7e8e9", "on-primary-container": "#87bbce", "on-surface-variant": "#40484b", "on-error": "#ffffff", primary: "#003441", "outline-variant": "#c0c8cb", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#304a55", "surface-container-lowest": "#ffffff", "inverse-surface": "#2e3132", "surface-container-highest": "#e1e2e4", error: "#ba1a1a", surface: "#f9f9fa", "tertiary-container": "#004f43", "on-tertiary-fixed": "#00201a", "tertiary-fixed": "#68fadd", "surface-variant": "#e1e2e4", "on-primary": "#ffffff"}, fontFamily: {headline: ["Inter"], body: ["Inter"], label: ["Inter"], display: "Inter"}, borderRadius: {DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9fa;
+        }
+        .tonal-layering {
+            background-color: #edeeef;
+        }
+        .glass-header {
+            background-color: rgba(249, 249, 250, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- SideNavBar Implementation -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-950 flex flex-col gap-2 p-6 z-40">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold text-[#0F4C5C] tracking-tighter">Itera</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-[#0F4C5C] dark:text-[#68fadd] shadow-sm rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a></div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Framework</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/50">
+<button class="w-full py-3 px-4 rounded-lg bg-[#0F4C5C] text-white font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Analysis
+            </button>
+<div class="flex items-center gap-3 mt-6 px-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-xs">JD</div>
+<div>
+<p class="text-xs font-bold text-on-surface">John Doe</p>
+<p class="text-[10px] text-slate-400">Strategic Partner</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen bg-background">
+<!-- Header -->
+<header class="glass-header sticky top-0 z-30 px-12 py-6 flex justify-between items-center">
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-primary">Project Overview</h2>
+<p class="text-sm text-on-surface-variant opacity-70">Market Entry &amp; Industrial Cooperation: Germany - Latin America</p>
+</div>
+<div class="flex items-center gap-4">
+
+<div class="relative inline-block text-left">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white shadow-sm border border-outline/10 text-[10px] font-bold text-primary transition-all hover:bg-surface-container-low" id="language-menu-button" onclick="document.getElementById('language-dropdown').classList.toggle('hidden')">
+<span class="w-4 h-3 bg-blue-900 rounded-sm relative overflow-hidden flex items-center justify-center">
+<span class="text-[6px] text-white">UK</span>
+</span>
+    EN
+    <span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-32 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden" id="language-dropdown">
+<div class="py-1">
+<a class="flex items-center gap-2 px-4 py-2 text-[10px] font-bold text-primary bg-surface-container-low transition-colors" href="#">
+<span class="w-4 h-3 bg-blue-900 rounded-sm relative overflow-hidden flex items-center justify-center">
+<span class="text-[6px] text-white">UK</span>
+</span>
+        EN
+      </a>
+<a class="flex items-center gap-2 px-4 py-2 text-[10px] font-bold text-outline hover:bg-surface-container-low hover:text-primary transition-colors" href="german_dashboard.html">
+<span class="w-4 h-3 bg-yellow-400 rounded-sm relative overflow-hidden flex flex-col">
+<div class="h-1/3 bg-black"></div>
+<div class="h-1/3 bg-red-600"></div>
+<div class="h-1/3 bg-yellow-400"></div>
+</span>
+        DE
+      </a>
+<a class="flex items-center gap-2 px-4 py-2 text-[10px] font-bold text-outline hover:bg-surface-container-low hover:text-primary transition-colors" href="#">
+<span class="w-4 h-3 bg-yellow-400 rounded-sm relative overflow-hidden flex flex-col">
+<div class="h-1/4 bg-red-600"></div>
+<div class="h-1/2 bg-yellow-400"></div>
+<div class="h-1/4 bg-red-600"></div>
+</span>
+        ES
+      </a>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-medium text-on-surface-variant">Oct 24, 2024</span>
+</div>
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Dashboard Layout -->
+<div class="px-12 py-8 grid grid-cols-12 gap-6 max-w-screen-2xl">
+<!-- Project Summary & Core Idea -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 relative overflow-hidden group shadow-sm border-none">
+<div class="relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Core Objective</span>
+<h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C] max-w-2xl leading-tight">Managing International Market Entry through Strategic Alignment</h3>
+<p class="text-on-surface-variant max-w-xl body-lg mb-8 leading-relaxed">
+                        A structured framework that helps companies manage and improve international market entry and industrial cooperation by identifying and aligning operational, organizational, and cultural factors.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-[#0F4C5C] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all hover:translate-y-[-1px] shadow-lg shadow-[#0F4C5C]/20">
+                            Download Framework Docs
+                        </button>
+<button class="text-[#0F4C5C] font-semibold text-sm flex items-center gap-2 px-4 hover:opacity-70 transition-all">
+                            View Objective Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute right-[-5%] bottom-[-5%] w-64 h-64 bg-tertiary-fixed/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
+<div class="absolute right-12 top-12 w-24 h-24 opacity-10">
+<span class="material-symbols-outlined text-[100px]" data-icon="public">public</span>
+</div>
+</section>
+<!-- Analysis Progress Status -->
+<section class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-xl p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-sm font-bold text-primary uppercase tracking-wider">Current Status</h4>
+<span class="text-[10px] font-bold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">IN PROGRESS</span>
+</div>
+<div class="space-y-4 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
+<p class="text-xs font-medium text-on-surface">Development of framework and structure</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
+<p class="text-xs font-medium text-on-surface">Ongoing qualitative interviews with companies</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<p class="text-xs font-medium text-on-surface-variant">Validation of key challenges and assumptions</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="pending">pending</span>
+<p class="text-xs font-medium text-on-surface-variant">Preparation of a prototype (diagnostic logic)</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline/10">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary w-[65%] h-full rounded-full"></div>
+</div>
+<p class="text-[10px] text-outline mt-2 font-bold">65% TO PROTOTYPE PHASE</p>
+</div>
+</section>
+<!-- The Five Dimensions Analysis -->
+<section class="col-span-12 md:col-span-7 bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h4 class="text-lg font-bold text-primary">The Five Dimensions</h4>
+<p class="text-xs text-on-surface-variant opacity-70">Strategic cross-border collaboration readiness</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>1. Market Readiness</span>
+<span>85%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#0F4C5C] w-[85%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>2. Organizational Fit</span>
+<span>70%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#0F4C5C] w-[70%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>3. Decision Structures</span>
+<span>45%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[45%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>4. Regulatory &amp; Compliance</span>
+<span>60%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#0F4C5C] w-[60%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>5. Cultural &amp; Communication</span>
+<span>30%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error/70 w-[30%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Logic of Intervention -->
+<section class="col-span-12 md:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col">
+<h4 class="text-lg font-bold text-primary mb-8">Logic of Intervention</h4>
+<div class="flex-1 flex flex-col justify-between">
+<div class="relative">
+<!-- Vertical line -->
+<div class="absolute left-[15px] top-4 bottom-4 w-0.5 bg-slate-200"></div>
+<div class="relative flex items-center gap-6 mb-8">
+<div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Diagnosis</p>
+<p class="text-xs text-on-surface-variant">Companies assessed across dimensions</p>
+</div>
+</div>
+<div class="relative flex items-center gap-6 mb-8">
+<div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Analysis</p>
+<p class="text-xs text-on-surface-variant">Strengths, weaknesses, and critical gaps</p>
+</div>
+</div>
+<div class="relative flex items-center gap-6">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary z-10">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Output</p>
+<p class="text-xs text-on-surface-variant">Market entry playbook &amp; training</p>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-low rounded-lg">
+<p class="text-[11px] font-semibold text-primary uppercase mb-2">Upcoming Deliverable</p>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="menu_book">menu_book</span>
+<span class="text-xs font-medium text-on-surface">Structured Market Entry Playbook</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition & Vision Section -->
+<section class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+<div class="md:col-span-2 bg-surface-container-low rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+<img alt="Strategic Vision" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIBHiDFkzL62UktyEqBlgGY-GYETkRwFMJfZnMuuZlaq0x6fxFlAEdEfrSm-_-DbR04pMOWZTsyEQe6nAzKCEo1Nj9Z4gez2WEr1bcoM-hWFUbWr-br5xGW1wRnht86sJHsbr85DSSdYmxHStxveYaVHyKl860Hnw85RwRa-vZJwCPJOgEzmLtNOlW4tg6IAhRE77lbA3Oy_ccRjTuptFcErGvKzVF6yHEVZ8boW5pIJGuAx9l9TXdoXESQ863M1iFecG1FYua4zzT"/>
+<div class="absolute inset-0 bg-[#0F4C5C]/50 backdrop-blur-[1px]"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<h5 class="text-white text-xl font-bold">Holistic Vision</h5>
+<p class="text-white/80 text-xs mt-2">Beyond traditional cultural-only approaches</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 p-8">
+<h4 class="text-lg font-bold text-primary mb-4">Value Proposition</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Operational Realities</p>
+<p class="text-[11px] text-on-surface-variant">Alignment of technical processes</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="account_tree">account_tree</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Decision Structures</p>
+<p class="text-[11px] text-on-surface-variant">Clarifying approval hierarchies</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="groups">groups</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Organizational Integration</p>
+<p class="text-[11px] text-on-surface-variant">Holistic cultural &amp; structural fit</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between border-2 border-[#0F4C5C]/5">
+<div>
+<h4 class="text-lg font-bold text-primary mb-2">Future Scalability</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">The framework is evolving into a comprehensive ecosystem for international growth.</p>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
+<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="build">build</span>
+<span class="text-[11px] font-bold text-primary">Interactive Diagnostic Tool</span>
+</div>
+<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
+<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="school">school</span>
+<span class="text-[11px] font-bold text-primary">Workshop &amp; Training Format</span>
+</div>
+<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
+<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="cloud_done">cloud_done</span>
+<span class="text-[11px] font-bold text-primary">Digital Platform Solution</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 bg-white py-3 rounded-lg text-[#0F4C5C] text-sm font-bold shadow-sm hover:shadow-md transition-shadow">
+                        View Roadmap
+                    </button>
+</div>
+</section>
+</div>
+<!-- Footer Implementation -->
+<footer class="w-full py-12 px-12 mt-12 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-black text-[#0F4C5C] text-xl tracking-tighter">Itera</span>
+<p class="text-slate-400 text-[10px] uppercase tracking-widest mt-2">© 2024 Itera Solutions. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Privacy Policy</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Terms of Service</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Contact Support</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Global Offices</a>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body></html>

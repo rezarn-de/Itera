@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itera | Einblicke</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#0F4C5C",
+        accent: "#19839e",
+        mint: "#23c9ae"
+      }
+    }
+  }
+}
+</script>
+</head>
+
+<body class="bg-background text-on-surface">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+  <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+      Itera
+    </a></div>
+
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="leistungen.html">
+        Leistungen
+      </a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="plattform.html">
+        Plattform
+      </a>
+      <a class="text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight font-semibold" href="einblicke.html">
+        Einblicke
+      </a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="uberuns.html">
+        Über uns
+      </a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="kontakt.html">
+        Kontakt
+      </a>
+    </div>
+
+    <!-- Right Side (Language + Login) -->
+    <div class="flex items-center gap-4">
+
+
+
+      <!-- Language Switcher -->
+      <div class="relative group language-switcher">
+        <button
+          type="button"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#0F4C5C]/30 transition-all bg-white"
+          onclick="this.nextElementSibling.classList.toggle('hidden')"
+          aria-label="Sprache auswählen"
+        >
+          <span class="text-lg select-none">🇩🇪</span>
+          <span class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">DE</span>
+          <span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-[#0F4C5C] transition-colors">
+            expand_more
+          </span>
+        </button>
+
+        <!-- Dropdown -->
+        <div class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-[60] hidden language-menu">
+          <div class="p-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="english_landingpage.html">
+              <span class="text-lg">🇬🇧</span>
+              <span class="text-xs font-semibold text-slate-600 group-hover/item:text-[#0F4C5C]">English</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="spanish_landingpage.html">
+              <span class="text-lg">🇪🇸</span>
+              <span class="text-xs font-semibold text-slate-600 group-hover/item:text-[#0F4C5C]">Español</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Button -->
+      <a href="anmelden.html"
+         class="px-6 py-2 bg-primary text-white font-medium hover:opacity-90 active:scale-[0.98] transition-all rounded-full inline-block">
+        Einloggen	
+      </a>
+
+    </div>
+
+  </div>
+
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+
+<main class="pt-32">
+
+<section class="reveal px-4 md:px-8 pb-24">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-[#cbe7f5] text-[#0F4C5C] text-xs font-bold tracking-widest uppercase mb-6">
+        Markt & Zusammenarbeit
+      </div>
+
+      <h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black leading-[1.05] tracking-tight text-[#0F4C5C] mb-8">
+        Operative Herausforderungen besser verstehen
+      </h1>
+
+      <p class="text-xl text-slate-600 leading-relaxed max-w-2xl mb-10">
+        Internationale Kooperationen scheitern selten an der Strategie, sondern häufig an Kommunikation, Prozessen und fehlender operativer Abstimmung.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#faq"
+           class="px-4 md:px-8 py-4 bg-[#0F4C5C] text-white rounded-full font-bold">
+          FAQ ansehen
+        </a>
+
+        <a href="kontakt.html#contact-form"
+           class="px-4 md:px-8 py-4 border border-slate-300 rounded-full font-semibold">
+          Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="rounded-[2rem] overflow-hidden shadow-2xl">
+        <img
+          src="https://i.ibb.co/GQdr0WSX/IMG-2082.jpg"
+          class="w-full h-[620px] object-cover"
+          alt="International collaboration"
+        >
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="reveal py-24 px-4 md:px-8 bg-white">
+  <div class="max-w-screen-xl mx-auto">
+
+    <div class="text-center mb-20">
+      <h2 class="text-4xl font-bold text-[#19839e] tracking-tight mb-4">
+        Typische Herausforderungen
+      </h2>
+
+      <div class="w-24 h-1 bg-[#19839e] mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="bg-slate-50 border border-slate-200 p-10 rounded-[2rem]">
+        <div class="w-14 h-14 bg-[#0F4C5C] rounded-full flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-white">groups</span>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0F4C5C] mb-4 hyphens-auto" lang="de">
+          Kommunikation
+        </h3>
+
+        <p class="text-slate-600 leading-relaxed">
+          Unterschiedliche Kommunikationsstile führen häufig zu Missverständnissen.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 p-10 rounded-[2rem]">
+        <div class="w-14 h-14 bg-[#0F4C5C] rounded-full flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-white">sync_alt</span>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0F4C5C] mb-4 hyphens-auto" lang="de">
+          Prozessabstimmung
+        </h3>
+
+        <p class="text-slate-600 leading-relaxed">
+          Teams arbeiten oft mit unterschiedlichen Erwartungen und Prozessen.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 p-10 rounded-[2rem]">
+        <div class="w-14 h-14 bg-[#0F4C5C] rounded-full flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-white">insights</span>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0F4C5C] mb-4 hyphens-auto" lang="de">
+          Transparenz
+        </h3>
+
+        <p class="text-slate-600 leading-relaxed">
+          Fehlende Transparenz erschwert eine nachhaltige Zusammenarbeit.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reveal py-24 px-4 md:px-8 bg-slate-100">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+    <div class="bg-white p-12 rounded-[2rem] border border-slate-200">
+      <div class="w-16 h-16 bg-[#0F4C5C] rounded-full flex items-center justify-center mb-8">
+        <span class="material-symbols-outlined text-white text-3xl">forum</span>
+      </div>
+
+      <h3 class="text-3xl font-bold text-[#0F4C5C] mb-6">
+        Insight aus Interviews
+      </h3>
+
+      <blockquote class="text-xl leading-relaxed text-slate-600 italic">
+        „Viele Probleme entstehen nicht durch fehlende Motivation, sondern weil Erwartungen nie klar ausgesprochen wurden.“
+      </blockquote>
+    </div>
+
+    <div class="bg-[#0F4C5C] text-white p-12 rounded-[2rem]">
+      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-8">
+        <span class="material-symbols-outlined text-white text-3xl">lightbulb</span>
+      </div>
+
+      <h3 class="text-3xl font-bold mb-6">
+        Beispiel aus der Praxis
+      </h3>
+
+      <p class="text-white/80 leading-relaxed text-lg">
+        Durch klar definierte Kommunikationsprozesse konnte die Zusammenarbeit deutlich effizienter gestaltet werden.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="faq" class="reveal py-24 px-4 md:px-8 bg-white scroll-mt-28">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-20">
+      <h2 class="text-4xl font-bold text-[#0F4C5C] tracking-tight mb-4">
+        Häufige Fragen
+      </h2>
+
+      <div class="w-24 h-1 bg-[#19839e] mx-auto"></div>
+    </div>
+
+    <div class="space-y-6">
+
+      <div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8">
+        <h3 class="text-2xl font-bold text-[#0F4C5C] mb-4">
+          Für wen ist das relevant?
+        </h3>
+
+        <p class="text-slate-600 leading-relaxed text-lg">
+          Für Unternehmen, Startups und Organisationen mit internationalen Kooperationen.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8">
+        <h3 class="text-2xl font-bold text-[#0F4C5C] mb-4">
+          Wie lange dauert ein Projekt?
+        </h3>
+
+        <p class="text-slate-600 leading-relaxed text-lg">
+          Erste Analysen und Workshops können innerhalb weniger Wochen durchgeführt werden.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Buttons -->
+<section class="reveal py-32 px-4 md:px-8 bg-[#0F4C5C] text-white">
+  <div class="max-w-screen-xl mx-auto text-center">
+    <h2 class="text-4xl md:text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">
+      Starten Sie Ihre internationale Expansion strukturiert und erfolgreich
+    </h2>
+    <p class="text-lg md:text-xl opacity-80 mb-14 max-w-2xl mx-auto leading-relaxed">
+      Wir unterstützen Sie dabei, Ihre grenzüberschreitende Zusammenarbeit effizient aufzubauen, von der Strategie bis zur operativen Umsetzung.
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-10">
+      <a href="kontakt.html#contact-form"
+         class="px-10 py-5 bg-[#23c9ae] text-[#0F4C5C] font-black rounded-full hover:scale-[1.02] transition-all">
+        Erstgespräch vereinbaren
+      </a>
+      <a href="plattform.html"
+         class="px-10 py-5 bg-white/10 text-white border border-white/20 font-bold rounded-full hover:bg-white/20 transition-all">
+        Plattform entdecken
+      </a>
+    </div>
+
+    <!-- Trust line -->
+    <p class="text-sm opacity-50">
+      Kostenloses Erstgespräch · Keine Verpflichtung
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-50 py-12 px-4 md:px-8 border-t border-slate-200/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="font-black text-[#0F4C5C] text-xl" style="">Itera</div>
+<div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+</div>
+<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Itera. Alle Rechte vorbehalten.</div>
+</div>
+</footer>
+<script>
+  document.addEventListener('click', function (event) {
+    
+    document.querySelectorAll('.language-switcher').forEach(wrapper => {
+      
+      const menu = wrapper.querySelector('.language-menu');
+      
+      // If you click OUTSIDE the switcher
+      if (!wrapper.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+      
+    });
+    
+  });
+</script>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
+</script>
+
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body></html>

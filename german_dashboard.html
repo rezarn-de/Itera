@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Itera | Client Dashboard - German</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#afcbd8",
+              "tertiary-fixed-dim": "#44ddc1",
+              "primary-fixed-dim": "#9acee1",
+              "on-background": "#191c1d",
+              "surface-tint": "#306576",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#edeeef",
+              "surface-container-low": "#f3f4f5",
+              "on-surface": "#191c1d",
+              "background": "#f9f9fa",
+              "on-secondary-fixed": "#021f29",
+              "primary-fixed": "#b6ebfe",
+              "inverse-primary": "#9acee1",
+              "outline": "#70787c",
+              "on-secondary": "#ffffff",
+              "tertiary": "#00362d",
+              "on-tertiary-fixed-variant": "#005145",
+              "on-tertiary-container": "#23c9ae",
+              "on-primary-fixed-variant": "#114d5d",
+              "error-container": "#ffdad6",
+              "primary-container": "#0f4c5c",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary": "#48626e",
+              "on-secondary-container": "#4e6874",
+              "on-primary-fixed": "#001f28",
+              "secondary-container": "#cbe7f5",
+              "secondary-fixed": "#cbe7f5",
+              "surface-dim": "#d9dadb",
+              "surface-bright": "#f9f9fa",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-container": "#87bbce",
+              "on-surface-variant": "#40484b",
+              "on-error": "#ffffff",
+              "primary": "#003441",
+              "outline-variant": "#c0c8cb",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#304a55",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e2e4",
+              "error": "#ba1a1a",
+              "surface": "#f9f9fa",
+              "tertiary-container": "#004f43",
+              "on-tertiary-fixed": "#00201a",
+              "tertiary-fixed": "#68fadd",
+              "surface-variant": "#e1e2e4",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9fa;
+        }
+        .tonal-layering {
+            background-color: #edeeef;
+        }
+        .glass-header {
+            background-color: rgba(249, 249, 250, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        /* Mobile sidebar */
+        #sidebar {
+            transition: transform 0.3s ease;
+        }
+        #sidebar-overlay {
+            transition: opacity 0.3s ease;
+        }
+        @media (max-width: 767px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            #sidebar-overlay {
+                display: block;
+                opacity: 0;
+                pointer-events: none;
+            }
+            #sidebar-overlay.open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            main {
+                margin-left: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-on-background">
+
+<!-- Mobile sidebar overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+<!-- SideNavBar Implementation -->
+<aside id="sidebar" class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-950 flex flex-col gap-2 p-6 z-40">
+<div class="mb-10 px-2">
+
+<a href="german_landingpage.html">
+  <h1 class="text-lg font-bold text-[#0F4C5C] tracking-tighter">
+    Itera
+  </h1>
+</a></div>
+
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client-Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a data-section-link="dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-[#0F4C5C] dark:text-[#68fadd] shadow-sm rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#dashboard">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a data-section-link="analyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#analyse">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analyse</span>
+</a>
+<a data-section-link="diagnose" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#diagnose">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Diagnose</span>
+</a>
+<a data-section-link="workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#workshops">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Workshops / Trainings</span>
+</a>
+<a data-section-link="framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#framework">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Framework</span>
+</a>
+<a data-section-link="zollanalyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#zollanalyse">
+<span class="material-symbols-outlined" data-icon="toll">toll</span>
+<span>Zollanalyse</span>
+</a>
+<a data-section-link="settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Einstellungen</span>
+</a>
+
+<!-- Navbar de las otras paginas en iphone -->
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+
+<div class="mt-auto pt-6 border-t border-slate-200/50">
+<button class="w-full py-3 px-4 rounded-lg bg-[#0F4C5C] text-white font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Neue Analyse
+            </button>
+<div class="flex items-center gap-3 mt-6 px-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-xs">RR</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Reza Ramos</p>
+<p class="text-[10px] text-slate-400">CEO ADIDAS</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen bg-background">
+<!-- Header -->
+<header class="glass-header sticky top-0 z-30 px-4 md:px-12 py-4 md:py-6 flex justify-between items-center gap-3">
+<div class="flex items-center gap-3">
+  <!-- Mobile burger button -->
+  <button id="sidebar-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors flex-shrink-0" aria-label="Menü öffnen">
+    <span id="burger-icon" class="material-symbols-outlined text-primary">menu</span>
+  </button>
+  <div>
+    <h2 id="page-title" class="text-lg md:text-2xl font-bold tracking-tight text-primary">Projektübersicht</h2>
+    <p id="page-subtitle" class="text-xs md:text-sm text-on-surface-variant opacity-70 hidden sm:block">Markteintritt &amp; industrielle Kooperation: Deutschland - Lateinamerika</p>
+  </div>
+</div>
+
+<div class="flex items-center gap-2 md:gap-4 flex-shrink-0">
+
+
+        <div class="relative group language-switcher">
+          <button
+            type="button"
+            class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#0F4C5C]/30 transition-all bg-white"
+            onclick="this.nextElementSibling.classList.toggle('hidden')"
+            aria-label="Sprache auswählen"
+          >
+            <span class="text-lg select-none">🇩🇪</span>
+            <span class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">DE</span>
+            <span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-[#0F4C5C] transition-colors">expand_more</span>
+          </button>
+
+          <div class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-[60] hidden language-menu">
+            <div class="p-1">
+              <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors" href="english_landingpage.html">
+                <span class="text-lg">🇬🇧</span>
+                <span class="text-xs font-semibold text-slate-600">English</span>
+              </a>
+              <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors" href="spanish_landingpage.html">
+                <span class="text-lg">🇪🇸</span>
+                <span class="text-xs font-semibold text-slate-600">Español</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+<div class="hidden sm:flex bg-surface-container-low px-4 py-2 rounded-full items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="calendar_today">calendar_today</span>
+<span id= "current-date" class="text-xs font-medium text-on-surface-variant"></span>
+</div>
+<button class="hidden sm:block p-2 rounded-lg hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button id="logout-button" type="button" class="flex items-center gap-2 px-2 md:px-3 py-2 rounded-lg bg-white shadow-sm border border-outline/10 text-xs font-bold text-primary transition-all hover:bg-surface-container-low active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span class="hidden sm:inline">Abmelden</span>
+</button>
+</div>
+</header>
+
+<!-- Dynamic Platform Content -->
+<div id="dashboard-section" data-section="dashboard" class="platform-section px-4 md:px-12 py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-2xl">
+<!-- Project Summary & Core Idea -->
+<section class="md:col-span-8 bg-surface-container-lowest rounded-xl p-5 md:p-8 relative overflow-hidden group shadow-sm border-none">
+<div class="relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Kernziel</span>
+<h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C] max-w-2xl leading-tight">Steuerung des internationalen Markteintritts durch strategische Ausrichtung</h3>
+<p class="text-on-surface-variant max-w-xl body-lg mb-8 leading-relaxed">
+                        Ein strukturiertes Framework, das Unternehmen hilft, den internationalen Markteintritt und industrielle Kooperationen zu verwalten und zu verbessern, indem operative, organisatorische und kulturelle Faktoren identifiziert und aufeinander abgestimmt werden.
+                    </p>
+<div class="flex gap-4">
+<a href="#diagnose"
+   data-open-section="diagnose"
+   class="bg-[#0F4C5C] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all hover:translate-y-[-1px] shadow-lg shadow-[#0F4C5C]/20 inline-flex items-center gap-2">
+  <span class="material-symbols-outlined text-sm">assignment</span>
+  Diagnose-Fragebogen starten
+</a>
+<button class="text-[#0F4C5C] font-semibold text-sm flex items-center gap-2 px-4 hover:opacity-70 transition-all">
+                            Details zum Ziel ansehen
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute right-[-5%] bottom-[-5%] w-64 h-64 bg-tertiary-fixed/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
+<div class="absolute right-12 top-12 w-24 h-24 opacity-10">
+<span class="material-symbols-outlined text-[100px]" data-icon="public">public</span>
+</div>
+</section>
+
+<!-- Analysis Progress Status -->
+<section class="md:col-span-4 bg-surface-container-low rounded-xl p-5 md:p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-sm font-bold text-primary uppercase tracking-wider">Aktueller Status</h4>
+<span class="text-[10px] font-bold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">IN BEARBEITUNG</span>
+</div>
+<div class="space-y-4 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
+<p class="text-xs font-medium text-on-surface">Erarbeitung von Rahmenbedingungen und Struktur</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
+<p class="text-xs font-medium text-on-surface">Laufende qualitative Interviews mit Unternehmen</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<p class="text-xs font-medium text-on-surface-variant">Validierung der Hauptherausforderungen und Annahmen</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="pending">pending</span>
+<p class="text-xs font-medium text-on-surface-variant">Vorbereitung eines Prototyps (Diagnoselogik + Outputs)</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline/10">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary w-[65%] h-full rounded-full"></div>
+</div>
+<p class="text-[10px] text-outline mt-2 font-bold">65% BIS ZUR PROTOTYPEN-PHASE</p>
+</div>
+</section>
+
+<!-- The Five Dimensions Analysis -->
+<section class="md:col-span-7 bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h4 class="text-lg font-bold text-primary">Die fünf Dimensionen</h4>
+<p class="text-xs text-on-surface-variant opacity-70">Bereitschaft für strategische grenzüberschreitende Zusammenarbeit</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>1. Marktbereitschaft</span>
+<span>85%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#0F4C5C] w-[85%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>2. Organisatorischer Fit</span>
+<span>70%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#0F4C5C] w-[70%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>3. Entscheidungsstrukturen</span>
+<span>45%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[45%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>4. Regulatorik &amp; Compliance</span>
+<span>60%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#0F4C5C] w-[60%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-on-surface">
+<span>5. Kultur &amp; Kommunikation</span>
+<span>30%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error/70 w-[30%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Logic of Intervention -->
+<section class="md:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col">
+<h4 class="text-lg font-bold text-primary mb-8">Logik der Intervention</h4>
+<div class="flex-1 flex flex-col justify-between">
+<div class="relative">
+<!-- Vertical line -->
+<div class="absolute left-[15px] top-4 bottom-4 w-0.5 bg-slate-200"></div>
+<div class="relative flex items-center gap-6 mb-8">
+<div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Diagnose</p>
+<p class="text-xs text-on-surface-variant">Unternehmen werden anhand der Dimensionen bewertet</p>
+</div>
+</div>
+<div class="relative flex items-center gap-6 mb-8">
+<div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Analyse</p>
+<p class="text-xs text-on-surface-variant">Stärken, Schwächen und kritische Lücken werden identifiziert</p>
+</div>
+</div>
+<div class="relative flex items-center gap-6">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary z-10">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Output</p>
+<p class="text-xs text-on-surface-variant">Markteintritts-Playbook &amp; Training</p>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-low rounded-lg">
+<p class="text-[11px] font-semibold text-primary uppercase mb-2">Nächste Lieferung</p>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="menu_book">menu_book</span>
+<span class="text-xs font-medium text-on-surface">Strukturiertes Markteintritts-Playbook</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition & Vision Section -->
+<section class="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+<div class="md:col-span-2 bg-surface-container-low rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+<img alt="Strategische Vision" class="absolute inset-0 w-full h-full object-cover" src="https://images.pexels.com/photos/52502/map-south-america-atlas-52502.jpeg?cs=srgb&dl=pexels-pixabay-52502.jpg&fm=jpg&_gl=1*1oybur9*_ga*MjAxNjA2MzAyNC4xNzc2MjA2NDE5*_ga_8JE65Q40S6*czE3NzYyMDY0MTkkbzEkZzAkdDE3NzYyMDY0MjgkajUxJGwwJGgw"/>
+<div class="absolute inset-0 bg-[#0F4C5C]/50 backdrop-blur-[1px]"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<h5 class="text-white text-xl font-bold">Ganzheitliche Vision</h5>
+<p class="text-white/80 text-xs mt-2">Über herkömmliche rein kulturelle Ansätze hinaus</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 p-8">
+<h4 class="text-lg font-bold text-primary mb-4">Nutzenversprechen</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Operative Realitäten</p>
+<p class="text-[11px] text-on-surface-variant">Abstimmung technischer Prozesse</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="account_tree">account_tree</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Entscheidungsprozesse</p>
+<p class="text-[11px] text-on-surface-variant">Klärung von Genehmigungshierarchien</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="groups">groups</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Organisatorische Integration</p>
+<p class="text-[11px] text-on-surface-variant">Ganzheitliche kulturelle &amp; strukturelle Passung</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between border-2 border-[#0F4C5C]/5">
+<div>
+<h4 class="text-lg font-bold text-primary mb-2">Zukünftige Skalierbarkeit</h4>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Das Framework wird zu einem umfassenden Ökosystem für internationales Wachstum weiterentwickelt.</p>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
+<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="build">build</span>
+<span class="text-[11px] font-bold text-primary">Interaktives Diagnose-Tool</span>
+</div>
+<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
+<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="school">school</span>
+<span class="text-[11px] font-bold text-primary">Workshop- &amp; Trainingsformat</span>
+</div>
+<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
+<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="cloud_done">cloud_done</span>
+<span class="text-[11px] font-bold text-primary">Digitale Plattformlösung</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 bg-white py-3 rounded-lg text-[#0F4C5C] text-sm font-bold shadow-sm hover:shadow-md transition-shadow">
+                        Roadmap ansehen
+                    </button>
+</div>
+</section>
+</div>
+
+<div id="analyse-section" data-section="analyse" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Analyse</span>
+    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Analysebereich</h3>
+    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+      Hier können später die Ergebnisse der Diagnose, Diagramme, Interviews und Empfehlungen für den jeweiligen Kunden angezeigt werden.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <p class="text-xs font-bold text-primary uppercase">Gesamtscore</p>
+        <p class="text-4xl font-black text-[#0F4C5C] mt-3">65%</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <p class="text-xs font-bold text-primary uppercase">Stärkste Dimension</p>
+        <p class="text-lg font-bold text-on-surface mt-3">Marktbereitschaft</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <p class="text-xs font-bold text-primary uppercase">Priorität</p>
+        <p class="text-lg font-bold text-on-surface mt-3">Kultur &amp; Kommunikation</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="framework-section" data-section="framework" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Framework</span>
+    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Framework-Dokumente</h3>
+    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+      Hier kann man später Playbooks, PDFs, Methoden, Templates und kundenbezogene Dokumente anzeigen oder herunterladen lassen.
+    </p>
+    <div class="mt-8 space-y-4">
+      <div class="flex items-center justify-between bg-surface-container-low rounded-xl p-5">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary">description</span>
+          <div>
+            <p class="text-sm font-bold text-on-surface">Markteintritts-Playbook</p>
+            <p class="text-xs text-on-surface-variant">Demo-Dokument für den aktuellen Kunden</p>
+          </div>
+        </div>
+        <button class="px-4 py-2 rounded-lg bg-[#0F4C5C] text-white text-xs font-bold">Herunterladen</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="diagnose-section" data-section="diagnose" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+      <div>
+        <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Diagnose</span>
+        <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Diagnose-Fragebogen</h3>
+        <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+          Füllen Sie den LimeSurvey-Fragebogen direkt in der Plattform aus. Die Antworten dienen als Grundlage für die Bewertung der fünf Dimensionen und die spätere Analyse.
+        </p>
+      </div>
+
+      <a href="https://survey.academiccloud.de/f/311423?lang=de"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-flex items-center justify-center gap-2 bg-[#0F4C5C] text-white px-5 py-3 rounded-lg font-bold text-sm shadow-lg shadow-[#0F4C5C]/20 hover:translate-y-[-1px] transition-all whitespace-nowrap">
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+        In neuem Tab öffnen
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary mb-4">assignment</span>
+        <p class="text-sm font-bold text-on-surface">Fragebogen ausfüllen</p>
+        <p class="text-xs text-on-surface-variant mt-2">Beantworten Sie die Fragen zur aktuellen Markteintritts- und Kooperationssituation.</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary mb-4">query_stats</span>
+        <p class="text-sm font-bold text-on-surface">Dimensionen bewerten</p>
+        <p class="text-xs text-on-surface-variant mt-2">Marktbereitschaft, Organisation, Entscheidungen, Compliance und Kultur.</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary mb-4">auto_awesome</span>
+        <p class="text-sm font-bold text-on-surface">Output vorbereiten</p>
+        <p class="text-xs text-on-surface-variant mt-2">Grundlage für Playbook, Empfehlungen und Trainingsmaßnahmen.</p>
+      </div>
+    </div>
+
+    <div class="rounded-xl overflow-hidden border border-outline/10 bg-white shadow-sm">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-outline/10 bg-surface-container-low">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary">assignment</span>
+          <div>
+            <p class="text-sm font-bold text-primary">LimeSurvey Diagnose</p>
+            <p class="text-xs text-on-surface-variant">Eingebettet über AcademicCloud</p>
+          </div>
+        </div>
+        <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Aktiv</span>
+      </div>
+
+      <iframe
+        src="https://survey.academiccloud.de/f/311423?lang=de"
+        title="Itera Diagnose-Fragebogen"
+        class="w-full h-[720px] bg-white"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p class="text-xs text-on-surface-variant mt-4">
+      Falls der Fragebogen nicht angezeigt wird, öffnen Sie ihn über den Button „In neuem Tab öffnen“.
+    </p>
+  </section>
+</div>
+
+<div id="workshops-section" data-section="workshops" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Workshops / Trainings</span>
+    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Workshop- und Trainingsbereich</h3>
+    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+      Hier können später Workshop-Module, Trainingsunterlagen, Termine und Aufgaben für Teams bereitgestellt werden.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary mb-4">groups</span>
+        <p class="text-sm font-bold text-on-surface">Team-Alignment</p>
+        <p class="text-xs text-on-surface-variant mt-2">Workshops zur Abstimmung von Zielen, Rollen und Verantwortlichkeiten.</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary mb-4">school</span>
+        <p class="text-sm font-bold text-on-surface">Training</p>
+        <p class="text-xs text-on-surface-variant mt-2">Lernmodule zu Markteintritt, Zusammenarbeit und kulturellen Faktoren.</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary mb-4">task_alt</span>
+        <p class="text-sm font-bold text-on-surface">Umsetzung</p>
+        <p class="text-xs text-on-surface-variant mt-2">Konkrete Aufgaben und nächste Schritte für die operative Umsetzung.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="zollanalyse-section" data-section="zollanalyse" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+
+  <!-- Hero Header -->
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm mb-6">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+      <div>
+        <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Zollanalyse</span>
+        <h3 class="text-3xl font-black mt-2 mb-3 text-[#0F4C5C]">Tarifklassifizierung</h3>
+        <p class="text-on-surface-variant max-w-2xl leading-relaxed text-sm">
+          Laden Sie eine Produktliste als PDF hoch. Das System extrahiert automatisch die Produkte, ordnet sie den entsprechenden Zolltarifkategorien zu und zeigt die Ergebnisse strukturiert an.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 bg-surface-container-low rounded-xl px-5 py-4 flex-shrink-0">
+        <span class="material-symbols-outlined text-tertiary text-sm">info</span>
+        <span class="text-[11px] text-on-surface-variant font-medium">Unterstützt: PDF-Dateien bis 5 MB</span>
+      </div>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mt-8">
+      <div class="flex flex-col items-center text-center gap-2 bg-surface-container-low rounded-xl p-4">
+        <div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white text-xs font-bold">1</div>
+        <span class="material-symbols-outlined text-primary text-xl">upload_file</span>
+        <p class="text-[10px] font-semibold text-on-surface leading-tight">PDF hochladen</p>
+      </div>
+      <div class="hidden md:flex items-center justify-center text-outline/40">
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </div>
+      <div class="flex flex-col items-center text-center gap-2 bg-surface-container-low rounded-xl p-4">
+        <div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white text-xs font-bold">2</div>
+        <span class="material-symbols-outlined text-primary text-xl">document_scanner</span>
+        <p class="text-[10px] font-semibold text-on-surface leading-tight">Daten extrahieren</p>
+      </div>
+      <div class="hidden md:flex items-center justify-center text-outline/40">
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </div>
+      <div class="flex flex-col items-center text-center gap-2 bg-surface-container-low rounded-xl p-4">
+        <div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white text-xs font-bold">3</div>
+        <span class="material-symbols-outlined text-tertiary text-xl">category</span>
+        <p class="text-[10px] font-semibold text-on-surface leading-tight">Tarifzuordnung</p>
+      </div>
+      <div class="hidden md:flex items-center justify-center text-outline/40">
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </div>
+      <div class="flex flex-col items-center text-center gap-2 bg-surface-container-low rounded-xl p-4 col-span-2 md:col-span-1">
+        <div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white text-xs font-bold">4</div>
+        <span class="material-symbols-outlined text-tertiary text-xl">task_alt</span>
+        <p class="text-[10px] font-semibold text-on-surface leading-tight">Ergebnisse anzeigen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Area -->
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm mb-6">
+    <h4 class="text-sm font-bold text-primary uppercase tracking-wider mb-6">PDF-Datei hochladen</h4>
+
+    <!-- Drop Zone -->
+    <div id="tariff-drop-zone"
+         class="border-2 border-dashed border-outline/30 rounded-xl p-10 flex flex-col items-center justify-center text-center gap-4 cursor-pointer hover:border-[#0F4C5C]/50 hover:bg-surface-container-low transition-all group"
+         onclick="document.getElementById('tariff-file-input').click()">
+      <div class="w-16 h-16 rounded-full bg-surface-container-low group-hover:bg-surface-container flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined text-[#0F4C5C] text-3xl">cloud_upload</span>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-on-surface">PDF hier ablegen oder klicken zum Auswählen</p>
+        <p class="text-xs text-on-surface-variant mt-1">Produktlisten, Rechnungen, Kataloge – PDF bis 10 MB</p>
+      </div>
+      <button type="button"
+              class="px-5 py-2.5 bg-[#0F4C5C] text-white text-xs font-bold rounded-lg hover:opacity-90 transition-all"
+              onclick="event.stopPropagation(); document.getElementById('tariff-file-input').click()">
+        Datei auswählen
+      </button>
+    </div>
+    <input type="file" id="tariff-file-input" accept=".pdf" class="hidden" />
+
+    <!-- Selected File Preview -->
+    <div id="tariff-file-preview" class="hidden mt-4 flex items-center justify-between bg-surface-container-low rounded-xl px-5 py-4">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#0F4C5C]">picture_as_pdf</span>
+        <div>
+          <p id="tariff-file-name" class="text-sm font-bold text-on-surface">—</p>
+          <p id="tariff-file-size" class="text-xs text-on-surface-variant">—</p>
+        </div>
+      </div>
+      <button onclick="resetTariffUpload()" class="text-outline hover:text-error transition-colors">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+
+    <!-- Analyze Button -->
+    <div class="mt-6 flex justify-end">
+      <button id="tariff-analyze-btn"
+              onclick="runTariffAnalysis()"
+              disabled
+              class="flex items-center gap-2 px-6 py-3 bg-[#0F4C5C] text-white text-sm font-bold rounded-lg opacity-40 cursor-not-allowed transition-all">
+        <span class="material-symbols-outlined text-sm">search</span>
+        Analyse starten
+      </button>
+    </div>
+  </section>
+
+  <!-- Progress / Status -->
+  <div id="tariff-progress" class="hidden mb-6">
+    <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+          <span id="tariff-progress-icon" class="material-symbols-outlined text-[#0F4C5C] animate-spin">autorenew</span>
+        </div>
+        <div>
+          <p id="tariff-progress-label" class="text-sm font-bold text-on-surface">Verarbeitung läuft…</p>
+          <p id="tariff-progress-sub" class="text-xs text-on-surface-variant">PDF wird analysiert und Tarife werden zugeordnet</p>
+        </div>
+      </div>
+      <div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+        <div id="tariff-progress-bar" class="bg-[#0F4C5C] h-full rounded-full transition-all duration-700" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div id="tariff-results" class="hidden">
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+        <p class="text-[10px] font-bold text-primary uppercase tracking-wider">Produkte erkannt</p>
+        <p id="result-total" class="text-3xl font-black text-[#0F4C5C] mt-2">—</p>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+        <p class="text-[10px] font-bold text-primary uppercase tracking-wider">Kategorien</p>
+        <p id="result-categories" class="text-3xl font-black text-[#0F4C5C] mt-2">—</p>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+        <p class="text-[10px] font-bold text-tertiary uppercase tracking-wider">Zugeordnet</p>
+        <p id="result-matched" class="text-3xl font-black text-tertiary mt-2">—</p>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+        <p class="text-[10px] font-bold text-secondary uppercase tracking-wider">Prüfung nötig</p>
+        <p id="result-review" class="text-3xl font-black text-secondary mt-2">—</p>
+      </div>
+    </div>
+
+    <!-- Results Table -->
+    <section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-6">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-outline/10 bg-surface-container-low">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary">table_view</span>
+          <div>
+            <p class="text-sm font-bold text-primary">Klassifizierungsergebnisse</p>
+            <p class="text-xs text-on-surface-variant">Produkte und ihre Zolltarifnummern</p>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="exportTariffJSON()" class="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-outline/20 text-xs font-bold text-on-surface hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined text-sm">data_object</span>JSON
+          </button>
+          <button onclick="exportTariffCSV()" class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#0F4C5C] text-white text-xs font-bold hover:opacity-90 transition-all">
+            <span class="material-symbols-outlined text-sm">download</span>CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- Table Header -->
+      <div class="grid grid-cols-12 gap-2 px-6 py-3 bg-surface-container-low border-b border-outline/10 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
+        <div class="col-span-4">Produktbezeichnung</div>
+        <div class="col-span-2">HS-Code</div>
+        <div class="col-span-3">Kategorie</div>
+        <div class="col-span-2">Zollsatz</div>
+        <div class="col-span-1 text-right">Status</div>
+      </div>
+
+      <!-- Table Body -->
+      <div id="tariff-table-body" class="divide-y divide-outline/5">
+        <!-- Rows injected by JS -->
+      </div>
+    </section>
+
+    <!-- Raw JSON Output -->
+    <section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-outline/10 bg-surface-container-low">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary">data_object</span>
+          <p class="text-sm font-bold text-primary">Rohdaten (JSON)</p>
+        </div>
+        <button onclick="document.getElementById('tariff-json-block').classList.toggle('hidden')"
+                class="text-xs font-bold text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">unfold_more</span>Ein-/ausblenden
+        </button>
+      </div>
+      <pre id="tariff-json-block" class="hidden p-6 text-xs text-on-surface-variant overflow-x-auto font-mono leading-relaxed bg-surface-container-lowest"></pre>
+    </section>
+
+    <!-- New Analysis Button -->
+    <div class="flex justify-center mt-8">
+      <button onclick="resetTariffUpload()" class="flex items-center gap-2 px-6 py-3 border-2 border-[#0F4C5C] text-[#0F4C5C] text-sm font-bold rounded-lg hover:bg-[#0F4C5C] hover:text-white transition-all">
+        <span class="material-symbols-outlined text-sm">add</span>
+        Neue Analyse starten
+      </button>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div id="tariff-error" class="hidden mb-6">
+    <div class="bg-error-container rounded-xl p-6 flex items-start gap-4">
+      <span class="material-symbols-outlined text-on-error-container mt-0.5">error</span>
+      <div>
+        <p class="text-sm font-bold text-on-error-container">Fehler bei der Analyse</p>
+        <p id="tariff-error-msg" class="text-xs text-on-error-container/80 mt-1">—</p>
+        <button onclick="resetTariffUpload()" class="mt-3 text-xs font-bold text-on-error-container underline">Erneut versuchen</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="settings-section" data-section="settings" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Einstellungen</span>
+    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Kontoeinstellungen</h3>
+    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+      Hier können später Profilinformationen, Sprache, Benachrichtigungen und Kundeneinstellungen verwaltet werden.
+    </p>
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <p class="text-xs font-bold text-primary uppercase">Profil</p>
+        <p class="text-sm text-on-surface-variant mt-3">Benutzer- und Unternehmensdaten</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <p class="text-xs font-bold text-primary uppercase">Sicherheit</p>
+        <p class="text-sm text-on-surface-variant mt-3">Login, Passwort und Zugriff</p>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Footer Implementation -->
+<footer class="w-full py-8 md:py-12 px-4 md:px-12 mt-8 md:mt-12 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-black text-[#0F4C5C] text-xl tracking-tighter">Itera</span>
+<p class="text-slate-400 text-[10px] uppercase tracking-widest mt-2">© 2026 Itera Solutions. Alle Rechte vorbehalten.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Datenschutz</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">AGB</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Support kontaktieren</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Weltweite Standorte</a>
+</div>
+</div>
+</footer>
+</main>
+
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+  const supabaseUrl = 'https://fhwdlgjrgdoaerjfqflb.supabase.co'
+  const supabaseKey = 'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg'
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  const sectionMetadata = {
+    dashboard: {
+      title: 'Projektübersicht',
+      subtitle: 'Markteintritt & industrielle Kooperation: Deutschland - Lateinamerika'
+    },
+    analyse: {
+      title: 'Analyse',
+      subtitle: 'Diagnoseergebnisse, Scores und Handlungsempfehlungen'
+    },
+    diagnose: {
+      title: 'Diagnose',
+      subtitle: 'Fragebogen, Dimensionen und erste Bewertung'
+    },
+    workshops: {
+      title: 'Workshops / Trainings',
+      subtitle: 'Trainingsmodule, Team-Alignment und Umsetzung'
+    },
+    framework: {
+      title: 'Framework',
+      subtitle: 'Dokumente, Playbooks und Methoden für den Markteintritt'
+    },
+    zollanalyse: {
+      title: 'Zollanalyse',
+      subtitle: 'PDF hochladen · Produkte extrahieren · Tarifnummern zuordnen'
+    },
+    settings: {
+      title: 'Einstellungen',
+      subtitle: 'Profil, Sicherheit und Plattformpräferenzen'
+    }
+  }
+
+  function showSection(sectionName, updateHash = true) {
+    const section = sectionMetadata[sectionName] ? sectionName : 'dashboard'
+
+    document.querySelectorAll('.platform-section').forEach(el => {
+      el.classList.toggle('hidden', el.dataset.section !== section)
+    })
+
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      const isActive = link.dataset.sectionLink === section
+      link.classList.toggle('bg-white', isActive)
+      link.classList.toggle('dark:bg-slate-800', isActive)
+      link.classList.toggle('text-[#0F4C5C]', isActive)
+      link.classList.toggle('dark:text-[#68fadd]', isActive)
+      link.classList.toggle('shadow-sm', isActive)
+      link.classList.toggle('text-slate-500', !isActive)
+      link.classList.toggle('dark:text-slate-400', !isActive)
+    })
+
+    document.getElementById('page-title').textContent = sectionMetadata[section].title
+    document.getElementById('page-subtitle').textContent = sectionMetadata[section].subtitle
+
+    if (updateHash) {
+      history.replaceState(null, '', `#${section}`)
+    }
+  }
+
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault()
+      showSection(link.dataset.sectionLink)
+    })
+  })
+
+  document.querySelectorAll('[data-open-section]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault()
+      showSection(link.dataset.openSection)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  })
+
+  showSection(window.location.hash.replace('#', '') || 'dashboard', false)
+
+	document.addEventListener('click', function (event) {
+      document.querySelectorAll('.language-switcher').forEach(wrapper => {
+        const menu = wrapper.querySelector('.language-menu');
+        if (!wrapper.contains(event.target)) {
+          menu.classList.add('hidden');
+        }
+      });
+    });
+
+	function formatGermanDate(date) {
+    return new Intl.DateTimeFormat('de-DE', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    }).format(date);
+  }
+
+  const today = new Date();
+  const dateElement = document.getElementById('current-date');
+
+  if (dateElement) {
+    dateElement.textContent = formatGermanDate(today);
+  }
+
+  const { data: { session }, error } = await supabase.auth.getSession()
+
+  if (error || !session) {
+    window.location.href = 'anmelden.html'
+  }
+
+  const logoutButton = document.getElementById('logout-button')
+
+  logoutButton?.addEventListener('click', async () => {
+    logoutButton.disabled = true
+    logoutButton.classList.add('opacity-70', 'cursor-not-allowed')
+
+    await supabase.auth.signOut()
+    window.location.href = 'anmelden.html'
+  })
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (!session) {
+      window.location.href = 'anmelden.html'
+    }
+  })
+</script>
+
+<script>
+// ─── Tariff Analysis Logic ───────────────────────────────────────────────────
+
+let tariffFile = null
+let tariffResults = null
+
+const fileInput    = document.getElementById('tariff-file-input')
+const dropZone     = document.getElementById('tariff-drop-zone')
+const filePreview  = document.getElementById('tariff-file-preview')
+const fileName     = document.getElementById('tariff-file-name')
+const fileSize     = document.getElementById('tariff-file-size')
+const analyzeBtn   = document.getElementById('tariff-analyze-btn')
+
+// File input change
+fileInput?.addEventListener('change', e => {
+  const file = e.target.files[0]
+  if (file) setTariffFile(file)
+})
+
+// Drag & drop
+dropZone?.addEventListener('dragover', e => {
+  e.preventDefault()
+  dropZone.classList.add('border-[#0F4C5C]/60', 'bg-surface-container-low')
+})
+dropZone?.addEventListener('dragleave', () => {
+  dropZone.classList.remove('border-[#0F4C5C]/60', 'bg-surface-container-low')
+})
+dropZone?.addEventListener('drop', e => {
+  e.preventDefault()
+  dropZone.classList.remove('border-[#0F4C5C]/60', 'bg-surface-container-low')
+  const file = e.dataTransfer.files[0]
+  if (file && file.type === 'application/pdf') setTariffFile(file)
+})
+
+function setTariffFile(file) {
+  tariffFile = file
+  fileName.textContent = file.name
+  fileSize.textContent = (file.size / 1024).toFixed(1) + ' KB'
+  filePreview.classList.remove('hidden')
+  filePreview.classList.add('flex')
+  analyzeBtn.disabled = false
+  analyzeBtn.classList.remove('opacity-40', 'cursor-not-allowed')
+}
+
+function resetTariffUpload() {
+  tariffFile = null
+  tariffResults = null
+  fileInput.value = ''
+  filePreview.classList.add('hidden')
+  filePreview.classList.remove('flex')
+  analyzeBtn.disabled = true
+  analyzeBtn.classList.add('opacity-40', 'cursor-not-allowed')
+  document.getElementById('tariff-progress').classList.add('hidden')
+  document.getElementById('tariff-results').classList.add('hidden')
+  document.getElementById('tariff-error').classList.add('hidden')
+}
+
+async function runTariffAnalysis() {
+  if (!tariffFile) return
+
+  // Show progress
+  document.getElementById('tariff-results').classList.add('hidden')
+  document.getElementById('tariff-error').classList.add('hidden')
+  const progress = document.getElementById('tariff-progress')
+  progress.classList.remove('hidden')
+  setProgress(10, 'PDF wird gelesen…', 'Dateiinhalt wird extrahiert')
+
+  try {
+    // Convert PDF to base64
+    const base64 = await fileToBase64(tariffFile)
+    setProgress(30, 'Produkte werden erkannt…', 'KI analysiert den Inhalt')
+
+    // Call Gemini API via Netlify Function (key stays secure on the server)
+    const response = await fetch('/.netlify/functions/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ base64, mimeType: 'application/pdf' })
+    })
+
+    setProgress(70, 'Tarifnummern werden zugeordnet…', 'Klassifizierungslogik läuft')
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.error || 'API-Fehler vom Server')
+    }
+
+    const rawText = (data.candidates?.[0]?.content?.parts?.[0]?.text || '').trim()
+    const clean = rawText.replace(/```json|```/g, '').trim()
+    tariffResults = JSON.parse(clean)
+
+    setProgress(100, 'Analyse abgeschlossen!', 'Ergebnisse werden geladen')
+    await delay(600)
+
+    progress.classList.add('hidden')
+    renderTariffResults(tariffResults)
+
+  } catch (err) {
+    progress.classList.add('hidden')
+    document.getElementById('tariff-error').classList.remove('hidden')
+    document.getElementById('tariff-error-msg').textContent = err.message || 'Unbekannter Fehler'
+  }
+}
+
+function renderTariffResults(data) {
+  const s = data.summary || {}
+  document.getElementById('result-total').textContent      = s.total ?? data.products?.length ?? '—'
+  document.getElementById('result-categories').textContent = s.categories ?? '—'
+  document.getElementById('result-matched').textContent    = s.matched ?? '—'
+  document.getElementById('result-review').textContent     = s.needsReview ?? '—'
+
+  const tbody = document.getElementById('tariff-table-body')
+  tbody.innerHTML = ''
+
+  ;(data.products || []).forEach(p => {
+    const confidence = p.confidence || 'medium'
+    const badge = {
+      high:   { bg: 'bg-tertiary-fixed', text: 'text-tertiary', label: 'Zugeordnet' },
+      medium: { bg: 'bg-secondary-container', text: 'text-secondary', label: 'Prüfen' },
+      low:    { bg: 'bg-error-container', text: 'text-on-error-container', label: 'Prüfung nötig' }
+    }[confidence] || { bg: 'bg-surface-container', text: 'text-outline', label: '—' }
+
+    tbody.innerHTML += `
+      <div class="grid grid-cols-12 gap-2 px-6 py-4 hover:bg-surface-container-low transition-colors">
+        <div class="col-span-4">
+          <p class="text-xs font-semibold text-on-surface">${escHtml(p.name)}</p>
+        </div>
+        <div class="col-span-2">
+          <span class="text-xs font-mono font-bold text-[#0F4C5C]">${escHtml(p.hsCode)}</span>
+        </div>
+        <div class="col-span-3">
+          <p class="text-xs text-on-surface-variant">${escHtml(p.category)}</p>
+        </div>
+        <div class="col-span-2">
+          <p class="text-xs font-bold text-on-surface">${escHtml(p.dutyRate)}</p>
+        </div>
+        <div class="col-span-1 flex justify-end">
+          <span class="text-[9px] font-bold px-2 py-1 rounded-full ${badge.bg} ${badge.text}">${badge.label}</span>
+        </div>
+      </div>`
+  })
+
+  // Raw JSON
+  document.getElementById('tariff-json-block').textContent = JSON.stringify(data, null, 2)
+  document.getElementById('tariff-results').classList.remove('hidden')
+}
+
+function setProgress(pct, label, sub) {
+  document.getElementById('tariff-progress-bar').style.width = pct + '%'
+  document.getElementById('tariff-progress-label').textContent = label
+  document.getElementById('tariff-progress-sub').textContent = sub
+  if (pct === 100) {
+    document.getElementById('tariff-progress-icon').classList.remove('animate-spin')
+    document.getElementById('tariff-progress-icon').textContent = 'check_circle'
+    document.getElementById('tariff-progress-icon').classList.add('text-tertiary')
+  }
+}
+
+function exportTariffCSV() {
+  if (!tariffResults?.products) return
+  const rows = [['Produkt', 'HS-Code', 'Kategorie', 'Zollsatz', 'Konfidenz']]
+  tariffResults.products.forEach(p => rows.push([p.name, p.hsCode, p.category, p.dutyRate, p.confidence]))
+  const csv = rows.map(r => r.map(v => `"${(v||'').replace(/"/g,'""')}"`).join(',')).join('\n')
+  downloadBlob(csv, 'zollanalyse.csv', 'text/csv')
+}
+
+function exportTariffJSON() {
+  if (!tariffResults) return
+  downloadBlob(JSON.stringify(tariffResults, null, 2), 'zollanalyse.json', 'application/json')
+}
+
+function downloadBlob(content, filename, mime) {
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(new Blob([content], { type: mime }))
+  a.download = filename
+  a.click()
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => resolve(reader.result.split(',')[1])
+    reader.onerror = reject
+    reader.readAsDataURL(file)
+  })
+}
+
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)) }
+</script>
+
+
+<script>
+// Sidebar toggle for mobile
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+const burgerIcon = document.getElementById('burger-icon');
+
+function openSidebar() {
+  sidebar.classList.add('open');
+  sidebarOverlay.classList.remove('hidden');
+  sidebarOverlay.classList.add('open');
+  burgerIcon.textContent = 'close';
+}
+
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+  burgerIcon.textContent = 'menu';
+  // Delay hiding to let fade out
+  setTimeout(() => sidebarOverlay.classList.add('hidden'), 300);
+}
+
+if (sidebarToggle) {
+  sidebarToggle.addEventListener('click', () => {
+    if (sidebar.classList.contains('open')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+}
+
+if (sidebarOverlay) {
+  sidebarOverlay.addEventListener('click', closeSidebar);
+}
+
+// Close sidebar when a nav link is clicked on mobile
+document.querySelectorAll('.sidebar-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) closeSidebar();
+  });
+});
+
+// Old mobile menu button (top nav bar from other pages) - keep for compatibility
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="de">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Itera | Kontakt</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#44ddc1",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005145",
+                    "on-secondary-fixed-variant": "#304a55",
+                    "surface-dim": "#d9dadb",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#afcbd8",
+                    "inverse-primary": "#9acee1",
+                    "on-secondary-container": "#4e6874",
+                    "surface-container-highest": "#e1e2e4",
+                    "on-primary-container": "#87bbce",
+                    "surface-container-high": "#e7e8e9",
+                    "outline": "#70787c",
+                    "surface-tint": "#306576",
+                    "on-background": "#191c1d",
+                    "secondary-container": "#cbe7f5",
+                    "tertiary": "#00362d",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#9acee1",
+                    "primary": "#003441",
+                    "on-tertiary-container": "#23c9ae",
+                    "primary-fixed": "#b6ebfe",
+                    "on-surface-variant": "#40484b",
+                    "background": "#f9f9fa",
+                    "primary-container": "#0f4c5c",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e2e4",
+                    "outline-variant": "#c0c8cb",
+                    "on-primary-fixed-variant": "#114d5d",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#68fadd",
+                    "surface-container": "#edeeef",
+                    "inverse-surface": "#2e3132",
+                    "secondary-fixed": "#cbe7f5",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-surface": "#191c1d",
+                    "secondary": "#48626e",
+                    "surface-container-low": "#f3f4f5",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#021f29",
+                    "on-primary-fixed": "#001f28",
+                    "tertiary-container": "#004f43",
+                    "surface-bright": "#f9f9fa",
+                    "surface": "#f9f9fa",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+</style>
+</head>
+<body class="bg-background text-on-surface">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+  <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+      Itera
+    </a></div>
+
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="leistungen.html">
+        Leistungen
+      </a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="plattform.html">
+        Plattform
+      </a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="einblicke.html">
+        Einblicke
+      </a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="uberuns.html">
+        Über uns
+      </a>
+      <a class="text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight font-semibold" href="kontakt.html">
+        Kontakt
+      </a>
+    </div>
+
+    <!-- Right Side (Language + Login) -->
+    <div class="flex items-center gap-4">
+
+
+
+      <!-- Language Switcher -->
+      <div class="relative group language-switcher">
+        <button
+          type="button"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#0F4C5C]/30 transition-all bg-white"
+          onclick="this.nextElementSibling.classList.toggle('hidden')"
+          aria-label="Sprache auswählen"
+        >
+          <span class="text-lg select-none">🇩🇪</span>
+          <span class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">DE</span>
+          <span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-[#0F4C5C] transition-colors">
+            expand_more
+          </span>
+        </button>
+
+        <!-- Dropdown -->
+        <div class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-[60] hidden language-menu">
+          <div class="p-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="english_landingpage.html">
+              <span class="text-lg">🇬🇧</span>
+              <span class="text-xs font-semibold text-slate-600 group-hover/item:text-[#0F4C5C]">English</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="spanish_landingpage.html">
+              <span class="text-lg">🇪🇸</span>
+              <span class="text-xs font-semibold text-slate-600 group-hover/item:text-[#0F4C5C]">Español</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Button -->
+      <a href="anmelden.html"
+         class="px-6 py-2 bg-primary text-on-primary font-medium hover:opacity-90 active:scale-[0.98] transition-all rounded-full inline-block">
+        Einloggen	
+      </a>
+
+    </div>
+
+  </div>
+
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="reveal relative py-20 px-4 md:px-8 overflow-hidden">
+<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_#cbe7f5_0%,_transparent_40%)]"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-[#0F4C5C] text-xs font-bold tracking-widest uppercase" style="">Support & Sales</span>
+<h1 class="text-3xl md:text-5xl md:text-6xl font-black text-primary leading-tight tracking-tight" style="">Treten Sie mit uns in Kontakt</h1>
+<p class="text-xl text-secondary leading-relaxed max-w-xl" style="">
+                        Ob Sie eine maßgeschneiderte Demo anfordern möchten, technische Fragen haben oder eine strategische Partnerschaft anstreben, wir sind bereit, Sie zu unterstützen.
+                    </p>
+</div>
+<div class="relative">
+<div class="aspect-video w-full rounded-xl bg-slate-200 shadow-2xl overflow-hidden">
+<img alt="Itera Office" class="w-full h-full object-cover" data-alt="Modern minimalist corporate office interior with floor-to-ceiling windows and clean architectural lines in soft daylight" src="https://images.pexels.com/photos/7709091/pexels-photo-7709091.jpeg" style="">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-full shadow-lg border border-slate-100 flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="support_agent" style="">support_agent</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary" style="">Live Support</p>
+<p class="text-xs text-slate-500" style="">Montag - Freitag</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="reveal max-w-7xl mx-auto px-4 md:px-8 pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Contact Options Sidebar -->
+<div class="lg:col-span-4 space-y-6">
+<div class="p-8 bg-white border border-slate-200 rounded-xl shadow-sm space-y-8">
+<div>
+<h3 class="text-lg font-bold text-primary mb-6" style="">Direkter Kontakt</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[#0F4C5C]" data-icon="mail" style="">mail</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-tighter" style="">Email</p>
+<a class="text-primary font-medium hover:underline break-all" href="mailto:negyn.rahmani-nazari-ramos@hs-osnabrueck.de" style="">negyn.rahmani-nazari-ramos@hs-osnabrueck.de</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[#0F4C5C]" data-icon="location_on" style="">location_on</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-tighter" style="">Hauptsitz</p>
+<p class="text-primary font-medium" style="">Am Speicher 4,<br>49090 Osnabrück, Deutschland</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100">
+<div class="flex items-center gap-4 p-4 bg-surface-container rounded-full">
+<span class="material-symbols-outlined text-[#0F4C5C]" data-icon="verified_user" style="">verified_user</span>
+<p class="text-sm font-medium text-primary leading-tight" style="">Wir antworten in der Regel innerhalb von 24–48 Stunden.</p>
+</div>
+</div>
+</div>
+<div class="aspect-square w-full rounded-xl bg-slate-200 overflow-hidden shadow-inner border border-slate-200 relative">
+<!-- Simulated Map -->
+<div class="absolute inset-0 bg-slate-300">
+<img alt="Map Location" class="w-full h-full object-cover" data-alt="Minimalist map graphic of Osnabrück city center with clean blue and gray streets and a single teal location pin" data-location="Osnabrück" src="https://i.ibb.co/KcWNZcGw/qr-code-Flyer.png" style="">
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-8 h-8 bg-[#0F4C5C] rounded-full border-4 border-white shadow-xl flex items-center justify-center animate-bounce">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Contact Form Section -->
+<div class="lg:col-span-8">
+<div id="contact-form" class="bg-white p-10 rounded-xl shadow-xl shadow-slate-200/50 border border-slate-100">
+<div class="mb-10">
+<h2 class="text-3xl font-extrabold text-primary mb-4 tracking-tight" style="">Senden Sie uns eine Nachricht</h2>
+<p class="text-secondary" style="">Füllen Sie das Formular unten aus und einer unserer Experten wird sich in Kürze bei Ihnen melden.</p>
+</div>
+<form action="https://formspree.io/f/xdabnvyo" method="POST" class="space-y-6">
+<input type="hidden" name="_subject" value="Neue Kontaktanfrage über Itera">
+<input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1" style="">Vollständiger Name</label>
+<input name="name" class="w-full px-6 py-4 rounded-full border-slate-200 focus:ring-2 focus:ring-[#0F4C5C] focus:border-transparent transition-all outline-none bg-slate-50" placeholder="Max Mustermann" type="text" required>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1" style="">Unternehmen</label>
+<input name="company" class="w-full px-6 py-4 rounded-full border-slate-200 focus:ring-2 focus:ring-[#0F4C5C] focus:border-transparent transition-all outline-none bg-slate-50" placeholder="Ihre Firma GmbH" type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1" style="">Email-Adresse</label>
+<input name="email" class="w-full px-6 py-4 rounded-full border-slate-200 focus:ring-2 focus:ring-[#0F4C5C] focus:border-transparent transition-all outline-none bg-slate-50" placeholder="max@unternehmen.de" type="email" required>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1" style="">Land / Region</label>
+<input name="region" class="w-full px-6 py-4 rounded-full border-slate-200 focus:ring-2 focus:ring-[#0F4C5C] focus:border-transparent transition-all outline-none bg-slate-50" placeholder="Deutschland" type="text">
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1" style="">Art der Anfrage</label>
+
+<div class="relative">
+  <select
+    name="request_type"
+    class="peer w-full px-6 pr-12 py-4 rounded-full border border-slate-200
+    focus:ring-2 focus:ring-[#0F4C5C] focus:border-transparent
+    transition-all outline-none bg-slate-50 cursor-pointer
+    appearance-none [-webkit-appearance:none] [-moz-appearance:none] bg-none"
+  >
+    <option>Demo anfordern</option>
+    <option>Allgemeine Frage</option>
+    <option>Partnerschaft/Zusammenarbeit</option>
+	 <option>Vorschau nachfragen</option>
+  </select>
+
+  <span class="material-symbols-outlined absolute right-6 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none transition-transform duration-300 peer-focus:rotate-180">
+    expand_more
+  </span>
+</div>
+
+</div>
+
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1" style="">Nachricht</label>
+<textarea name="message" class="w-full px-6 py-5 rounded-xl border-slate-200 focus:ring-2 focus:ring-[#0F4C5C] focus:border-transparent transition-all outline-none bg-slate-50 resize-none" placeholder="Wie können wir Ihnen helfen?" rows="5" required></textarea>
+</div>
+<div class="pt-4">
+<button class="w-full py-4 bg-primary-container text-white rounded-full font-bold text-lg hover:bg-opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-lg shadow-primary-container/20" type="submit" style="">
+<span class="" style="">Nachricht senden</span>
+<span class="material-symbols-outlined" data-icon="send" style="">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Buttons -->
+<section class="reveal py-32 px-4 md:px-8 bg-[#0F4C5C] text-white">
+  <div class="max-w-screen-xl mx-auto text-center">
+    <h2 class="text-4xl md:text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">
+      Starten Sie Ihre internationale Expansion strukturiert und erfolgreich
+    </h2>
+    <p class="text-lg md:text-xl opacity-80 mb-14 max-w-2xl mx-auto leading-relaxed">
+      Wir unterstützen Sie dabei, Ihre grenzüberschreitende Zusammenarbeit effizient aufzubauen, von der Strategie bis zur operativen Umsetzung.
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-10">
+      <a href="kontakt.html#contact-form"
+         class="px-10 py-5 bg-[#23c9ae] text-[#0F4C5C] font-black rounded-full hover:scale-[1.02] transition-all">
+        Erstgespräch vereinbaren
+      </a>
+      <a href="plattform.html"
+         class="px-10 py-5 bg-white/10 text-white border border-white/20 font-bold rounded-full hover:bg-white/20 transition-all">
+        Plattform entdecken
+      </a>
+    </div>
+    <!-- Trust line -->
+    <p class="text-sm opacity-50">
+      Kostenloses Erstgespräch · Keine Verpflichtung
+    </p>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="font-black text-[#0F4C5C] text-xl" style="">Itera</div>
+<div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+</div>
+<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Itera. Alle Rechte vorbehalten.</div>
+</div>
+</footer>
+<script>
+  document.addEventListener('click', function (event) {
+    document.querySelectorAll('.language-switcher').forEach(wrapper => {
+      const menu = wrapper.querySelector('.language-menu');
+      if (!wrapper.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
+</script>
+
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body></html>

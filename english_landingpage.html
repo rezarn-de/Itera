@@ -1,0 +1,400 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Itera - Market Entry &amp; International Cooperation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#afcbd8",
+                        "tertiary-fixed-dim": "#44ddc1",
+                        "primary-fixed-dim": "#9acee1",
+                        "on-background": "#191c1d",
+                        "surface-tint": "#306576",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "surface-container-low": "#f3f4f5",
+                        "on-surface": "#191c1d",
+                        "background": "#f9f9fa",
+                        "on-secondary-fixed": "#021f29",
+                        "primary-fixed": "#b6ebfe",
+                        "inverse-primary": "#9acee1",
+                        "outline": "#70787c",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#00362d",
+                        "on-tertiary-fixed-variant": "#005145",
+                        "on-tertiary-container": "#23c9ae",
+                        "on-primary-fixed-variant": "#114d5d",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#0f4c5c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary": "#48626e",
+                        "on-secondary-container": "#4e6874",
+                        "on-primary-fixed": "#001f28",
+                        "secondary-container": "#cbe7f5",
+                        "secondary-fixed": "#cbe7f5",
+                        "surface-dim": "#d9dadb",
+                        "surface-bright": "#f9f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-container": "#87bbce",
+                        "on-surface-variant": "#40484b",
+                        "on-error": "#ffffff",
+                        "primary": "#003441",
+                        "outline-variant": "#c0c8cb",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#304a55",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e2e4",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9fa",
+                        "tertiary-container": "#004f43",
+                        "on-tertiary-fixed": "#00201a",
+                        "tertiary-fixed": "#68fadd",
+                        "surface-variant": "#e1e2e4",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9fa; }
+    </style>
+</head>
+<body class="text-on-background antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl border-b border-outline-variant/10">
+<div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
+<a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="#" style="">Itera</a></div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="#" style="">Services</a>
+<a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="#" style="">Platform</a>
+<a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="#" style="">Insights</a>
+<a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="#" style="">About us</a>
+<a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="#" style="">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+
+
+<div class="relative group">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 hover:border-primary/30 transition-all bg-white/50 backdrop-blur-sm" onclick="this.nextElementSibling.classList.toggle('hidden')" style="">
+<span class="text-lg select-none" style="">🇬🇧</span>
+<span class="text-[10px] font-bold text-slate-700 uppercase tracking-wider" style="">EN</span>
+<span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-primary transition-colors" style="">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-[60] hidden">
+<div class="p-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="index.html" style="">
+<span class="text-lg" style="">🇩🇪</span>
+<span class="text-xs font-semibold text-slate-600 group-hover/item:text-primary" style="">Deutsch</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full hover:bg-slate-50 transition-colors group/item" href="spanish_landingpage.html" style="">
+<span class="text-lg" style="">🇪🇸</span>
+<span class="text-xs font-semibold text-slate-600 group-hover/item:text-primary" style="">Español</span>
+</a>
+</div>
+</div>
+</div>
+
+<!-- ✅ FIXED LOGIN BUTTON -->
+<a href="german_dashboard.html"
+         class="px-6 py-2 bg-primary text-on-primary font-medium hover:opacity-90 active:scale-[0.98] transition-all rounded-full inline-block">
+         Login
+      </a>
+
+</div>
+</div>
+
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+  <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+    <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+    <a href="plattform.html" class="text-slate-700">Plattform</a>
+    <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+    <a href="uberuns.html" class="text-slate-700">Über uns</a>
+    <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+  </div>
+</div>
+
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="pt-40 pb-24 px-4 md:px-8 max-w-screen-2xl mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-7">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6" style="">
+                    International Expansion
+                </div>
+<h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black text-primary leading-[1.1] tracking-tight mb-8" style="">
+                    Successfully Shaping <span class="text-[#0F4C5C]" style="">Market Entry and International Cooperation</span>
+</h1>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-2xl mb-12" style="">
+                    A structured approach to the analysis and implementation of international business relations between Germany and Latin America.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-4 md:px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-bold shadow-lg shadow-primary/10 transition-transform hover:scale-[1.02]" style="">
+                        Schedule Initial Consultation
+                    </button>
+<button class="px-4 md:px-8 py-4 bg-surface-container-low text-primary rounded-lg font-bold hover:bg-surface-container-high transition-colors" style="">
+                        Our Methodology
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square bg-surface-container-high rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="modern industrial architecture with deep teal glass and geometric patterns" src="https://images.pexels.com/photos/29529183/pexels-photo-29529183.jpeg" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<!-- Floating Data Card -->
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-xl shadow-2xl max-w-xs border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: &quot;FILL&quot; 1;">public</span>
+<span class="font-bold text-primary" style="">DE → LATAM</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-2 font-medium" style="">Cooperation Index</p>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-[92%]"></div>
+</div>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 mt-3 font-bold" style="">Structured Scaling</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SME Focus Section -->
+<section class="py-24 px-4 md:px-8 bg-surface-container-low border-y border-outline-variant/10">
+<div class="max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-5">
+<h2 class="text-3xl font-bold text-primary tracking-tight mb-6" style="">Expertise for SMEs</h2>
+<div class="w-12 h-1 bg-tertiary-fixed mb-8"></div>
+</div>
+<div class="lg:col-span-7">
+<div class="space-y-6 text-on-surface-variant text-lg leading-relaxed">
+<p class="" style="">
+                            We support companies in structured and successful implementation of international market entries and industrial cooperations between Germany and Latin America.
+                        </p>
+<p class="" style="">
+                            Our approach is specifically targeted at small and medium-sized enterprises (SMEs) looking to expand or optimize their international activities.
+                        </p>
+<p class="" style="">
+                            Through a systematic analysis of key success factors, we identify risks early on and develop concrete, practical recommendations for action.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Five Pillars Section -->
+<section class="py-24 px-4 md:px-8 bg-white overflow-hidden">
+<div class="max-w-screen-2xl mx-auto">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<h2 class="text-4xl font-bold text-primary tracking-tight mb-4" style="">Five Pillars of Collaboration</h2>
+<p class="text-on-surface-variant" style="">Our framework covers all critical dimensions to minimize friction losses in international cooperation.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+<!-- Pillar 1 -->
+<div class="group bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary" style="">analytics</span>
+</div>
+<h3 class="font-bold text-primary text-lg mb-2" style="">Market Readiness</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">Analysis of the local environment and entry conditions.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="group bg-[#0F4C5C] p-8 rounded-xl border border-outline-variant/10 text-on-primary flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-tertiary-fixed" style="">corporate_fare</span>
+</div>
+<h3 class="font-bold text-lg mb-2" style="">Organizational Alignment</h3>
+<p class="text-sm opacity-80 leading-relaxed" style="">Alignment of internal structures between both partners.</p>
+</div>
+<!-- Pillar 3 -->
+<div class="group bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary" style="">account_tree</span>
+</div>
+<h3 class="font-bold text-primary text-lg mb-2" style="">Decision Structures</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">Understanding institutional decision-making processes.</p>
+</div>
+<!-- Pillar 4 -->
+<div class="group bg-primary p-8 rounded-xl border border-outline-variant/10 text-on-primary flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-tertiary-fixed" style="">gavel</span>
+</div>
+<h3 class="font-bold text-lg mb-2" style="">Regulatory &amp; Compliance</h3>
+<p class="text-sm opacity-80 leading-relaxed" style="">Safe navigation of legal frameworks and requirements.</p>
+</div>
+<!-- Pillar 5 -->
+<div class="group bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary" style="">diversity_3</span>
+</div>
+<h3 class="font-bold text-primary text-lg mb-2" style="">Cultural &amp; Communication</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">Consideration of nuanced communication patterns.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Success Process Section -->
+<section class="py-24 px-4 md:px-8 bg-surface">
+<div class="max-w-screen-2xl mx-auto text-center mb-20">
+<h2 class="text-4xl font-bold text-primary tracking-tight mb-4" style="">Three Steps to Success</h2>
+<div class="w-24 h-1 bg-tertiary-fixed mx-auto"></div>
+</div>
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<!-- Connecting Line -->
+<div class="hidden md:block absolute top-10 left-[15%] right-[15%] h-0.5 bg-outline-variant/30 -z-10"></div>
+<!-- Step 1 -->
+<div class="relative text-center group bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-all">
+<div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-8 transition-transform group-hover:rotate-6">
+<span class="material-symbols-outlined text-3xl text-white" style="font-variation-settings: &quot;FILL&quot; 1;">biotech</span>
+<span class="absolute -top-3 -right-3 w-10 h-10 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center font-black border-4 border-white" style="">1</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-3" style="">Diagnosis</h4>
+<p class="text-sm text-on-surface-variant" style="">Status-quo analysis and data recording of your current position.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative text-center group bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-all">
+<div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-8 transition-transform group-hover:rotate-6">
+<span class="material-symbols-outlined text-3xl text-white" style="font-variation-settings: &quot;FILL&quot; 1;">query_stats</span>
+<span class="absolute -top-3 -right-3 w-10 h-10 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center font-black border-4 border-white" style="">2</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-3" style="">Analysis</h4>
+<p class="text-sm text-on-surface-variant" style="">Identification of gaps and alignment of operational realities.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative text-center group bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-all">
+<div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-8 transition-transform group-hover:rotate-6">
+<span class="material-symbols-outlined text-3xl text-white" style="font-variation-settings: &quot;FILL&quot; 1;">rocket_launch</span>
+<span class="absolute -top-3 -right-3 w-10 h-10 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center font-black border-4 border-white" style="">3</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-3" style="">Implementation</h4>
+<p class="text-sm text-on-surface-variant" style="">Practical recommendations and operational support.</p>
+</div>
+</div>
+</section>
+<!-- Target Audience Section -->
+<section class="py-24 px-4 md:px-8 bg-primary text-on-primary">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="text-4xl font-bold tracking-tight mb-8" style="">Who is this for?</h2>
+<p class="text-xl opacity-80 mb-12" style="">Our solutions are tailored for decision-makers who want to create sustainable value in international cooperation.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="">domain</span>
+<div>
+<p class="font-bold text-xl" style="">SMEs</p>
+<p class="text-sm opacity-70" style="">Medium-sized companies that need lean and effective processes for international operations.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="">public</span>
+<div>
+<p class="font-bold text-xl" style="">Companies with LATAM Focus</p>
+<p class="text-sm opacity-70" style="">Organizations already active in Latin America or looking to enter the market.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="">trending_up</span>
+<div>
+<p class="font-bold text-xl" style="">Export / Expansion</p>
+<p class="text-sm opacity-70" style="">Companies in growth phases with a focus on cross-border industrial projects.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="bg-surface-container-low/10 p-10 rounded-2xl border border-white/10 backdrop-blur-md">
+<h3 class="text-2xl font-bold mb-8" style="">Why Itera?</h3>
+<ul class="space-y-6">
+<li class="flex gap-4 items-start" style="">
+<span class="material-symbols-outlined text-tertiary-fixed" style="">verified</span>
+<div>
+<p class="font-bold" style="">Practical Approach</p>
+<p class="text-sm opacity-70" style="">No theoretical concepts, but directly applicable blueprints for your team.</p>
+</div>
+</li>
+<li class="flex gap-4 items-start" style="">
+<span class="material-symbols-outlined text-tertiary-fixed" style="">handshake</span>
+<div>
+<p class="font-bold" style="">Cultural Bridge</p>
+<p class="text-sm opacity-70" style="">Deep understanding of working styles in both Germany and Latin America.</p>
+</div>
+</li>
+<li class="flex gap-4 items-start" style="">
+<span class="material-symbols-outlined text-tertiary-fixed" style="">insights</span>
+<div>
+<p class="font-bold" style="">Risk Minimization</p>
+<p class="text-sm opacity-70" style="">Early detection of pitfalls in organizational structure.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Decorative element -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-tertiary-fixed/20 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="px-4 md:px-8 py-24">
+<div class="max-w-screen-xl mx-auto bg-surface-container-highest rounded-2xl p-16 text-center text-primary overflow-hidden relative border border-outline-variant/20">
+<div class="relative z-10">
+<h2 class="text-4xl md:text-3xl md:text-5xl font-bold tracking-tight mb-6" style="">Ready for your next market entry?</h2>
+<p class="text-xl text-on-surface-variant mb-10 max-w-2xl mx-auto" style="">Let's analyze together how we can take your cross-border cooperation to the next level.</p>
+<button class="px-10 py-5 bg-primary text-on-primary font-black rounded-lg hover:bg-[#0F4C5C] transition-all shadow-xl shadow-primary/20" style="">
+                    Schedule Initial Consultation
+                </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 py-12 px-4 md:px-8 border-t border-slate-200/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="font-black text-[#0F4C5C] text-xl" style="">Itera</div>
+<div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
+<a class="hover:text-[#0F4C5C] transition-colors" href="#" style="">Privacy Policy</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="#" style="">Terms of Service</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="#" style="">Services</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="#" style="">Contact</a>
+</div>
+<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Itera. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+
+</body></html>

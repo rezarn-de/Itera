@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="scroll-smooth overflow-x-hidden" lang="de">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Datenschutz | Itera</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-fixed-dim": "#afcbd8",
+          "tertiary-fixed-dim": "#44ddc1",
+          "primary-fixed-dim": "#9acee1",
+          "on-background": "#191c1d",
+          "surface-tint": "#306576",
+          "on-tertiary": "#ffffff",
+          "surface-container": "#edeeef",
+          "surface-container-low": "#f3f4f5",
+          "on-surface": "#191c1d",
+          "background": "#f9f9fa",
+          "on-secondary-fixed": "#021f29",
+          "primary-fixed": "#b6ebfe",
+          "inverse-primary": "#9acee1",
+          "outline": "#70787c",
+          "on-secondary": "#ffffff",
+          "tertiary": "#00362d",
+          "on-tertiary-fixed-variant": "#005145",
+          "on-tertiary-container": "#23c9ae",
+          "on-primary-fixed-variant": "#114d5d",
+          "error-container": "#ffdad6",
+          "primary-container": "#0f4c5c",
+          "inverse-on-surface": "#f0f1f2",
+          "secondary": "#48626e",
+          "on-secondary-container": "#4e6874",
+          "on-primary-fixed": "#001f28",
+          "secondary-container": "#cbe7f5",
+          "secondary-fixed": "#cbe7f5",
+          "surface-dim": "#d9dadb",
+          "surface-bright": "#f9f9fa",
+          "surface-container-high": "#e7e8e9",
+          "on-primary-container": "#87bbce",
+          "on-surface-variant": "#40484b",
+          "on-error": "#ffffff",
+          "primary": "#003441",
+          "outline-variant": "#c0c8cb",
+          "on-error-container": "#93000a",
+          "on-secondary-fixed": "#021f29",
+          "on-secondary-fixed-variant": "#304a55",
+          "surface-container-lowest": "#ffffff",
+          "inverse-surface": "#2e3132",
+          "surface-container-highest": "#e1e2e4",
+          "error": "#ba1a1a",
+          "surface": "#f9f9fa",
+          "tertiary-container": "#004f43",
+          "on-tertiary-fixed": "#00201a",
+          "tertiary-fixed": "#68fadd",
+          "surface-variant": "#e1e2e4",
+          "on-primary": "#ffffff"
+        },
+        fontFamily: {
+          "headline": ["Inter"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #f9f9fa; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-x-hidden">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+  <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
+    <div class="flex items-center gap-3">
+      <button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]">
+        <span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span>
+      </button>
+      <a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">Itera</a>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="leistungen.html">Leistungen</a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="plattform.html">Plattform</a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="einblicke.html">Einblicke</a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="uberuns.html">Über uns</a>
+      <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="anmelden.html" class="px-6 py-2 bg-primary text-on-primary font-medium hover:opacity-90 active:scale-[0.98] transition-all rounded-full inline-block">
+        Einloggen
+      </a>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+    <div class="flex flex-col px-4 md:px-8 py-6 gap-4">
+      <a href="leistungen.html" class="text-slate-700">Leistungen</a>
+      <a href="plattform.html" class="text-slate-700">Plattform</a>
+      <a href="einblicke.html" class="text-slate-700">Einblicke</a>
+      <a href="uberuns.html" class="text-slate-700">Über uns</a>
+      <a href="kontakt.html" class="text-slate-700">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-32 pb-24 px-4 md:px-8 max-w-screen-lg mx-auto">
+
+  <!-- Header -->
+  <div class="mb-12">
+    <div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6">
+      Rechtliches
+    </div>
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-primary mb-4">Datenschutzerklärung</h1>
+    <p class="text-slate-500 text-base">Gemäß DSGVO (EU) 2016/679 und BDSG</p>
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="bg-secondary-container/40 rounded-2xl p-6 mb-10">
+    <p class="text-xs font-bold tracking-widest uppercase text-on-secondary-container mb-4">Inhaltsverzeichnis</p>
+    <nav class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <a href="#verantwortlicher" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>1. Verantwortlicher</a>
+      <a href="#datenerfassung" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>2. Datenerfassung</a>
+      <a href="#zweck" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>3. Zweck der Verarbeitung</a>
+      <a href="#rechtsgrundlage" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>4. Rechtsgrundlagen</a>
+      <a href="#speicherung" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>5. Speicherdauer</a>
+      <a href="#dritte" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>6. Weitergabe an Dritte</a>
+      <a href="#cookies" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>7. Cookies</a>
+      <a href="#rechte" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>8. Ihre Rechte</a>
+      <a href="#hosting" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>9. Hosting</a>
+      <a href="#aenderungen" class="text-sm text-[#0F4C5C] hover:underline flex items-center gap-2"><span class="material-symbols-outlined text-sm">arrow_forward</span>10. Änderungen</a>
+    </nav>
+  </div>
+
+  <!-- Sections -->
+  <div class="space-y-4">
+
+    <!-- 1. Verantwortlicher -->
+    <div id="verantwortlicher" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">person_pin</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">1. Verantwortlicher</h2>
+      </div>
+      <p class="text-slate-600 text-sm leading-relaxed mb-4">Verantwortlicher für die Datenverarbeitung auf dieser Website im Sinne der DSGVO ist:</p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm text-slate-700 space-y-1">
+        <p class="font-semibold">Itera</p>
+        <p class="text-slate-400 italic">[Vollständiger Unternehmensname]</p>
+        <p class="text-slate-400 italic">[Straße und Hausnummer]</p>
+        <p class="text-slate-400 italic">[PLZ] Osnabrück, Deutschland</p>
+        <p class="mt-2">E-Mail: <a href="mailto:datenschutz@itera.de" class="text-[#0F4C5C] hover:underline">[datenschutz@itera.de]</a></p>
+      </div>
+    </div>
+
+    <!-- 2. Datenerfassung -->
+    <div id="datenerfassung" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">database</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">2. Welche Daten wir erfassen</h2>
+      </div>
+      <div class="space-y-5 text-slate-600 text-sm leading-relaxed">
+        <div>
+          <h3 class="font-semibold text-on-surface mb-2">2.1 Automatisch erfasste Daten</h3>
+          <p>Beim Besuch unserer Website werden automatisch folgende technische Daten durch unseren Server erfasst:</p>
+          <ul class="mt-2 space-y-1 pl-4">
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> IP-Adresse des anfragenden Geräts</li>
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> Datum und Uhrzeit des Zugriffs</li>
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> Name und URL der abgerufenen Datei</li>
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> Übertragene Datenmenge</li>
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> Browsertyp und -version</li>
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> Betriebssystem</li>
+            <li class="flex gap-2"><span class="text-[#23c9ae] font-bold">·</span> Referrer-URL (zuvor besuchte Seite)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-on-surface mb-2">2.2 Daten bei Kontaktaufnahme</h3>
+          <p>Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, verarbeiten wir Ihren Namen, Ihre E-Mail-Adresse und den Inhalt Ihrer Nachricht, um Ihre Anfrage bearbeiten zu können.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-on-surface mb-2">2.3 Plattform-Nutzerdaten</h3>
+          <p>Bei Registrierung und Nutzung unserer Plattform erfassen wir zusätzlich: Name, E-Mail-Adresse, Unternehmensname sowie die von Ihnen eingegebenen Projektdaten. Diese Daten sind für die Erbringung unserer Leistungen erforderlich.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Zweck -->
+    <div id="zweck" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">track_changes</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">3. Zweck der Datenverarbeitung</h2>
+      </div>
+      <div class="text-slate-600 text-sm leading-relaxed space-y-2">
+        <p>Wir verarbeiten Ihre personenbezogenen Daten zu folgenden Zwecken:</p>
+        <ul class="space-y-2 mt-3">
+          <li class="flex gap-3 items-start"><span class="material-symbols-outlined text-[#23c9ae] text-base mt-0.5">check_circle</span><span>Bereitstellung und Betrieb unserer Website und Plattform</span></li>
+          <li class="flex gap-3 items-start"><span class="material-symbols-outlined text-[#23c9ae] text-base mt-0.5">check_circle</span><span>Beantwortung von Anfragen und Kommunikation mit Ihnen</span></li>
+          <li class="flex gap-3 items-start"><span class="material-symbols-outlined text-[#23c9ae] text-base mt-0.5">check_circle</span><span>Erbringung unserer Beratungs- und Analyseleistungen</span></li>
+          <li class="flex gap-3 items-start"><span class="material-symbols-outlined text-[#23c9ae] text-base mt-0.5">check_circle</span><span>Sicherheit und technische Verwaltung der Website</span></li>
+          <li class="flex gap-3 items-start"><span class="material-symbols-outlined text-[#23c9ae] text-base mt-0.5">check_circle</span><span>Erfüllung gesetzlicher Verpflichtungen</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. Rechtsgrundlagen -->
+    <div id="rechtsgrundlage" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">balance</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">4. Rechtsgrundlagen</h2>
+      </div>
+      <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+        <p>Die Verarbeitung Ihrer Daten erfolgt auf Basis folgender Rechtsgrundlagen gemäß DSGVO:</p>
+        <div class="grid sm:grid-cols-2 gap-3 mt-3">
+          <div class="bg-slate-50 rounded-xl p-4">
+            <p class="font-semibold text-on-surface text-xs uppercase tracking-wide mb-1">Art. 6 Abs. 1 lit. a DSGVO</p>
+            <p>Einwilligung — z.B. bei Newsletter-Anmeldung oder optionalen Cookies</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4">
+            <p class="font-semibold text-on-surface text-xs uppercase tracking-wide mb-1">Art. 6 Abs. 1 lit. b DSGVO</p>
+            <p>Vertragserfüllung — für die Erbringung unserer Plattformleistungen</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4">
+            <p class="font-semibold text-on-surface text-xs uppercase tracking-wide mb-1">Art. 6 Abs. 1 lit. c DSGVO</p>
+            <p>Rechtliche Verpflichtung — z.B. steuerrechtliche Aufbewahrungspflichten</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4">
+            <p class="font-semibold text-on-surface text-xs uppercase tracking-wide mb-1">Art. 6 Abs. 1 lit. f DSGVO</p>
+            <p>Berechtigte Interessen — z.B. Sicherheit und Missbrauchsprävention</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Speicherdauer -->
+    <div id="speicherung" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">schedule</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">5. Speicherdauer</h2>
+      </div>
+      <p class="text-slate-600 text-sm leading-relaxed">Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Server-Logdaten werden nach spätestens 7 Tagen gelöscht. Kontaktanfragen werden nach vollständiger Bearbeitung und Ablauf gesetzlicher Aufbewahrungsfristen (in der Regel 6–10 Jahre für geschäftliche Korrespondenz) gelöscht. Plattform-Nutzerdaten werden nach Kündigung des Kontos und Ablauf gesetzlicher Fristen gelöscht.</p>
+    </div>
+
+    <!-- 6. Weitergabe an Dritte -->
+    <div id="dritte" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">share</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">6. Weitergabe an Dritte</h2>
+      </div>
+      <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+        <p>Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt grundsätzlich nicht, es sei denn:</p>
+        <ul class="space-y-2">
+          <li class="flex gap-3 items-start"><span class="text-[#23c9ae] font-bold text-lg leading-none">·</span><span>Sie haben ausdrücklich eingewilligt (Art. 6 Abs. 1 lit. a DSGVO)</span></li>
+          <li class="flex gap-3 items-start"><span class="text-[#23c9ae] font-bold text-lg leading-none">·</span><span>Es ist zur Vertragserfüllung erforderlich (Art. 6 Abs. 1 lit. b DSGVO)</span></li>
+          <li class="flex gap-3 items-start"><span class="text-[#23c9ae] font-bold text-lg leading-none">·</span><span>Wir sind gesetzlich dazu verpflichtet (Art. 6 Abs. 1 lit. c DSGVO)</span></li>
+        </ul>
+        <div class="bg-slate-50 rounded-xl p-4 mt-2">
+          <p class="font-semibold text-on-surface mb-1">Auftragsverarbeiter</p>
+          <p>Wir setzen externe Dienstleister ein, die in unserem Auftrag Daten verarbeiten (z.B. Hosting-Anbieter). Diese sind vertraglich zur Einhaltung der DSGVO verpflichtet.</p>
+          <!-- ⚠️ BITTE AUSFÜLLEN: Nennt eure konkreten Dienstleister, z.B. Vercel, AWS, Supabase, etc. -->
+          <p class="text-slate-400 italic text-xs mt-2">[Ggf. konkrete Dienstleister nennen, z.B. Hosting-Anbieter, E-Mail-Dienst, etc.]</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Cookies -->
+    <div id="cookies" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">cookie</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">7. Cookies</h2>
+      </div>
+      <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+        <p>Unsere Website verwendet Cookies — kleine Textdateien, die auf Ihrem Gerät gespeichert werden. Wir unterscheiden:</p>
+        <div class="grid sm:grid-cols-2 gap-3 mt-2">
+          <div class="border border-outline-variant/30 rounded-xl p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2 h-2 rounded-full bg-[#23c9ae] inline-block"></span>
+              <p class="font-semibold text-on-surface text-sm">Technisch notwendige Cookies</p>
+            </div>
+            <p class="text-xs">Für den Betrieb der Website zwingend erforderlich (z.B. Session-Cookies, Login-Status). Keine Einwilligung erforderlich.</p>
+          </div>
+          <div class="border border-outline-variant/30 rounded-xl p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+              <p class="font-semibold text-on-surface text-sm">Optionale Cookies</p>
+            </div>
+            <p class="text-xs">Analyse- und Tracking-Cookies werden nur nach Ihrer ausdrücklichen Einwilligung gesetzt.</p>
+            <!-- ⚠️ BITTE AUSFÜLLEN: Falls ihr Analytics nutzt (z.B. Google Analytics, Plausible), hier ergänzen -->
+            <p class="text-slate-400 italic text-xs mt-1">[z.B. Google Analytics, Plausible — falls verwendet]</p>
+          </div>
+        </div>
+        <p>Sie können Cookies in Ihrem Browser jederzeit deaktivieren oder löschen. Beachten Sie, dass dadurch einige Funktionen der Website möglicherweise nicht mehr vollständig nutzbar sind.</p>
+      </div>
+    </div>
+
+    <!-- 8. Ihre Rechte -->
+    <div id="rechte" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">shield_person</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">8. Ihre Rechte</h2>
+      </div>
+      <p class="text-slate-600 text-sm leading-relaxed mb-5">Als betroffene Person haben Sie gemäß DSGVO folgende Rechte gegenüber uns:</p>
+      <div class="grid sm:grid-cols-2 gap-3">
+        <div class="flex gap-3 items-start bg-slate-50 rounded-xl p-4">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-base mt-0.5">visibility</span>
+          <div>
+            <p class="font-semibold text-on-surface text-sm">Auskunftsrecht</p>
+            <p class="text-xs text-slate-500">Art. 15 DSGVO — Sie können Auskunft über die von uns gespeicherten Daten verlangen.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start bg-slate-50 rounded-xl p-4">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-base mt-0.5">edit</span>
+          <div>
+            <p class="font-semibold text-on-surface text-sm">Berichtigungsrecht</p>
+            <p class="text-xs text-slate-500">Art. 16 DSGVO — Sie können die Berichtigung unrichtiger Daten verlangen.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start bg-slate-50 rounded-xl p-4">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-base mt-0.5">delete</span>
+          <div>
+            <p class="font-semibold text-on-surface text-sm">Löschungsrecht</p>
+            <p class="text-xs text-slate-500">Art. 17 DSGVO — Sie können die Löschung Ihrer Daten verlangen.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start bg-slate-50 rounded-xl p-4">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-base mt-0.5">pause_circle</span>
+          <div>
+            <p class="font-semibold text-on-surface text-sm">Einschränkungsrecht</p>
+            <p class="text-xs text-slate-500">Art. 18 DSGVO — Sie können die Einschränkung der Verarbeitung verlangen.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start bg-slate-50 rounded-xl p-4">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-base mt-0.5">download</span>
+          <div>
+            <p class="font-semibold text-on-surface text-sm">Datenübertragbarkeit</p>
+            <p class="text-xs text-slate-500">Art. 20 DSGVO — Sie können Ihre Daten in einem strukturierten Format erhalten.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start bg-slate-50 rounded-xl p-4">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-base mt-0.5">block</span>
+          <div>
+            <p class="font-semibold text-on-surface text-sm">Widerspruchsrecht</p>
+            <p class="text-xs text-slate-500">Art. 21 DSGVO — Sie können der Verarbeitung Ihrer Daten widersprechen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 p-4 bg-secondary-container/40 rounded-xl text-sm text-slate-700">
+        <p>Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:datenschutz@itera.de" class="text-[#0F4C5C] hover:underline font-medium">[datenschutz@itera.de]</a></p>
+        <p class="mt-1 text-xs text-slate-500">Sie haben auch das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, z.B. der Landesbeauftragten für Datenschutz Niedersachsen.</p>
+      </div>
+    </div>
+
+    <!-- 9. Hosting -->
+    <div id="hosting" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">cloud</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">9. Hosting & externe Dienste</h2>
+      </div>
+      <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+        <p>Unsere Website wird bei einem externen Hosting-Anbieter betrieben. Hierbei werden technische Verbindungsdaten (z.B. IP-Adressen) verarbeitet. Der Einsatz erfolgt auf Grundlage unseres berechtigten Interesses an einer zuverlässigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <!-- ⚠️ BITTE AUSFÜLLEN: Euren Hosting-Anbieter angeben -->
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="font-semibold text-on-surface mb-1">Hosting-Anbieter</p>
+          <p class="text-slate-400 italic">[Name des Hosting-Anbieters, z.B. Vercel Inc., Hetzner Online GmbH, etc.]</p>
+          <p class="text-slate-400 italic text-xs mt-1">[Adresse des Anbieters]</p>
+        </div>
+        <p class="text-xs text-slate-500">Bitte prüft, ob mit eurem Hosting-Anbieter ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen wurde, sofern dieser personenbezogene Daten verarbeitet.</p>
+      </div>
+    </div>
+
+    <!-- 10. Änderungen -->
+    <div id="aenderungen" class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm p-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#0F4C5C] text-xl">update</span>
+        </div>
+        <h2 class="text-lg font-bold text-primary">10. Änderungen dieser Erklärung</h2>
+      </div>
+      <p class="text-slate-600 text-sm leading-relaxed">Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, etwa bei Änderungen unserer Leistungen oder gesetzlicher Anforderungen. Die jeweils aktuelle Version ist auf dieser Seite abrufbar.</p>
+      <p class="text-slate-400 text-xs mt-3">Stand: Mai 2026</p>
+    </div>
+
+  </div>
+
+  <!-- Developer Note -->
+  <div class="mt-8 p-5 rounded-2xl bg-amber-50 border border-amber-200 flex gap-3">
+    <span class="material-symbols-outlined text-amber-500 text-xl mt-0.5">info</span>
+    <div class="text-sm text-amber-800">
+      <strong>Hinweis:</strong> Alle mit <em>[eckigen Klammern]</em> markierten Felder müssen vor der Veröffentlichung ausgefüllt werden. Dazu gehören insbesondere: Unternehmensname, Adresse, E-Mail, Hosting-Anbieter und ggf. verwendete Analytics-Tools. Bei Unsicherheiten empfehlen wir rechtliche Beratung — z.B. über die Datenschutzbeauftragten der Hochschule Osnabrück.
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-50 py-12 px-4 md:px-8 border-t border-slate-200/20">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
+    <div class="font-black text-[#0F4C5C] text-xl">Itera</div>
+    <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
+      <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+      <a class="hover:text-[#0F4C5C] transition-colors text-[#0F4C5C]" href="datenschutz.html">Datenschutz</a>
+      <a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+      <a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Itera. Alle Rechte vorbehalten.</div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('max-h-0');
+    mobileMenu.classList.toggle('opacity-0');
+    mobileMenu.classList.toggle('max-h-96');
+    mobileMenu.classList.toggle('opacity-100');
+    if(menuIcon){menuIcon.classList.toggle('rotate-90');}
+  });
+}
+</script>
+</body>
+</html>
