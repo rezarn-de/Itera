@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Iteras | Plattform für grenzüberschreitende Zusammenarbeit</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
@@ -82,6 +82,13 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        .iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }
     
 .reveal {
   opacity: 0;
@@ -106,7 +113,7 @@
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
       Iteras
     </a></div>
 
@@ -195,14 +202,14 @@
 <div class="absolute inset-0 z-0 opacity-10">
 <div class="absolute top-0 right-0 w-1/2 h-full bg-primary-container rounded-l-full blur-3xl"></div>
 </div>
-<div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-16 items-center">
-<div class="space-y-8">
+<div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[minmax(0,36rem)_minmax(0,1fr)] gap-12 lg:gap-16 items-center">
+<div class="space-y-8 max-w-[36rem]">
 <div class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase" style="">
                         Plattform Ökosystem
                     </div>
-<h1 class="text-3xl md:text-5xl md:text-6xl font-black text-primary leading-tight tracking-tight" style="">
-                        Eine Plattform für echte grenzüberschreitende Zusammenarbeit
-                    </h1>
+<h1 lang="de" class="max-w-[14ch] text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-[0.95] tracking-tight hyphens-auto">
+  Eine Plattform für echte grenzüberschreitende Zusammenarbeit
+</h1>
 <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl" style="">
                         Risiken identifizieren, Teams aufeinander abstimmen und Markteintritte zwischen Deutschland und Lateinamerika erfolgreich umsetzen.
                     </p>
@@ -211,15 +218,18 @@
          class="px-4 md:px-8 py-4 bg-[#0F4C5C] text-white rounded-full font-bold shadow-lg shadow-primary/10 transition-transform hover:scale-[1.02]">
         Demo anfordern
       </a>
-<a href="index.html#methodik" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
-                       Methodik ansehen
+<a href="plattform.html#functions-sec" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
+                       Funktionen ansehen
                     </a>
 </div>
 </div>
-<div class="relative">
+<div class="relative lg:pl-4">
 <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-3">
-<img class="w-full h-full object-cover" data-alt="modern corporate team collaborating in a bright high-tech office with data dashboards on large screens and panoramic city view" src="https://i.ibb.co/nNYksrdp/IMG-3440.jpg" style="">
-</div>
+<img
+  class="w-full h-full object-cover object-left"
+  src="assets/images/hero/plattform-hero.png"
+  alt="Platform dashboard view"
+></div>
 <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs -rotate-3 border border-surface-variant">
 <div class="flex items-center gap-3 mb-2">
 <span class="material-symbols-outlined text-tertiary-container" data-icon="verified" style="">verified</span>
@@ -249,13 +259,22 @@
 <h3 class="text-xl font-bold text-primary mb-3" style="">Fehlende Abstimmung</h3>
 <p class="text-on-surface-variant text-sm leading-relaxed" style="">Teams arbeiten in Silos ohne gemeinsame Sicht auf Ziele und Fortschritte.</p>
 </div>
+
 <div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
-<div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" data-icon="account_tree" style="">account_tree</span>
+  <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+  </div>
+
+  <div class="max-w-[88%]">
+    <h3 lang="de" class="text-xl font-bold text-primary mb-3 lg:max-w-full md:max-w-[95%] max-w-[92%] hyphens-auto">
+  Entscheidungsstrukturen
+</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+  Langsame Freigabeprozesse durch unklare Hierarchien zwischen den Kontinenten.
+</p>
+  </div>
 </div>
-<h3 class="text-xl font-bold text-primary mb-3 hyphens-auto" lang="de">Entscheidungsstrukturen</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed" style="">Langsame Freigabeprozesse durch unklare Hierarchien zwischen den Kontinenten.</p>
-</div>
+
 <div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
 <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined" data-icon="gavel" style="">gavel</span>
@@ -316,7 +335,7 @@
 <ul class="space-y-3 pt-4">
 <li class="flex items-center gap-3 text-sm opacity-90" style="">
 <span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="analytics" style="">analytics</span>
-                                Risikomatrix &amp; Gap-Analyse
+                                Risikomatrix & Gap-Analyse
                             </li>
 <li class="flex items-center gap-3 text-sm opacity-90" style="">
 <span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="analytics" style="">analytics</span>
@@ -391,6 +410,167 @@
 </div>
 </div>
 </section>
+
+<!-- Zollanalyse Section -->
+<section id="functions-sec" class="reveal py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
+      
+      <div class="space-y-8">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase">
+          Zollanalyse
+        </div>
+
+        <div class="space-y-5">
+          <h2 lang="de" class="text-3xl md:text-4xl font-black text-primary leading-tight tracking-tight max-w-2xl hyphens-auto">
+            Zollanalyse für zielmarktbezogene Tarifklassifikation
+          </h2>
+
+          <p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Die Plattform verarbeitet gescannte Rechnungen, erkennt relevante Produktinformationen und ermittelt für die ausgewählten Exportprodukte die passende Zolltarifklassifikation auf Basis des Ziellandes.
+          </p>
+
+          <p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Zu jedem erkannten Produkt erhalten Teams direkt die zugehörigen tarifrelevanten Informationen. Extrahierte Produkte und Handelsdaten können zudem in der Plattform gespeichert bleiben, damit spätere Fälle schneller weiterbearbeitet und verglichen werden können.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 pt-2">
+  <div class="rounded-2xl bg-surface p-5 border border-surface-variant">
+    <div class="w-11 h-11 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-4">
+      <span class="material-symbols-outlined">receipt_long</span>
+    </div>
+    <h3 class="text-base font-bold text-primary mb-2">Produkte erkennen</h3>
+    <p class="text-sm text-on-surface-variant leading-relaxed">
+      Rechnungen scannen und relevante Produktdaten strukturiert erfassen.
+    </p>
+  </div>
+
+  <div class="rounded-2xl bg-surface p-5 border border-surface-variant">
+    <div class="w-11 h-11 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-4">
+      <span class="material-symbols-outlined">sell</span>
+    </div>
+    <h3 class="text-base font-bold text-primary mb-2">Tarifcode zuordnen</h3>
+    <p class="text-sm text-on-surface-variant leading-relaxed">
+      Für Produkte die passende Zolltarifklassifikation je nach Zielmarkt ermitteln.
+    </p>
+  </div>
+
+  <div class="rounded-2xl bg-surface p-5 border border-surface-variant">
+    <div class="w-11 h-11 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-4">
+      <span class="material-symbols-outlined">database</span>
+    </div>
+    <h3 class="text-base font-bold text-primary mb-2">Daten weiter nutzen</h3>
+    <p class="text-sm text-on-surface-variant leading-relaxed">
+      Erkannte Produkte in der Plattform speichern und für spätere Analysen wiederverwenden.
+    </p>
+  </div>
+</div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden border border-surface-variant bg-surface shadow-xl h-[340px]">
+          <img
+            src="assets/images/platform/zollanalyse-example.png"
+            alt="Platzhalter für Ergebnisansicht der Zollanalyse"
+            class="w-full h-full object-contain"
+          />
+        </div>
+
+        <div class="absolute -bottom-6 -left-4 md:-left-6 bg-white p-5 rounded-2xl shadow-xl max-w-xs border border-surface-variant">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="material-symbols-outlined text-tertiary-container">database</span>
+            <span class="font-bold text-primary">Plattformspeicher</span>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Erkannte Produktdaten bleiben dokumentiert und können für spätere Analysen wiederverwendet werden.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Diagnose & Analyse Section -->
+<section class="reveal py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <div class="relative order-2 lg:order-1">
+        <div class="rounded-3xl overflow-hidden border border-surface-variant bg-white shadow-xl">
+          <img
+            src="assets/images/platform/diagnose-example.png"
+            alt="Platzhalter für Ergebnisansicht der Diagnose und Analyse"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="absolute -bottom-6 -right-4 md:-right-6 bg-white p-5 rounded-2xl shadow-xl max-w-xs border border-surface-variant">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="material-symbols-outlined text-tertiary-container">analytics</span>
+            <span class="font-bold text-primary">Klare Prioritäten</span>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Ergebnisse werden in konkrete Handlungsfelder übersetzt, damit Teams gezielt weiterarbeiten können.
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-8 order-1 lg:order-2">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase">
+          Diagnose & Analyse
+        </div>
+
+        <div class="space-y-5">
+          <h2 lang="de" class="text-3xl md:text-4xl font-black text-primary leading-tight tracking-tight max-w-xl hyphens-auto">
+            Diagnose und Analyse für fundierte Entscheidungen
+          </h2>
+
+          <p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Die Plattform erfasst Antworten strukturiert, bewertet die Bereitschaft für grenzüberschreitende Zusammenarbeit und macht sichtbar, wo operative, organisatorische und marktbezogene Lücken bestehen.
+          </p>
+
+          <p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Aus den Ergebnissen entsteht eine verständliche Analyse mit klaren Prioritäten, damit Unternehmen Risiken früher erkennen, Ressourcen gezielter einsetzen und nächste Schritte fundierter planen können.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 pt-2">
+          <div class="rounded-2xl bg-white p-5 border border-surface-variant">
+            <div class="w-11 h-11 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-4">
+              <span class="material-symbols-outlined">fact_check</span>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Bereitschaft messen</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Relevante Faktoren systematisch erfassen und strukturiert bewerten.
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-white p-5 border border-surface-variant">
+            <div class="w-11 h-11 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-4">
+              <span class="material-symbols-outlined">warning</span>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Risiken erkennen</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Schwachstellen und kritische Handlungsfelder frühzeitig sichtbar machen.
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-white p-5 border border-surface-variant">
+            <div class="w-11 h-11 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-4">
+              <span class="material-symbols-outlined">route</span>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Nächste Schritte ableiten</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Analyseergebnisse in konkrete Prioritäten und Maßnahmen übersetzen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- CTA Buttons -->
 <section class="reveal py-32 px-4 md:px-8 bg-[#0F4C5C] text-white">
   <div class="max-w-screen-xl mx-auto text-center">
@@ -422,7 +602,7 @@
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="font-black text-[#0F4C5C] text-xl" style="">Iteras</div>
+<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
 <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
 <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>

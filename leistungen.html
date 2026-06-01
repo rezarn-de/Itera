@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Iteras | Leistungen</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
@@ -82,7 +82,44 @@
             vertical-align: middle;
         }
         body { font-family: 'Inter', sans-serif; background-color: #f9f9fa; }
-    
+.iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }
+        
+.service-card {
+    perspective: 1400px;
+    min-height: 540px;
+  }
+
+  .service-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-style: preserve-3d;
+  }
+
+  .service-card.is-flipped .service-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .service-card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  .service-card-back {
+    transform: rotateY(180deg);
+  }
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -107,7 +144,7 @@
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
       Iteras
     </a></div>
 
@@ -197,11 +234,11 @@
 <div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6" style="">
                         Expertise
                     </div>
-<h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black text-[#0F4C5C] leading-[1.1] tracking-tight mb-8" style="">
-                        Strukturierte <span class="text-[#0F4C5C]" style="">Leistungen</span> für Ihren Erfolg
+<h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black text-primary leading-[1.1] tracking-tight mb-8" style="">
+                        Leistungen <span class="text-[#0F4C5C]" style="">für Markteintritt, Compliance und operative Umsetzung</span>
                     </h1>
 <p class="text-xl text-on-surface-variant leading-relaxed max-w-2xl mb-12" style="">
-                        Systematische Unterstützung für Ihren Markteintritt und die Optimierung grenzüberschreitender Kooperationen.
+                        Wir verbinden KI-gestützte Diagnostik, Zoll- und Dokumentenprozesse sowie persönliche Beratung in einem integrierten Leistungsmodell für grenzüberschreitende Expansion zwischen Deutschland und Lateinamerika.
                     </p>
 <div class="flex flex-wrap gap-4">
 
@@ -210,14 +247,14 @@
         Erstgespräch vereinbaren
       </a>
 
-<a href="index.html#methodik" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
-                       Methodik ansehen
+<a href="leistungen.html#tools" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
+                       Tools ansehen
                     </a>
 </div>
 </div>
 <div class="lg:col-span-5 relative">
 <div class="relative rounded-2xl overflow-hidden shadow-xl">
-<img alt="Modern professional workspace" class="w-full aspect-[4/3] object-cover object-top" src="https://images.pexels.com/photos/32082430/pexels-photo-32082430.jpeg" style="">
+<img alt="Modern professional workspace" class="w-full aspect-[4/3] object-cover object-top" src="assets/images/hero/leistungen-hero.jpeg" style="">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
 </div>
 </div>
@@ -235,106 +272,278 @@
 </div>
 </div>
 </section>
-<!-- Diagnose & Playbook Section -->
-<section class="reveal py-24 px-4 md:px-8 bg-white">
-<div class="max-w-screen-2xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-<!-- Diagnose Card -->
-<div class="bg-white p-10 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col">
-<div class="flex items-center gap-4 mb-10">
-<div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100">
-<span class="material-symbols-outlined text-[#0F4C5C]" style="">query_stats</span>
-</div>
-<h3 class="text-3xl font-bold text-[#0F4C5C]" style="">Diagnose</h3>
-</div>
-<div class="space-y-8 flex-grow">
-<div>
-<h4 class="flex items-center gap-2 font-bold text-[#0F4C5C] mb-2" style="">
-<span class="w-2 h-2 rounded-full bg-[#23c9ae]"></span>
-                                    Analyse Zusammenarbeit
-                                </h4>
-<p class="text-slate-500 leading-relaxed text-sm ml-4" style="">Tiefgehende Untersuchung interner Prozesse und Team-Dynamiken für maximale Effizienz.</p>
-</div>
-<div>
-<h4 class="flex items-center gap-2 font-bold text-[#0F4C5C] mb-2" style="">
-<span class="w-2 h-2 rounded-full bg-[#23c9ae]"></span>
-                                    Identifikation von Risiken
-                                </h4>
-<p class="text-slate-500 leading-relaxed text-sm ml-4" style="">Proaktive Erkennung potenzieller Hürden vor dem eigentlichen Markteintritt.</p>
-</div>
-</div>
-<div class="mt-12 rounded-2xl overflow-hidden border border-slate-100 shadow-lg">
-<img alt="Data Analytics Chart" class="w-full h-auto" src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg" style="">
-</div>
-</div>
-<!-- Playbook Card -->
-<div class="bg-[#0F4C5C] p-10 rounded-[2rem] text-white flex flex-col">
-<div class="flex items-center gap-4 mb-10">
-<div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-<span class="material-symbols-outlined text-white" style="">menu_book</span>
-</div>
-<h3 class="text-3xl font-bold" style="">Playbook (Output)</h3>
-</div>
-<div class="space-y-10 flex-grow">
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-[#23c9ae] mt-1" style="">check_circle</span>
-<div>
-<h4 class="font-bold mb-2" style="">Strukturierte Handlungsempfehlungen</h4>
-<p class="text-white/70 leading-relaxed text-sm" style="">Detaillierte Leitfäden basierend auf datengestützten Erkenntnissen.</p>
-</div>
-</div>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-[#23c9ae] mt-1" style="">check_circle</span>
-<div>
-<h4 class="font-bold mb-2" style="">Klare nächste Schritte</h4>
-<p class="text-white/70 leading-relaxed text-sm" style="">Präzise Roadmap für die operative Umsetzung Ihrer Strategie.</p>
-</div>
-</div>
-</div>
-<div class="mt-20 pt-10 border-t border-white/10">
-<a href="kontakt.html#contact-form" class="block w-full py-4 rounded-full border border-white/30 font-bold hover:bg-white/10 transition-colors text-center" style="">
-                                Vorschau nachfragen
-                            </a>
-</div>
-</div>
-</div>
-</div>
-</section>
+<!-- Tools Cards Section -->
+<section id="tools" class="reveal py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-black text-primary mb-6">
+        Leistungen für Ihren Markteintritt und die operative Umsetzung
+      </h2>
+      <p class="text-lg text-on-surface-variant leading-relaxed">
+        Eine KI-gestützte B2B-Plattform, die darauf ausgelegt ist, den operativen Lebenszyklus des internationalen Markteintritts zwischen Deutschland und Lateinamerika zu unterstützen. 
+        Anstatt ausschließlich klassische Beratungsleistungen anzubieten, wird die Plattform entwickelt, um Diagnostik, Compliance-Automatisierung, Prozessunterstützung und menschliche Beratungsleistungen in einem einheitlichen Ökosystem zu integrieren.
+      </p>
 
-<!-- Training / Workshops Section -->
-<section class="reveal bg-white border-t border-slate-100">
-<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row">
-<div class="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
-<div class="flex items-center gap-4 mb-8">
-<div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100">
-<span class="material-symbols-outlined text-[#0F4C5C]" style="">groups</span>
-</div>
-<h3 class="text-4xl font-bold text-[#0F4C5C]" style="">Training / Workshops</h3>
-</div>
-<p class="text-xl text-slate-500 mb-12 leading-relaxed" style="">Unsere Workshops sind darauf ausgelegt, theoretische Konzepte in unmittelbare geschäftliche Vorteile zu verwandeln.</p>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-<div>
-<span class="material-symbols-outlined text-[#0F4C5C] text-3xl mb-4" style="">handshake</span>
-<h4 class="font-bold text-[#0F4C5C] mb-2" style="">Alignment von Teams</h4>
-<p class="text-sm text-slate-500" style="">Synchronisation aller Stakeholder für ein gemeinsames Zielbild.</p>
-</div>
-<div>
-<span class="material-symbols-outlined text-[#0F4C5C] text-3xl mb-4" style="">construction</span>
-<h4 class="font-bold text-[#0F4C5C] mb-2" style="">Praxisnahe Umsetzung</h4>
-<p class="text-sm text-slate-500" style="">Fokus auf anwendbare Techniken statt grauer Theorie.</p>
-</div>
-<div class="sm:col-span-2">
-<span class="material-symbols-outlined text-[#0F4C5C] text-3xl mb-4" style="">support_agent</span>
-<h4 class="font-bold text-[#0F4C5C] mb-2" style="">Beratung / Begleitung</h4>
-<p class="text-sm text-slate-500" style="">Kontinuierliche Unterstützung während des gesamten Prozesses.</p>
-</div>
-</div>
-</div>
-<div class="lg:w-1/2 relative min-h-[500px]">
-<img alt="Workshop Workbench" class="absolute inset-0 w-full h-full object-cover" src="https://images.pexels.com/photos/15189552/pexels-photo-15189552.jpeg" style="">
-<div class="absolute inset-0 bg-[#0F4C5C]/10"></div>
-</div>
-</div>
+      <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container text-sm text-on-surface-variant border border-surface-variant">
+        <span class="material-symbols-outlined text-base text-primary">touch_app</span>
+        <span>Klicken Sie auf eine Karte, um Details zu sehen</span>
+      </div>
+    </div>
+
+    <div id="services-flip-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="service-card cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+        <div class="service-card-inner">
+          <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
+            <div class="h-52 overflow-hidden bg-surface-container">
+              <img
+                src="assets/images/leistungen/diagnose-card.png"
+                alt="Diagnose und Readiness Assessment"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
+              <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
+                <span class="material-symbols-outlined">analytics</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-3">Diagnose & Readiness Assessment</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                KI-gestützte Analyse Ihrer Marktbereitschaft, organisatorischen Eignung,
+                Entscheidungsstrukturen sowie regulatorischen und kulturellen Ausgangslage.
+              </p>
+              <div class="mt-auto pt-6 flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-widest text-secondary">Mehr erfahren</span>
+                <span class="material-symbols-outlined text-primary">autorenew</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-face service-card-back bg-primary text-white border border-primary shadow-xl">
+            <div class="p-8 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white">
+                  <span class="material-symbols-outlined">analytics</span>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-white/70">Zurück drehen</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-5">Diagnose & Readiness Assessment</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-white/85 list-disc pl-5">
+                <li>Analyse entlang zentraler Readiness-Dimensionen.</li>
+                <li>Identifikation operativer Risiken und Verbesserungspotenziale.</li>
+                <li>Bewertung von Markt, Organisation, Compliance und Kommunikation.</li>
+                <li>Klare Grundlage für Entscheidungen vor dem Markteintritt.</li>
+              </ul>
+              <div class="mt-auto pt-6 text-xs font-semibold uppercase tracking-widest text-white/70">
+                Karte erneut klicken
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+        <div class="service-card-inner">
+          <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
+            <div class="h-52 overflow-hidden bg-surface-container">
+              <img
+                src="https://placehold.co/1200x800/eef2f4/0f4c5c?text=Umsetzungsplan"
+                alt="Handlungsempfehlungen und Umsetzungsplan"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
+              <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
+                <span class="material-symbols-outlined">task_alt</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-3">Handlungsempfehlungen & Umsetzungsplan</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                Aus den Analyseergebnissen entstehen strukturierte Empfehlungen und
+                priorisierte nächste Schritte für die operative Umsetzung.
+              </p>
+              <div class="mt-auto pt-6 flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-widest text-secondary">Mehr erfahren</span>
+                <span class="material-symbols-outlined text-primary">autorenew</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-face service-card-back bg-primary text-white border border-primary shadow-xl">
+            <div class="p-8 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white">
+                  <span class="material-symbols-outlined">task_alt</span>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-white/70">Zurück drehen</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-5">Handlungsempfehlungen & Umsetzungsplan</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-white/85 list-disc pl-5">
+                <li>Übersicht über Stärken, Schwächen und Risiken.</li>
+                <li>Priorisierte Empfehlungen statt allgemeiner Theorie.</li>
+                <li>Klare Roadmap für operative Entscheidungen.</li>
+                <li>Strukturierte Grundlage für interne Abstimmung und Umsetzung.</li>
+              </ul>
+              <div class="mt-auto pt-6 text-xs font-semibold uppercase tracking-widest text-white/70">
+                Karte erneut klicken
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+        <div class="service-card-inner">
+          <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
+            <div class="h-52 overflow-hidden bg-surface-container">
+              <img
+                src="assets/images/leistungen/workshop.jpeg"
+                alt="Beratung, Workshops und Alignment"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
+              <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
+                <span class="material-symbols-outlined">groups</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-3">Beratung, Workshops & Alignment</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                Individuelle Beratung, interkulturelle Trainings und Team-Workshops helfen,
+                Strategien in konkrete Maßnahmen zu überführen.
+              </p>
+              <div class="mt-auto pt-6 flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-widest text-secondary">Mehr erfahren</span>
+                <span class="material-symbols-outlined text-primary">autorenew</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-face service-card-back bg-primary text-white border border-primary shadow-xl">
+            <div class="p-8 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white">
+                  <span class="material-symbols-outlined">groups</span>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-white/70">Zurück drehen</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-5">Beratung, Workshops & Alignment</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-white/85 list-disc pl-5">
+                <li>Workshops für funktionsübergreifende Abstimmung.</li>
+                <li>Interkulturelle Trainings für Zusammenarbeit zwischen Teams.</li>
+                <li>Begleitung bei der operativen Ausrichtung vor dem Markteintritt.</li>
+                <li>Unterstützung bei der Übersetzung von Strategie in Praxis.</li>
+              </ul>
+              <div class="mt-auto pt-6 text-xs font-semibold uppercase tracking-widest text-white/70">
+                Karte erneut klicken
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+        <div class="service-card-inner">
+          <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
+            <div class="h-52 overflow-hidden bg-surface-container">
+              <img
+                src="assets/images/leistungen/analyse-result.jpg"
+                alt="KI-gestützte Zolltarifklassifizierung"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
+              <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
+                <span class="material-symbols-outlined">inventory_2</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-3">KI-gestützte Zolltarifklassifizierung</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                Unterstützung bei der Identifikation von HS-Codes, Einfuhrabgaben
+                und relevanten Vorteilen aus Handelsabkommen.
+              </p>
+              <div class="mt-auto pt-6 flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-widest text-secondary">Mehr erfahren</span>
+                <span class="material-symbols-outlined text-primary">autorenew</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-face service-card-back bg-primary text-white border border-primary shadow-xl">
+            <div class="p-8 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white">
+                  <span class="material-symbols-outlined">inventory_2</span>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-white/70">Zurück drehen</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-5">KI-gestützte Zolltarifklassifizierung</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-white/85 list-disc pl-5">
+                <li>Unterstützung bei der Zuordnung passender HS-Codes.</li>
+                <li>Einschätzung potenzieller Einfuhrabgaben.</li>
+                <li>Berücksichtigung bestehender Handelsabkommen.</li>
+                <li>Reduzierung von Risiken durch Fehlklassifizierungen.</li>
+              </ul>
+              <div class="mt-auto pt-6 text-xs font-semibold uppercase tracking-widest text-white/70">
+                Karte erneut klicken
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card cursor-pointer md:col-span-2 xl:col-span-2" tabindex="0" role="button" aria-expanded="false">
+        <div class="service-card-inner">
+          <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
+            <div class="h-52 overflow-hidden bg-surface-container">
+              <img
+                src="https://placehold.co/1200x800/eef2f4/0f4c5c?text=Dokumente+%26+Compliance"
+                alt="Dokumentenprüfung, Compliance und Integration"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
+              <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
+                <span class="material-symbols-outlined">fact_check</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-3">Dokumentenprüfung, Compliance &amp; Integration</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                Automatisierte Dokumentenverarbeitung, regulatorische Vorabprüfung
+                und technische Integration in bestehende Unternehmenssysteme.
+              </p>
+              <div class="mt-auto pt-6 flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-widest text-secondary">Mehr erfahren</span>
+                <span class="material-symbols-outlined text-primary">autorenew</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-face service-card-back bg-primary text-white border border-primary shadow-xl">
+            <div class="p-8 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white">
+                  <span class="material-symbols-outlined">fact_check</span>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-white/70">Zurück drehen</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-5">Dokumentenprüfung, Compliance & Integration</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-white/85 list-disc pl-5">
+                <li>Verarbeitung von Rechnungen, Packlisten, und Zollerklärungen.</li>
+                <li>Prüfung länderspezifischer Vorschriften, Kennzeichnung und Zertifizierungsanforderungen.</li>
+                <li>Reduzierung von manueller Erfassung und Compliance-Risiken.</li>
+                <li>Anbindung an ERP- und Logistiksysteme für skalierbare Prozesse.</li>
+              </ul>
+              <div class="mt-auto pt-6 text-xs font-semibold uppercase tracking-widest text-white/70">
+                Karte erneut klicken
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
     <!-- CTA Buttons -->
@@ -370,7 +579,7 @@
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="font-black text-[#0F4C5C] text-xl" style="">Iteras</div>
+<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
 <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
 <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
@@ -424,5 +633,40 @@ if (menuBtn && mobileMenu) {
   });
 }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".service-card");
 
+    function closeAllCards() {
+      cards.forEach((card) => {
+        card.classList.remove("is-flipped");
+        card.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    cards.forEach((card) => {
+      function toggleCard() {
+        const isOpen = card.classList.contains("is-flipped");
+        closeAllCards();
+        if (!isOpen) {
+          card.classList.add("is-flipped");
+          card.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      card.addEventListener("click", toggleCard);
+
+      card.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleCard();
+        }
+        if (event.key === "Escape") {
+          card.classList.remove("is-flipped");
+          card.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  });
+</script>
 </body></html>

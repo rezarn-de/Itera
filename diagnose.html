@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Diagnose – Iteras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'secondary-fixed-dim': '#afcbd8',
+            'tertiary-fixed-dim': '#44ddc1',
+            'primary-fixed-dim': '#9acee1',
+            'on-background': '#191c1d',
+            'surface-tint': '#306576',
+            'on-tertiary': '#ffffff',
+            'surface-container': '#edeeef',
+            'surface-container-low': '#f3f4f5',
+            'on-surface': '#191c1d',
+            'background': '#f9f9fa',
+            'on-secondary-fixed': '#021f29',
+            'primary-fixed': '#b6ebfe',
+            'inverse-primary': '#9acee1',
+            'outline': '#70787c',
+            'on-secondary': '#ffffff',
+            'tertiary': '#00362d',
+            'on-tertiary-fixed-variant': '#005145',
+            'on-tertiary-container': '#23c9ae',
+            'on-primary-fixed-variant': '#114d5d',
+            'error-container': '#ffd8e4',
+            'primary-container': '#0F4C5C',
+            'inverse-on-surface': '#f0f1f2',
+            'secondary': '#48626e',
+            'on-secondary-container': '#4e6874',
+            'on-primary-fixed': '#001f28',
+            'secondary-container': '#cbe7f5',
+            'secondary-fixed': '#cbe7f5',
+            'surface-dim': '#d9dadb',
+            'surface-bright': '#f9f9fa',
+            'surface-container-high': '#e7e8e9',
+            'on-primary-container': '#87bbce',
+            'on-surface-variant': '#40484b',
+            'on-error': '#ffffff',
+            'primary': '#003441',
+            'outline-variant': '#c0c8cb',
+            'on-error-container': '#93000a',
+            'on-secondary-fixed-variant': '#304a55',
+            'surface-container-lowest': '#ffffff',
+            'inverse-surface': '#2e3132',
+            'surface-container-highest': '#e1e2e4',
+            'error': '#ba1a1a',
+            'surface': '#f9f9fa',
+            'tertiary-container': '#004f43',
+            'on-tertiary-fixed': '#00201a',
+            'tertiary-fixed': '#68fadd',
+            'surface-variant': '#e1e2e4',
+            'on-primary': '#ffffff'
+          },
+          fontFamily: {
+            headline: ['Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            label: ['Inter', 'sans-serif']
+          },
+          borderRadius: {
+            DEFAULT: '0.125rem',
+            lg: '0.25rem',
+            xl: '0.5rem',
+            full: '0.75rem'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    body { font-family: 'Inter', sans-serif; background-color: #f9f9fa; }
+    .glass-header { background-color: rgba(249, 249, 250, 0.8); backdrop-filter: blur(20px); }
+    #sidebar { transition: transform 0.3s ease; }
+    #sidebar-overlay { transition: opacity 0.3s ease; }
+    @media (max-width: 767px) {
+      #sidebar { transform: translateX(-100%); }
+      #sidebar.open { transform: translateX(0); }
+      #sidebar-overlay { display: block; opacity: 0; pointer-events: none; }
+      #sidebar-overlay.open { opacity: 1; pointer-events: auto; }
+      main { margin-left: 0 !important; }
+    }
+    .progress-bar { height: 4px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #0F4C5C; border-radius: 99px; transition: width .4s ease; }
+    .scale-table th, .scale-table td { padding: 10px 12px; }
+    .scale-table tr:nth-child(even) { background: #f8fafc; }
+    .radio-opt:has(input:checked), .check-opt:has(input:checked) { background: #CBE7F5; border-color: #0F4C5C; }
+    .result-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+    .score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; }
+    .risk-hoch { background: #fee2e2; color: #991b1b; }
+    .risk-mittel { background: #fef9c3; color: #854d0e; }
+    .risk-niedrig { background: #dcfce7; color: #166534; }
+    .iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }
+  </style>
+</head>
+<body class="text-on-background">
+
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+<aside id="sidebar" class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col gap-2 p-6 z-40">
+  <div class="mb-10 px-2">
+    <a href="german_dashboard.html"><h1 class="iteras-logo text-[1.35rem] text-0F4C5C">Iteras</h1></a>
+    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client-Portal</p>
+  </div>
+
+  <nav class="flex-1 flex flex-col gap-2">
+    <a href="german_dashboard.html#dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">dashboard</span>
+      <span>Dashboard</span>
+    </a>
+    <a href="german_dashboard.html#analyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">monitoring</span>
+      <span>Analyse</span>
+    </a>
+    <a href="diagnose.html" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-white text-[#0F4C5C] shadow-sm rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">assignment</span>
+      <span>Diagnose</span>
+    </a>
+    <a href="german_dashboard.html#workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">school</span>
+      <span>Workshops & Trainings</span>
+    </a>
+    <a href="german_dashboard.html#framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">description</span>
+      <span>Framework</span>
+    </a>
+    <a href="german_dashboard.html#zollanalyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">toll</span>
+      <span>Zollanalyse</span>
+    </a>
+    <a href="german_dashboard.html#settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
+      <span class="material-symbols-outlined">settings</span>
+      <span>Einstellungen</span>
+    </a>
+  </nav>
+
+  <div class="mt-auto pt-6 border-t border-slate-200/50">
+    <a href="german_dashboard.html#diagnose"
+   data-open-section="diagnose"
+   class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white shadow-sm border border-slate-200 text-xs font-bold text-[#0F4C5C] transition-all hover:bg-surface-container-low active:scale-[0.98]">
+      <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+        Back
+    </a>
+  </div>
+</aside>
+
+<main class="md:ml-64 min-h-screen bg-background flex-1 flex flex-col">
+  <header class="glass-header sticky top-0 z-30 px-4 md:px-12 py-4 md:py-6 flex justify-between items-center gap-3 border-b border-slate-200/60">
+    <div class="flex items-center gap-3">
+      <button id="sidebar-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors flex-shrink-0" aria-label="Menü öffnen">
+        <span id="burger-icon" class="material-symbols-outlined text-primary">menu</span>
+      </button>
+      <div>
+        <h2 class="text-lg md:text-2xl font-bold tracking-tight text-primary">Diagnose</h2>
+        <p class="text-xs md:text-sm text-on-surface-variant opacity-70 hidden sm:block">Fragebogen, Dimensionen und erste Bewertung</p>
+      </div>
+    </div>
+    <div id="step-indicator" class="text-xs text-slate-400 font-medium hidden md:block"></div>
+  </header>
+
+<main class="flex-1 flex flex-col min-h-screen">
+  <div class="flex-1 px-4 md:px-12 py-8 max-w-3xl w-full mx-auto">
+
+    <!-- Progress -->
+    <div class="progress-bar mb-6">
+      <div class="progress-fill" id="progress-fill" style="width:14%"></div>
+    </div>
+
+    <!-- Section title -->
+    <div id="section-header" class="mb-6"></div>
+
+    <!-- Form area -->
+    <div id="form-area" class="space-y-5"></div>
+
+    <!-- Results area (hidden until submitted) -->
+    <div id="results-area" class="hidden space-y-6"></div>
+
+    <!-- Navigation -->
+    <div id="nav-buttons" class="flex justify-between gap-3 mt-8">
+      <button id="prev-btn" class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-700 text-sm font-medium disabled:opacity-40" disabled>Zurück</button>
+      <button id="next-btn" class="px-5 py-2.5 rounded-xl bg-[#0F4C5C] text-white text-sm font-medium">Weiter</button>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const sidebarToggle = document.getElementById('sidebar-toggle')
+const sidebar = document.getElementById('sidebar')
+const sidebarOverlay = document.getElementById('sidebar-overlay')
+const burgerIcon = document.getElementById('burger-icon')
+
+function openSidebar() {
+  sidebar.classList.add('open')
+  sidebarOverlay.classList.remove('hidden')
+  sidebarOverlay.classList.add('open')
+  burgerIcon.textContent = 'close'
+}
+function closeSidebar() {
+  sidebar.classList.remove('open')
+  sidebarOverlay.classList.remove('open')
+  burgerIcon.textContent = 'menu'
+  setTimeout(() => sidebarOverlay.classList.add('hidden'), 300)
+}
+sidebarToggle?.addEventListener('click', () => {
+  if (sidebar.classList.contains('open')) closeSidebar()
+  else openSidebar()
+})
+sidebarOverlay?.addEventListener('click', closeSidebar)
+window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeSidebar() })
+</script>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+const supabaseUrl = 'https://fhwdlgjrgdoaerjfqflb.supabase.co'
+const supabaseKey = 'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg'
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+// ── Auth guard ──────────────────────────────────────────────────────────────
+const { data: { session } } = await supabase.auth.getSession()
+if (!session) { window.location.href = 'anmelden.html' }
+
+document.getElementById('logout-button')?.addEventListener('click', async () => {
+  await supabase.auth.signOut()
+  window.location.href = 'anmelden.html'
+})
+
+supabase.auth.onAuthStateChange((_, s) => { if (!s) window.location.href = 'anmelden.html' })
+
+// ── Survey data ──────────────────────────────────────────────────────────────
+const SCALE_LABELS = ['Stimme überhaupt nicht zu','Stimme nicht zu','Teilweise zutreffend / unklar','Stimme zu','Stimme voll zu']
+
+const SECTIONS = [
+  {
+    key: 'company_profile',
+    title: 'Unternehmensprofil',
+    icon: 'business',
+    desc: 'Grundlegende Informationen zu Ihrem Unternehmen und Ihrer Markteintrittsinitiative.',
+    questions: [
+      { k:'company_name', t:'text', label:'Wie lautet der Name Ihres Unternehmens?', required:true },
+      { k:'hq_country', t:'radio', label:'Wo hat Ihr Unternehmen seinen Hauptsitz?', required:true,
+        opts:['Deutschland','Mexiko','Brasilien','Argentinien','Chile','Kolumbien','Peru','Ecuador','Costa Rica','Sonstiges'] },
+      { k:'target_market', t:'radio', label:'In welchen Markt treten Sie ein bzw. mit welchem Markt arbeiten Sie zusammen?', required:true,
+        opts:['Deutschland','Mexiko','Brasilien','Argentinien','Chile','Kolumbien','Peru','Ecuador','Costa Rica','Sonstiges'] },
+      { k:'industry', t:'radio', label:'Welche Branche beschreibt Ihr Unternehmen am besten?', required:true,
+        opts:['Produktion / industrielle Fertigung','Automobil / Mobilität','Logistik / Lieferkette','Energie / Umwelt','Technologie / Software / IT','Gesundheitswesen / Medizin','Konsumgüter / Einzelhandel','Lebensmittel / Landwirtschaft','Beratung / professionelle Dienstleistungen','Sonstiges'] },
+      { k:'employees', t:'radio', label:'Wie viele Mitarbeitende hat Ihr Unternehmen?', required:true,
+        opts:['1–9','10–49','50–249','250–999','1000+'] },
+      { k:'intl_exp', t:'radio', label:'Wie viel Erfahrung hat Ihr Unternehmen bereits im internationalen Geschäft?', required:true,
+        opts:['Keine','Begrenzte Erfahrung in einem ausländischen Markt','Mittlere Erfahrung in mehreren Märkten','Umfangreiche internationale Erfahrung'] },
+      { k:'phase', t:'radio', label:'Was beschreibt Ihre aktuelle Phase in diesem Markt am besten?', required:true,
+        opts:['Markt sondieren','Markteintritt vorbereiten','Aktuell im Markteintritt','Bereits tätig, aber mit Schwierigkeiten','Bestehende Aktivitäten ausbauen'] },
+      { k:'collab', t:'radio', label:'Was ist Ihre wichtigste geplante oder aktuelle Form der grenzüberschreitenden Zusammenarbeit?', required:true,
+        opts:['Export / Vertrieb aus dem Heimatmarkt','Distributor / Vertriebspartner','Lieferant / operativer Partner','Joint Venture / strategische Allianz','Lokale Tochtergesellschaft / Niederlassung','Grenzüberschreitende Dienstleistung','Noch nicht definiert'] },
+      { k:'goals', t:'checkbox', label:'Was sind Ihre wichtigsten Ziele im Zielmarkt?', required:true,
+        opts:['Kundengewinnung','Vertriebspartner finden','Lieferkettenbeziehungen aufbauen','Beschaffung von Materialien oder Komponenten','Lokale Aktivitäten aufbauen','Lokale Mitarbeitende einstellen','Marktnachfrage testen','Bestehende Partnerschaften ausbauen','Sonstiges'] },
+      { k:'main_challenge', t:'textarea', label:'Was ist derzeit die größte Herausforderung beim Eintritt oder bei der Tätigkeit im Zielmarkt?', required:true }
+    ]
+  },
+  {
+    key: 'market_fit',
+    title: 'Marktreife',
+    icon: 'store',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 (Stimme überhaupt nicht zu) bis 5 (Stimme voll zu).',
+    scale: [
+      'Wir haben unsere Ziele für den Markteintritt klar definiert.',
+      'Wir verstehen die Kundenbedürfnisse und Geschäftserwartungen im Zielmarkt.',
+      'Wir haben die wichtigsten Wettbewerber oder alternativen Anbieter im Zielmarkt identifiziert.',
+      'Wir verstehen, wie Geschäfte in diesem Markt typischerweise initiiert und entwickelt werden.',
+      'Wir haben einen realistischen Markteintrittsplan mit konkreten Prioritäten und Meilensteinen.',
+      'Wir wissen, welche lokalen Partner, Distributoren, Lieferanten oder Institutionen für den Erfolg wichtig sein könnten.',
+      'Wir haben die wichtigsten kommerziellen Risiken beim Eintritt in diesen Markt bewertet.',
+      'Unser Produkt- oder Dienstleistungsangebot ist an die lokalen Marktbedingungen angepasst oder kann angepasst werden.'
+    ],
+    questions: [
+      { k:'market_knowledge', t:'radio', label:'Wie würden Sie Ihr aktuelles Wissen über den Zielmarkt beschreiben?', required:true,
+        opts:['Sehr begrenzt','Grundlegend','Mittel','Gut','Sehr gut'] },
+      { k:'market_need', t:'textarea', label:'Was müssen Sie über den Zielmarkt noch besser verstehen?', required:true }
+    ]
+  },
+  {
+    key: 'org_fit',
+    title: 'Organisatorische Passung',
+    icon: 'account_tree',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    scale: [
+      'Wir haben klare interne Verantwortlichkeiten für diesen Markt oder diese Kooperationsinitiative festgelegt.',
+      'Die beteiligten Teams verstehen ihre Rollen im internationalen Kooperationsprozess.',
+      'Wir verfügen über ausreichende interne Ressourcen (Zeit, Personal, Budget), um diese Initiative angemessen zu unterstützen.',
+      'Unsere technischen, kommerziellen und Management-Teams sind hinsichtlich der Prioritäten abgestimmt.',
+      'Wir können bei internationalen Aktivitäten effizient abteilungsübergreifend koordinieren.',
+      'Wir können flexibel reagieren, wenn lokale Marktbedingungen Anpassungen erfordern.',
+      'Wir verfügen über die internen Fähigkeiten, die für diesen Markteintritt oder diese Zusammenarbeit erforderlich sind.',
+      'Die Initiative wird stark vom Top-Management unterstützt.'
+    ],
+    questions: [
+      { k:'org_challenge', t:'radio', label:'Welcher interne Bereich stellt derzeit die größte Herausforderung für die internationale Zusammenarbeit dar?', required:true,
+        opts:['Vertrieb / Geschäftsentwicklung','Betrieb / Lieferkette','Abstimmung im Management','Recht / Compliance','Finanzen','HR / Personal','Kommunikation zwischen Teams','Keine wesentliche interne Herausforderung identifiziert'] },
+      { k:'org_gap', t:'textarea', label:'Wo zeigen sich interne Fehlabstimmungen oder Engpässe derzeit am deutlichsten?', required:true }
+    ]
+  },
+  {
+    key: 'decision',
+    title: 'Entscheidungsstrukturen',
+    icon: 'hub',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    scale: [
+      'Die Verantwortlichkeiten für Entscheidungen in dieser Initiative sind klar definiert.',
+      'Operative Entscheidungen können schnell genug getroffen werden, um auf Marktanforderungen zu reagieren.',
+      'Es besteht ein gutes Gleichgewicht zwischen Kontrolle durch die Zentrale und lokaler Flexibilität.',
+      'Eskalationswege sind klar, wenn Probleme oder Konflikte auftreten.',
+      'Die für die Umsetzung verantwortlichen Personen sind ausreichend in die Entscheidungsfindung eingebunden.',
+      'Strategische Entscheidungen und operative Realitäten sind in unserem Unternehmen gut miteinander verknüpft.',
+      'Grenzüberschreitende Entscheidungen werden klar dokumentiert und kommuniziert.',
+      'Unser Unternehmen kann gegenüber Partnern ohne unnötige Verzögerung verbindliche Zusagen machen.'
+    ],
+    questions: [
+      { k:'decision_model', t:'radio', label:'Wie werden die wichtigsten Entscheidungen für diese Initiative derzeit getroffen?', required:true,
+        opts:['Hauptsächlich durch die Zentrale / das zentrale Management','Hauptsächlich durch das lokale bzw. marktorientierte Team','Gemeinsam zwischen Zentrale und lokalem Team','Informell, je nach Situation','Nicht klar definiert'] },
+      { k:'decision_issue', t:'textarea', label:'Welche Art von Entscheidungsproblem hat bisher die größten Schwierigkeiten verursacht?', required:true }
+    ]
+  },
+  {
+    key: 'regulatory',
+    title: 'Regulierung & Compliance',
+    icon: 'gavel',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    scale: [
+      'Wir verstehen die wichtigsten rechtlichen und regulatorischen Anforderungen, die für unsere Aktivitäten im Zielmarkt relevant sind.',
+      'Wir verstehen die steuerlichen, zollrechtlichen oder Import-/Export-Auswirkungen, die für unser Geschäftsmodell relevant sind.',
+      'Wir wissen, welche Zertifizierungen, Registrierungen oder formalen Genehmigungen erforderlich sein könnten.',
+      'Wir haben Zugang zu rechtlicher oder Compliance-Expertise für diesen Markt.',
+      'Wir haben die wichtigsten regulatorischen Risiken identifiziert, die den Betrieb verzögern oder blockieren könnten.',
+      'Unsere internen Prozesse sind ausreichend dokumentiert, um externe Compliance-Anforderungen zu erfüllen.',
+      'Wir sind darauf vorbereitet, Verträge, Richtlinien oder Verfahren an lokale Anforderungen anzupassen.',
+      'Wir verstehen die Compliance-Erwartungen lokaler Kunden, Partner oder Behörden.'
+    ],
+    questions: [
+      { k:'reg_readiness', t:'radio', label:'Wie würden Sie Ihre aktuelle regulatorische Vorbereitung für den Zielmarkt bewerten?', required:true,
+        opts:['Sehr gering','Gering','Mittel','Hoch','Sehr hoch'] },
+      { k:'reg_issue', t:'textarea', label:'Welches regulatorische oder Compliance-Thema verursacht in Ihrem Unternehmen die größte Unsicherheit?', required:true }
+    ]
+  },
+  {
+    key: 'culture',
+    title: 'Kultur & Kommunikation',
+    icon: 'groups',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    scale: [
+      'Wir verstehen, wie sich Kommunikationsstile zwischen unserem Unternehmen und dem Zielmarkt unterscheiden können.',
+      'Unser Team ist darauf vorbereitet, seinen Kommunikationsstil bei Bedarf anzupassen.',
+      'Wir verstehen, wie Vertrauen in diesem Markt typischerweise aufgebaut und gepflegt wird.',
+      'Uns ist bewusst, dass sich Erwartungen hinsichtlich Hierarchie, Autorität und Entscheidungsfindung unterscheiden können.',
+      'Unsere Teams sind in der Lage, Missverständnisse offen und konstruktiv zu besprechen.',
+      'Wir sind darauf vorbereitet, Unterschiede in Tempo, Nachverfolgung und Beziehungsaufbau im Geschäft zu managen.',
+      'Wir haben beteiligte Personen, die bei Bedarf Sprach- oder Kommunikationslücken überbrücken können.',
+      'Wir betrachten kulturelle Anpassung als operative Notwendigkeit und nicht nur als Soft-Skill-Thema.'
+    ],
+    questions: [
+      { k:'comm_issue', t:'radio', label:'Welches Thema stellt die größte Kommunikationsherausforderung in Ihrer grenzüberschreitenden Zusammenarbeit dar?', required:true,
+        opts:['Sprachbarrieren','Unterschiedliche Erwartungen hinsichtlich Geschwindigkeit und Nachverfolgung','Unterschiedliche Kommunikationsstile','Unterschiedliche Führungs- oder Hierarchieerwartungen','Missverständnisse zwischen technischen und geschäftlichen Teams','Mangel an Vertrauen oder Beziehungstiefe','Keine wesentliche Kommunikationsherausforderung identifiziert'] },
+      { k:'comm_mis', t:'textarea', label:'Beschreiben Sie ein wiederkehrendes Missverständnis oder eine Kommunikationsschwierigkeit, die die Zusammenarbeit beeinträchtigt.', required:true },
+      { k:'urgent_issue', t:'textarea', label:'Wenn Sie ein Problem in dieser grenzüberschreitenden Initiative sofort lösen könnten, welches wäre es?', required:true }
+    ]
+  },
+  {
+    key: 'priority',
+    title: 'Prioritäten & Abschluss',
+    icon: 'flag',
+    desc: 'Abschließende Einschätzung Ihrer aktuellen Situation.',
+    questions: [
+      { k:'critical_concern', t:'radio', label:'Welche der folgenden Optionen ist derzeit Ihre kritischste Sorge?', required:true,
+        opts:['Den Markt verstehen','Interne Teams abstimmen','Entscheidungsprozesse verbessern','Regulatorische Anforderungen managen','Kommunikation und Zusammenarbeit verbessern','Die richtigen externen Partner finden'] },
+      { k:'urgency', t:'radio', label:'Wie dringend ist Ihr Handlungsbedarf?', required:true,
+        opts:['Niedrig: wir befinden uns noch in der Sondierungsphase','Mittel: wir benötigen bald Vorbereitung','Hoch: wir stehen bereits unter operativem Druck','Kritisch: aktuelle Probleme beeinträchtigen die Geschäftsleistung'] }
+    ]
+  }
+]
+
+// ── State ──────────────────────────────────────────────────────────────────
+let stepIdx = 0
+const answers = {}
+const TOTAL = SECTIONS.length
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+const formArea     = document.getElementById('form-area')
+const sectionHdr   = document.getElementById('section-header')
+const resultArea   = document.getElementById('results-area')
+const progressFill = document.getElementById('progress-fill')
+const stepIndicator= document.getElementById('step-indicator')
+const prevBtn      = document.getElementById('prev-btn')
+const nextBtn      = document.getElementById('next-btn')
+const navBtns      = document.getElementById('nav-buttons')
+
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') }
+
+function renderSection(){
+  const sec = SECTIONS[stepIdx]
+  const pct = Math.round(((stepIdx+1)/TOTAL)*100)
+  progressFill.style.width = pct+'%'
+  stepIndicator.textContent = `Schritt ${stepIdx+1} von ${TOTAL}`
+
+  sectionHdr.innerHTML = `
+    <div class="flex items-center gap-3 mb-1">
+      <span class="material-symbols-outlined text-[#0F4C5C] text-2xl">${sec.icon}</span>
+      <div>
+        <div class="text-[10px] uppercase tracking-widest text-[#0F4C5C] font-bold">Abschnitt ${stepIdx+1} / ${TOTAL}</div>
+        <h2 class="text-xl font-bold text-slate-900">${sec.title}</h2>
+      </div>
+    </div>
+    <p class="text-sm text-slate-500">${sec.desc}</p>
+  `
+
+  let html = ''
+
+  // Scale matrix
+  if(sec.scale){
+    html += `<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="scale-table w-full text-sm">
+          <thead class="bg-slate-50 border-b border-slate-200">
+            <tr>
+              <th class="text-left text-xs font-semibold text-slate-600 w-1/2">Aussage</th>
+              ${[1,2,3,4,5].map(n=>`<th class="text-center text-xs font-bold text-[#0F4C5C] w-12">${n}</th>`).join('')}
+            </tr>
+          </thead>
+          <tbody>
+            ${sec.scale.map((stmt,i)=>{
+              const savedVal = answers[`${sec.key}_scale_${i}`]
+              return `<tr class="border-b border-slate-100">
+                <td class="text-sm text-slate-700 font-medium py-3 pr-4">${esc(stmt)}</td>
+                ${[1,2,3,4,5].map(n=>`<td class="text-center">
+                  <input type="radio" name="${sec.key}_scale_${i}" value="${n}" ${savedVal==n?'checked':''} class="w-4 h-4 accent-[#0F4C5C]">
+                </td>`).join('')}
+              </tr>`
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-between px-4 py-2 bg-slate-50 text-[10px] text-slate-400 font-medium">
+        <span>1 = Stimme überhaupt nicht zu</span><span>5 = Stimme voll zu</span>
+      </div>
+    </div>`
+  }
+
+  // Questions
+  sec.questions.forEach(q=>{
+    const saved = answers[q.k]
+    if(q.t==='text'){
+      html += `<div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <label class="block text-sm font-semibold text-slate-800 mb-3">${q.label}${q.required?'<span class="text-red-500 ml-1">*</span>':''}</label>
+        <input type="text" data-key="${q.k}" value="${esc(saved||'')}" placeholder="Ihre Antwort" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C5C]/30 focus:border-[#0F4C5C]"/>
+      </div>`
+    } else if(q.t==='textarea'){
+      html += `<div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <label class="block text-sm font-semibold text-slate-800 mb-3">${q.label}${q.required?'<span class="text-red-500 ml-1">*</span>':''}</label>
+        <textarea data-key="${q.k}" rows="4" placeholder="Ihre Antwort" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C5C]/30 focus:border-[#0F4C5C]">${esc(saved||'')}</textarea>
+      </div>`
+    } else if(q.t==='radio'){
+      html += `<div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <div class="text-sm font-semibold text-slate-800 mb-3">${q.label}${q.required?'<span class="text-red-500 ml-1">*</span>':''}</div>
+        <div class="grid gap-2">
+          ${q.opts.map(o=>`<label class="radio-opt flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-colors">
+            <input type="radio" name="${q.k}" value="${esc(o)}" ${saved===o?'checked':''} class="w-4 h-4 accent-[#0F4C5C]">
+            <span class="text-sm text-slate-700">${esc(o)}</span>
+          </label>`).join('')}
+        </div>
+      </div>`
+    } else if(q.t==='checkbox'){
+      const savedArr = saved||[]
+      html += `<div class="bg-white rounded-2xl border border-slate-200 p-5">
+        <div class="text-sm font-semibold text-slate-800 mb-3">${q.label}${q.required?'<span class="text-red-500 ml-1">*</span>':''}</div>
+        <div class="grid gap-2">
+          ${q.opts.map(o=>`<label class="check-opt flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-colors">
+            <input type="checkbox" name="${q.k}" value="${esc(o)}" ${savedArr.includes(o)?'checked':''} class="w-4 h-4 accent-[#0F4C5C] rounded">
+            <span class="text-sm text-slate-700">${esc(o)}</span>
+          </label>`).join('')}
+        </div>
+      </div>`
+    }
+  })
+
+  formArea.innerHTML = html
+  prevBtn.disabled = stepIdx===0
+  nextBtn.textContent = stepIdx===TOTAL-1 ? 'Diagnose absenden ✓' : 'Weiter'
+  nextBtn.className = stepIdx===TOTAL-1
+    ? 'px-5 py-2.5 rounded-xl bg-[#23C9AE] text-white text-sm font-bold'
+    : 'px-5 py-2.5 rounded-xl bg-[#0F4C5C] text-white text-sm font-medium'
+}
+
+function saveCurrentStep(){
+  const sec = SECTIONS[stepIdx]
+  if(sec.scale){
+    sec.scale.forEach((_,i)=>{
+      const v = document.querySelector(`input[name="${sec.key}_scale_${i}"]:checked`)?.value
+      if(v) answers[`${sec.key}_scale_${i}`] = parseInt(v)
+    })
+  }
+  sec.questions.forEach(q=>{
+    if(q.t==='text'||q.t==='textarea'){
+      const v = document.querySelector(`[data-key="${q.k}"]`)?.value?.trim()
+      if(v) answers[q.k]=v
+    } else if(q.t==='radio'){
+      const v = document.querySelector(`input[name="${q.k}"]:checked`)?.value
+      if(v) answers[q.k]=v
+    } else if(q.t==='checkbox'){
+      answers[q.k]=[...document.querySelectorAll(`input[name="${q.k}"]:checked`)].map(x=>x.value)
+    }
+  })
+}
+
+// ── Submit & Results ────────────────────────────────────────────────────────
+async function submitDiagnose(){
+  nextBtn.disabled = true
+  nextBtn.textContent = 'Wird analysiert…'
+
+  try {
+    const res = await fetch('/.netlify/functions/diagnose', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(answers)
+    })
+    const raw = await res.json()
+    if(!res.ok) throw new Error(raw.error || 'Server-Fehler')
+
+    const text = raw.candidates?.[0]?.content?.parts?.[0]?.text || ''
+    const clean = text.replace(/```json|```/g,'').trim()
+    const result = JSON.parse(clean)
+
+    // Save to Supabase
+    const { data: { user } } = await supabase.auth.getUser()
+    await supabase.from('diagnose_responses').insert({
+      user_id: user.id,
+      company_name: answers.company_name || '',
+      origin: result.origin || answers.hq_country || '',
+      target: result.target || answers.target_market || '',
+      answers: answers,
+      result: result
+    })
+
+    showResults(result)
+  } catch(e){
+    nextBtn.disabled = false
+    nextBtn.textContent = 'Erneut versuchen'
+    const err = document.createElement('div')
+    err.className = 'bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700 mt-4'
+    err.textContent = '⚠ Fehler bei der Analyse: ' + e.message
+    formArea.appendChild(err)
+  }
+}
+
+function riskClass(r){ return r==='hoch'?'risk-hoch':r==='mittel'?'risk-mittel':'risk-niedrig' }
+function scoreColor(s){ return s>=70?'#22c55e':s>=45?'#f59e0b':'#ef4444' }
+
+function showResults(r){
+  formArea.innerHTML = ''
+  sectionHdr.innerHTML = ''
+  navBtns.style.display = 'none'
+  progressFill.style.width = '100%'
+
+  const overall = r.overall_score || 0
+  const dims = r.dimensions || []
+  const actions = r.priority_actions || []
+
+  resultArea.classList.remove('hidden')
+  resultArea.innerHTML = `
+    <!-- Header card -->
+    <div class="result-card">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="score-circle" style="background:${scoreColor(overall)}22;color:${scoreColor(overall)}">${overall}</div>
+        <div class="flex-1">
+          <div class="text-xs uppercase tracking-widest text-[#0F4C5C] font-bold mb-1">Gesamtergebnis</div>
+          <div class="text-2xl font-black text-slate-900 mb-1">${esc(r.readiness_level||'')}</div>
+          <div class="text-sm text-slate-500">${esc(r.origin||'')} → ${esc(r.target||'')}</div>
+        </div>
+        <button onclick="exportResultPDF()" class="px-4 py-2 rounded-xl bg-[#0F4C5C] text-white text-sm font-medium">
+          <span class="material-symbols-outlined align-middle text-base mr-1">download</span>PDF exportieren
+        </button>
+      </div>
+    </div>
+
+    <!-- Dimensions -->
+    <div class="grid gap-4">
+      <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Dimensionen</div>
+      ${dims.map(d=>`
+        <div class="result-card">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div>
+              <div class="font-bold text-slate-900">${esc(d.name)}</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${riskClass(d.risk_level)}">${esc(d.risk_level||'')} Risiko</span>
+            </div>
+            <div class="score-circle text-lg" style="background:${scoreColor(d.score)}22;color:${scoreColor(d.score)};width:56px;height:56px">${d.score||0}</div>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2 mb-4">
+            <div style="width:${d.score||0}%;background:${scoreColor(d.score)}" class="h-2 rounded-full transition-all"></div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <div class="font-semibold text-slate-700 mb-2">Lücken identifiziert</div>
+              <ul class="space-y-1">${(d.gaps||[]).map(g=>`<li class="flex gap-2 text-slate-600"><span class="text-red-400 mt-0.5">●</span>${esc(g)}</li>`).join('')}</ul>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-700 mb-2">Empfohlene Maßnahmen</div>
+              <ul class="space-y-1">${(d.solutions||[]).map(s=>`<li class="flex gap-2 text-slate-600"><span class="text-green-500 mt-0.5">●</span>${esc(s)}</li>`).join('')}</ul>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- Priority actions -->
+    <div class="result-card">
+      <div class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#0F4C5C]">priority_high</span>
+        Top Prioritätsmaßnahmen
+      </div>
+      <ol class="space-y-3">
+        ${actions.map((a,i)=>`<li class="flex gap-3 text-sm">
+          <span class="w-7 h-7 rounded-full bg-[#0F4C5C] text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${i+1}</span>
+          <span class="text-slate-700">${esc(a)}</span>
+        </li>`).join('')}
+      </ol>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="result-card bg-[#0F4C5C]">
+      <div class="font-bold text-white mb-3 flex items-center gap-2">
+        <span class="material-symbols-outlined">lightbulb</span>
+        Empfehlung
+      </div>
+      <p class="text-sm text-white/90 leading-relaxed">${esc(r.market_entry_recommendation||'')}</p>
+    </div>
+
+    <!-- New diagnosis button -->
+    <div class="text-center">
+      <button onclick="location.reload()" class="px-6 py-3 rounded-xl bg-surface-container text-slate-700 text-sm font-medium hover:bg-surface-container-high transition-colors">
+        Neue Diagnose starten
+      </button>
+    </div>
+  `
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+
+window.exportResultPDF = () => window.print()
+
+// ── Navigation ───────────────────────────────────────────────────────────────
+prevBtn.addEventListener('click',()=>{ saveCurrentStep(); stepIdx--; renderSection(); window.scrollTo({top:0,behavior:'smooth'}) })
+nextBtn.addEventListener('click',()=>{
+  saveCurrentStep()
+  if(stepIdx < TOTAL-1){ stepIdx++; renderSection(); window.scrollTo({top:0,behavior:'smooth'}) }
+  else submitDiagnose()
+})
+
+renderSection()
+</script>
+</body>
+</html>

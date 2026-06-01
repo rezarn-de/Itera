@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Iteras | Über uns</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -77,6 +77,13 @@
     </script>
 <style>
         body { font-family: 'Inter', sans-serif; }
+        .iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -84,7 +91,144 @@
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
         }
-    
+
+.about-stage {
+    position: relative;
+    min-height: 700px;
+  }
+
+  .about-slide {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    min-height: 620px;
+    transition: all 0.65s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .about-card-shell {
+    height: 100%;
+    min-height: 620px;
+  }
+
+  .about-card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-slide.is-center {
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  .about-slide.is-left {
+    left: 2%;
+    transform: scale(0.9);
+    opacity: 0.38;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .about-slide.is-right {
+    right: 2%;
+    transform: scale(0.9);
+    opacity: 0.38;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1279px) {
+    .about-stage {
+      min-height: 680px;
+    }
+
+    .about-slide {
+      width: 46%;
+      min-height: 600px;
+    }
+
+    .about-card-shell {
+      min-height: 600px;
+    }
+
+    .about-slide.is-left {
+      left: -2%;
+    }
+
+    .about-slide.is-right {
+      right: -2%;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .about-stage {
+      min-height: 640px;
+    }
+
+    .about-slide {
+      width: 74%;
+      min-height: 560px;
+    }
+
+    .about-card-shell {
+      min-height: 560px;
+    }
+
+    .about-slide.is-left {
+      left: -22%;
+      transform: scale(0.9);
+      opacity: 0.2;
+    }
+
+    .about-slide.is-right {
+      right: -22%;
+      transform: scale(0.9);
+      opacity: 0.2;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .about-stage {
+      min-height: auto;
+    }
+
+    .about-slide {
+      position: absolute;
+      width: 100%;
+      min-height: auto;
+    }
+
+    .about-card-shell,
+    .about-card-body {
+      min-height: auto;
+      height: auto;
+    }
+
+    .about-card-body {
+      display: block;
+    }
+
+    .about-slide.is-center {
+      position: relative;
+      left: auto;
+      right: auto;
+      transform: none;
+    }
+
+    .about-slide.is-left,
+    .about-slide.is-right {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -109,7 +253,7 @@
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
       Iteras
     </a></div>
 
@@ -228,86 +372,133 @@
   <!-- Decorative Element -->
   <div class="absolute -right-20 top-20 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
 </section>
-<!-- Mission Section -->
-<section class="reveal py-20 bg-surface-container-low">
-  <div class="max-w-screen-2xl mx-auto px-6 md:px-12">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-      <!-- TEXT CARD -->
-      <div class="lg:col-span-6">
-        <div class="bg-white p-8 lg:p-10 rounded-lg shadow-sm border border-outline-variant/30 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-2xl">          
-          <!-- Icon -->
-          <div class="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-white text-2xl">flag</span>
-          </div>
-          <h2 class="text-3xl font-bold text-primary mb-6">Unsere Mission</h2>
-          <div class="space-y-4 text-on-surface-variant leading-relaxed text-base lg:text-lg">
-            <p>
-              Unsere Mission ist es, Unternehmen dabei zu unterstützen, in internationalen Märkten erfolgreich zu sein, indem wir die operativen Herausforderungen grenzüberschreitender Zusammenarbeit gezielt adressieren.
-            </p>
-            <p>
-              Wir bieten strukturierte Werkzeuge und konkrete Handlungsempfehlungen, die es Organisationen ermöglichen, Teams auszurichten, Komplexität zu bewältigen und Strategien erfolgreich umzusetzen.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- IMAGE CARD -->
-      <div class="lg:col-span-6">
-  <div class="relative h-full rounded-lg overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-2xl">
-
-    <img 
-      alt="Modern team collaboration"
-      class="w-full h-full object-cover"
-      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVyIwpnqrPYlrr_NLBsICQLyaq7EUSFtB38Q0CUotDZxFTQWKId4PfYPf76lMTqZXJ-Urj69VokZIJfM1kwHTkNV4MoFMtf1hF8YrpRlz18heRJutkueL-PHHzCZpCG1G0uA8mhqO_XWfKRfp3YUVDy3q6zHxr-Vi5Ap0ic3wcZscFFjTbjCrfI25XQ9mfB-MP-AHIh73lKUlZfYgYheIbUab-ddqcyj3ZwB2XBvt6MAbbnkuS4wXxE3VI-7IrvYZpnG0FNG8KE5GN"
-    />
-
-    <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-
-    <div class="absolute bottom-6 left-6 right-6 glass-effect p-5 rounded-xl border border-white/20">
-      <p class="text-primary font-medium italic text-sm lg:text-base">
-        "Innovation kennt keine Grenzen, wenn die richtigen Partner zusammenkommen."
+<!-- Mission Vision Purpose Section -->
+<section class="reveal py-24 bg-surface-container-low overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-3xl md:text-4xl font-black text-primary mb-6">
+        Mission, Purpose & Vision
+      </h2>
+      <p class="text-lg text-on-surface-variant leading-relaxed">
+        Drei Perspektiven, die beschreiben, warum wir Iteras aufbauen und wie wir
+        internationale Zusammenarbeit wirksamer gestalten wollen.
       </p>
     </div>
-  			</div>
-		</div>
+
+    <div class="relative">
+      <button
+        id="about-prev"
+        class="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border border-surface-variant shadow-lg flex items-center justify-center text-primary hover:bg-surface transition"
+        aria-label="Vorherige Karte"
+      >
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+
+      <button
+        id="about-next"
+        class="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border border-surface-variant shadow-lg flex items-center justify-center text-primary hover:bg-surface transition"
+        aria-label="Nächste Karte"
+      >
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+
+      <div class="about-stage">
+
+        <!-- Mission -->
+        <article class="about-slide" data-index="0">
+          <div class="about-card-shell rounded-3xl bg-white border border-surface-variant shadow-xl overflow-hidden">
+            <div class="about-card-body p-8 md:p-10">
+              <div class="w-14 h-14 rounded-2xl bg-[#19839e] text-white flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined">flag</span>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-widest text-secondary mb-3">
+                Unsere Mission
+              </p>
+
+              <h3 class="text-2xl md:text-3xl font-black text-primary leading-tight mb-6">
+                Internationale Zusammenarbeit operativ wirksam machen
+              </h3>
+
+              <div class="space-y-5 text-base md:text-lg text-on-surface-variant leading-relaxed">
+                <p>
+                  Unsere Mission ist es, Unternehmen dabei zu unterstützen, in internationalen Märkten erfolgreich zu sein, indem wir die operativen Herausforderungen grenzüberschreitender Zusammenarbeit gezielt adressieren.
+                </p>
+
+                <p>
+                  Wir bieten strukturierte Werkzeuge und konkrete Handlungsempfehlungen, die es Organisationen ermöglichen, Teams auszurichten, Komplexität zu bewältigen und Strategien erfolgreich umzusetzen.
+                </p>
+
+                <blockquote class="border-l-4 border-primary-container pl-5 italic text-primary font-medium mt-auto">
+                  "Innovation kennt keine Grenzen, wenn die richtigen Partner zusammenkommen."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Purpose -->
+        <article class="about-slide" data-index="1">
+          <div class="about-card-shell rounded-3xl bg-white border border-surface-variant shadow-xl overflow-hidden">
+            <div class="about-card-body p-8 md:p-10">
+              <div class="w-14 h-14 rounded-2xl bg-[#19839e] text-white flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined">track_changes</span>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-widest text-secondary mb-3">
+                Unser Purpose
+              </p>
+
+              <h3 class="text-2xl md:text-3xl font-black text-primary leading-tight mb-6">
+                Die Lücke zwischen Strategie und Umsetzung schließen
+              </h3>
+
+              <div class="space-y-5 text-base md:text-lg text-on-surface-variant leading-relaxed">
+                <p>
+                  Unser Ziel ist es, die Lücke zwischen Strategie und operativer Umsetzung im internationalen Geschäft zu schließen. Wir wollen Reibungsverluste in der internationalen Zusammenarbeit reduzieren und effizientere, transparentere sowie nachhaltigere Partnerschaften zwischen Deutschland und Lateinamerika ermöglichen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vision -->
+        <article class="about-slide" data-index="2">
+          <div class="about-card-shell rounded-3xl bg-white border border-surface-variant shadow-xl overflow-hidden">
+            <div class="about-card-body p-8 md:p-10">
+              <div class="w-14 h-14 rounded-2xl bg-[#19839e] text-white flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined">visibility</span>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-widest text-secondary mb-3">
+                Unsere Vision
+              </p>
+
+              <h3 class="text-2xl md:text-3xl font-black text-primary leading-tight mb-6">
+                Eine führende Plattform für operative Exzellenz
+              </h3>
+
+              <div class="space-y-5 text-base md:text-lg text-on-surface-variant leading-relaxed">
+                <p>
+                  Unsere Vision ist es, eine führende Plattform für operative Exzellenz im internationalen Geschäft zu werden. Wir möchten die Art und Weise verändern, wie Unternehmen über Grenzen hinweg zusammenarbeiten, indem wir internationale Partnerschaften effizienter, besser abgestimmt und nachhaltiger gestalten.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="flex justify-center gap-3 mt-8">
+        <button class="about-dot w-3 h-3 rounded-full bg-primary transition-all" data-index="0" aria-label="Mission anzeigen"></button>
+        <button class="about-dot w-3 h-3 rounded-full bg-surface-variant transition-all" data-index="1" aria-label="Purpose anzeigen"></button>
+        <button class="about-dot w-3 h-3 rounded-full bg-surface-variant transition-all" data-index="2" aria-label="Vision anzeigen"></button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Purpose & Vision -->
-<section class="reveal px-6 py-24 bg-surface-container-low">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
-      
-      <!-- Purpose -->
-	<div class="md:col-span-6 bg-primary-container text-white p-10 lg:p-12 rounded-lg shadow-xl relative overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-2xl">
-        <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-        <div class="relative z-10">
-          <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8">
-            <span class="material-symbols-outlined text-white text-3xl">target</span>
-          </div>
-          <h3 class="text-3xl font-bold mb-6">Unser Purpose</h3>
-          <p class="text-base lg:text-lg text-on-primary-container leading-relaxed">
-            Unser Ziel ist es, die Lücke zwischen Strategie und operativer Umsetzung im internationalen Geschäft zu schließen. Wir wollen Reibungsverluste in der internationalen Zusammenarbeit reduzieren und effizientere, transparentere sowie nachhaltigere Partnerschaften zwischen Deutschland und Lateinamerika ermöglichen.
-          </p>
-        </div>
-      </div>
-
-      <!-- Vision -->
-		<div class="md:col-span-6 bg-white p-10 lg:p-12 rounded-lg shadow-sm border border-outline-variant flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl">
-        <div>
-          <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mb-8">
-            <span class="material-symbols-outlined text-white text-3xl">visibility</span>
-          </div>
-          <h3 class="text-3xl font-bold text-primary mb-6">Unsere Vision</h3>
-          <p class="text-base lg:text-lg text-on-surface-variant leading-relaxed">
-            Unsere Vision ist es, eine führende Plattform für operative Exzellenz im internationalen Geschäft zu werden. Wir möchten die Art und Weise verändern, wie Unternehmen über Grenzen hinweg zusammenarbeiten, indem wir internationale Partnerschaften effizienter, besser abgestimmt und nachhaltiger gestalten.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Values Section -->
+<!-- Was uns auszeichnet Section -->
 <section class="reveal py-24">
 <div class="max-w-screen-2xl mx-auto px-6 md:px-12">
 <div class="text-center mb-16">
@@ -372,7 +563,7 @@
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="font-black text-[#0F4C5C] text-xl" style="">Iteras</div>
+<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
 <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
 <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
@@ -426,5 +617,67 @@ if (menuBtn && mobileMenu) {
   });
 }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = Array.from(document.querySelectorAll(".about-slide"));
+    const prevBtn = document.getElementById("about-prev");
+    const nextBtn = document.getElementById("about-next");
+    const dots = Array.from(document.querySelectorAll(".about-dot"));
 
+    if (!slides.length || !prevBtn || !nextBtn || !dots.length) return;
+
+    let current = 0;
+
+    function updateCarousel() {
+      const total = slides.length;
+      const prev = (current - 1 + total) % total;
+      const next = (current + 1) % total;
+
+      slides.forEach((slide, index) => {
+        slide.classList.remove("is-left", "is-center", "is-right");
+
+        if (index === current) {
+          slide.classList.add("is-center");
+        } else if (index === prev) {
+          slide.classList.add("is-left");
+        } else if (index === next) {
+          slide.classList.add("is-right");
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("bg-primary", index === current);
+        dot.classList.toggle("bg-surface-variant", index !== current);
+      });
+    }
+
+    prevBtn.addEventListener("click", function () {
+      current = (current - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", function () {
+      current = (current + 1) % slides.length;
+      updateCarousel();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", function () {
+        current = index;
+        updateCarousel();
+      });
+    });
+
+    slides.forEach((slide, index) => {
+      slide.addEventListener("click", function () {
+        if (index !== current) {
+          current = index;
+          updateCarousel();
+        }
+      });
+    });
+
+    updateCarousel();
+  });
+</script>
 </body></html>

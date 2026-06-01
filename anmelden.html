@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Iteras | Anmelden</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <script>
     tailwind.config = {
@@ -82,12 +82,19 @@
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
     body { font-family: 'Inter', sans-serif; }
+    .iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }
   </style>
 </head>
 <body class="bg-surface text-on-surface min-h-screen flex flex-col">
   <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
     <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
-      <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">Iteras</a></div>
+      <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">Iteras</a></div>
 
       <div class="hidden md:flex items-center gap-8">
         <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="leistungen.html">Leistungen</a>
@@ -212,7 +219,7 @@
 
   <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
     <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-      <div class="font-black text-[#0F4C5C] text-xl">Iteras</div>
+      <div class="iteras-logo text-[1.2rem] text-0F4C5C">Iteras</div>
       <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest text-slate-400">
         <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
         <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>

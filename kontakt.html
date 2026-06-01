@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Iteras | Kontakt</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
       tailwind.config = {
@@ -81,7 +81,74 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-    
+
+.iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }  
+
+ .qr-click-wrapper {
+    cursor: pointer;
+  }
+
+  .qr-image-frame {
+    border: 4px solid #0f5c6e;
+    border-radius: 22px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 25px rgba(15, 92, 110, 0.12);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .qr-click-wrapper:hover .qr-image-frame {
+    box-shadow: 0 14px 30px rgba(15, 92, 110, 0.18);
+    transform: translateY(-2px);
+  }
+
+  .qr-click-badge-below {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0f5c6e;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.75rem 1.15rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 25px rgba(15, 92, 110, 0.22);
+    transition: background 0.3s ease, transform 0.3s ease;
+    animation: qrPulseBelow 1.8s infinite;
+  }
+
+  .qr-click-wrapper:hover .qr-click-badge-below {
+    background: #19839e;
+    transform: translateY(-1px);
+  }
+
+  .qr-click-wrapper {
+    text-align: center;
+  }
+
+  @keyframes qrPulseBelow {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(25, 131, 158, 0.28);
+    }
+    70% {
+      transform: scale(1.04);
+      box-shadow: 0 0 0 14px rgba(25, 131, 158, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(25, 131, 158, 0);
+    }
+  }
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -106,7 +173,7 @@
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="text-2xl font-black tracking-tighter text-[#0F4C5C]" href="index.html">
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
       Iteras
     </a></div>
 
@@ -250,18 +317,28 @@
 </div>
 </div>
 </div>
-<div class="aspect-square w-full rounded-xl bg-slate-200 overflow-hidden shadow-inner border border-slate-200 relative">
-<!-- Simulated Map -->
-<div class="absolute inset-0 bg-slate-300">
-<img alt="Map Location" class="w-full h-full object-cover" data-alt="Minimalist map graphic of Osnabrück city center with clean blue and gray streets and a single teal location pin" data-location="Osnabrück" src="https://i.ibb.co/KcWNZcGw/qr-code-Flyer.png" style="">
-</div>
-<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-<div class="w-8 h-8 bg-[#0F4C5C] rounded-full border-4 border-white shadow-xl flex items-center justify-center animate-bounce">
-<div class="w-2 h-2 bg-white rounded-full"></div>
-</div>
-</div>
-</div>
-</div>
+
+<a
+  href="https://survey.academiccloud.de/f/476733?newtest=Y&lang=de"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="qr-click-wrapper group block w-full"
+  aria-label="Zur Umfrage wechseln"
+>
+  <div class="qr-image-frame">
+    <img
+      src="assets/images/kontakt/qr-umfrage.png"
+      alt="QR-Code zur Umfrage"
+      class="w-full aspect-square object-cover rounded-[18px] transition-transform duration-300 group-hover:scale-[1.02]"
+    >
+  </div>
+
+  <div class="qr-click-badge-below">
+    Scannen oder Klicken
+  </div>
+</a>
+  </div>
+
 
 <!-- Contact Form Section -->
 <div class="lg:col-span-8">
@@ -365,7 +442,7 @@
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="font-black text-[#0F4C5C] text-xl" style="">Iteras</div>
+<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
 <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
 <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>

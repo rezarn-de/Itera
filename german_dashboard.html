@@ -4,6 +4,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Iteras | Client Dashboard - German</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -84,6 +85,13 @@
             font-family: 'Inter', sans-serif;
             background-color: #f9f9fa;
         }
+        .iteras-logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            line-height: 1;
+        }
         .tonal-layering {
             background-color: #edeeef;
         }
@@ -130,13 +138,12 @@
 <aside id="sidebar" class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-950 flex flex-col gap-2 p-6 z-40">
 <div class="mb-10 px-2">
 
-<a href="german_landingpage.html">
-  <h1 class="text-lg font-bold text-[#0F4C5C] tracking-tighter">
-    Iteras
-  </h1>
+<a href="german_dashboard.html">
+  <h1 class="iteras-logo text-[1.35rem] text-0F4C5C">Iteras</h1></a>
+    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client-Portal</p>
 </a></div>
 
-<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client-Portal</p>
+
 </div>
 <nav class="flex-1 flex flex-col gap-2">
 <a data-section-link="dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-[#0F4C5C] dark:text-[#68fadd] shadow-sm rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#dashboard">
@@ -153,7 +160,7 @@
 </a>
 <a data-section-link="workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#workshops">
 <span class="material-symbols-outlined" data-icon="school">school</span>
-<span>Workshops / Trainings</span>
+<span>Workshops & Trainings</span>
 </a>
 <a data-section-link="framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#framework">
 <span class="material-symbols-outlined" data-icon="description">description</span>
@@ -182,10 +189,13 @@
 </nav>
 
 <div class="mt-auto pt-6 border-t border-slate-200/50">
-<button class="w-full py-3 px-4 rounded-lg bg-[#0F4C5C] text-white font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
-<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
-                Neue Analyse
-            </button>
+  <a href="#diagnose"
+   data-open-section="diagnose"
+   class="w-full py-3 px-4 rounded-lg bg-[#0F4C5C] text-white font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+  <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+  Neue Analyse
+</a>
+
 <div class="flex items-center gap-3 mt-6 px-2">
 <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-xs">RR</div>
 <div>
@@ -206,7 +216,7 @@
   </button>
   <div>
     <h2 id="page-title" class="text-lg md:text-2xl font-bold tracking-tight text-primary">Projektübersicht</h2>
-    <p id="page-subtitle" class="text-xs md:text-sm text-on-surface-variant opacity-70 hidden sm:block">Markteintritt &amp; industrielle Kooperation: Deutschland - Lateinamerika</p>
+    <p id="page-subtitle" class="text-xs md:text-sm text-on-surface-variant opacity-70 hidden sm:block">Markteintritt & industrielle Kooperation: Deutschland - Lateinamerika</p>
   </div>
 </div>
 
@@ -260,9 +270,9 @@
 <section class="md:col-span-8 bg-surface-container-lowest rounded-xl p-5 md:p-8 relative overflow-hidden group shadow-sm border-none">
 <div class="relative z-10">
 <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Kernziel</span>
-<h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C] max-w-2xl leading-tight">Steuerung des internationalen Markteintritts durch strategische Ausrichtung</h3>
+<h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C] max-w-2xl leading-tight">Transparenz über Bereitschaft, Risiken und nächste Schritte im Markteintritt</h3>
 <p class="text-on-surface-variant max-w-xl body-lg mb-8 leading-relaxed">
-                        Ein strukturiertes Framework, das Unternehmen hilft, den internationalen Markteintritt und industrielle Kooperationen zu verwalten und zu verbessern, indem operative, organisatorische und kulturelle Faktoren identifiziert und aufeinander abgestimmt werden.
+                        Die Plattform bündelt zentrale Informationen zum internationalen Markteintritt und macht sichtbar, wo Chancen, operative Lücken und prioritäre Handlungsfelder liegen. Auf Basis von Diagnose, Analyse und strukturierten Ergebnissen unterstützt sie Unternehmen dabei, Entscheidungen fundierter zu treffen und die Zusammenarbeit zwischen Deutschland und Lateinamerika gezielt zu steuern.
                     </p>
 <div class="flex gap-4">
 <a href="#diagnose"
@@ -285,34 +295,47 @@
 
 <!-- Analysis Progress Status -->
 <section class="md:col-span-4 bg-surface-container-low rounded-xl p-5 md:p-6 flex flex-col">
-<div class="flex justify-between items-center mb-6">
-<h4 class="text-sm font-bold text-primary uppercase tracking-wider">Aktueller Status</h4>
-<span class="text-[10px] font-bold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">IN BEARBEITUNG</span>
-</div>
-<div class="space-y-4 flex-1">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
-<p class="text-xs font-medium text-on-surface">Erarbeitung von Rahmenbedingungen und Struktur</p>
-</div>
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
-<p class="text-xs font-medium text-on-surface">Laufende qualitative Interviews mit Unternehmen</p>
-</div>
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-outline text-lg" data-icon="radio_button_unchecked">radio_button_unchecked</span>
-<p class="text-xs font-medium text-on-surface-variant">Validierung der Hauptherausforderungen und Annahmen</p>
-</div>
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-outline text-lg" data-icon="pending">pending</span>
-<p class="text-xs font-medium text-on-surface-variant">Vorbereitung eines Prototyps (Diagnoselogik + Outputs)</p>
-</div>
-</div>
-<div class="mt-6 pt-4 border-t border-outline/10">
-<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
-<div class="bg-tertiary w-[65%] h-full rounded-full"></div>
-</div>
-<p class="text-[10px] text-outline mt-2 font-bold">65% BIS ZUR PROTOTYPEN-PHASE</p>
-</div>
+  <div class="flex justify-between items-center mb-6">
+    <h4 class="text-sm font-bold text-primary uppercase tracking-wider">Aktueller Status</h4>
+    <span class="text-10px font-bold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">Live</span>
+  </div>
+
+  <div class="space-y-4 flex-1">
+    <div class="flex items-start gap-3">
+      <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+      <p class="text-xs font-medium text-on-surface">
+        Interaktive Diagnose zur Bewertung der fünf Dimensionen verfügbar
+      </p>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+      <p class="text-xs font-medium text-on-surface">
+        Analyse-Logik und Ergebnisdarstellung in der Plattform integriert
+      </p>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+      <p class="text-xs font-medium text-on-surface">
+        Handlungsempfehlungen und Prioritäten für den Markteintritt ableitbar
+      </p>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <span class="material-symbols-outlined text-outline text-lg">radio_button_unchecked</span>
+      <p class="text-xs font-medium text-on-surface-variant">
+        Nächster Ausbau: Zollanalyse und weiterführende Module
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-6 pt-4 border-t border-outline/10">
+    <div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+      <div class="bg-tertiary w-[50%] h-full rounded-full"></div>
+    </div>
+    <p class="text-10px text-outline mt-2 text-center">Plattform Grundlagen Implementiert</p>
+  </div>
 </section>
 
 <!-- The Five Dimensions Analysis -->
@@ -482,24 +505,96 @@
 
 <div id="analyse-section" data-section="analyse" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
   <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
-    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Analyse</span>
-    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Analysebereich</h3>
-    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
-      Hier können später die Ergebnisse der Diagnose, Diagramme, Interviews und Empfehlungen für den jeweiligen Kunden angezeigt werden.
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+      <div>
+        <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Analyse</span>
+        <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Analysebereich</h3>
+        <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+          Hier werden gespeicherte Diagnoseergebnisse aus Supabase geladen, damit Scores, Prioritäten und Detailergebnisse direkt im Dashboard sichtbar sind.
+        </p>
+      </div>
+      <a href="diagnose.html" class="inline-flex items-center justify-center gap-2 bg-[#0F4C5C] text-white px-5 py-3 rounded-lg font-bold text-sm shadow-lg shadow-[#0F4C5C]/20 hover:-translate-y-[1px] transition-all whitespace-nowrap">
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+        Neue Diagnose starten
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
       <div class="bg-surface-container-low rounded-xl p-6">
         <p class="text-xs font-bold text-primary uppercase">Gesamtscore</p>
-        <p class="text-4xl font-black text-[#0F4C5C] mt-3">65%</p>
+        <p id="analysis-overall-score" class="text-4xl font-black text-[#0F4C5C] mt-3">—</p>
       </div>
       <div class="bg-surface-container-low rounded-xl p-6">
         <p class="text-xs font-bold text-primary uppercase">Stärkste Dimension</p>
-        <p class="text-lg font-bold text-on-surface mt-3">Marktbereitschaft</p>
+        <p id="analysis-strongest-dimension" class="text-lg font-bold text-on-surface mt-3">Noch keine Daten</p>
       </div>
       <div class="bg-surface-container-low rounded-xl p-6">
         <p class="text-xs font-bold text-primary uppercase">Priorität</p>
-        <p class="text-lg font-bold text-on-surface mt-3">Kultur &amp; Kommunikation</p>
+        <p id="analysis-priority" class="text-lg font-bold text-on-surface mt-3">Noch keine Daten</p>
       </div>
+      <div class="bg-surface-container-low rounded-xl p-6">
+        <p class="text-xs font-bold text-primary uppercase">Letzte Diagnose</p>
+        <p id="analysis-last-update" class="text-lg font-bold text-on-surface mt-3">Noch keine Daten</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+      <section class="xl:col-span-4 bg-surface-container-low rounded-xl p-6">
+        <div class="flex items-center justify-between gap-4 mb-5">
+          <div>
+            <h4 class="text-sm font-bold text-primary uppercase tracking-wider">Verlauf</h4>
+            <p class="text-xs text-on-surface-variant mt-1">Die letzten gespeicherten Diagnosen</p>
+          </div>
+          <button id="refresh-diagnosis-history" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-outline/10 text-xs font-bold text-primary hover:bg-surface-container-lowest transition-colors" type="button">
+            <span class="material-symbols-outlined text-sm">refresh</span>
+            Aktualisieren
+          </button>
+        </div>
+        <div id="diagnosis-history-status" class="text-xs text-on-surface-variant mb-4">Lade Diagnosen ...</div>
+        <div id="diagnosis-history-list" class="space-y-3"></div>
+      </section>
+
+      <section class="xl:col-span-8 bg-surface-container-low rounded-xl p-6">
+        <div id="analysis-detail-empty" class="h-full min-h-[320px] flex flex-col items-center justify-center text-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-[#0F4C5C] text-3xl">insights</span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-on-surface">Noch keine Diagnose ausgewählt</p>
+            <p class="text-xs text-on-surface-variant mt-2 max-w-md">
+              Sobald gespeicherte Ergebnisse vorhanden sind, können Sie links einen Eintrag auswählen und die Detailergebnisse hier laden.
+            </p>
+          </div>
+        </div>
+
+        <div id="analysis-detail-panel" class="hidden">
+          <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
+            <div>
+              <p class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Ausgewählte Diagnose</p>
+              <h4 id="detail-company" class="text-2xl font-black text-[#0F4C5C] mt-2">—</h4>
+              <p id="detail-route" class="text-sm text-on-surface-variant mt-2">—</p>
+            </div>
+            <div class="bg-white rounded-xl px-5 py-4 shadow-sm border border-outline/10 min-w-[140px]">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-primary">Readiness</p>
+              <p id="detail-overall-score" class="text-3xl font-black text-[#0F4C5C] mt-2">—</p>
+              <p id="detail-readiness-level" class="text-xs text-on-surface-variant mt-1">—</p>
+            </div>
+          </div>
+
+          <div id="detail-dimension-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-outline/10">
+              <p class="text-sm font-bold text-primary mb-3">Top-Prioritäten</p>
+              <ol id="detail-priority-actions" class="space-y-3 text-sm text-on-surface"></ol>
+            </div>
+            <div class="bg-[#0F4C5C] rounded-xl p-5 shadow-sm">
+              <p class="text-sm font-bold text-white mb-3">Empfehlung</p>
+              <p id="detail-recommendation" class="text-sm text-white/90 leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 </div>
@@ -533,17 +628,11 @@
         <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Diagnose</span>
         <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Diagnose-Fragebogen</h3>
         <p class="text-on-surface-variant max-w-2xl leading-relaxed">
-          Füllen Sie den LimeSurvey-Fragebogen direkt in der Plattform aus. Die Antworten dienen als Grundlage für die Bewertung der fünf Dimensionen und die spätere Analyse.
+          Starten Sie den interaktiven Diagnose-Fragebogen. Die Antworten dienen als Grundlage für die KI-Bewertung der fünf Dimensionen und die spätere Analyse.
         </p>
       </div>
 
-      <a href="https://survey.academiccloud.de/f/311423?lang=de"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="inline-flex items-center justify-center gap-2 bg-[#0F4C5C] text-white px-5 py-3 rounded-lg font-bold text-sm shadow-lg shadow-[#0F4C5C]/20 hover:translate-y-[-1px] transition-all whitespace-nowrap">
-        <span class="material-symbols-outlined text-sm">open_in_new</span>
-        In neuem Tab öffnen
-      </a>
+      <!-- <a href="diagnose.html" class="inline-flex items-center justify-center gap-2 bg-[#0F4C5C] text-white px-5 py-3 rounded-lg font-bold text-sm shadow-lg shadow-[#0F4C5C]/20 hover:translate-y-[-1px] transition-all whitespace-nowrap"><span class="material-symbols-outlined text-sm">open_in_new</span> Diagnose starten</a> -->
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -569,24 +658,24 @@
         <div class="flex items-center gap-3">
           <span class="material-symbols-outlined text-primary">assignment</span>
           <div>
-            <p class="text-sm font-bold text-primary">LimeSurvey Diagnose</p>
-            <p class="text-xs text-on-surface-variant">Eingebettet über AcademicCloud</p>
+            <p class="text-sm font-bold text-primary">Cross-Border Readiness Diagnostic</p>
+            <p class="text-xs text-on-surface-variant">KI-gestützte Diagnose · 5 Dimensionen · ~20 Minuten</p>
           </div>
         </div>
         <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Aktiv</span>
       </div>
-
-      <iframe
-        src="https://survey.academiccloud.de/f/311423?lang=de"
-        title="Iteras Diagnose-Fragebogen"
-        class="w-full h-[720px] bg-white"
-        loading="lazy">
-      </iframe>
+      <div class="p-8 flex flex-col items-center justify-center text-center gap-4">
+        <span class="material-symbols-outlined text-[#0F4C5C] text-5xl">assignment_turned_in</span>
+        <p class="text-sm text-on-surface-variant max-w-md leading-relaxed">
+          Füllen Sie den interaktiven Fragebogen aus und erhalten Sie sofort eine KI-gestützte Bewertung Ihrer grenzüberschreitenden Bereitschaft in 5 Dimensionen.
+        </p>
+        <a href="diagnose.html"
+           class="inline-flex items-center justify-center gap-2 bg-[#0F4C5C] text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-[#0F4C5C]/20 hover:translate-y-[-1px] transition-all">
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+          Diagnose starten
+        </a>
+      </div>
     </div>
-
-    <p class="text-xs text-on-surface-variant mt-4">
-      Falls der Fragebogen nicht angezeigt wird, öffnen Sie ihn über den Button „In neuem Tab öffnen“.
-    </p>
   </section>
 </div>
 
@@ -856,13 +945,13 @@
 <footer class="w-full py-8 md:py-12 px-4 md:px-12 mt-8 md:mt-12 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/20">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
 <div class="flex flex-col items-center md:items-start">
-<span class="font-black text-[#0F4C5C] text-xl tracking-tighter">Iteras</span>
-<p class="text-slate-400 text-[10px] uppercase tracking-widest mt-2">© 2026 Iteras Solutions. Alle Rechte vorbehalten.</p>
+<span class="iteras-logo text-[1.2rem] text-0F4C5C">Iteras</span>
+<p class="text-slate-400 text-[10px] uppercase tracking-widest mt-2">© 2026 Iteras. Alle Rechte vorbehalten.</p>
 </div>
 <div class="flex gap-8">
-<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Datenschutz</a>
-<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">AGB</a>
-<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Support kontaktieren</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+<a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Support kontaktieren</a>
 <a class="text-[10px] uppercase tracking-widest text-slate-400 hover:text-[#0F4C5C] transition-colors" href="#">Weltweite Standorte</a>
 </div>
 </div>
@@ -928,7 +1017,11 @@
     document.getElementById('page-title').textContent = sectionMetadata[section].title
     document.getElementById('page-subtitle').textContent = sectionMetadata[section].subtitle
 
-    if (updateHash) {
+      if (section === 'analyse' && typeof loadDiagnosisHistory === 'function') {
+      loadDiagnosisHistory()
+    }
+
+      if (updateHash) {
       history.replaceState(null, '', `#${section}`)
     }
   }
@@ -979,6 +1072,201 @@
   if (error || !session) {
     window.location.href = 'anmelden.html'
   }
+const historyList = document.getElementById('diagnosis-history-list')
+const historyStatus = document.getElementById('diagnosis-history-status')
+const refreshHistoryBtn = document.getElementById('refresh-diagnosis-history')
+const detailEmpty = document.getElementById('analysis-detail-empty')
+const detailPanel = document.getElementById('analysis-detail-panel')
+let diagnosisHistory = []
+
+function formatDateTimeDE(value) {
+  if (!value) return '—'
+  return new Intl.DateTimeFormat('de-DE', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(new Date(value))
+}
+
+function escapeHtml(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+function getStrongestDimension(result = {}) {
+  const dims = Array.isArray(result.dimensions) ? [...result.dimensions] : []
+  return dims.sort((a, b) => (b.score || 0) - (a.score || 0))[0] || null
+}
+
+function getLowestDimension(result = {}) {
+  const dims = Array.isArray(result.dimensions) ? [...result.dimensions] : []
+  return dims.sort((a, b) => (a.score || 0) - (b.score || 0))[0] || null
+}
+
+function getRiskClasses(level = '') {
+  if (level === 'hoch') return 'bg-error-container text-on-error-container'
+  if (level === 'mittel') return 'bg-amber-100 text-amber-800'
+  return 'bg-emerald-100 text-emerald-700'
+}
+
+function updateAnalysisSummary(entry) {
+  const result = entry?.result || {}
+  const strongest = getStrongestDimension(result)
+  const lowest = getLowestDimension(result)
+
+  document.getElementById('analysis-overall-score').textContent = result.overallscore ?? '—'
+  document.getElementById('analysis-strongest-dimension').textContent = strongest?.name || 'Noch keine Daten'
+  document.getElementById('analysis-priority').textContent = lowest?.name || result.priorityactions?.[0] || 'Noch keine Daten'
+  document.getElementById('analysis-last-update').textContent = entry?.created_at ? formatDateTimeDE(entry.created_at) : 'Noch keine Daten'
+}
+
+function renderDiagnosisDetail(entry) {
+  const result = entry?.result || {}
+  const dims = Array.isArray(result.dimensions) ? result.dimensions : []
+  const actions = Array.isArray(result.priorityactions) ? result.priorityactions : []
+
+  detailEmpty.classList.add('hidden')
+  detailPanel.classList.remove('hidden')
+
+  document.getElementById('detail-company').textContent = entry.company_name || 'Diagnoseergebnis'
+  document.getElementById('detail-route').textContent =
+    `${result.origin || entry.origin || '—'} → ${result.target || entry.target || '—'} • ${formatDateTimeDE(entry.created_at)}`
+  document.getElementById('detail-overall-score').textContent = result.overallscore ?? '—'
+  document.getElementById('detail-readiness-level').textContent = result.readinesslevel || 'Keine Einordnung verfügbar'
+  document.getElementById('detail-recommendation').textContent =
+    result.marketentryrecommendation || 'Noch keine Empfehlung verfügbar.'
+
+  const dimGrid = document.getElementById('detail-dimension-grid')
+  dimGrid.innerHTML = dims.length
+    ? dims.map(dim => `
+      <div class="bg-white rounded-xl p-5 shadow-sm border border-outline/10">
+        <div class="flex items-start justify-between gap-4 mb-3">
+          <div>
+            <p class="text-sm font-bold text-on-surface">${escapeHtml(dim.name || 'Dimension')}</p>
+            <p class="text-xs text-on-surface-variant mt-1">Score ${dim.score ?? '—'}/100</p>
+          </div>
+          <span class="text-[10px] font-bold px-2 py-1 rounded-full ${getRiskClasses(dim.risklevel)}">
+            ${escapeHtml((dim.risklevel || 'niedrig').toUpperCase())}
+          </span>
+        </div>
+        <div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden mb-3">
+          <div class="h-full rounded-full bg-[#0F4C5C]" style="width:${Math.max(0, Math.min(100, Number(dim.score || 0)))}%"></div>
+        </div>
+        <p class="text-xs font-semibold text-primary mb-1">Kernlücken</p>
+        <p class="text-xs text-on-surface-variant leading-relaxed">
+          ${escapeHtml((dim.gaps || []).slice(0, 2).join(' · ') || 'Keine Lücken angegeben.')}
+        </p>
+      </div>
+    `).join('')
+    : '<div class="bg-white rounded-xl p-5 shadow-sm border border-outline/10 text-xs text-on-surface-variant">Für diese Diagnose sind noch keine Dimensionsdaten verfügbar.</div>'
+
+  const actionList = document.getElementById('detail-priority-actions')
+  actionList.innerHTML = actions.length
+    ? actions.map((action, index) => `
+      <li class="flex gap-3">
+        <span class="w-6 h-6 rounded-full bg-[#0F4C5C] text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${index + 1}</span>
+        <span>${escapeHtml(action)}</span>
+      </li>
+    `).join('')
+    : '<li class="text-xs text-on-surface-variant">Noch keine Prioritäten gespeichert.</li>'
+
+  document.querySelectorAll('[data-diagnosis-id]').forEach(el => {
+    const active = el.dataset.diagnosisId === String(entry.id)
+    el.classList.toggle('border-[#0F4C5C]', active)
+    el.classList.toggle('bg-white', active)
+    el.classList.toggle('shadow-sm', active)
+  })
+}
+
+function renderDiagnosisHistory(entries = []) {
+  diagnosisHistory = entries
+
+  if (!entries.length) {
+    historyStatus.textContent = 'Noch keine gespeicherten Diagnosen gefunden.'
+    historyList.innerHTML = `
+      <div class="rounded-xl border border-dashed border-outline/30 p-5 text-center bg-white/60">
+        <span class="material-symbols-outlined text-[#0F4C5C] text-3xl">assignment_late</span>
+        <p class="text-sm font-bold text-on-surface mt-3">Noch keine Einträge vorhanden</p>
+        <p class="text-xs text-on-surface-variant mt-2">Führen Sie zuerst eine Diagnose durch. Danach erscheint der Verlauf automatisch hier.</p>
+      </div>
+    `
+    updateAnalysisSummary(null)
+    detailPanel.classList.add('hidden')
+    detailEmpty.classList.remove('hidden')
+    return
+  }
+
+  historyStatus.textContent = `${entries.length} Diagnose${entries.length === 1 ? '' : 'n'} geladen`
+  historyList.innerHTML = entries.map(entry => {
+    const result = entry.result || {}
+    return `
+      <button data-diagnosis-id="${entry.id}" class="w-full text-left rounded-xl border border-outline/10 bg-surface-container-lowest hover:bg-white transition-colors p-4" type="button">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-sm font-bold text-on-surface">${escapeHtml(entry.company_name || 'Ohne Unternehmensname')}</p>
+            <p class="text-xs text-on-surface-variant mt-1">${escapeHtml(result.origin || entry.origin || '—')} → ${escapeHtml(result.target || entry.target || '—')}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-lg font-black text-[#0F4C5C]">${result.overallscore ?? '—'}</p>
+            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant">Score</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between gap-3 mt-3">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-tertiary">${escapeHtml(result.readinesslevel || 'Diagnose')}</span>
+          <span class="text-[11px] text-on-surface-variant">${formatDateTimeDE(entry.created_at)}</span>
+        </div>
+      </button>
+    `
+  }).join('')
+
+  historyList.querySelectorAll('[data-diagnosis-id]').forEach(button => {
+    button.addEventListener('click', () => {
+      const entry = diagnosisHistory.find(item => String(item.id) === button.dataset.diagnosisId)
+      if (entry) renderDiagnosisDetail(entry)
+    })
+  })
+
+  updateAnalysisSummary(entries[0])
+  renderDiagnosisDetail(entries[0])
+}
+
+async function loadDiagnosisHistory() {
+  if (!historyList || !historyStatus) return
+
+  historyStatus.textContent = 'Lade Diagnosen ...'
+  refreshHistoryBtn?.classList.add('opacity-70', 'pointer-events-none')
+
+  try {
+    const { data, error } = await supabase
+      .from('diagnose_responses')
+      .select('id, company_name, origin, target, result, created_at')
+      .order('created_at', { ascending: false })
+      .limit(10)
+
+    if (error) throw error
+    renderDiagnosisHistory(data || [])
+  } catch (error) {
+    historyStatus.textContent = 'Diagnosen konnten nicht geladen werden.'
+    historyList.innerHTML = `
+      <div class="rounded-xl border border-error/20 bg-error-container p-4">
+        <p class="text-sm font-bold text-on-error-container">Fehler beim Laden</p>
+        <p class="text-xs text-on-error-container/80 mt-2">${escapeHtml(error.message || 'Unbekannter Fehler')}</p>
+      </div>
+    `
+    detailPanel.classList.add('hidden')
+    detailEmpty.classList.remove('hidden')
+    updateAnalysisSummary(null)
+  } finally {
+    refreshHistoryBtn?.classList.remove('opacity-70', 'pointer-events-none')
+  }
+}
+
+  refreshHistoryBtn?.addEventListener('click', loadDiagnosisHistory)
 
   const logoutButton = document.getElementById('logout-button')
 
@@ -995,6 +1283,10 @@
       window.location.href = 'anmelden.html'
     }
   })
+
+  if ((window.location.hash || '#dashboard').replace('#', '') === 'analyse') {
+    loadDiagnosisHistory()
+  } 
 </script>
 
 <script>
@@ -1069,11 +1361,43 @@ async function runTariffAnalysis() {
     const base64 = await fileToBase64(tariffFile)
     setProgress(30, 'Produkte werden erkannt…', 'KI analysiert den Inhalt')
 
-    // Call Gemini API via Netlify Function (key stays secure on the server)
-    const response = await fetch('/.netlify/functions/gemini', {
+    // Call Claude API
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ base64, mimeType: 'application/pdf' })
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are a customs tariff classification expert. Extract all products from the provided PDF and classify each with the correct HS (Harmonized System) tariff code. Respond ONLY with a valid JSON object, no markdown, no extra text. Format:
+{
+  "products": [
+    {
+      "name": "Product name",
+      "hsCode": "XXXX.XX.XX",
+      "category": "Category name",
+      "dutyRate": "X%",
+      "confidence": "high|medium|low"
+    }
+  ],
+  "summary": {
+    "total": N,
+    "categories": N,
+    "matched": N,
+    "needsReview": N
+  }
+}
+Use standard 8-digit HS codes where possible. If a product cannot be confidently classified, set confidence to "low".`,
+        messages: [{
+          role: 'user',
+          content: [
+            {
+              type: 'document',
+              source: { type: 'base64', media_type: 'application/pdf', data: base64 }
+            },
+            { type: 'text', text: 'Please extract all products from this PDF and classify them with HS tariff codes. Return only the JSON.' }
+          ]
+        }]
+      })
     })
 
     setProgress(70, 'Tarifnummern werden zugeordnet…', 'Klassifizierungslogik läuft')
@@ -1081,10 +1405,10 @@ async function runTariffAnalysis() {
     const data = await response.json()
 
     if (!response.ok) {
-      throw new Error(data.error || 'API-Fehler vom Server')
+      throw new Error(data.error?.message || 'API-Fehler')
     }
 
-    const rawText = (data.candidates?.[0]?.content?.parts?.[0]?.text || '').trim()
+    const rawText = data.content.map(b => b.text || '').join('').trim()
     const clean = rawText.replace(/```json|```/g, '').trim()
     tariffResults = JSON.parse(clean)
 
