@@ -1,5 +1,4 @@
 // netlify/functions/gemini.js
-// Secure proxy — keeps the Gemini API key server-side via Netlify env variable
 
 exports.handler = async (event) => {
   // Only allow POST
@@ -7,28 +6,53 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) }
   }
 
-  const apiKey = process.env.GEMINI_API_KEY
+  const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINIAPIKEY
   if (!apiKey) {
     return { statusCode: 500, body: JSON.stringify({ error: 'GEMINI_API_KEY is not set in Netlify environment variables.' }) }
   }
 
-  let base64, mimeType
+  let base64, mimeType, country
   try {
-    const body = JSON.parse(event.body)
-    base64   = body.base64
+    const body = JSON.parse(event.body || '{}')
+    base64 = body.base64
     mimeType = body.mimeType || 'application/pdf'
+    country = body.country
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid request body' }) }
   }
 
-  const prompt = `You are a customs tariff classification expert. 
-The attached file is a product list (PDF). Extract ALL products from it and classify each one with the correct HS (Harmonized System) tariff code.
+  if (!base64) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'PDF data is required.' }) }
+  }
 
-Respond ONLY with a valid JSON object — no markdown, no explanation, no extra text. Use this exact format:
+  if (!country) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Country is required.' }) }
+  }
+
+  if (country !== 'MX') {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Only Mexico is supported for now.' }) }
+  }
+
+  const countryName = 'Mexico'
+
+  const prompt = `You are a customs tariff classification expert.
+The attached file is a product list (PDF). Extract ALL products from it and classify each one for the selected country: ${countryName} (${country}).
+
+Important:
+- Return the tariff code relevant to ${countryName}.
+- Also include the generic HS code when you can determine it.
+- Use the best available country-specific tariff classification for Mexico.
+- If a product cannot be confidently classified, set confidence to "low".
+- Respond ONLY with a valid JSON object — no markdown, no explanation, no extra text.
+
+Use this exact format:
 {
+  "country": "${country}",
+  "countryName": "${countryName}",
   "products": [
     {
       "name": "Product name",
+      "tariffCode": "country-specific tariff code",
       "hsCode": "XXXX.XX.XX",
       "category": "Category name",
       "dutyRate": "X%",
@@ -43,7 +67,7 @@ Respond ONLY with a valid JSON object — no markdown, no explanation, no extra 
   }
 }
 
-Use standard 8-digit HS codes where possible. If a product cannot be confidently classified, set confidence to "low".`
+If the country-specific tariff code cannot be determined with confidence, still provide the best likely result and set confidence to "low".`
 
   const requestBody = {
     contents: [

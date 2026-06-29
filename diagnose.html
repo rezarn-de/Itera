@@ -163,7 +163,7 @@
    data-open-section="diagnose"
    class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white shadow-sm border border-slate-200 text-xs font-bold text-[#0F4C5C] transition-all hover:bg-surface-container-low active:scale-[0.98]">
       <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
-        Back
+        Zurück
     </a>
   </div>
 </aside>
@@ -306,7 +306,7 @@ const SECTIONS = [
     key: 'org_fit',
     title: 'Organisatorische Passung',
     icon: 'account_tree',
-    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 (Stimme überhaupt nicht zu) bis 5 (Stimme voll zu).',
     scale: [
       'Wir haben klare interne Verantwortlichkeiten für diesen Markt oder diese Kooperationsinitiative festgelegt.',
       'Die beteiligten Teams verstehen ihre Rollen im internationalen Kooperationsprozess.',
@@ -327,7 +327,7 @@ const SECTIONS = [
     key: 'decision',
     title: 'Entscheidungsstrukturen',
     icon: 'hub',
-    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 (Stimme überhaupt nicht zu) bis 5 (Stimme voll zu).',
     scale: [
       'Die Verantwortlichkeiten für Entscheidungen in dieser Initiative sind klar definiert.',
       'Operative Entscheidungen können schnell genug getroffen werden, um auf Marktanforderungen zu reagieren.',
@@ -348,7 +348,7 @@ const SECTIONS = [
     key: 'regulatory',
     title: 'Regulierung & Compliance',
     icon: 'gavel',
-    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 (Stimme überhaupt nicht zu) bis 5 (Stimme voll zu).',
     scale: [
       'Wir verstehen die wichtigsten rechtlichen und regulatorischen Anforderungen, die für unsere Aktivitäten im Zielmarkt relevant sind.',
       'Wir verstehen die steuerlichen, zollrechtlichen oder Import-/Export-Auswirkungen, die für unser Geschäftsmodell relevant sind.',
@@ -369,7 +369,7 @@ const SECTIONS = [
     key: 'culture',
     title: 'Kultur & Kommunikation',
     icon: 'groups',
-    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 bis 5.',
+    desc: 'Bewerten Sie jede Aussage auf einer Skala von 1 (Stimme überhaupt nicht zu) bis 5 (Stimme voll zu).',
     scale: [
       'Wir verstehen, wie sich Kommunikationsstile zwischen unserem Unternehmen und dem Zielmarkt unterscheiden können.',
       'Unser Team ist darauf vorbereitet, seinen Kommunikationsstil bei Bedarf anzupassen.',
@@ -534,7 +534,20 @@ function saveCurrentStep(){
 }
 
 // ── Submit & Results ────────────────────────────────────────────────────────
+function clearDiagnoseErrors(){
+  document.querySelectorAll('.diagnose-submit-error').forEach(el => el.remove())
+}
+
+function showDiagnoseError(message){
+  clearDiagnoseErrors()
+  const err = document.createElement('div')
+  err.className = 'diagnose-submit-error bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700 mt-4'
+  err.textContent = '⚠ Fehler bei der Analyse: ' + message
+  formArea.appendChild(err)
+}
+
 async function submitDiagnose(){
+  clearDiagnoseErrors()
   nextBtn.disabled = true
   nextBtn.textContent = 'Wird analysiert…'
 
@@ -544,20 +557,26 @@ async function submitDiagnose(){
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify(answers)
     })
-    const raw = await res.json()
-    if(!res.ok) throw new Error(raw.error || 'Server-Fehler')
 
-    const text = raw.candidates?.[0]?.content?.parts?.[0]?.text || ''
-    const clean = text.replace(/```json|```/g,'').trim()
-    const result = JSON.parse(clean)
+    const raw = await res.json().catch(() => ({
+      ok: false,
+      error: 'Ungültige Server-Antwort'
+    }))
+
+    if(!res.ok || !raw.ok) throw new Error(raw.error || 'Server-Fehler')
+
+    const result = raw.result
+    if(!result || !Array.isArray(result.dimensions)) {
+      throw new Error('Analyseergebnis unvollständig')
+    }
 
     // Save to Supabase
     const { data: { user } } = await supabase.auth.getUser()
     await supabase.from('diagnose_responses').insert({
-      user_id: user.id,
-      company_name: answers.company_name || '',
-      origin: result.origin || answers.hq_country || '',
-      target: result.target || answers.target_market || '',
+      user_id: user?.id,
+      company_name: answers.companyname || answers.company_name || '',
+      origin: result.origin || answers.hqcountry || answers.hq_country || '',
+      target: result.target || answers.targetmarket || answers.target_market || '',
       answers: answers,
       result: result
     })
@@ -566,10 +585,7 @@ async function submitDiagnose(){
   } catch(e){
     nextBtn.disabled = false
     nextBtn.textContent = 'Erneut versuchen'
-    const err = document.createElement('div')
-    err.className = 'bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700 mt-4'
-    err.textContent = '⚠ Fehler bei der Analyse: ' + e.message
-    formArea.appendChild(err)
+    showDiagnoseError(e.message || 'Unbekannter Fehler')
   }
 }
 
