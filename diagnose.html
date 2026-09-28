@@ -598,9 +598,9 @@ function showResults(r){
   navBtns.style.display = 'none'
   progressFill.style.width = '100%'
 
-  const overall = r.overall_score || 0
+  const overall = r.overallscore ?? r.overall_score ?? 0
   const dims = r.dimensions || []
-  const actions = r.priority_actions || []
+  const actions = r.priorityactions ?? r.priority_actions ?? []
 
   resultArea.classList.remove('hidden')
   resultArea.innerHTML = `
@@ -610,7 +610,7 @@ function showResults(r){
         <div class="score-circle" style="background:${scoreColor(overall)}22;color:${scoreColor(overall)}">${overall}</div>
         <div class="flex-1">
           <div class="text-xs uppercase tracking-widest text-[#0F4C5C] font-bold mb-1">Gesamtergebnis</div>
-          <div class="text-2xl font-black text-slate-900 mb-1">${esc(r.readiness_level||'')}</div>
+          <div class="text-2xl font-black text-slate-900 mb-1">${esc(r.readinesslevel ?? r.readiness_level ?? '')}</div>
           <div class="text-sm text-slate-500">${esc(r.origin||'')} → ${esc(r.target||'')}</div>
         </div>
         <button onclick="exportResultPDF()" class="px-4 py-2 rounded-xl bg-[#0F4C5C] text-white text-sm font-medium">
@@ -627,7 +627,7 @@ function showResults(r){
           <div class="flex items-start justify-between gap-4 mb-4">
             <div>
               <div class="font-bold text-slate-900">${esc(d.name)}</div>
-              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${riskClass(d.risk_level)}">${esc(d.risk_level||'')} Risiko</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${riskClass(d.risklevel ?? d.risk_level)}">${esc(d.risklevel ?? d.risk_level ?? '')} Risiko</span>
             </div>
             <div class="score-circle text-lg" style="background:${scoreColor(d.score)}22;color:${scoreColor(d.score)};width:56px;height:56px">${d.score||0}</div>
           </div>
@@ -668,7 +668,7 @@ function showResults(r){
         <span class="material-symbols-outlined">lightbulb</span>
         Empfehlung
       </div>
-      <p class="text-sm text-white/90 leading-relaxed">${esc(r.market_entry_recommendation||'')}</p>
+      <p class="text-sm text-white/90 leading-relaxed">${esc(r.marketentryrecommendation ?? r.market_entry_recommendation ?? '')}</p>
     </div>
 
     <!-- New diagnosis button -->

@@ -160,11 +160,11 @@
 </a>
 <a data-section-link="workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#workshops">
 <span class="material-symbols-outlined" data-icon="school">school</span>
-<span>Workshops & Trainings</span>
+<span>Lernhaus</span>
 </a>
 <a data-section-link="framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#framework">
 <span class="material-symbols-outlined" data-icon="description">description</span>
-<span>Framework</span>
+<span>Dokumentenscanner</span>
 </a>
 <a data-section-link="zollanalyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#zollanalyse">
 <span class="material-symbols-outlined" data-icon="toll">toll</span>
@@ -215,7 +215,7 @@
     <span id="burger-icon" class="material-symbols-outlined text-primary">menu</span>
   </button>
   <div>
-    <h2 id="page-title" class="text-lg md:text-2xl font-bold tracking-tight text-primary">Projektübersicht</h2>
+    <h2 id="page-title" class="text-lg md:text-2xl font-bold tracking-tight text-primary">Alles Wichtige im Überblick</h2>
     <p id="page-subtitle" class="text-xs md:text-sm text-on-surface-variant opacity-70 hidden sm:block">Markteintritt & industrielle Kooperation: Deutschland - Lateinamerika</p>
   </div>
 </div>
@@ -268,242 +268,205 @@
 </header>
 
 <!-- Dynamic Platform Content -->
-<div id="dashboard-section" data-section="dashboard" class="platform-section px-4 md:px-12 py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-2xl">
-<!-- Project Summary & Core Idea -->
-<section class="md:col-span-8 bg-surface-container-lowest rounded-xl p-5 md:p-8 relative overflow-hidden group shadow-sm border-none">
-<div class="relative z-10">
-<span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Kernziel</span>
-<h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C] max-w-2xl leading-tight">Transparenz über Bereitschaft, Risiken und nächste Schritte im Markteintritt</h3>
-<p class="text-on-surface-variant max-w-xl body-lg mb-8 leading-relaxed">
-                        Die Plattform bündelt zentrale Informationen zum internationalen Markteintritt und macht sichtbar, wo Chancen, operative Lücken und prioritäre Handlungsfelder liegen. Auf Basis von Diagnose, Analyse und strukturierten Ergebnissen unterstützt sie Unternehmen dabei, Entscheidungen fundierter zu treffen und die Zusammenarbeit zwischen Deutschland und Lateinamerika gezielt zu steuern.
-                    </p>
-<div class="flex gap-4">
-<a href="#diagnose"
-   data-open-section="diagnose"
-   class="bg-[#0F4C5C] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all hover:translate-y-[-1px] shadow-lg shadow-[#0F4C5C]/20 inline-flex items-center gap-2">
-  <span class="material-symbols-outlined text-sm">assignment</span>
-  Diagnose-Fragebogen starten
-</a>
-<button class="text-[#0F4C5C] font-semibold text-sm flex items-center gap-2 px-4 hover:opacity-70 transition-all">
-                            Details zum Ziel ansehen
-                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-<div class="absolute right-[-5%] bottom-[-5%] w-64 h-64 bg-tertiary-fixed/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
-<div class="absolute right-12 top-12 w-24 h-24 opacity-10">
-<span class="material-symbols-outlined text-[100px]" data-icon="public">public</span>
-</div>
-</section>
+<div id="dashboard-section" data-section="dashboard"
+     class="platform-section px-4 md:px-12 py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-2xl">
 
-<!-- Analysis Progress Status -->
-<section class="md:col-span-4 bg-surface-container-low rounded-xl p-5 md:p-6 flex flex-col">
-  <div class="flex justify-between items-center mb-6">
-    <h4 class="text-sm font-bold text-primary uppercase tracking-wider">Aktueller Status</h4>
-    <span class="text-10px font-bold text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded">Live</span>
-  </div>
+  <!-- Overview header -->
+  <section class="md:col-span-12 bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm">
+    <div class="flex flex-wrap items-start justify-between gap-5">
+      <div>
+        <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">
+          Ihr Arbeitsbereich
+        </span>
+        <h3 class="text-3xl font-black text-primary mt-2">
+          Demo
+        </h3>
+        <p class="text-sm text-on-surface-variant mt-3  leading-relaxed">
+          Ihre aktuellen Diagnoseergebnisse, gespeicherten Zollanalysen und nächsten Schritte – direkt an einem Ort.
+        </p>
+      </div>
 
-  <div class="space-y-4 flex-1">
-    <div class="flex items-start gap-3">
-      <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
-      <p class="text-xs font-medium text-on-surface">
-        Interaktive Diagnose zur Bewertung der fünf Dimensionen verfügbar
+      <button id="overview-refresh" type="button"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-outline/20 text-sm font-bold text-primary disabled:opacity-50 disabled:cursor-not-allowed">
+        <span class="material-symbols-outlined text-lg" aria-hidden="true">
+          refresh
+        </span>
+        Aktualisieren
+      </button>
+    </div>
+  </section>
+
+  <!-- Latest diagnosis -->
+  <section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="material-symbols-outlined text-primary text-2xl">
+        analytics
+      </span>
+      <div>
+        <h4 class="text-lg font-bold text-primary">Analyse</h4>
+        <p class="text-xs text-on-surface-variant">
+          Ihre letzte gespeicherte Diagnose
+        </p>
+      </div>
+    </div>
+
+    <p id="overview-diagnosis-state" role="status" aria-live="polite"
+       class="text-xs text-on-surface-variant leading-relaxed">
+      Diagnose wird geladen …
+    </p>
+
+    <div id="overview-diagnosis-content" class="hidden mt-5">
+      <div class="flex items-center gap-5 rounded-xl bg-surface-container-low p-5">
+        <div class="shrink-0 text-center">
+          <p id="overview-score" class="text-4xl font-black text-[#0F4C5C]">—</p>
+          <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mt-1">
+            von 100
+          </p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase">Bereitschaft</p>
+          <p id="overview-readiness"
+             class="text-sm text-on-surface mt-2"></p>
+        </div>
+      </div>
+
+      <div id="overview-dimensions" class="mt-6 space-y-4"></div>
+
+      <div class="mt-6 rounded-xl bg-surface-container-low p-4">
+        <p class="text-xs font-bold text-primary">Nächster Handlungsschritt</p>
+        <p id="overview-priority"
+           class="mt-2 text-sm text-on-surface-variant leading-relaxed"></p>
+      </div>
+    </div>
+
+    <div class="mt-auto pt-6">
+      <a href="#analyse" data-open-section="analyse"
+         class="inline-flex items-center gap-2 text-sm font-bold text-primary">
+        Analysebereich öffnen
+        <span class="material-symbols-outlined text-lg" aria-hidden="true">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Recent customs analyses -->
+  <section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="material-symbols-outlined text-primary text-2xl">
+        inventory_2
+      </span>
+      <div>
+        <h4 class="text-lg font-bold text-primary">Zollanalyse</h4>
+        <p class="text-xs text-on-surface-variant">
+          Ihre zuletzt gespeicherten Ergebnisse
+        </p>
+      </div>
+    </div>
+
+    <p id="overview-tariff-state" role="status" aria-live="polite"
+       class="text-xs text-on-surface-variant">
+      Zollanalysen werden geladen …
+    </p>
+
+    <div id="overview-tariff-list" class="mt-5 space-y-4"></div>
+
+    <div class="mt-auto pt-6">
+      <a href="#zollanalyse" data-open-section="zollanalyse"
+         class="inline-flex items-center gap-2 text-sm font-bold text-primary">
+        Neue Analyse &amp; vollständiger Verlauf
+        <span class="material-symbols-outlined text-lg" aria-hidden="true">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Learning progress placeholder -->
+  <section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col">
+    <div class="flex flex-wrap items-start justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-2xl">
+          school
+        </span>
+        <h4 class="text-lg font-bold text-primary">Lernhaus</h4>
+      </div>
+      <span class="rounded-full bg-secondary-container px-3 py-1 text-xs font-bold text-secondary">
+        Workshops in Vorbereitung
+      </span>
+    </div>
+
+    <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+      Entdecken Sie das Zollglossar und die geplanten Lernangebote
+      zu Zollprozessen, Import und Export sowie Geschäften in Lateinamerika.
+    </p>
+
+    <div class="mt-5 rounded-xl bg-surface-container-low p-5">
+      <div class="flex flex-wrap justify-between gap-2 text-xs mb-3">
+        <span class="font-bold text-primary">Ihr Lernfortschritt</span>
+        <span class="text-on-surface-variant">Noch nicht verfügbar</span>
+      </div>
+      <div class="h-2 rounded-full bg-surface-container-highest"
+           aria-hidden="true"></div>
+      <p class="mt-3 text-xs text-on-surface-variant leading-relaxed">
+        Sobald die Lektionen verfügbar sind, können Sie hier Ihren Fortschritt verfolgen.
       </p>
     </div>
 
-    <div class="flex items-start gap-3">
-      <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
-      <p class="text-xs font-medium text-on-surface">
-        Analyse-Logik und Ergebnisdarstellung in der Plattform integriert
+    <div class="mt-auto pt-6">
+      <a href="#workshops" data-open-section="workshops"
+         class="inline-flex items-center gap-2 text-sm font-bold text-primary">
+        Lernhaus entdecken
+        <span class="material-symbols-outlined text-lg" aria-hidden="true">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Document scanner shortcut -->
+  <section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">
+        document_scanner
+      </span>
+      <h4 class="text-lg font-bold text-primary">Dokumentenscanner</h4>
+    </div>
+
+    <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+      Rechnungen, Packlisten und weitere Handelsdokumente in strukturierte
+      Daten verwandeln. Erkannte Angaben prüfen, bearbeiten und exportieren.
+    </p>
+
+    <div class="mt-5 grid grid-cols-2 gap-3">
+      <div class="rounded-xl bg-surface-container-low p-4">
+        <p class="text-xs font-bold text-primary">Dokumentdaten</p>
+        <p class="mt-2 text-xs text-on-surface-variant">
+          Lieferant, Käufer, Datum und Dokumentnummer
+        </p>
+      </div>
+      <div class="rounded-xl bg-surface-container-low p-4">
+        <p class="text-xs font-bold text-primary">Handelsdaten</p>
+        <p class="mt-2 text-xs text-on-surface-variant">
+          Beträge, Währung, Incoterm und Positionen
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-auto pt-6">
+      <a href="#framework" data-open-section="framework"
+         class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0F4C5C] text-white text-sm font-bold hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined text-lg" aria-hidden="true">
+          document_scanner
+        </span>
+        Schnellscan öffnen
+      </a>
+      <p class="mt-3 text-xs text-on-surface-variant">
+        PDF, JPG oder PNG · maximal 3 MB
       </p>
     </div>
+  </section>
 
-    <div class="flex items-start gap-3">
-      <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
-      <p class="text-xs font-medium text-on-surface">
-        Handlungsempfehlungen und Prioritäten für den Markteintritt ableitbar
-      </p>
-    </div>
-
-    <div class="flex items-start gap-3">
-      <span class="material-symbols-outlined text-outline text-lg">radio_button_unchecked</span>
-      <p class="text-xs font-medium text-on-surface-variant">
-        Nächster Ausbau: Zollanalyse und weiterführende Module
-      </p>
-    </div>
-  </div>
-
-  <div class="mt-6 pt-4 border-t border-outline/10">
-    <div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
-      <div class="bg-tertiary w-[50%] h-full rounded-full"></div>
-    </div>
-    <p class="text-10px text-outline mt-2 text-center">Plattform Grundlagen Implementiert</p>
-  </div>
-</section>
-
-<!-- The Five Dimensions Analysis -->
-<section class="md:col-span-7 bg-surface-container-low rounded-xl p-8">
-<div class="flex justify-between items-center mb-10">
-<div>
-<h4 class="text-lg font-bold text-primary">Die fünf Dimensionen</h4>
-<p class="text-xs text-on-surface-variant opacity-70">Bereitschaft für strategische grenzüberschreitende Zusammenarbeit</p>
-</div>
-<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
-</div>
-<div class="space-y-6">
-<div class="space-y-2">
-<div class="flex justify-between text-xs font-bold text-on-surface">
-<span>1. Marktbereitschaft</span>
-<span>85%</span>
-</div>
-<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-<div class="h-full bg-[#0F4C5C] w-[85%] rounded-full"></div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="flex justify-between text-xs font-bold text-on-surface">
-<span>2. Organisatorischer Fit</span>
-<span>70%</span>
-</div>
-<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-<div class="h-full bg-[#0F4C5C] w-[70%] rounded-full"></div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="flex justify-between text-xs font-bold text-on-surface">
-<span>3. Entscheidungsstrukturen</span>
-<span>45%</span>
-</div>
-<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-<div class="h-full bg-secondary w-[45%] rounded-full"></div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="flex justify-between text-xs font-bold text-on-surface">
-<span>4. Regulatorik &amp; Compliance</span>
-<span>60%</span>
-</div>
-<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-<div class="h-full bg-[#0F4C5C] w-[60%] rounded-full"></div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="flex justify-between text-xs font-bold text-on-surface">
-<span>5. Kultur &amp; Kommunikation</span>
-<span>30%</span>
-</div>
-<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-<div class="h-full bg-error/70 w-[30%] rounded-full"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Logic of Intervention -->
-<section class="md:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col">
-<h4 class="text-lg font-bold text-primary mb-8">Logik der Intervention</h4>
-<div class="flex-1 flex flex-col justify-between">
-<div class="relative">
-<!-- Vertical line -->
-<div class="absolute left-[15px] top-4 bottom-4 w-0.5 bg-slate-200"></div>
-<div class="relative flex items-center gap-6 mb-8">
-<div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white z-10">
-<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
-</div>
-<div>
-<p class="text-sm font-bold text-on-surface">Diagnose</p>
-<p class="text-xs text-on-surface-variant">Unternehmen werden anhand der Dimensionen bewertet</p>
-</div>
-</div>
-<div class="relative flex items-center gap-6 mb-8">
-<div class="w-8 h-8 rounded-full bg-[#0F4C5C] flex items-center justify-center text-white z-10">
-<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
-</div>
-<div>
-<p class="text-sm font-bold text-on-surface">Analyse</p>
-<p class="text-xs text-on-surface-variant">Stärken, Schwächen und kritische Lücken werden identifiziert</p>
-</div>
-</div>
-<div class="relative flex items-center gap-6">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary z-10">
-<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
-</div>
-<div>
-<p class="text-sm font-bold text-on-surface">Output</p>
-<p class="text-xs text-on-surface-variant">Markteintritts-Playbook & Training</p>
-</div>
-</div>
-</div>
-<div class="mt-8 p-4 bg-surface-container-low rounded-lg">
-<p class="text-[11px] font-semibold text-primary uppercase mb-2">Nächste Lieferung</p>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-icon="menu_book">menu_book</span>
-<span class="text-xs font-medium text-on-surface">Strukturiertes Markteintritts-Playbook</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Value Proposition & Vision Section -->
-<section class="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-<div class="md:col-span-2 bg-surface-container-low rounded-xl overflow-hidden flex flex-col md:flex-row">
-<div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
-<img alt="Strategische Vision" class="absolute inset-0 w-full h-full object-cover" src="https://images.pexels.com/photos/52502/map-south-america-atlas-52502.jpeg?cs=srgb&dl=pexels-pixabay-52502.jpg&fm=jpg&_gl=1*1oybur9*_ga*MjAxNjA2MzAyNC4xNzc2MjA2NDE5*_ga_8JE65Q40S6*czE3NzYyMDY0MTkkbzEkZzAkdDE3NzYyMDY0MjgkajUxJGwwJGgw"/>
-<div class="absolute inset-0 bg-[#0F4C5C]/50 backdrop-blur-[1px]"></div>
-<div class="absolute inset-0 p-8 flex flex-col justify-end">
-<h5 class="text-white text-xl font-bold">Ganzheitliche Vision</h5>
-<p class="text-white/80 text-xs mt-2">Über herkömmliche rein kulturelle Ansätze hinaus</p>
-</div>
-</div>
-<div class="w-full md:w-1/2 p-8">
-<h4 class="text-lg font-bold text-primary mb-4">Nutzenversprechen</h4>
-<ul class="space-y-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-tertiary text-lg" data-icon="precision_manufacturing">precision_manufacturing</span>
-<div>
-<p class="text-sm font-semibold text-on-surface">Operative Realitäten</p>
-<p class="text-[11px] text-on-surface-variant">Abstimmung technischer Prozesse</p>
-</div>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-tertiary text-lg" data-icon="account_tree">account_tree</span>
-<div>
-<p class="text-sm font-semibold text-on-surface">Entscheidungsprozesse</p>
-<p class="text-[11px] text-on-surface-variant">Klärung von Genehmigungshierarchien</p>
-</div>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-tertiary text-lg" data-icon="groups">groups</span>
-<div>
-<p class="text-sm font-semibold text-on-surface">Organisatorische Integration</p>
-<p class="text-[11px] text-on-surface-variant">Ganzheitliche kulturelle &amp; strukturelle Passung</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between border-2 border-[#0F4C5C]/5">
-<div>
-<h4 class="text-lg font-bold text-primary mb-2">Zukünftige Skalierbarkeit</h4>
-<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Das Framework wird zu einem umfassenden Ökosystem für internationales Wachstum weiterentwickelt.</p>
-<div class="space-y-3">
-<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
-<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="build">build</span>
-<span class="text-[11px] font-bold text-primary">Interaktives Diagnose-Tool</span>
-</div>
-<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
-<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="school">school</span>
-<span class="text-[11px] font-bold text-primary">Workshop- & Trainingsformat</span>
-</div>
-<div class="flex items-center gap-3 p-2 bg-white rounded-lg border border-[#0F4C5C]/10">
-<span class="material-symbols-outlined text-[#0F4C5C] text-sm" data-icon="cloud_done">cloud_done</span>
-<span class="text-[11px] font-bold text-primary">Digitale Plattformlösung</span>
-</div>
-</div>
-</div>
-<button class="w-full mt-6 bg-white py-3 rounded-lg text-[#0F4C5C] text-sm font-bold shadow-sm hover:shadow-md transition-shadow">
-                        Roadmap ansehen
-                    </button>
-</div>
-</section>
 </div>
 
 <div id="analyse-section" data-section="analyse" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
@@ -512,7 +475,7 @@
       <div>
         <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Analyse</span>
         <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Analysebereich</h3>
-        <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+        <p class="text-on-surface-variant leading-relaxed text-sm">
           Auf der Analyse-Seite werden alle gespeicherten Diagnoseergebnisse übersichtlich angezeigt, damit Scores, Prioritäten und weitere Details schnell erfasst werden können.
         </p>
       </div>
@@ -602,26 +565,134 @@
   </section>
 </div>
 
-<div id="framework-section" data-section="framework" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
-  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
-    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Framework</span>
-    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Framework-Dokumente</h3>
-    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
-      Hier kann man später Playbooks, PDFs, Methoden, Templates und kundenbezogene Dokumente anzeigen oder herunterladen lassen.
+<div id="framework-section" data-section="framework"
+     class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
+
+  <section class="bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm mb-6">
+    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">
+      Vom Dokument zu strukturierten Daten
+    </span>
+    <h3 class="text-3xl font-black text-primary mt-2 mb-4">
+      Dokumentenscanner
+    </h3>
+    <p class="text-on-surface-variant leading-relaxed text-sm">
+      Laden Sie eine Handelsrechnung, Packliste oder ein anderes
+      Handelsdokument hoch. Prüfen und bearbeiten Sie die erkannten Angaben,
+      bevor Sie die Daten exportieren.
     </p>
-    <div class="mt-8 space-y-4">
-      <div class="flex items-center justify-between bg-surface-container-low rounded-xl p-5">
-        <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary">description</span>
-          <div>
-            <p class="text-sm font-bold text-on-surface">Markteintritts-Playbook</p>
-            <p class="text-xs text-on-surface-variant">Demo-Dokument für den aktuellen Kunden</p>
-          </div>
-        </div>
-        <button class="px-4 py-2 rounded-lg bg-[#0F4C5C] text-white text-xs font-bold">Herunterladen</button>
-      </div>
-    </div>
+
+    <label id="ds-drop" for="ds-file"
+           class="block mt-6 rounded-xl border-2 border-dashed border-outline/30 bg-surface-container-low p-6 cursor-pointer">
+      <span class="material-symbols-outlined text-primary text-3xl">
+        document_scanner
+      </span>
+      <span class="block text-sm font-bold text-primary mt-2">
+        Dokument auswählen oder hierher ziehen
+      </span>
+      <span class="block text-xs text-on-surface-variant mt-2">
+        PDF, JPG oder PNG · maximal 3 MB · eine Datei pro Analyse
+      </span>
+      <input id="ds-file" type="file"
+             accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+             class="block mt-4 w-full text-sm text-on-surface-variant">
+    </label>
+
+    <p id="ds-file-name"
+       class="mt-3 text-xs text-on-surface-variant break-all"></p>
+
+    <button id="ds-run" type="button" disabled
+            class="mt-5 px-6 py-3 rounded-lg bg-[#0F4C5C] text-white text-sm font-bold disabled:opacity-40 disabled:cursor-not-allowed">
+      Dokument analysieren
+    </button>
+
+    <p id="ds-status" role="status" aria-live="polite"
+       class="mt-4 text-sm text-primary"></p>
+    <p id="ds-error" role="alert"
+       class="mt-3 text-sm text-error"></p>
   </section>
+
+  <div id="ds-results" class="hidden space-y-6">
+
+    <section class="bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-primary">Extrahierte Angaben</h3>
+          <p id="ds-edited"
+             class="text-xs text-on-surface-variant mt-2"></p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button id="ds-export-json" type="button"
+                  class="px-4 py-2 rounded-lg border border-outline/20 text-sm font-bold text-primary">
+            JSON exportieren
+          </button>
+          <button id="ds-export-csv" type="button"
+                  class="px-4 py-2 rounded-lg bg-[#0F4C5C] text-white text-sm font-bold">
+            CSV exportieren
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mb-5">
+        <span id="ds-count"
+              class="rounded-full bg-secondary-container px-3 py-1 text-xs font-bold text-secondary"></span>
+        <span id="ds-confidence"
+              class="rounded-full bg-surface-container-low px-3 py-1 text-xs font-bold text-primary"></span>
+      </div>
+
+      <div id="ds-fields"
+           class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </section>
+
+    <section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+      <h3 class="px-6 py-5 text-lg font-bold text-primary">
+        Erkannte Positionen
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[950px] text-left">
+          <thead class="bg-surface-container-low text-xs text-primary">
+            <tr>
+              <th scope="col" class="p-3">Beschreibung</th>
+              <th scope="col" class="p-3">Artikelnummer</th>
+              <th scope="col" class="p-3">Menge</th>
+              <th scope="col" class="p-3">Einheit</th>
+              <th scope="col" class="p-3">Einzelpreis</th>
+              <th scope="col" class="p-3">Positionsbetrag</th>
+            </tr>
+          </thead>
+          <tbody id="ds-items" class="divide-y divide-outline/10"></tbody>
+        </table>
+      </div>
+      <p id="ds-no-items"
+         class="hidden px-6 py-5 text-sm text-on-surface-variant">
+        Keine Produktpositionen erkannt.
+      </p>
+    </section>
+
+    <section id="ds-additional-section"
+             class="hidden bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+      <h3 class="text-lg font-bold text-primary mb-4">Weitere Angaben</h3>
+      <div id="ds-additional"
+           class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </section>
+
+    <section id="ds-warning-section"
+             class="hidden rounded-xl bg-surface-container-low p-6">
+      <h3 class="text-sm font-bold text-primary mb-3">
+        Hinweise zur Extraktion
+      </h3>
+      <ul id="ds-warnings"
+          class="list-disc pl-5 space-y-2 text-on-surface-variant"></ul>
+    </section>
+
+    <details class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+      <summary class="cursor-pointer text-sm font-bold text-primary">
+        Strukturierte Daten ansehen
+      </summary>
+      <pre id="ds-json"
+           class="mt-4 overflow-x-auto text-xs text-on-surface-variant"></pre>
+    </details>
+
+  </div>
 </div>
 
 <div id="diagnose-section" data-section="diagnose" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
@@ -630,7 +701,7 @@
       <div>
         <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Diagnose</span>
         <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Diagnose-Fragebogen</h3>
-        <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+        <p class="text-on-surface-variant leading-relaxed text-sm">
           Starten Sie den interaktiven Diagnose-Fragebogen. Die Antworten dienen als Grundlage für die KI-Bewertung der fünf Dimensionen und die spätere Analyse.
         </p>
       </div>
@@ -683,31 +754,197 @@
 </div>
 
 <div id="workshops-section" data-section="workshops" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
-  <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
-    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Workshops & Trainings</span>
-    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Workshop- und Trainingsbereich</h3>
-    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
-      Hier können später Workshop-Module, Trainingsunterlagen, Termine und Aufgaben für Teams bereitgestellt werden.
+
+  <!-- Lernhaus introduction -->
+  <section class="bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm mb-6">
+    <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">
+      Wissen für Ihre nächsten Schritte
+    </span>
+    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">
+      Willkommen im Lernhaus
+    </h3>
+    <p class="text-on-surface-variant leading-relaxed text-sm">
+      Verstehen Sie Zollprozesse, bereiten Sie Ihr Lateinamerika-Geschäft vor
+      und entdecken Sie wichtige Begriffe des internationalen Handels.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-      <div class="bg-surface-container-low rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary mb-4">groups</span>
-        <p class="text-sm font-bold text-on-surface">Team-Alignment</p>
-        <p class="text-xs text-on-surface-variant mt-2">Workshops zur Abstimmung von Zielen, Rollen und Verantwortlichkeiten.</p>
-      </div>
-      <div class="bg-surface-container-low rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary mb-4">school</span>
-        <p class="text-sm font-bold text-on-surface">Training</p>
-        <p class="text-xs text-on-surface-variant mt-2">Lernmodule zu Markteintritt, Zusammenarbeit und kulturellen Faktoren.</p>
-      </div>
-      <div class="bg-surface-container-low rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary mb-4">task_alt</span>
-        <p class="text-sm font-bold text-on-surface">Umsetzung</p>
-        <p class="text-xs text-on-surface-variant mt-2">Konkrete Aufgaben und nächste Schritte für die operative Umsetzung.</p>
-      </div>
+    <div class="flex flex-wrap gap-3 mt-6">
+      <a href="#lernhaus-workshops"
+         class="px-5 py-3 rounded-lg bg-[#0F4C5C] text-white text-sm font-bold hover:opacity-90 transition-opacity">
+        Workshops entdecken
+      </a>
+      <a href="#lernhaus-glossar"
+         class="px-5 py-3 rounded-lg border border-outline/20 text-primary text-sm font-bold hover:bg-surface-container-low transition-colors">
+        Zum Glossar
+      </a>
     </div>
   </section>
+
+  <!-- Workshops and lesson placeholders -->
+  <section id="lernhaus-workshops" aria-labelledby="lernhaus-workshops-title"
+           class="bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm mb-6 scroll-mt-24">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="material-symbols-outlined text-primary">school</span>
+      <h3 id="lernhaus-workshops-title" class="text-xl font-bold text-primary">
+        Workshops &amp; Lektionen
+      </h3>
+    </div>
+    <p class="text-sm text-on-surface-variant">
+      Diese Lernangebote werden vorbereitet. Die Lektionen sind noch nicht verfügbar.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+
+      <article class="bg-surface-container-low rounded-xl p-6 flex flex-col">
+        <span class="material-symbols-outlined text-primary text-3xl mb-4">
+          inventory_2
+        </span>
+        <h4 class="text-lg font-bold text-primary">Zoll verstehen</h4>
+        <p class="text-sm text-on-surface-variant mt-2">
+          Grundlagen für die Einordnung Ihrer Produkte und die Vorbereitung einer Zollanalyse.
+        </p>
+        <ol class="list-decimal pl-5 space-y-3 mt-5 text-sm text-on-surface">
+          <li>HS-Codes und nationale Tarifnummern</li>
+          <li>Produktmerkmale für die Klassifizierung</li>
+          <li>Zollwert, Zollsätze und Warenursprung</li>
+        </ol>
+        <div class="mt-auto pt-6">
+          <span class="inline-block rounded-full bg-secondary-container px-3 py-1 text-xs font-bold text-secondary">
+            In Vorbereitung
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-surface-container-low rounded-xl p-6 flex flex-col">
+        <span class="material-symbols-outlined text-primary text-3xl mb-4">
+          public
+        </span>
+        <h4 class="text-lg font-bold text-primary">Geschäft in Lateinamerika</h4>
+        <p class="text-sm text-on-surface-variant mt-2">
+          Märkte gezielt betrachten und die Zusammenarbeit mit lokalen Partnern vorbereiten.
+        </p>
+        <ol class="list-decimal pl-5 space-y-3 mt-5 text-sm text-on-surface">
+          <li>Zielmärkte vergleichen und auswählen</li>
+          <li>Vertriebspartner finden und bewerten</li>
+          <li>Kommunikation und Geschäftsbeziehungen</li>
+        </ol>
+        <div class="mt-auto pt-6">
+          <span class="inline-block rounded-full bg-secondary-container px-3 py-1 text-xs font-bold text-secondary">
+            In Vorbereitung
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-surface-container-low rounded-xl p-6 flex flex-col">
+        <span class="material-symbols-outlined text-primary text-3xl mb-4">
+          local_shipping
+        </span>
+        <h4 class="text-lg font-bold text-primary">Import &amp; Export vorbereiten</h4>
+        <p class="text-sm text-on-surface-variant mt-2">
+          Informationen, Dokumente und Zuständigkeiten für Ihre Warenbewegungen zusammenführen.
+        </p>
+        <ol class="list-decimal pl-5 space-y-3 mt-5 text-sm text-on-surface">
+          <li>Handelsrechnung und Packliste verstehen</li>
+          <li>Lieferbedingungen und Verantwortlichkeiten</li>
+          <li>Eine Import- und Export-Checkliste erstellen</li>
+        </ol>
+        <div class="mt-auto pt-6">
+          <span class="inline-block rounded-full bg-secondary-container px-3 py-1 text-xs font-bold text-secondary">
+            In Vorbereitung
+          </span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Customs glossary -->
+  <section id="lernhaus-glossar"
+         aria-labelledby="lernhaus-glossar-title"
+         class="bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm scroll-mt-24">
+
+  <div class="flex items-start gap-3 mb-4">
+    <span class="material-symbols-outlined text-primary text-3xl">
+      menu_book
+    </span>
+    <div>
+      <p class="text-[10px] font-bold tracking-widest text-tertiary uppercase">
+        Wissen von A bis Z
+      </p>
+      <h3 id="lernhaus-glossar-title"
+          class="text-2xl md:text-3xl font-black text-primary mt-1">
+        Zoll &amp; Außenhandel
+      </h3>
+    </div>
+  </div>
+
+  <p class="text-sm text-on-surface-variant max-w-2xl leading-relaxed mb-6">
+    Begriffe rund um Warenklassifizierung, Zölle und internationalen Handel.
+    Suchen Sie nach einem Begriff oder entdecken Sie das Glossar nach
+    Anfangsbuchstaben und Themen.
+  </p>
+
+  <!-- Search -->
+  <label for="lernhaus-glossary-search"
+         class="block text-xs font-bold text-primary mb-2">
+    Begriff suchen
+  </label>
+
+  <div class="relative">
+    <span class="material-symbols-outlined absolute left-4 top-3 text-outline"
+          aria-hidden="true">
+      search
+    </span>
+    <input id="lernhaus-glossary-search"
+           type="search"
+           placeholder="Zum Beispiel: HS-Code, Zollwert oder Präferenz"
+           class="w-full rounded-xl border border-outline/20 bg-surface-container-lowest pl-12 pr-4 py-3 text-sm text-on-surface focus:border-[#0F4C5C] focus:ring-2 focus:ring-[#0F4C5C]/20 outline-none">
+  </div>
+
+  <!-- Alphabet filter -->
+  <div class="mt-6">
+    <p class="text-xs font-bold text-primary mb-3">Anfangsbuchstabe</p>
+    <div id="lernhaus-glossary-letters"
+         role="group"
+         aria-label="Nach Anfangsbuchstaben filtern"
+         class="flex flex-wrap gap-2">
+    </div>
+  </div>
+
+  <!-- Category filter -->
+  <div class="mt-5">
+    <p class="text-xs font-bold text-primary mb-3">Themenbereich</p>
+    <div id="lernhaus-glossary-categories"
+         role="group"
+         aria-label="Nach Themenbereich filtern"
+         class="flex flex-wrap gap-2">
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-center justify-between gap-3 mt-6 pt-5 border-t border-outline/10">
+    <p id="lernhaus-glossary-count"
+       role="status"
+       aria-live="polite"
+       class="text-xs text-on-surface-variant">
+    </p>
+    <button id="lernhaus-glossary-reset"
+            type="button"
+            class="text-xs font-bold text-primary underline">
+      Filter zurücksetzen
+    </button>
+  </div>
+
+  <!-- Alphabetically grouped definition cards -->
+  <div id="lernhaus-glossary-results" class="mt-6 space-y-8"></div>
+
+  <noscript>
+    <p class="mt-4 text-sm text-on-surface-variant">
+      Bitte aktivieren Sie JavaScript, um das Glossar zu verwenden.
+    </p>
+  </noscript>
+
+</section>
+
 </div>
 
 <div id="zollanalyse-section" data-section="zollanalyse" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
@@ -718,7 +955,7 @@
       <div>
         <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Zollanalyse</span>
         <h3 class="text-3xl font-black mt-2 mb-3 text-[#0F4C5C]">Tarifklassifizierung</h3>
-        <p class="text-on-surface-variant max-w-2xl leading-relaxed text-sm">
+        <p class="text-on-surface-variant leading-relaxed text-sm">
           Laden Sie eine Produktliste als PDF hoch. Das System extrahiert automatisch die Produkte, ordnet sie den entsprechenden Zolltarifkategorien zu und zeigt die Ergebnisse strukturiert an.
         </p>
       </div>
@@ -811,6 +1048,16 @@
     <select id="tariff-country" class="w-full md:w-72 rounded-lg border border-outline/20 bg-white px-4 py-3 text-sm text-on-surface focus:border-[#0F4C5C] focus:ring-2 focus:ring-[#0F4C5C]/20 outline-none transition-all">
       <option value="">Bitte auswählen</option>
       <option value="MX">Mexiko</option>
+      <option value="AR">Argentinien</option>
+      <option value="BO">Bolivien</option>
+      <option value="BR">Brasilien</option>
+      <option value="CL">Chile</option>
+      <option value="CO">Kolumbien</option>
+      <option value="EC">Ecuador</option>
+      <option value="PY">Paraguay</option>
+      <option value="PE">Peru</option>
+      <option value="UY">Uruguay</option>
+      <option value="VE">Venezuela</option>
     </select>
     <p class="mt-2 text-xs text-on-surface-variant">Die Tarifklassifizierung wird auf das ausgewählte Land ausgerichtet.</p>
   </div>
@@ -873,6 +1120,11 @@
 
   <!-- Results Section -->
   <div id="tariff-results" class="hidden">
+    <div class="mb-5 rounded-xl bg-surface-container-low p-4">
+      <p id="tariff-result-context" class="text-sm font-semibold text-primary break-words"></p>
+      <p id="tariff-save-status" role="status" aria-live="polite" class="text-xs text-on-surface-variant mt-2"></p>
+      <button id="tariff-save-retry" type="button" onclick="persistTariffAnalysis()" class="hidden mt-3 text-xs font-bold text-primary underline disabled:opacity-50">Speichern erneut versuchen</button>
+    </div>
 
     <!-- Summary Cards -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -914,18 +1166,20 @@
         </div>
       </div>
 
-      <!-- Table Header -->
-      <div class="grid grid-cols-12 gap-2 px-6 py-3 bg-surface-container-low border-b border-outline/10 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
-        <div class="col-span-4">Produktbezeichnung</div>
-        <div class="col-span-2">HS-Code</div>
-        <div class="col-span-3">Kategorie</div>
-        <div class="col-span-2">Zollsatz</div>
-        <div class="col-span-1 text-right">Status</div>
-      </div>
-
-      <!-- Table Body -->
-      <div id="tariff-table-body" class="divide-y divide-outline/5">
-        <!-- Rows injected by JS -->
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[900px] text-left">
+          <thead class="bg-surface-container-low border-b border-outline/10 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
+            <tr>
+              <th scope="col" class="px-6 py-3 w-[30%]">Produktbezeichnung</th>
+              <th scope="col" class="px-4 py-3">HS-Code</th>
+              <th scope="col" class="px-4 py-3">Kategorie</th>
+              <th scope="col" class="px-4 py-3">Zollsatz</th>
+              <th scope="col" class="px-4 py-3">Konfidenz</th>
+              <th scope="col" class="px-6 py-3 text-right">Status</th>
+            </tr>
+          </thead>
+          <tbody id="tariff-table-body" class="divide-y divide-outline/5"></tbody>
+        </table>
       </div>
     </section>
 
@@ -965,15 +1219,26 @@
     </div>
   </div>
 
+  <section id="tariff-history" class="mt-10 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+    <div class="flex flex-wrap items-center justify-between gap-4 px-6 py-5 border-b border-outline/10 bg-surface-container-low">
+      <div>
+        <h3 class="text-lg font-bold text-primary">Vergangene Zollanalysen</h3>
+        <p class="text-xs text-on-surface-variant mt-1">Ihre gespeicherten Produkte und Ergebnisse nach Zielland.</p>
+      </div>
+      <button id="tariff-history-refresh" type="button" class="px-4 py-2 rounded-lg border border-outline/20 text-xs font-bold text-primary disabled:opacity-50">Aktualisieren</button>
+    </div>
+    <div class="p-6">
+      <p id="tariff-history-status" role="status" aria-live="polite" class="text-xs text-on-surface-variant mb-4">Verlauf wird geladen …</p>
+      <div id="tariff-history-list" class="grid gap-4"></div>
+      <button id="tariff-history-more" type="button" class="hidden mt-5 px-4 py-2 rounded-lg border border-outline/20 text-xs font-bold text-primary disabled:opacity-50">Weitere laden</button>
+    </div>
+  </section>
 </div>
 
 <div id="settings-section" data-section="settings" class="platform-section hidden px-4 md:px-12 py-6 md:py-8 max-w-screen-2xl">
   <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
     <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">Einstellungen</span>
-    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Kontoeinstellungen</h3>
-    <p class="text-on-surface-variant max-w-2xl leading-relaxed">
-      Hier können später Profilinformationen, Sprache, Benachrichtigungen und Kundeneinstellungen verwaltet werden.
-    </p>
+    <h3 class="text-3xl font-black mt-2 mb-4 text-[#0F4C5C]">Derzeit nur auf Supabase</h3>
     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="bg-surface-container-low rounded-xl p-6">
         <p class="text-xs font-bold text-primary uppercase">Profil</p>
@@ -1009,10 +1274,18 @@
   const supabaseUrl = 'https://fhwdlgjrgdoaerjfqflb.supabase.co'
   const supabaseKey = 'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg'
   const supabase = createClient(supabaseUrl, supabaseKey)
+  window.getDocumentScannerToken = async function () {
+    const { data, error } = await supabase.auth.getSession()
 
+    if (error || !data.session?.access_token) {
+      throw new Error('Bitte melden Sie sich erneut an.')
+    }
+
+    return data.session.access_token
+  }
   const sectionMetadata = {
     dashboard: {
-      title: 'Projektübersicht',
+      title: 'Alles Wichtige im Überblick',
       subtitle: 'Markteintritt & industrielle Kooperation: Deutschland - Lateinamerika'
     },
     analyse: {
@@ -1024,12 +1297,12 @@
       subtitle: 'Fragebogen, Dimensionen und erste Bewertung'
     },
     workshops: {
-      title: 'Workshops & Trainings',
-      subtitle: 'Trainingsmodule, Team-Alignment und Umsetzung'
+      title: 'Lernhaus',
+      subtitle: 'Workshops, Lektionen und Zollwissen für Ihr Lateinamerika-Geschäft'
     },
     framework: {
-      title: 'Framework',
-      subtitle: 'Dokumente, Playbooks und Methoden für den Markteintritt'
+      title: 'Dokumentenscanner',
+      subtitle: 'Handelsdokumente scannen, Angaben prüfen und Daten exportieren'
     },
     zollanalyse: {
       title: 'Zollanalyse',
@@ -1066,6 +1339,8 @@
       loadDiagnosisHistory()
     }
 
+    if (section === 'zollanalyse') window.loadTariffHistory?.()
+    if (section === 'dashboard') window.refreshDashboardOverview?.()
       if (updateHash) {
       history.replaceState(null, '', `#${section}`)
     }
@@ -1311,8 +1586,397 @@ async function loadDiagnosisHistory() {
   }
 }
 
-  refreshHistoryBtn?.addEventListener('click', loadDiagnosisHistory)
+// Customs history uses the same authenticated Supabase client as the dashboard.
+const tariffHistoryList = document.getElementById('tariff-history-list')
+const tariffHistoryStatus = document.getElementById('tariff-history-status')
+const tariffHistoryRefresh = document.getElementById('tariff-history-refresh')
+const tariffHistoryMore = document.getElementById('tariff-history-more')
+let tariffHistoryEntries = []
+let tariffHistoryLoading = false
+let tariffHistoryReloadRequested = false
+const tariffHistoryPageSize = 20
 
+function tariffStorageMessage(error) {
+  if (['42P01', 'PGRST205'].includes(error?.code)) {
+    return 'Der Verlauf ist noch nicht eingerichtet. Bitte wenden Sie sich an die Administration.'
+  }
+  return 'Der Verlauf ist derzeit nicht erreichbar. Bitte versuchen Sie es erneut.'
+}
+
+window.getTariffUser = async function () {
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) throw new Error('Bitte melden Sie sich erneut an.')
+  return data.user
+}
+
+window.saveTariffAnalysis = async function (entry) {
+  const user = await window.getTariffUser()
+  if (entry.user_id !== user.id) throw new Error('Die Sitzung hat sich geändert. Bitte melden Sie sich erneut an.')
+  // The id is generated once per analysis; retries never create a second row.
+  const { data, error } = await supabase.from('tariff_analyses').insert({
+    id: entry.id,
+    user_id: user.id,
+    country_code: entry.country_code,
+    file_name: entry.file_name,
+    result: entry.result
+  }).select('id, user_id, country_code, file_name, result, created_at').single()
+  if (error?.code === '23505') {
+    const existing = await supabase.from('tariff_analyses')
+      .select('id, user_id, country_code, file_name, result, created_at')
+      .eq('id', entry.id).eq('user_id', user.id).single()
+    if (existing.error) throw new Error(tariffStorageMessage(existing.error))
+    return existing.data
+  }
+  if (error) throw new Error(tariffStorageMessage(error))
+  return data
+}
+
+function renderTariffHistory() {
+  tariffHistoryList.innerHTML = tariffHistoryEntries.map(entry => {
+    const products = Array.isArray(entry.result?.products) ? entry.result.products : []
+    const country = window.tariffCountryLabel(entry.country_code)
+    return `<article class="rounded-xl border border-outline/15 p-4 bg-surface-container-lowest">
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <div class="min-w-0">
+          <p class="text-sm font-bold text-primary">${escapeHtml(country)} · ${products.length} Produkt${products.length === 1 ? '' : 'e'}</p>
+          <p class="text-xs text-on-surface-variant mt-1 break-all">${escapeHtml(entry.file_name)}</p>
+          <p class="text-xs text-on-surface-variant mt-1">${escapeHtml(formatDateTimeDE(entry.created_at))}</p>
+        </div>
+        <button type="button" data-tariff-analysis-id="${escapeHtml(entry.id)}" class="px-4 py-2 rounded-lg bg-[#0F4C5C] text-white text-xs font-bold">Ergebnis öffnen</button>
+      </div>
+      <details class="mt-3 text-xs text-on-surface-variant">
+        <summary class="cursor-pointer font-semibold">Gescannte Produkte anzeigen</summary>
+        <ul class="mt-2 space-y-1 list-disc pl-5">${products.map(product => `<li>${escapeHtml(product.name || 'Ohne Bezeichnung')}</li>`).join('') || '<li>Keine Produkte erkannt</li>'}</ul>
+      </details>
+    </article>`
+  }).join('')
+  tariffHistoryList.querySelectorAll('[data-tariff-analysis-id]').forEach(button => {
+    button.addEventListener('click', () => {
+      const entry = tariffHistoryEntries.find(item => item.id === button.dataset.tariffAnalysisId)
+      if (entry) window.showSavedTariffAnalysis(entry)
+    })
+  })
+}
+
+window.loadTariffHistory = async function (append = false) {
+  if (tariffHistoryLoading) {
+    if (!append) tariffHistoryReloadRequested = true
+    return
+  }
+  tariffHistoryLoading = true
+  tariffHistoryRefresh.disabled = true
+  tariffHistoryMore.disabled = true
+  tariffHistoryStatus.textContent = 'Verlauf wird geladen …'
+  try {
+    const user = await window.getTariffUser()
+    const offset = append ? tariffHistoryEntries.length : 0
+    const { data, error } = await supabase.from('tariff_analyses')
+      .select('id, country_code, file_name, result, created_at')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false }).order('id', { ascending: false })
+      .range(offset, offset + tariffHistoryPageSize - 1)
+    if (error) throw new Error(tariffStorageMessage(error))
+    const rows = data || []
+    tariffHistoryEntries = append ? [...tariffHistoryEntries, ...rows.filter(row => !tariffHistoryEntries.some(old => old.id === row.id))] : rows
+    renderTariffHistory()
+    tariffHistoryStatus.textContent = tariffHistoryEntries.length
+      ? `${tariffHistoryEntries.length} gespeicherte Analyse${tariffHistoryEntries.length === 1 ? '' : 'n'} geladen.`
+      : 'Noch keine gespeicherten Zollanalysen. Neue Analysen erscheinen nach erfolgreichem Speichern hier.'
+    tariffHistoryMore.classList.toggle('hidden', rows.length < tariffHistoryPageSize)
+  } catch (error) {
+    if (!append) {
+      tariffHistoryEntries = []
+      tariffHistoryList.innerHTML = ''
+      tariffHistoryMore.classList.add('hidden')
+    }
+    tariffHistoryStatus.textContent = error.message || 'Der Verlauf konnte nicht geladen werden.'
+  } finally {
+    tariffHistoryLoading = false
+    tariffHistoryRefresh.disabled = false
+    tariffHistoryMore.disabled = false
+    if (tariffHistoryReloadRequested) {
+      tariffHistoryReloadRequested = false
+      window.loadTariffHistory()
+    }
+  }
+}
+tariffHistoryRefresh.addEventListener('click', () => window.loadTariffHistory())
+tariffHistoryMore.addEventListener('click', () => window.loadTariffHistory(true))
+
+  refreshHistoryBtn?.addEventListener('click', loadDiagnosisHistory)
+let overviewLoading = false;
+let overviewReloadRequested = false;
+
+function overviewDate(value) {
+  const date = new Date(value);
+
+  return !value || Number.isNaN(date.getTime())
+    ? '—'
+    : new Intl.DateTimeFormat('de-DE', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      }).format(date);
+}
+
+function overviewScore(value) {
+  if (value === null || value === undefined || value === '') {
+    return null;
+  }
+
+  const number = Number(value);
+
+  return Number.isFinite(number)
+    ? Math.max(0, Math.min(100, Math.round(number)))
+    : null;
+}
+
+function renderOverviewDiagnosis(entry) {
+  const state = document.getElementById('overview-diagnosis-state');
+  const content = document.getElementById('overview-diagnosis-content');
+
+  content.classList.add('hidden');
+
+  if (!entry) {
+    state.textContent = 'Noch keine gespeicherte Diagnose vorhanden.';
+    return;
+  }
+
+  const result = entry.result || {};
+  const score = overviewScore(
+    result.overallscore ?? result.overall_score
+  );
+
+  state.textContent = [
+    entry.company_name || 'Unternehmen',
+    (result.origin || entry.origin || '—') +
+      ' → ' +
+      (result.target || entry.target || '—'),
+    overviewDate(entry.created_at)
+  ].join(' · ');
+
+  document.getElementById('overview-score').textContent =
+    score === null ? '—' : score;
+
+  document.getElementById('overview-readiness').textContent =
+    result.readinesslevel ||
+    result.readiness_level ||
+    'Keine Einordnung gespeichert';
+
+  const dimensions = Array.isArray(result.dimensions)
+    ? result.dimensions
+    : [];
+
+  document.getElementById('overview-dimensions').innerHTML = dimensions
+    .filter(d => d && typeof d === 'object')
+    .slice(0, 5)
+    .map(d => {
+      const value = overviewScore(d.score);
+
+      return `
+        <div>
+          <div class="flex justify-between gap-3 text-xs mb-2">
+            <span class="text-on-surface">
+              ${escapeHtml(d.name || 'Dimension')}
+            </span>
+            <span class="font-bold text-primary">
+              ${value === null ? '—' : value + '/100'}
+            </span>
+          </div>
+          <div class="h-2 rounded-full bg-surface-container-highest overflow-hidden"
+               aria-hidden="true">
+            <div class="h-full bg-[#0F4C5C] rounded-full"
+                 style="width:${value ?? 0}%"></div>
+          </div>
+        </div>
+      `;
+    })
+    .join('');
+
+  const actions = result.priorityactions ?? result.priority_actions;
+
+  const nextAction = Array.isArray(actions)
+    ? actions.find(action =>
+        typeof action === 'string' && action.trim()
+      )
+    : '';
+
+  document.getElementById('overview-priority').textContent =
+    nextAction ||
+    result.marketentryrecommendation ||
+    result.market_entry_recommendation ||
+    'Keine Handlungsempfehlung gespeichert.';
+
+  content.classList.remove('hidden');
+}
+
+function renderOverviewTariffs(entries) {
+  const list = document.getElementById('overview-tariff-list');
+  list.replaceChildren();
+
+  document.getElementById('overview-tariff-state').textContent =
+    entries.length
+      ? 'Neueste gespeicherte Analysen (maximal drei).'
+      : 'Noch keine gespeicherte Zollanalyse vorhanden.';
+
+  entries.forEach(entry => {
+    const products = Array.isArray(entry.result?.products)
+      ? entry.result.products
+      : [];
+
+    const preview = products
+      .slice(0, 3)
+      .map(product => product?.name || 'Ohne Bezeichnung')
+      .join(' · ');
+
+    const country = window.tariffCountryLabel(entry.country_code);
+
+    const reviewCount = products.filter(
+      product => product?.confidence !== 'high'
+    ).length;
+
+    const card = document.createElement('article');
+    card.className =
+      'rounded-xl border border-outline/15 bg-surface-container-low p-4';
+
+    card.innerHTML = `
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <p class="text-sm font-bold text-primary">
+          ${escapeHtml(country)}
+        </p>
+        <p class="text-xs text-on-surface-variant">
+          ${escapeHtml(overviewDate(entry.created_at))}
+        </p>
+      </div>
+
+      <p class="mt-2 text-xs text-on-surface-variant break-all">
+        ${escapeHtml(entry.file_name || 'Dokument')}
+      </p>
+
+      <p class="mt-3 text-sm text-on-surface break-words">
+        ${escapeHtml(preview || 'Keine Produkte erkannt')}
+        ${products.length > 3 ? ' …' : ''}
+      </p>
+
+      <p class="mt-3 text-xs text-on-surface-variant">
+        ${products.length} Produkte ·
+        ${reviewCount} ohne hohe KI-Konfidenz
+      </p>
+    `;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className =
+      'mt-4 text-xs font-bold text-primary underline';
+    button.textContent = 'Ergebnis öffnen';
+
+    button.addEventListener('click', () => {
+      showSection('zollanalyse');
+      window.showSavedTariffAnalysis(entry);
+    });
+
+    card.appendChild(button);
+    list.appendChild(card);
+  });
+}
+
+window.refreshDashboardOverview = async function () {
+  if (overviewLoading) {
+    overviewReloadRequested = true;
+    return;
+  }
+
+  overviewLoading = true;
+
+  const button = document.getElementById('overview-refresh');
+  button.disabled = true;
+
+  document.getElementById('overview-diagnosis-state').textContent =
+    'Diagnose wird geladen …';
+
+  document.getElementById('overview-diagnosis-content')
+    .classList.add('hidden');
+
+  document.getElementById('overview-tariff-state').textContent =
+    'Zollanalysen werden geladen …';
+
+  document.getElementById('overview-tariff-list').replaceChildren();
+
+  try {
+    const { data: authData, error: authError } =
+      await supabase.auth.getUser();
+
+    if (authError || !authData?.user) {
+      throw new Error('Bitte melden Sie sich erneut an.');
+    }
+
+    const userId = authData.user.id;
+
+    const requests = await Promise.allSettled([
+      supabase
+        .from('diagnose_responses')
+        .select('id, company_name, origin, target, result, created_at')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+
+      supabase
+        .from('tariff_analyses')
+        .select('id, country_code, file_name, result, created_at')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: false })
+        .limit(3)
+    ]);
+
+    const diagnosis = requests[0];
+
+    if (
+      diagnosis.status === 'fulfilled' &&
+      !diagnosis.value.error
+    ) {
+      renderOverviewDiagnosis(diagnosis.value.data);
+    } else {
+      document.getElementById('overview-diagnosis-state').textContent =
+        'Die Diagnose konnte nicht geladen werden. Bitte erneut aktualisieren.';
+    }
+
+    const tariffs = requests[1];
+
+    if (
+      tariffs.status === 'fulfilled' &&
+      !tariffs.value.error
+    ) {
+      renderOverviewTariffs(tariffs.value.data || []);
+    } else {
+      document.getElementById('overview-tariff-state').textContent =
+        'Der Zollanalyse-Verlauf konnte nicht geladen werden. Bitte Einrichtung und Verbindung prüfen.';
+    }
+  } catch (error) {
+    document.getElementById('overview-diagnosis-state').textContent =
+      error.message || 'Die Übersicht konnte nicht geladen werden.';
+
+    document.getElementById('overview-tariff-state').textContent =
+      'Der Verlauf ist derzeit nicht verfügbar.';
+  } finally {
+    overviewLoading = false;
+    button.disabled = false;
+
+    if (overviewReloadRequested) {
+      overviewReloadRequested = false;
+      window.refreshDashboardOverview();
+    }
+  }
+};
+
+document.getElementById('overview-refresh').addEventListener('click', () => {
+  window.refreshDashboardOverview();
+});
+
+if (!window.location.hash || window.location.hash === '#dashboard') {
+  window.refreshDashboardOverview();
+}
   const logoutButton = document.getElementById('logout-button')
 
   logoutButton?.addEventListener('click', async () => {
@@ -1331,7 +1995,8 @@ async function loadDiagnosisHistory() {
 
   if ((window.location.hash || '#dashboard').replace('#', '') === 'analyse') {
     loadDiagnosisHistory()
-  } 
+  }
+  if (window.location.hash === '#zollanalyse') window.loadTariffHistory()
 </script>
 
 <script>
@@ -1340,6 +2005,56 @@ async function loadDiagnosisHistory() {
 let tariffFile = null
 let tariffResults = null
 let tariffPreviewUrl = null
+let tariffBusy = false
+let tariffSaving = false
+let pendingTariffAnalysis = null
+
+function tariffCountryLabel(code) {
+  const option = Array.from(document.getElementById('tariff-country').options).find(option => option.value === code)
+  return option?.textContent || code
+}
+
+function updateTariffContext(entry) {
+  const date = new Date(entry.created_at)
+  const timestamp = Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium', timeStyle: 'short' }).format(date)
+  document.getElementById('tariff-result-context').textContent = [tariffCountryLabel(entry.country_code), entry.file_name, timestamp].filter(Boolean).join(' · ')
+}
+
+function showSavedTariffAnalysis(entry) {
+  if (tariffBusy || tariffSaving) return
+  resetTariffUpload()
+  tariffResults = entry.result
+  document.getElementById('tariff-country').value = entry.country_code
+  renderTariffResults(tariffResults)
+  updateTariffContext(entry)
+  document.getElementById('tariff-save-status').textContent = 'Gespeicherte Analyse geöffnet.'
+  document.getElementById('tariff-results').scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+async function persistTariffAnalysis() {
+  if (!pendingTariffAnalysis || tariffSaving) return
+  tariffSaving = true
+  const entry = pendingTariffAnalysis
+  const status = document.getElementById('tariff-save-status')
+  const retry = document.getElementById('tariff-save-retry')
+  retry.classList.add('hidden')
+  retry.disabled = true
+  status.textContent = 'Analyse wird gespeichert …'
+  try {
+    if (!window.saveTariffAnalysis) throw new Error('Bitte melden Sie sich erneut an.')
+    const saved = await window.saveTariffAnalysis(entry)
+    pendingTariffAnalysis = null
+    updateTariffContext(saved)
+    status.textContent = 'Analyse im Verlauf gespeichert.'
+    await window.loadTariffHistory()
+  } catch (error) {
+    status.textContent = 'Analyse abgeschlossen, aber nicht gespeichert. ' + (error.message || 'Bitte erneut versuchen.')
+    retry.classList.remove('hidden')
+  } finally {
+    tariffSaving = false
+    retry.disabled = false
+  }
+}
 
 const fileInput    = document.getElementById('tariff-file-input')
 const dropZone     = document.getElementById('tariff-drop-zone')
@@ -1374,6 +2089,7 @@ dropZone?.addEventListener('drop', e => {
 })
 
 function setTariffFile(file) {
+  if (tariffBusy || tariffSaving) return
   tariffFile = file
   if (tariffPreviewUrl) URL.revokeObjectURL(tariffPreviewUrl)
   tariffPreviewUrl = URL.createObjectURL(file)
@@ -1387,6 +2103,10 @@ function setTariffFile(file) {
 }
 
 function resetTariffUpload() {
+  if (tariffBusy || tariffSaving) return
+  pendingTariffAnalysis = null
+  document.getElementById('tariff-save-retry').classList.add('hidden')
+  document.getElementById('tariff-save-status').textContent = ''
   tariffFile = null
   tariffResults = null
   if (tariffPreviewUrl) {
@@ -1406,9 +2126,17 @@ function resetTariffUpload() {
 }
 
 async function runTariffAnalysis() {
-  if (!tariffFile) return
-
-  // Show progress
+  if (!tariffFile || tariffBusy || tariffSaving) return
+  tariffBusy = true
+  const selectedFile = tariffFile
+  const countrySelect = document.getElementById('tariff-country')
+  const country = countrySelect.value
+  analyzeBtn.disabled = true
+  fileInput.disabled = true
+  countrySelect.disabled = true
+  pendingTariffAnalysis = null
+  tariffResults = null
+  document.getElementById('tariff-save-retry').classList.add('hidden')
   document.getElementById('tariff-results').classList.add('hidden')
   document.getElementById('tariff-error').classList.add('hidden')
   const progress = document.getElementById('tariff-progress')
@@ -1416,39 +2144,53 @@ async function runTariffAnalysis() {
   setProgress(10, 'PDF wird gelesen…', 'Dateiinhalt wird extrahiert')
 
   try {
-    // Convert PDF to base64
-    const base64 = await fileToBase64(tariffFile)
+    if (!country) throw new Error('Bitte wählen Sie ein Zielland aus.')
+    const supportedCountries = ['MX', 'AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'PY', 'PE', 'UY', 'VE']
+    if (!supportedCountries.includes(country)) throw new Error('Dieses Zielland wird derzeit nicht unterstützt.')
+    if (!window.getTariffUser) throw new Error('Die Anmeldung wird noch geladen. Bitte versuchen Sie es gleich erneut.')
+    const user = await window.getTariffUser()
+    const base64 = await fileToBase64(selectedFile)
     setProgress(30, 'Produkte werden erkannt…', 'KI analysiert den Inhalt')
-
-    // Call Gemini API via Netlify Function (key stays secure on the server)
     const response = await fetch('/.netlify/functions/gemini', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ base64, mimeType: 'application/pdf' })
+      body: JSON.stringify({ base64, mimeType: 'application/pdf', country })
     })
-
     setProgress(70, 'Tarifnummern werden zugeordnet…', 'Klassifizierungslogik läuft')
-
     const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.error || 'API-Fehler vom Server')
+    if (!response.ok) throw new Error(data.error || 'API-Fehler vom Server')
+    const rawText = (data.candidates?.[0]?.content?.parts || []).map(part => part.text || '').join('\n').trim()
+    const clean = rawText.replace(/```json|```/gi, '').trim()
+    const result = JSON.parse(clean)
+    if (!result || !Array.isArray(result.products) || result.products.some(product => !product || typeof product !== 'object' || Array.isArray(product))) {
+      throw new Error('Die KI-Antwort enthält keine gültige Produktliste. Bitte erneut versuchen.')
     }
-
-    const rawText = (data.candidates?.[0]?.content?.parts?.[0]?.text || '').trim()
-    const clean = rawText.replace(/```json|```/g, '').trim()
-    tariffResults = JSON.parse(clean)
-
+    if (result.country && result.country !== country) throw new Error('Das Zielland der KI-Antwort stimmt nicht mit Ihrer Auswahl überein. Bitte erneut versuchen.')
+    result.country = country
+    tariffResults = result
+    pendingTariffAnalysis = {
+      id: crypto.randomUUID(),
+      user_id: user.id,
+      country_code: country,
+      file_name: selectedFile.name,
+      created_at: new Date().toISOString(),
+      result
+    }
     setProgress(100, 'Analyse abgeschlossen!', 'Ergebnisse werden geladen')
     await delay(600)
-
     progress.classList.add('hidden')
     renderTariffResults(tariffResults)
-
+    updateTariffContext(pendingTariffAnalysis)
+    await persistTariffAnalysis()
   } catch (err) {
     progress.classList.add('hidden')
     document.getElementById('tariff-error').classList.remove('hidden')
     document.getElementById('tariff-error-msg').textContent = err.message || 'Unbekannter Fehler'
+  } finally {
+    tariffBusy = false
+    analyzeBtn.disabled = !tariffFile
+    fileInput.disabled = false
+    countrySelect.disabled = false
   }
 }
 
@@ -1488,36 +2230,28 @@ function renderTariffResults(data) {
   document.getElementById('result-matched').textContent    = s.matched ?? '—'
   document.getElementById('result-review').textContent     = s.needsReview ?? '—'
 
-const tbody = document.getElementById('tariff-table-body')
-  tbody.innerHTML = ''
-
-  ;(data.products || []).forEach(p => {
-    const confidence = p.confidence || 'medium'
+  const tbody = document.getElementById('tariff-table-body')
+  const confidenceLabels = { high: 'Hoch', medium: 'Mittel', low: 'Niedrig' }
+  tbody.innerHTML = (data.products || []).map(p => {
+    const rawConfidence = typeof p.confidence === 'string' ? p.confidence.toLowerCase() : ''
+    const confidence = ['high', 'medium', 'low'].includes(rawConfidence) ? rawConfidence : ''
     const badge = {
       high:   { bg: 'bg-tertiary-fixed', text: 'text-tertiary', label: 'Zugeordnet' },
       medium: { bg: 'bg-secondary-container', text: 'text-secondary', label: 'Prüfen' },
       low:    { bg: 'bg-error-container', text: 'text-on-error-container', label: 'Prüfung nötig' }
-    }[confidence] || { bg: 'bg-surface-container', text: 'text-outline', label: '—' }
-
-    tbody.innerHTML += `
-      <div class="grid grid-cols-12 gap-2 px-6 py-4 hover:bg-surface-container-low transition-colors">
-        <div class="col-span-4">
-          <p class="text-xs font-semibold text-on-surface">${escHtml(p.name)}</p>
-        </div>
-        <div class="col-span-2">
-          <span class="text-xs font-mono font-bold text-[#0F4C5C]">${escHtml(p.hsCode)}</span>
-        </div>
-        <div class="col-span-3">
-          <p class="text-xs text-on-surface-variant">${escHtml(p.category)}</p>
-        </div>
-        <div class="col-span-2">
-          <p class="text-xs font-bold text-on-surface">${escHtml(p.dutyRate)}</p>
-        </div>
-        <div class="col-span-1 flex justify-end">
-          <span class="text-[9px] font-bold px-2 py-1 rounded-full ${badge.bg} ${badge.text}">${badge.label}</span>
-        </div>
-      </div>`
-  })
+    }[confidence] || { bg: 'bg-surface-container', text: 'text-outline', label: 'Prüfen' }
+    const confidenceLabel = confidenceLabels[confidence] || 'Nicht angegeben'
+    return `
+      <tr class="hover:bg-surface-container-low transition-colors align-top">
+        <td class="px-6 py-4 text-xs font-semibold text-on-surface break-words">${escHtml(p.name)}</td>
+        <td class="px-4 py-4 text-xs font-mono font-bold text-[#0F4C5C] whitespace-nowrap">${escHtml(p.hsCode)}</td>
+        <td class="px-4 py-4 text-xs text-on-surface-variant">${escHtml(p.category)}</td>
+        <td class="px-4 py-4 text-xs font-bold text-on-surface">${escHtml(p.dutyRate)}</td>
+        <td class="px-4 py-4 text-xs font-semibold text-on-surface">${confidenceLabel}</td>
+        <td class="px-6 py-4 text-right"><span class="inline-block text-[9px] font-bold px-2 py-1 rounded-full whitespace-nowrap ${badge.bg} ${badge.text}">${badge.label}</span></td>
+      </tr>`
+  }).join('')
+  if (!data.products?.length) tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-6 text-sm text-on-surface-variant">Keine Produkte erkannt.</td></tr>'
 
   // Raw JSON
   document.getElementById('tariff-json-block').textContent = JSON.stringify(data, null, 2)
@@ -1528,6 +2262,11 @@ function setProgress(pct, label, sub) {
   document.getElementById('tariff-progress-bar').style.width = pct + '%'
   document.getElementById('tariff-progress-label').textContent = label
   document.getElementById('tariff-progress-sub').textContent = sub
+  if (pct < 100) {
+    document.getElementById('tariff-progress-icon').classList.add('animate-spin')
+    document.getElementById('tariff-progress-icon').classList.remove('text-tertiary')
+    document.getElementById('tariff-progress-icon').textContent = 'progress_activity'
+  }
   if (pct === 100) {
     document.getElementById('tariff-progress-icon').classList.remove('animate-spin')
     document.getElementById('tariff-progress-icon').textContent = 'check_circle'
@@ -1630,6 +2369,652 @@ if (menuBtn && mobileMenu) {
   });
 }
 </script>
+<script>
+(() => {
+  const searchInput = document.getElementById('lernhaus-glossary-search');
+  if (!searchInput) return;
 
+  // Add future glossary entries to this array.
+  const terms = [
+    {
+      term: 'Ad-valorem-Zoll',
+      category: 'Zölle',
+      aliases: 'Wertzoll Prozentsatz',
+      definition:
+        'Zoll, der als Prozentsatz des Zollwerts berechnet wird. Seine Höhe hängt damit sowohl vom anwendbaren Zollsatz als auch vom Zollwert ab.'
+    },
+    {
+      term: 'Einreihung',
+      category: 'Klassifizierung',
+      aliases: 'Tarifierung Warenklassifizierung',
+      definition:
+        'Zuordnung einer Ware zu einer Position oder Unterposition des Zolltarifs anhand ihrer Merkmale und der geltenden Einreihungsregeln.'
+    },
+    {
+      term: 'HS-Code',
+      category: 'Klassifizierung',
+      aliases: 'Harmonisiertes System Harmonized System',
+      definition:
+        'Internationaler Warencode des Harmonisierten Systems. Die international einheitliche Unterteilung reicht bis zu sechs Stellen. Nationale oder regionale Tarife können zusätzliche Stellen ergänzen.'
+    },
+    {
+      term: 'Präferenznachweis',
+      category: 'Dokumente',
+      aliases: 'Ursprungsnachweis Präferenzbeleg',
+      definition:
+        'Nachweis, der im Rahmen einer Präferenzregelung zur Beantragung einer Zollbegünstigung dient. Welche Form zulässig ist, richtet sich nach der jeweiligen Regelung.'
+    },
+    {
+      term: 'Spezifischer Zoll',
+      category: 'Zölle',
+      aliases: 'Mengenzoll Gewicht Stückzahl',
+      definition:
+        'Zoll, der als fester Betrag je Mengeneinheit berechnet wird, beispielsweise je Kilogramm oder Stück.'
+    },
+    {
+      term: 'Transaktionswert',
+      category: 'Bewertung',
+      aliases: 'Kaufpreis Verkaufspreis',
+      definition:
+        'Der tatsächlich gezahlte oder zu zahlende Preis bei einem maßgeblichen Verkauf zur Ausfuhr. Er kann unter den geltenden Voraussetzungen und mit erforderlichen Anpassungen die Grundlage des Zollwerts bilden.'
+    },
+    {
+      term: 'Ursprungsregeln',
+      category: 'Ursprung',
+      aliases: 'Herstellung Verarbeitung Herkunft',
+      definition:
+        'Regeln zur Bestimmung des Warenursprungs. Welche Herstellung oder Verarbeitung erforderlich ist, hängt von der anwendbaren Ursprungsregelung ab.'
+    },
+    {
+      term: 'Warenursprung',
+      category: 'Ursprung',
+      aliases: 'Ursprungsland Herkunftsland',
+      definition:
+        'Die nach den anwendbaren Ursprungsregeln bestimmte Herkunft einer Ware. Das Land, aus dem eine Ware versendet wird, ist nicht automatisch ihr Ursprungsland.'
+    },
+    {
+      term: 'Zollpräferenz',
+      category: 'Ursprung',
+      aliases: 'Präferenzzollsatz Zollermäßigung Zollfreiheit',
+      definition:
+        'Begünstigte Zollbehandlung, etwa Zollermäßigung oder Zollfreiheit. Sie setzt voraus, dass die Bedingungen der jeweiligen Präferenzregelung erfüllt sind.'
+    },
+    {
+      term: 'Zollsatz',
+      category: 'Zölle',
+      aliases: 'Tarif Abgabensatz',
+      definition:
+        'Satz zur Berechnung des Zolls. Er kann als Prozentsatz des Zollwerts, als Betrag je Mengeneinheit oder als Kombination ausgestaltet sein.'
+    },
+    {
+      term: 'Zolltarifnummer',
+      category: 'Klassifizierung',
+      aliases: 'Warennummer Tarifcode Tariff Code',
+      definition:
+        'Code einer Ware im anwendbaren Zolltarif. Für eine konkrete Einfuhr kann eine genauere Unterteilung als der sechsstellige HS-Code erforderlich sein.'
+    },
+    {
+      term: 'Zollwert',
+      category: 'Bewertung',
+      aliases: 'Customs Value Warenwert',
+      definition:
+        'Nach den geltenden Zollwertregeln ermittelter Warenwert, der insbesondere als Grundlage für wertabhängige Zölle dient. Er muss nicht mit dem Rechnungspreis identisch sein.'
+    }
+  ].sort((a, b) => a.term.localeCompare(b.term, 'de'));
+
+  const lettersContainer =
+    document.getElementById('lernhaus-glossary-letters');
+  const categoriesContainer =
+    document.getElementById('lernhaus-glossary-categories');
+  const resultsContainer =
+    document.getElementById('lernhaus-glossary-results');
+  const countElement =
+    document.getElementById('lernhaus-glossary-count');
+  const resetButton =
+    document.getElementById('lernhaus-glossary-reset');
+
+  let activeLetter = '';
+  let activeCategory = '';
+
+  function normalize(value) {
+    return String(value)
+      .toLocaleLowerCase('de')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/ß/g, 'ss');
+  }
+
+  function firstLetter(term) {
+    return normalize(term).charAt(0).toUpperCase();
+  }
+
+  function makeElement(tag, className, text) {
+    const element = document.createElement(tag);
+    element.className = className;
+    if (text !== undefined) element.textContent = text;
+    return element;
+  }
+
+  function addFilterButton(container, label, value, kind, disabled = false) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = label;
+    button.dataset.filterValue = value;
+    button.dataset.filterKind = kind;
+    button.disabled = disabled;
+    button.setAttribute('aria-pressed', 'false');
+
+    button.addEventListener('click', () => {
+      if (kind === 'letter') activeLetter = value;
+      else activeCategory = value;
+      renderGlossary();
+    });
+
+    container.appendChild(button);
+  }
+
+  addFilterButton(lettersContainer, 'A–Z', '', 'letter');
+
+  const availableLetters = new Set(
+    terms.map(entry => firstLetter(entry.term))
+  );
+
+  for (const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
+    addFilterButton(
+      lettersContainer,
+      letter,
+      letter,
+      'letter',
+      !availableLetters.has(letter)
+    );
+  }
+
+  addFilterButton(categoriesContainer, 'Alle Themen', '', 'category');
+
+  const categories = [...new Set(terms.map(entry => entry.category))]
+    .sort((a, b) => a.localeCompare(b, 'de'));
+
+  categories.forEach(category => {
+    addFilterButton(
+      categoriesContainer,
+      category,
+      category,
+      'category'
+    );
+  });
+
+  function updateFilterButtons() {
+    [lettersContainer, categoriesContainer].forEach(container => {
+      container.querySelectorAll('button').forEach(button => {
+        const selectedValue = button.dataset.filterKind === 'letter'
+          ? activeLetter
+          : activeCategory;
+
+        const selected = button.dataset.filterValue === selectedValue;
+
+        button.setAttribute('aria-pressed', String(selected));
+        button.className =
+          'min-w-[36px] px-3 py-2 rounded-lg border text-xs font-bold ' +
+          'transition-colors focus-visible:outline focus-visible:outline-2 ' +
+          'focus-visible:outline-offset-2 focus-visible:outline-[#0F4C5C] ' +
+          'disabled:opacity-30 disabled:cursor-not-allowed ' +
+          (selected
+            ? 'bg-[#0F4C5C] text-white border-[#0F4C5C]'
+            : 'bg-surface-container-lowest text-primary border-outline/20 ' +
+              'enabled:hover:bg-surface-container-low');
+      });
+    });
+  }
+
+  function renderGlossary() {
+    const searchWords = normalize(searchInput.value)
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+
+    const matches = terms.filter(entry => {
+      const searchableText = normalize([
+        entry.term,
+        entry.category,
+        entry.aliases,
+        entry.definition
+      ].join(' '));
+
+      return (
+        (!activeLetter || firstLetter(entry.term) === activeLetter) &&
+        (!activeCategory || entry.category === activeCategory) &&
+        searchWords.every(word => searchableText.includes(word))
+      );
+    });
+
+    updateFilterButtons();
+    resultsContainer.replaceChildren();
+
+    countElement.textContent =
+      `${matches.length} von ${terms.length} Begriffen angezeigt`;
+
+    if (!matches.length) {
+      resultsContainer.appendChild(makeElement(
+        'p',
+        'rounded-xl bg-surface-container-low p-6 text-sm text-on-surface-variant',
+        'Keine passenden Begriffe gefunden. Ändern Sie Ihre Suche oder setzen Sie die Filter zurück.'
+      ));
+      return;
+    }
+
+    const groups = new Map();
+
+    matches.forEach(entry => {
+      const letter = firstLetter(entry.term);
+      if (!groups.has(letter)) groups.set(letter, []);
+      groups.get(letter).push(entry);
+    });
+
+    groups.forEach((entries, letter) => {
+      const group = makeElement('section', 'space-y-4');
+
+      group.appendChild(makeElement(
+        'h4',
+        'text-2xl font-black text-[#0F4C5C] border-b border-outline/10 pb-3',
+        letter
+      ));
+
+      const grid = makeElement(
+        'div',
+        'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'
+      );
+
+      entries.forEach(entry => {
+        const card = makeElement(
+          'article',
+          'rounded-xl border border-outline/15 bg-surface-container-lowest p-5'
+        );
+
+        card.appendChild(makeElement(
+          'span',
+          'inline-block rounded-full bg-secondary-container px-2 py-1 text-[10px] font-bold text-secondary',
+          entry.category
+        ));
+
+        card.appendChild(makeElement(
+          'h5',
+          'mt-3 text-base font-bold text-primary',
+          entry.term
+        ));
+
+        card.appendChild(makeElement(
+          'p',
+          'mt-2 text-sm leading-relaxed text-on-surface-variant',
+          entry.definition
+        ));
+
+        grid.appendChild(card);
+      });
+
+      group.appendChild(grid);
+      resultsContainer.appendChild(group);
+    });
+  }
+
+  searchInput.addEventListener('input', renderGlossary);
+
+  resetButton.addEventListener('click', () => {
+    searchInput.value = '';
+    activeLetter = '';
+    activeCategory = '';
+    renderGlossary();
+    searchInput.focus();
+  });
+
+  renderGlossary();
+})();
+</script>
+<script>
+(() => {
+  const fileInput = document.getElementById('ds-file');
+  if (!fileInput) return;
+
+  const $ = id => document.getElementById(id);
+
+  const fields = [
+    ['documentType', 'Dokumenttyp'],
+    ['supplier', 'Lieferant'],
+    ['buyer', 'Käufer'],
+    ['documentNumber', 'Dokument-/Rechnungsnummer'],
+    ['date', 'Datum'],
+    ['total', 'Gesamtbetrag'],
+    ['currency', 'Währung'],
+    ['incoterm', 'Incoterm']
+  ];
+
+  const itemFields = [
+    ['description', 'Beschreibung'],
+    ['sku', 'Artikelnummer'],
+    ['quantity', 'Menge'],
+    ['unit', 'Einheit'],
+    ['unitPrice', 'Einzelpreis'],
+    ['lineTotal', 'Positionsbetrag']
+  ];
+
+  let selectedFile = null;
+  let draft = null;
+  let busy = false;
+  let edited = false;
+  let scannedAt = '';
+
+  function make(tag, className, text) {
+    const node = document.createElement(tag);
+    node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  function exportData() {
+    return {
+      fileName: selectedFile.name,
+      scannedAt,
+      manuallyEdited: edited,
+      data: draft
+    };
+  }
+
+  function sync() {
+    $('ds-json').textContent = JSON.stringify(exportData(), null, 2);
+    $('ds-edited').textContent = edited
+      ? 'Manuell bearbeitet. Der Export enthält Ihre Änderungen.'
+      : 'Extrahierte Angaben. Bitte mit dem Original abgleichen.';
+  }
+
+  function inputFor(object, key) {
+    const input = make(
+      'input',
+      'w-full min-w-[100px] rounded-lg border border-outline/20 bg-white px-3 py-2 text-sm text-on-surface'
+    );
+
+    input.type = 'text';
+    input.value = object[key] || '';
+    input.placeholder = 'Nicht erkannt';
+
+    input.addEventListener('input', () => {
+      object[key] = input.value;
+      edited = true;
+      sync();
+    });
+
+    return input;
+  }
+
+  function chooseFile(file) {
+    if (busy) return;
+
+    selectedFile = null;
+    draft = null;
+    $('ds-results').classList.add('hidden');
+    $('ds-error').textContent = '';
+    $('ds-status').textContent = '';
+    $('ds-file-name').textContent = '';
+    $('ds-run').disabled = true;
+
+    if (!file) return;
+
+    if (!['application/pdf', 'image/jpeg', 'image/png'].includes(file.type)) {
+      $('ds-error').textContent =
+        'Bitte eine PDF-, JPG- oder PNG-Datei auswählen.';
+      return;
+    }
+
+    if (!file.size || file.size > 3 * 1024 * 1024) {
+      $('ds-error').textContent =
+        'Bitte eine Datei zwischen 1 Byte und 3 MB auswählen.';
+      return;
+    }
+
+    selectedFile = file;
+    $('ds-file-name').textContent =
+      file.name + ' · ' + (file.size / 1024).toFixed(0) + ' KB';
+    $('ds-run').disabled = false;
+  }
+
+  fileInput.addEventListener('change', () => {
+    chooseFile(fileInput.files[0]);
+  });
+
+  $('ds-drop').addEventListener('dragover', event => {
+    event.preventDefault();
+  });
+
+  $('ds-drop').addEventListener('drop', event => {
+    event.preventDefault();
+    if (busy) return;
+    fileInput.value = '';
+    chooseFile(event.dataTransfer.files[0]);
+  });
+
+  function render() {
+    $('ds-fields').replaceChildren();
+
+    fields.forEach(([key, label]) => {
+      const wrapper = make(
+        'label',
+        'block rounded-xl bg-surface-container-low p-4'
+      );
+      wrapper.append(make(
+        'span',
+        'block text-xs font-bold text-primary mb-2',
+        label
+      ));
+      wrapper.append(inputFor(draft, key));
+      $('ds-fields').append(wrapper);
+    });
+
+    $('ds-count').textContent =
+      draft.items.length + ' Positionen extrahiert';
+
+    $('ds-confidence').textContent = 'KI-Einschätzung: ' +
+      ({
+        high: 'Hoch',
+        medium: 'Mittel',
+        low: 'Niedrig'
+      }[draft.confidence] || 'Nicht angegeben');
+
+    $('ds-items').replaceChildren();
+
+    draft.items.forEach((item, index) => {
+      const row = document.createElement('tr');
+
+      itemFields.forEach(([key, label]) => {
+        const cell = make('td', 'p-3 align-top');
+        const input = inputFor(item, key);
+
+        input.setAttribute(
+          'aria-label',
+          label + ', Position ' + (index + 1)
+        );
+
+        cell.append(input);
+        row.append(cell);
+      });
+
+      $('ds-items').append(row);
+    });
+
+    $('ds-no-items').classList.toggle(
+      'hidden',
+      draft.items.length > 0
+    );
+
+    $('ds-additional').replaceChildren();
+
+    draft.additionalFields.forEach(field => {
+      const label = make('label', 'block');
+
+      label.append(make(
+        'span',
+        'block text-xs font-bold text-primary mb-2',
+        field.label
+      ));
+      label.append(inputFor(field, 'value'));
+      $('ds-additional').append(label);
+    });
+
+    $('ds-additional-section').classList.toggle(
+      'hidden',
+      !draft.additionalFields.length
+    );
+
+    $('ds-warnings').replaceChildren();
+
+    draft.warnings.forEach(warning => {
+      $('ds-warnings').append(make('li', 'text-sm', warning));
+    });
+
+    $('ds-warning-section').classList.toggle(
+      'hidden',
+      !draft.warnings.length
+    );
+
+    $('ds-results').classList.remove('hidden');
+    sync();
+  }
+
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        resolve(String(reader.result).split(',')[1]);
+      };
+
+      reader.onerror = () => {
+        reject(new Error('Die Datei konnte nicht gelesen werden.'));
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  $('ds-run').addEventListener('click', async () => {
+    if (!selectedFile || busy) return;
+
+    busy = true;
+    $('ds-run').disabled = true;
+    fileInput.disabled = true;
+    $('ds-error').textContent = '';
+    $('ds-results').classList.add('hidden');
+    draft = null;
+    $('ds-status').textContent =
+      'Dokument wird gelesen und analysiert …';
+
+    try {
+      if (!window.getDocumentScannerToken) {
+        throw new Error(
+          'Die Anmeldung wird noch geladen. Bitte gleich erneut versuchen.'
+        );
+      }
+
+      const token = await window.getDocumentScannerToken();
+      const base64 = await toBase64(selectedFile);
+
+      const response = await fetch('/.netlify/functions/document-scan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + token
+        },
+        body: JSON.stringify({
+          base64,
+          mimeType: selectedFile.type
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.ok) {
+        throw new Error(
+          data.error || 'Die Dokumentanalyse ist fehlgeschlagen.'
+        );
+      }
+
+      draft = data.result;
+      edited = false;
+      scannedAt = new Date().toISOString();
+      render();
+      $('ds-status').textContent = 'Extraktion abgeschlossen.';
+    } catch (error) {
+      $('ds-status').textContent = '';
+      $('ds-error').textContent =
+        error.message || 'Unbekannter Fehler.';
+    } finally {
+      busy = false;
+      fileInput.disabled = false;
+      $('ds-run').disabled = !selectedFile;
+    }
+  });
+
+  function download(content, name, mime) {
+    const url = URL.createObjectURL(new Blob([content], { type: mime }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = name;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  $('ds-export-json').addEventListener('click', () => {
+    if (!draft) return;
+
+    download(
+      JSON.stringify(exportData(), null, 2),
+      'dokumentenscan.json',
+      'application/json'
+    );
+  });
+
+  $('ds-export-csv').addEventListener('click', () => {
+    if (!draft) return;
+
+    const cell = value => {
+      let text = String(value ?? '');
+
+      // Prevent document text from becoming a spreadsheet formula.
+      if (/^[\s]*[=+@\-]/.test(text)) text = "'" + text;
+
+      return '"' + text.replaceAll('"', '""') + '"';
+    };
+
+    const header = [
+      'Datei',
+      ...fields.map(field => field[1]),
+      ...itemFields.map(field => field[1]),
+      'Weitere Angaben',
+      'KI-Einschätzung',
+      'Manuell bearbeitet'
+    ];
+
+    const extras = draft.additionalFields
+      .map(field => field.label + ': ' + field.value)
+      .join(' | ');
+
+    const rows = (draft.items.length ? draft.items : [{}]).map(item => [
+      selectedFile.name,
+      ...fields.map(([key]) => draft[key]),
+      ...itemFields.map(([key]) => item[key] || ''),
+      extras,
+      draft.confidence,
+      edited ? 'Ja' : 'Nein'
+    ]);
+
+    const csv = '\uFEFF' + [header, ...rows]
+      .map(row => row.map(cell).join(';'))
+      .join('\r\n');
+
+    download(
+      csv,
+      'dokumentenscan.csv',
+      'text/csv;charset=utf-8'
+    );
+  });
+})();
+</script>
 </body>
 </html>

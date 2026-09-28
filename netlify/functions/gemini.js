@@ -1,5 +1,19 @@
 // netlify/functions/gemini.js
 
+const supportedCountries = new Map([
+  ['MX', 'Mexico'],
+  ['AR', 'Argentina'],
+  ['BO', 'Bolivia'],
+  ['BR', 'Brazil'],
+  ['CL', 'Chile'],
+  ['CO', 'Colombia'],
+  ['EC', 'Ecuador'],
+  ['PY', 'Paraguay'],
+  ['PE', 'Peru'],
+  ['UY', 'Uruguay'],
+  ['VE', 'Venezuela']
+])
+
 exports.handler = async (event) => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
@@ -29,11 +43,11 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Country is required.' }) }
   }
 
-  if (country !== 'MX') {
-    return { statusCode: 400, body: JSON.stringify({ error: 'Only Mexico is supported for now.' }) }
+  if (typeof country !== 'string' || !supportedCountries.has(country)) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Dieses Zielland wird derzeit nicht unterstützt.' }) }
   }
 
-  const countryName = 'Mexico'
+  const countryName = supportedCountries.get(country)
 
   const prompt = `You are a customs tariff classification expert.
 The attached file is a product list (PDF). Extract ALL products from it and classify each one for the selected country: ${countryName} (${country}).
@@ -41,7 +55,9 @@ The attached file is a product list (PDF). Extract ALL products from it and clas
 Important:
 - Return the tariff code relevant to ${countryName}.
 - Also include the generic HS code when you can determine it.
-- Use the best available country-specific tariff classification for Mexico.
+- Use the country-specific tariff classification for ${countryName} (${country}); do not apply another country's tariff codes or duty rates.
+- Write product names and categories in German.
+- If the document lacks enough detail to determine a code or duty rate, use "Nicht bestimmt" for that field and set confidence to "low". Do not invent missing information.
 - If a product cannot be confidently classified, set confidence to "low".
 - Respond ONLY with a valid JSON object — no markdown, no explanation, no extra text.
 
@@ -53,7 +69,7 @@ Use this exact format:
     {
       "name": "Product name",
       "tariffCode": "country-specific tariff code",
-      "hsCode": "XXXX.XX.XX",
+      "hsCode": "XXXX.XX",
       "category": "Category name",
       "dutyRate": "X%",
       "confidence": "high|medium|low"
@@ -67,7 +83,7 @@ Use this exact format:
   }
 }
 
-If the country-specific tariff code cannot be determined with confidence, still provide the best likely result and set confidence to "low".`
+Use confidence "high", "medium", or "low" according to the available product details. Include all low-confidence products in summary.needsReview.`
 
   const requestBody = {
     contents: [
