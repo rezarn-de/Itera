@@ -128,6 +128,383 @@
             }
         }
     </style>
+    <style id="iteras-platform-redesign">
+      :root {
+        --workspace-bg: #f3f6f6;
+        --workspace-ink: #163b43;
+        --workspace-muted: #586e74;
+        --workspace-border: #dce6e7;
+        --workspace-teal: #0f4c5c;
+      }
+
+      body,
+      body > main {
+        background: var(--workspace-bg);
+        color: var(--workspace-ink);
+      }
+
+      /* Shared navigation */
+      #sidebar {
+        background: #103b45;
+        border-right: 1px solid #244c55;
+        padding: 32px 18px 24px;
+        gap: 8px;
+      }
+
+      #sidebar .iteras-logo {
+        color: #fff;
+        font-size: 25px;
+        letter-spacing: .24em;
+      }
+
+      #sidebar .portal-label {
+        color: #bdd2d6;
+        font-size: 11px;
+        line-height: 1.7;
+        margin-top: 12px;
+        max-width: 170px;
+      }
+
+      #sidebar nav {
+        gap: 6px;
+      }
+
+      #sidebar .sidebar-link {
+        min-height: 48px;
+        padding: 12px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        color: #c4d6da;
+        font-size: 13px;
+        font-weight: 500;
+        transform: none;
+        box-shadow: none;
+        transition: background-color .18s, color .18s;
+      }
+
+      #sidebar .sidebar-link:hover {
+        background: #214d57;
+        color: #fff;
+      }
+
+      #sidebar .sidebar-link.bg-white {
+        background: #d5eee7;
+        border-color: #d5eee7;
+        color: #143e45;
+        font-weight: 700;
+      }
+
+      #sidebar .sidebar-link .material-symbols-outlined {
+        font-size: 21px;
+      }
+
+      #sidebar > .mt-auto {
+        border-color: #365b64;
+      }
+
+      #sidebar > .mt-auto > a {
+        background: #285660;
+        border: 1px solid #50747b;
+        border-radius: 10px;
+      }
+
+      #sidebar > .mt-auto .text-on-surface {
+        color: #fff;
+      }
+
+      #sidebar > .mt-auto .text-slate-400 {
+        color: #bdd2d6;
+      }
+
+      /* Header and workspace */
+      main > .glass-header {
+        background: rgba(255, 255, 255, .95);
+        border-bottom: 1px solid var(--workspace-border);
+        padding: 20px 32px;
+        gap: 16px;
+      }
+
+      #page-title {
+        font-size: 20px;
+        font-weight: 650;
+        letter-spacing: -.035em;
+        line-height: 1.3;
+      }
+
+      #page-subtitle {
+        margin-top: 5px;
+        font-size: 12px;
+        color: var(--workspace-muted);
+        opacity: 1;
+      }
+
+      .platform-section {
+        width: 100%;
+        max-width: 1440px;
+        margin-inline: auto;
+        padding: 32px;
+      }
+
+      /* Dashboard result cards */
+      #dashboard-section {
+        gap: 24px;
+      }
+
+      #dashboard-section > section {
+        min-width: 0;
+        border: 1px solid var(--workspace-border);
+        border-radius: 18px;
+        background: #fff;
+        padding: 28px;
+        box-shadow: 0 3px 12px rgba(22, 59, 67, .025);
+      }
+
+      #dashboard-section h4 {
+        font-size: 18px;
+        letter-spacing: -.025em;
+        font-weight: 650;
+      }
+
+      #dashboard-section > section > .flex > .material-symbols-outlined,
+      #dashboard-section > section > .flex > div.flex > .material-symbols-outlined {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: #edf5f3;
+        color: var(--workspace-teal);
+        font-size: 23px;
+      }
+
+      #dashboard-section .bg-surface-container-low {
+        background: #f3f7f7;
+        border-radius: 12px;
+      }
+
+      #dashboard-section > section > .mt-auto {
+        margin-top: auto;
+        padding-top: 24px;
+      }
+
+      #overview-score {
+        font-weight: 650;
+        letter-spacing: -.05em;
+      }
+
+      #overview-diagnosis-state,
+      #overview-tariff-state {
+        color: var(--workspace-muted);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      #overview-tariff-list > * {
+        border-radius: 12px;
+      }
+
+      /* Dashboard introduction */
+      #dashboard-section > .workspace-intro {
+        background: #e9f2ef;
+        border-color: #d6e5df;
+        padding: 30px 36px;
+        box-shadow: none;
+      }
+
+      .workspace-intro-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .workspace-eyebrow {
+        color: #436760;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .13em;
+      }
+
+      .workspace-refresh {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 12px;
+        border: 1px solid #b8cdc5;
+        border-radius: 8px;
+        color: #244d45;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .workspace-refresh:hover {
+        background: #dcebe5;
+      }
+
+      .workspace-refresh:disabled {
+        opacity: .5;
+        cursor: wait;
+      }
+
+      .workspace-refresh .material-symbols-outlined {
+        font-size: 18px;
+      }
+
+      .workspace-intro h3 {
+        color: #143f43;
+        font-size: clamp(30px, 3.2vw, 46px);
+        font-weight: 600;
+        letter-spacing: -.045em;
+        line-height: 1.12;
+      }
+
+      .workspace-description {
+        max-width: 580px;
+        margin-top: 18px;
+        color: #48635f;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .workspace-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .workspace-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 12px 18px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 650;
+        transition: background-color .18s;
+      }
+
+      .workspace-action .material-symbols-outlined {
+        font-size: 20px;
+      }
+
+      .workspace-action-primary {
+        background: var(--workspace-teal);
+        color: #fff;
+      }
+
+      .workspace-action-primary:hover {
+        background: #093e4c;
+      }
+
+      .workspace-action-secondary {
+        background: #fff;
+        border-color: #c5d8d0;
+        color: #244d45;
+      }
+
+      .workspace-action-secondary:hover {
+        background: #f4faf7;
+      }
+
+      .workspace-context {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        color: #526d65;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .workspace-context .material-symbols-outlined {
+        font-size: 17px;
+        flex-shrink: 0;
+      }
+
+      /* Keyboard access */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid #318773;
+        outline-offset: 4px;
+      }
+
+      #sidebar a:focus-visible {
+        outline-color: #a7e2cd;
+      }
+
+      @media (max-width: 1023px) {
+        main > .glass-header {
+          padding-inline: 24px;
+        }
+
+        .platform-section {
+          padding: 24px;
+        }
+
+        #dashboard-section > section {
+          padding: 22px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        main > .glass-header {
+          padding: 16px;
+        }
+
+        #page-title {
+          font-size: 17px;
+        }
+
+        .platform-section {
+          padding: 20px 16px;
+        }
+
+        #dashboard-section {
+          gap: 16px;
+        }
+
+        #dashboard-section > section,
+        #dashboard-section > .workspace-intro {
+          padding: 22px;
+          border-radius: 14px;
+        }
+
+        .workspace-intro-top {
+          gap: 12px;
+          margin-bottom: 22px;
+        }
+
+        .workspace-actions {
+          flex-direction: column;
+        }
+
+        .workspace-action {
+          width: 100%;
+        }
+
+        .workspace-context {
+          align-items: flex-start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #sidebar,
+        #sidebar-overlay,
+        #sidebar .sidebar-link,
+        .workspace-action {
+          transition: none;
+        }
+      }
+    </style>
 </head>
 <body class="text-on-background">
 
@@ -137,12 +514,11 @@
 <!-- SideNavBar Implementation -->
 <aside id="sidebar" class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-950 flex flex-col gap-2 p-6 z-40">
 <div class="mb-10 px-2">
-
-<a href="german_dashboard.html">
-  <h1 class="iteras-logo text-[1.35rem] text-0F4C5C">Iteras</h1></a>
-    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client-Portal</p>
-</a></div>
-
+  <a href="german_dashboard.html" aria-label="Iteras Dashboard">
+    <h1 class="iteras-logo text-[1.35rem]">Iteras</h1>
+  </a>
+  <p class="portal-label">Ihr Außenhandel. Ein Arbeitsbereich.</p>
+</div>
 
 </div>
 <nav class="flex-1 flex flex-col gap-2">
@@ -272,27 +648,52 @@
      class="platform-section px-4 md:px-12 py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen-2xl">
 
   <!-- Overview header -->
-  <section class="md:col-span-12 bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-sm">
-    <div class="flex flex-wrap items-start justify-between gap-5">
-      <div>
-        <span class="text-[10px] font-bold tracking-widest text-tertiary uppercase">
-          Ihr Arbeitsbereich
-        </span>
-        <h3 class="text-3xl font-black text-primary mt-2">
-          Demo
-        </h3>
-        <p class="text-sm text-on-surface-variant mt-3  leading-relaxed">
-          Ihre aktuellen Diagnoseergebnisse, gespeicherten Zollanalysen und nächsten Schritte – direkt an einem Ort.
-        </p>
-      </div>
+  <section class="workspace-intro md:col-span-12">
+    <div class="workspace-intro-top">
+      <span class="workspace-eyebrow">Deutschland & Lateinamerika</span>
 
       <button id="overview-refresh" type="button"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-outline/20 text-sm font-bold text-primary disabled:opacity-50 disabled:cursor-not-allowed">
-        <span class="material-symbols-outlined text-lg" aria-hidden="true">
+              class="workspace-refresh">
+        <span class="material-symbols-outlined" aria-hidden="true">
           refresh
         </span>
         Aktualisieren
       </button>
+    </div>
+
+    <h3>Ihr Außenhandel.<br>Alles im Blick.</h3>
+
+    <p class="workspace-description">
+      Prüfen Sie Produkte, verstehen Sie Handelsdokumente und planen
+      Sie Ihren nächsten Schritt mit Ihren aktuellen Analyseergebnissen.
+    </p>
+
+    <div class="workspace-actions">
+      <a href="#zollanalyse" data-open-section="zollanalyse"
+        class="workspace-action workspace-action-primary">
+        <span class="material-symbols-outlined" aria-hidden="true">
+          toll
+        </span>
+        Zollanalyse starten
+        <span class="material-symbols-outlined" aria-hidden="true">
+          arrow_forward
+        </span>
+      </a>
+
+      <a href="#framework" data-open-section="framework"
+        class="workspace-action workspace-action-secondary">
+        <span class="material-symbols-outlined" aria-hidden="true">
+          document_scanner
+        </span>
+        Dokument scannen
+      </a>
+    </div>
+
+    <div class="workspace-context">
+      <span class="material-symbols-outlined" aria-hidden="true">
+        history
+      </span>
+      Ihre letzten Ergebnisse finden Sie direkt darunter.
     </div>
   </section>
 
