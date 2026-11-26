@@ -4,8 +4,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Iteras | Client Dashboard - German</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&amp;display=swap"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&amp;display=swap"
+      rel="stylesheet">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -61,9 +65,9 @@
               "on-primary": "#ffffff"
             },
             fontFamily: {
-              "headline": ["Inter"],
-              "body": ["Inter"],
-              "label": ["Inter"]
+              headline: ['IBM Plex Sans', 'sans-serif'],
+              body: ['IBM Plex Sans', 'sans-serif'],
+              label: ['IBM Plex Sans', 'sans-serif']
             },
             borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
           },
@@ -82,7 +86,7 @@
             direction: ltr;
         }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             background-color: #f9f9fa;
         }
         .iteras-logo {
@@ -587,27 +591,27 @@
 
 </div>
 <nav class="flex-1 flex flex-col gap-2">
-<a data-section-link="dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-[#0F4C5C] dark:text-[#68fadd] shadow-sm rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#dashboard">
+<a data-section-link="dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-[#0F4C5C] dark:text-[#68fadd] shadow-sm rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#dashboard">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 <span>Dashboard</span>
 </a>
-<a data-section-link="analyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#analyse">
+<a data-section-link="analyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#analyse">
 <span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
 <span>Analyse</span>
 </a>
-<a data-section-link="diagnose" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#diagnose">
+<a data-section-link="diagnose" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#diagnose">
 <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
 <span>Diagnose</span>
 </a>
-<a data-section-link="workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#workshops">
+<a data-section-link="workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#workshops">
 <span class="material-symbols-outlined" data-icon="school">school</span>
 <span>Lernhaus</span>
 </a>
-<a data-section-link="framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#framework">
+<a data-section-link="framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#framework">
 <span class="material-symbols-outlined" data-icon="description">description</span>
 <span>Dokumentenscanner</span>
 </a>
-<a data-section-link="zollanalyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#zollanalyse">
+<a data-section-link="zollanalyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#zollanalyse">
 <span class="material-symbols-outlined" data-icon="toll">toll</span>
 <span>Zollanalyse</span>
 </a>
@@ -618,7 +622,7 @@
   <span>Mitglieder</span>
   <span class="sidebar-upcoming-badge">Demnächst</span>
 </div>
-<a data-section-link="settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#settings">
+<a data-section-link="settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-body text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#settings">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 <span>Einstellungen</span>
 </a>
@@ -1472,6 +1476,21 @@
     </div>
   </section>
 
+  <aside id="tariff-demo-notice"
+        class="hidden mb-6 rounded-xl border border-outline/20 bg-secondary-container/40 p-5"
+        aria-live="polite">
+    <p id="tariff-demo-message"
+      class="text-sm font-semibold text-primary"></p>
+
+    <p class="mt-2 text-sm text-on-surface-variant">
+      Im Vollzugang nutzen Sie Zollanalysen ohne Demo-Begrenzung.
+      <a href="kontakt.html#contact-form"
+        class="underline font-semibold">
+        Vollzugang anfragen
+      </a>
+    </p>
+  </aside>
+
   <!-- Upload Area -->
   <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm mb-6">
     <h4 class="text-sm font-bold text-primary uppercase tracking-wider mb-6">PDF-Datei hochladen</h4>
@@ -1783,6 +1802,76 @@
   }
 
   const isDemo = accountAccess.access_level === 'demo';
+    window.demoTariffBlocked = isDemo;
+  let tariffAllowanceTimer;
+
+  window.refreshTariffAllowance = async function () {
+    if (!isDemo) return;
+
+    clearTimeout(tariffAllowanceTimer);
+
+    const notice = document.getElementById('tariff-demo-notice');
+    const message = document.getElementById('tariff-demo-message');
+
+    notice.classList.remove('hidden');
+    window.demoTariffBlocked = true;
+
+    try {
+      const [usageResponse, historyResponse] = await Promise.all([
+        supabase.from('demo_tariff_usage')
+          .select('used_at, reserved_until')
+          .eq('user_id', accountAuth.user.id)
+          .maybeSingle(),
+
+        supabase.from('tariff_analyses')
+          .select('id')
+          .eq('user_id', accountAuth.user.id)
+          .limit(1)
+      ]);
+
+      if (usageResponse.error || historyResponse.error) {
+        throw new Error('Status unavailable');
+      }
+
+      const usage = usageResponse.data;
+      const used =
+        Boolean(usage?.used_at) ||
+        Boolean(historyResponse.data?.length);
+
+      const until = Date.parse(usage?.reserved_until || '');
+      const running = Number.isFinite(until) && until > Date.now();
+
+      window.demoTariffBlocked = used || running;
+
+      message.textContent = used
+        ? 'Ihre Demo-Zollanalyse wurde verwendet. Ihre gespeicherten Ergebnisse bleiben verfügbar.'
+        : running
+          ? 'Für Ihr Konto läuft bereits eine Zollanalyse. Bitte warten Sie auf das Ergebnis.'
+          : 'Demozugang: Eine erfolgreiche Zollanalyse enthalten. Fehlgeschlagene Analysen verbrauchen das Guthaben nicht.';
+
+      if (!used && running) {
+        tariffAllowanceTimer = setTimeout(
+          () => window.refreshTariffAllowance(),
+          Math.min(until - Date.now() + 500, 600000)
+        );
+      }
+    } catch {
+      message.textContent =
+        'Ihr Demo-Status konnte nicht geladen werden. Bitte laden Sie die Seite erneut.';
+    }
+
+    const button = document.getElementById('tariff-analyze-btn');
+
+    button.disabled =
+      window.demoTariffBlocked || !tariffFile || tariffBusy;
+
+    button.classList.toggle('opacity-40', button.disabled);
+    button.classList.toggle('cursor-not-allowed', button.disabled);
+  };
+
+  window.addEventListener('focus', () => {
+    window.refreshTariffAllowance();
+  });
   const demoSections = new Set(['dashboard', 'zollanalyse', 'settings']);
 
   function showDemoLock() {
@@ -2634,6 +2723,7 @@ document.getElementById('overview-refresh').addEventListener('click', () => {
   }
 
   window.addEventListener('hashchange', openRequestedSection);
+  await window.refreshTariffAllowance();
   openRequestedSection();
 </script>
 
@@ -2736,7 +2826,7 @@ function setTariffFile(file) {
   if (previewFileName) previewFileName.textContent = file.name
   filePreview.classList.remove('hidden')
   filePreview.classList.add('flex')
-  analyzeBtn.disabled = false
+  analyzeBtn.disabled = Boolean(window.demoTariffBlocked)
   analyzeBtn.classList.remove('opacity-40', 'cursor-not-allowed')
 }
 
@@ -2782,6 +2872,14 @@ async function runTariffAnalysis() {
   setProgress(10, 'PDF wird gelesen…', 'Dateiinhalt wird extrahiert')
 
   try {
+    await window.refreshTariffAllowance?.()
+
+    if (window.demoTariffBlocked) {
+      throw new Error(
+        'Bitte beachten Sie den Hinweis zu Ihrem Demozugang oberhalb des Uploads.'
+      )
+    }
+
     if (!country) throw new Error('Bitte wählen Sie ein Zielland aus.')
     const supportedCountries = ['MX', 'AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'PY', 'PE', 'UY', 'VE']
     if (!supportedCountries.includes(country)) throw new Error('Dieses Zielland wird derzeit nicht unterstützt.')
@@ -2797,7 +2895,12 @@ async function runTariffAnalysis() {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token
       },
-      body: JSON.stringify({ base64, mimeType: 'application/pdf', country })
+      body: JSON.stringify({
+      base64,
+      mimeType: 'application/pdf',
+      country,
+      fileName: selectedFile.name
+    })
     })
     setProgress(70, 'Tarifnummern werden zugeordnet…', 'Klassifizierungslogik läuft')
     const data = await response.json()
@@ -2809,10 +2912,10 @@ async function runTariffAnalysis() {
       throw new Error('Die KI-Antwort enthält keine gültige Produktliste. Bitte erneut versuchen.')
     }
     if (result.country && result.country !== country) throw new Error('Das Zielland der KI-Antwort stimmt nicht mit Ihrer Auswahl überein. Bitte erneut versuchen.')
-    result.country = country
-    tariffResults = result
-    pendingTariffAnalysis = {
-      id: crypto.randomUUID(),
+      result.country = country
+      tariffResults = result
+      pendingTariffAnalysis = {
+      id: data.analysisId || crypto.randomUUID(),
       user_id: user.id,
       country_code: country,
       file_name: selectedFile.name,
@@ -2830,10 +2933,12 @@ async function runTariffAnalysis() {
     document.getElementById('tariff-error').classList.remove('hidden')
     document.getElementById('tariff-error-msg').textContent = err.message || 'Unbekannter Fehler'
   } finally {
-    tariffBusy = false
-    analyzeBtn.disabled = !tariffFile
-    fileInput.disabled = false
-    countrySelect.disabled = false
+      tariffBusy = false
+      await window.refreshTariffAllowance?.()
+      analyzeBtn.disabled =
+        !tariffFile || Boolean(window.demoTariffBlocked)
+      fileInput.disabled = false
+      countrySelect.disabled = false
   }
 }
 
