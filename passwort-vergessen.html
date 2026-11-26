@@ -103,13 +103,26 @@
     }
     .check-pop { animation: checkPop 0.5s cubic-bezier(.36,.07,.19,.97) both; }
   </style>
+  <!-- Shared public typography and hero styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" href="assets/css/iteras-public.css">
+<link rel="stylesheet" href="assets/css/brand.css">
 </head>
 <body class="bg-surface text-on-surface min-h-screen flex flex-col">
 
   <!-- Nav -->
   <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
     <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
-      <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">Iteras</a></div>
+      <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button>
+        <a class="brand-link" href="index.html">
+          <img src="assets/images/brand/iteras_logo.png"
+              alt="ITERAS – Startseite"
+              class="brand-logo">
+        </a>
+      </div>
 
       <div class="hidden md:flex items-center gap-8">
         <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors tracking-tight" href="leistungen.html">Leistungen</a>
@@ -247,10 +260,15 @@
   <!-- Footer -->
   <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
     <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-      <div class="iteras-logo text-[1.2rem] text-0F4C5C">Iteras</div>
+      <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS"
+            class="brand-logo"
+            loading="lazy">
+       </a>
       <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest text-slate-400">
-        <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
-		  <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
+        <a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+		  <a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
         <a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
         <a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
       </div>
@@ -340,6 +358,6 @@ if (menuBtn && mobileMenu) {
   });
 }
 </script>
-
+<script src="assets/js/language-placeholder.js" defer></script>
 </body>
 </html>

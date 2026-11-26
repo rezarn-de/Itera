@@ -4,11 +4,26 @@ const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const DEFAULT_COUNTRY = process.env.SYNC_COUNTRY || 'MX';
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+let supabase;
 
-exports.handler = async () => {
+exports.handler = async (event) => {
+  const expectedToken = process.env.TARIFF_ADMIN_TOKEN;
+  const suppliedToken = event.headers?.['x-iteras-admin-token'];
+
+  if (!expectedToken || suppliedToken !== expectedToken) {
+    return jsonResponse(403, {
+      ok: false,
+      error: 'Dieser Vorgang ist nur für die Administration verfügbar.'
+    });
+  }
+
   try {
     validateEnv();
+
+    supabase ||= createClient(
+      SUPABASE_URL,
+      SUPABASE_SERVICE_ROLE_KEY
+    );
 
     const version = await getLatestPendingVersion(DEFAULT_COUNTRY);
 

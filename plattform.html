@@ -106,17 +106,27 @@
 .delay-3 { transition-delay: 0.3s; }
 
 </style>
+<!-- Shared public typography and hero styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" href="assets/css/iteras-public.css">
+<link rel="stylesheet" href="assets/css/brand.css">
 </head>
 <body class="bg-background text-on-background antialiased">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+<nav id="platform-main-nav" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
-      Iteras
-    </a></div>
-
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button>
+     <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS – Startseite"
+            class="brand-logo">
+      </a>
+    </div>  
     <!-- Navigation Links -->
     <div class="hidden md:flex items-center gap-8">
       <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="leistungen.html">
@@ -197,219 +207,133 @@
 
 </nav>
 
-<main class="pt-24">
+<main class="iteras-public-main">
 <!-- Hero Section -->
-<section class="reveal relative overflow-hidden py-24 md:py-32 bg-surface">
-<div class="absolute inset-0 z-0 opacity-10">
-<div class="absolute top-0 right-0 w-1/2 h-full bg-primary-container rounded-l-full blur-3xl"></div>
-</div>
-<div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[minmax(0,36rem)_minmax(0,1fr)] gap-12 lg:gap-16 items-center">
-<div class="space-y-8 max-w-[36rem]">
-<div class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase" style="">
-                        Plattform Ökosystem
-                    </div>
-<h1 lang="de" class="max-w-[14ch] text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-[0.95] tracking-tight hyphens-auto">
-  Eine Plattform für echte grenzüberschreitende Zusammenarbeit
-</h1>
-<p class="text-xl text-on-surface-variant leading-relaxed max-w-xl" style="">
-                        Risiken identifizieren, Teams aufeinander abstimmen und Markteintritte zwischen Deutschland und Lateinamerika erfolgreich umsetzen.
-                    </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a href="kontakt.html#contact-form"
-         class="px-4 md:px-8 py-4 bg-[#0F4C5C] text-white rounded-full font-bold shadow-lg shadow-primary/10 transition-transform hover:scale-[1.02]">
-        Demo anfordern
-      </a>
-<a href="plattform.html#functions-sec" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
-                       Funktionen ansehen
-                    </a>
-</div>
-</div>
-<div class="relative lg:pl-4">
-<div class="aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-3">
-<img
-  class="w-full h-full object-cover object-left"
-  src="assets/images/hero/plattform-hero.png"
-  alt="Platform dashboard view"
-></div>
-<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs -rotate-3 border border-surface-variant">
-<div class="flex items-center gap-3 mb-2">
-<span class="material-symbols-outlined text-tertiary-container" data-icon="verified" style="">verified</span>
-<span class="font-bold text-primary" style="">Compliance Check</span>
-</div>
-<p class="text-sm text-on-surface-variant" style="">Regulatorische Hürden in Echtzeit überwacht für den LATAM-Markt.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Problem Section -->
-<section class="reveal py-24 bg-white">
-<div class="max-w-7xl mx-auto px-4 md:px-8">
-<div class="text-center max-w-3xl mx-auto mb-16">
-<h2 class="text-3xl md:text-4xl font-black text-primary mb-6" style="">
-                        Warum grenzüberschreitende Zusammenarbeit in der Praxis scheitert
-                    </h2>
-<p class="text-lg text-on-surface-variant" style="">
-                        Trotz strategischer Absichten scheitern viele Vorhaben an der operativen Realität komplexer internationaler Märkte.
-                    </p>
-</div>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
-<div class="w-12 h-12 bg-[#19839e] rounded-2xl flex items-center justify-center mb-6 text-white backdrop-blur-sm group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" data-icon="groups" style="">groups</span>
-</div>
-<h3 class="text-xl font-bold text-primary mb-3" style="">Fehlende Abstimmung</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed" style="">Teams arbeiten in Silos ohne gemeinsame Sicht auf Ziele und Fortschritte.</p>
-</div>
+<section class="classic-hero" aria-labelledby="hero-title">
+  <div class="grid">
+    <div>
+      <span class="classic-kicker">Plattform Ökosystem</span>
 
-<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
-  <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
-    <span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+      <h1 id="hero-title">
+        Eine Plattform für echte grenzüberschreitende Zusammenarbeit
+      </h1>
+
+      <p class="classic-description">
+        Risiken identifizieren, Teams aufeinander abstimmen und
+        Markteintritte zwischen Deutschland und Lateinamerika
+        erfolgreich umsetzen.
+      </p>
+
+      <div class="classic-actions">
+        <a href="kontakt.html#contact-form"
+           class="classic-button classic-button-primary">
+          Demo anfordern
+        </a>
+
+        <a href="#functions-sec"
+           class="classic-button classic-button-secondary">
+          Funktionen ansehen
+        </a>
+      </div>
+    </div>
+
+    <div class="classic-visual">
+      <div class="classic-image-frame">
+        <img src="assets/images/hero/plattform-hero.png"
+             alt="Einblick in die ITERAS-Plattform"
+             class="object-left"
+             fetchpriority="high">
+      </div>
+
+      <!--<div class="absolute bottom-4 left-4 right-4 bg-white p-5 rounded-2xl shadow-xl border border-slate-100">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-[#0F4C5C]"
+                aria-hidden="true">verified</span>
+          <span class="font-bold text-primary">Compliance Check</span>
+        </div>
+
+        <p class="text-sm text-slate-600">
+          Regulatorische Hürden in Echtzeit überwacht für den LATAM-Markt.
+        </p>-->
+      </div>
+    </div>
   </div>
+</section>
+<!-- Sticky platform feature menu -->
+<div id="platform-feature-menu" class="platform-feature-bar">
+  <nav class="platform-feature-nav" aria-label="Plattformfunktionen">
+    <a href="#plattform-dashboard">Dashboard</a>
+    <a href="#functions-sec">Zollanalyse</a>
+    <a href="#plattform-diagnose">Diagnose &amp; Analyse</a>
+    <a href="#plattform-scanner">Dokumentenscanner</a>
+    <a href="#plattform-lernhaus">Lernhaus</a>
+  </nav>
+</div>
+<!-- Dashboard and platform overview -->
+<section id="plattform-dashboard" class="platform-update">
+  <div class="platform-update-inner">
 
-  <div class="max-w-[88%]">
-    <h3 lang="de" class="text-xl font-bold text-primary mb-3 lg:max-w-full md:max-w-[95%] max-w-[92%] hyphens-auto">
-  Entscheidungsstrukturen
-</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">
-  Langsame Freigabeprozesse durch unklare Hierarchien zwischen den Kontinenten.
-</p>
+    <div class="platform-update-grid">
+      <div>
+        <p class="platform-update-kicker">Ihr Dashboard</p>
+
+        <h2>Ein Einstieg.<br>Ihre nächsten Schritte im Blick.</h2>
+
+        <p class="platform-update-lead">
+          Nach der Anmeldung landen Sie in Ihrem persönlichen
+          Arbeitsbereich. Hier finden Sie Ihre letzten Ergebnisse
+          und starten direkt die nächste Analyse.
+        </p>
+
+        <p class="platform-update-text">
+          Das Dashboard verbindet die verfügbaren Werkzeuge mit
+          Ihren gespeicherten Ergebnissen. Welche Funktionen Sie
+          nutzen können, richtet sich nach Ihrem Kontozugang.
+        </p>
+      </div>
+
+      <dl class="platform-feature-list">
+        <div>
+          <dt>
+            <span class="material-symbols-outlined" aria-hidden="true">
+              history
+            </span>
+            Letzte Zollanalysen
+          </dt>
+          <dd>
+            Gespeicherte Ergebnisse mit Zielland und Dokumentbezug
+            wieder öffnen.
+          </dd>
+        </div>
+
+        <div>
+          <dt>
+            <span class="material-symbols-outlined" aria-hidden="true">
+              analytics
+            </span>
+            Diagnoseergebnisse
+          </dt>
+          <dd>
+            Im Vollzugang die letzte Diagnose mit Bereitschaft,
+            Dimensionen und nächstem Handlungsschritt überblicken.
+          </dd>
+        </div>
+
+        <div>
+          <dt>
+            <span class="material-symbols-outlined" aria-hidden="true">
+              arrow_forward
+            </span>
+            Direkter Einstieg
+          </dt>
+          <dd>
+            Eine Zollanalyse starten oder im Vollzugang ein
+            Handelsdokument scannen.
+          </dd>
+        </div>
+      </dl>
+    </div>
   </div>
-</div>
-
-<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
-<div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" data-icon="gavel" style="">gavel</span>
-</div>
-<h3 class="text-xl font-bold text-primary mb-3" style="">Regulatorik</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed" style="">Komplexität lokaler Gesetze und Compliance-Anforderungen wird unterschätzt.</p>
-</div>
-<div class="p-8 rounded-3xl bg-surface border border-surface-variant hover:border-primary-container transition-colors group">
-<div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" data-icon="public" style="">public</span>
-</div>
-<h3 class="text-xl font-bold text-primary mb-3" style="">Kulturelle Barrieren</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed" style="">Unterschiedliche Arbeitsweisen führen zu Reibungsverlusten in der Kommunikation.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Process Section -->
-<section class="reveal py-24 bg-primary text-on-primary">
-<div class="max-w-7xl mx-auto px-4 md:px-8">
-<div class="mb-20">
-<h2 class="text-4xl font-black mb-4" style="">Der Weg zum Erfolg</h2>
-<div class="h-1.5 w-32 bg-tertiary-fixed rounded-full"></div>
-</div>
-<div class="grid md:grid-cols-3 gap-12 relative">
-
-
-<!-- Step 1 -->
-<div class="relative z-10 space-y-6">
-<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-2xl font-black border-4 border-primary shadow-xl" style="">
-                            01
-                        </div>
-<h3 class="text-2xl font-bold" style="">Diagnose Ihrer Bereitschaft</h3>
-<p class="text-on-primary-container leading-relaxed" style="">
-                            Wir bewerten die Marktfähigkeit und den organisatorischen Fit Ihres Unternehmens für die Expansion.
-                        </p>
-<ul class="space-y-3 pt-4">
-<li class="flex items-center gap-3 text-sm opacity-90" style="">
-<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="check_circle" style="">check_circle</span>
-                                Market Readiness Score
-                            </li>
-<li class="flex items-center gap-3 text-sm opacity-90" style="">
-<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="check_circle" style="">check_circle</span>
-                                Organizational Alignment Audit
-                            </li>
-</ul>
-</div>
-<!-- Step 2 -->
-<div class="relative z-10 space-y-6">
-<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-2xl font-black border-4 border-primary shadow-xl" style="">
-                            02
-                        </div>
-<h3 class="text-2xl font-bold" style="">Risiken und Lücken identifizieren</h3>
-<p class="text-on-primary-container leading-relaxed" style="">
-                            Detaillierte Analyse von Stärken, Schwächen und potenziellen operativen Risiken in der Zielregion.
-                        </p>
-<ul class="space-y-3 pt-4">
-<li class="flex items-center gap-3 text-sm opacity-90" style="">
-<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="analytics" style="">analytics</span>
-                                Risikomatrix & Gap-Analyse
-                            </li>
-<li class="flex items-center gap-3 text-sm opacity-90" style="">
-<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="analytics" style="">analytics</span>
-                                Szenario-Planung
-                            </li>
-</ul>
-</div>
-<!-- Step 3 -->
-<div class="relative z-10 space-y-6">
-<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-2xl font-black border-4 border-primary shadow-xl" style="">
-                            03
-                        </div>
-<h3 class="text-2xl font-bold" style="">Erkenntnisse in Taten umsetzen</h3>
-<p class="text-on-primary-container leading-relaxed" style="">
-                            Ein strukturiertes Playbook mit praktischen Empfehlungen führt Sie Schritt für Schritt durch die Umsetzung.
-                        </p>
-<ul class="space-y-3 pt-4">
-<li class="flex items-center gap-3 text-sm opacity-90" style="">
-<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="rocket_launch" style="">rocket_launch</span>
-                                Operatives Playbook
-                            </li>
-<li class="flex items-center gap-3 text-sm opacity-90" style="">
-<span class="material-symbols-outlined text-tertiary-fixed text-lg" data-icon="rocket_launch" style="">rocket_launch</span>
-                                Kontinuierliche Begleitung
-                            </li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Differentiation Section -->
-<section class="reveal py-24 bg-surface-container-low">
-<div class="max-w-7xl mx-auto px-4 md:px-8">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-black text-primary mb-4" style="">Jenseits der Strategie. Fokus auf die Umsetzung.</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto" style="">Warum Iteras den Unterschied für Ihr grenzüberschreitende Wachstum macht.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
-<div class="md:col-span-8 bg-white rounded-3xl p-10 flex flex-col justify-between border border-surface-variant overflow-hidden relative group">
-<div class="relative z-10">
-<h3 class="text-3xl font-black text-primary mb-4" style="">Interaktive Plattform statt statischer Slides</h3>
-<p class="text-on-surface-variant text-lg max-w-lg" style="">
-                                Wir liefern keine dicken PDF-Berichte, die in der Schublade landen. Unsere Plattform bietet ein lebendiges Ökosystem für das Management Ihrer Internationalisierung.
-                            </p>
-</div>
-<div class="absolute -right-20 -bottom-20 w-2/3 opacity-20 group-hover:opacity-30 transition-opacity">
-<span class="material-symbols-outlined text-[300px]" data-icon="dashboard" style="">dashboard</span>
-</div>
-</div>
-<div class="md:col-span-4 bg-primary-container rounded-3xl p-10 flex flex-col text-on-primary-container border border-primary relative overflow-hidden">
-<span class="material-symbols-outlined text-3xl md:text-5xl mb-6 text-tertiary-fixed" data-icon="settings_suggest" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">settings_suggest</span>
-<h3 class="text-2xl font-bold text-white mb-4" style="">Operativer Fokus</h3>
-<p class="text-on-primary-container/80 text-sm leading-relaxed" style="">
-                            Theoretische Frameworks sind gut, operative Umsetzung ist besser. Wir begleiten Sie bei jedem realen Schritt auf dem Zielmarkt.
-                        </p>
-</div>
-<div class="md:col-span-4 bg-primary rounded-3xl p-10 flex flex-col text-on-primary border border-primary">
-<span class="material-symbols-outlined text-3xl md:text-5xl mb-6 text-tertiary-fixed" data-icon="monitoring" style="">monitoring</span>
-<h3 class="text-2xl font-bold mb-4" style="">Echtzeit-Tracking</h3>
-<p class="opacity-80 text-sm" style="">Überwachen Sie Meilensteine und KPIs direkt über Ihr personalisiertes Dashboard.</p>
-</div>
-<div class="md:col-span-8 bg-white rounded-3xl p-10 flex items-center gap-10 border border-surface-variant overflow-hidden group">
-<div class="flex-1">
-<h3 class="text-2xl font-bold text-primary mb-4" style="">Lokales Expertenwissen</h3>
-<p class="text-on-surface-variant text-sm" style="">Nutzen Sie den Zugang zu unserem Netzwerk aus Fachleuten in Deutschland und Lateinamerika.</p>
-</div>
-<div class="hidden lg:block w-48 h-48 rounded-2xl overflow-hidden shadow-lg rotate-6 group-hover:rotate-0 transition-transform">
-<img class="w-full h-full object-cover" data-alt="diverse group of business professionals in a high-end modern boardroom discussing global strategy over a world map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhJwNBRf5oAYRTu9BNSyR9TKFOLiJtx8NW8sMtYAv6_SIS9VxTGoteaYcwfZl7K8il2OieDjH75X12qHWoS8lIlo0UFjUiYLtCeh6gZEHBQQdrr-aB-GmdnwHHg-f21QRrm6nK7lv0WcYtfujOFFaYjsQC5EPoN9g_dLFVAOOxImoxYIl6ppN7nfxFrXF21vj-TRdJI8rJ1V3yVxzs_v0UoTFKtH_pvYx9HuPkiXgw8G_LrVNDJAVDWHsQe5bdWlw5YK9PoRTwPOmF" style="">
-</div>
-</div>
-</div>
-</div>
 </section>
 
 <!-- Zollanalyse Section -->
@@ -493,7 +417,7 @@
   </div>
 </section>
 <!-- Diagnose & Analyse Section -->
-<section class="reveal py-24 bg-surface-container-low">
+<section id="plattform-diagnose" class="reveal py-24 bg-surface-container-low">
   <div class="max-w-7xl mx-auto px-4 md:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -572,45 +496,166 @@
     </div>
   </div>
 </section>
-<!-- CTA Buttons -->
-<section class="reveal py-32 px-4 md:px-8 bg-[#0F4C5C] text-white">
-  <div class="max-w-screen-xl mx-auto text-center">
-    <h2 class="text-4xl md:text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">
-      Starten Sie Ihre internationale Expansion strukturiert und erfolgreich
-    </h2>
-    <p class="text-lg md:text-xl opacity-80 mb-14 max-w-2xl mx-auto leading-relaxed">
-      Wir unterstützen Sie dabei, Ihre grenzüberschreitende Zusammenarbeit effizient aufzubauen, von der Strategie bis zur operativen Umsetzung.
-    </p>
+<!-- Document scanner -->
+<section id="plattform-scanner" class="platform-update">
+  <div class="platform-update-inner platform-update-grid">
+    <figure class="platform-update-shot">
+      <img
+        src="assets/images/leistungen/dokumentenprüfung.png"
+        alt="ITERAS Dokumentenscanner mit Dokumentenupload und extrahierten Angaben"
+        loading="lazy"
+        decoding="async">
 
-    <!-- Buttons -->
-    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-10">
-      <a href="kontakt.html#contact-form"
-         class="px-10 py-5 bg-[#23c9ae] text-[#0F4C5C] font-black rounded-full hover:scale-[1.02] transition-all">
-        Erstgespräch vereinbaren
-      </a>
-      <a href="plattform.html"
-         class="px-10 py-5 bg-white/10 text-white border border-white/20 font-bold rounded-full hover:bg-white/20 transition-all">
-        Plattform entdecken
-      </a>
+      <figcaption>
+        Einblick in den Dokumentenscanner
+      </figcaption>
+    </figure>
+
+    <div>
+      <p class="platform-update-kicker">Dokumentenscanner</p>
+
+      <h2>Vom Handelsdokument zu bearbeitbaren Angaben.</h2>
+
+      <p class="platform-update-lead">
+        Laden Sie Rechnungen, Packlisten oder andere Handelsdokumente
+        als PDF, JPG oder PNG hoch. Der Scanner extrahiert die
+        erkennbaren Angaben und stellt sie strukturiert dar.
+      </p>
+
+      <dl class="platform-feature-list">
+        <div>
+          <dt>Angaben extrahieren</dt>
+          <dd>
+            Dokumentnummer, Beteiligte, Beträge, Währung,
+            Produktpositionen und weitere erkennbare Informationen.
+          </dd>
+        </div>
+
+        <div>
+          <dt>Ergebnisse prüfen und bearbeiten</dt>
+          <dd>
+            Extrahierte Angaben mit dem Original abgleichen und
+            vor der weiteren Nutzung korrigieren.
+          </dd>
+        </div>
+
+        <div>
+          <dt>Strukturiert exportieren</dt>
+          <dd>
+            Die bearbeiteten Ergebnisse als JSON oder CSV
+            herunterladen.
+          </dd>
+        </div>
+      </dl>
+
+      <p class="platform-update-meta">
+        Im Vollzugang verfügbar · Maximal 3 MB pro Dokument
+      </p>
     </div>
-    <!-- Trust line -->
-    <p class="text-sm opacity-50">
-      Kostenloses Erstgespräch · Keine Verpflichtung
-    </p>
+  </div>
+</section>
+
+<!-- Learning resources -->
+<section id="plattform-lernhaus"
+         class="platform-update platform-update-muted">
+  <div class="platform-update-inner platform-update-grid">
+    <div>
+      <p class="platform-update-kicker">Lernhaus</p>
+
+      <h2>Zollwissen verstehen.<br>Zusammenhänge erkennen.</h2>
+
+      <p class="platform-update-lead">
+        Das Lernhaus ergänzt die Werkzeuge um verständliche
+        Begriffserklärungen und geplante Lernangebote für das
+        Geschäft zwischen Deutschland und Lateinamerika.
+      </p>
+    </div>
+
+    <dl class="platform-feature-list">
+      <div>
+        <dt>Glossar</dt>
+        <dd>
+          Begriffe zu Zoll, Import, Export und internationalem
+          Geschäft nachschlagen – mit Suche, Kategorien und
+          alphabetischer Übersicht.
+        </dd>
+      </div>
+
+      <div>
+        <dt>
+          Workshops &amp; Lektionen
+          <span class="platform-preparation">In Vorbereitung</span>
+        </dt>
+        <dd>
+          Geplante Lernangebote zu Zollprozessen und
+          grenzüberschreitender Zusammenarbeit.
+          Lernfortschritt wird erst mit verfügbaren Lektionen nutzbar.
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<!-- CTA Buttons -->
+<!-- Demo access -->
+<section class="platform-update platform-demo">
+  <div class="platform-update-inner platform-update-grid">
+    <div>
+      <p class="platform-update-kicker">ITERAS kennenlernen</p>
+
+      <h2>Mit der Zollanalyse starten.</h2>
+
+      <p class="platform-update-lead">
+        Lernen Sie den Ablauf mit einem persönlichen Demozugang
+        kennen: anmelden, ein Zielland auswählen, eine Produktliste
+        hochladen und die Ergebnisse prüfen.
+      </p>
+
+      <div class="platform-demo-actions">
+        <a href="kontakt.html#contact-form"
+           class="platform-demo-primary">
+          Demozugang anfragen
+        </a>
+
+        <a href="anmelden.html" class="platform-demo-secondary">
+          Bereits Zugang? Anmelden
+        </a>
+      </div>
+    </div>
+
+    <div class="platform-demo-details">
+      <h3>Ihr Demozugang</h3>
+
+      <ul>
+        <li>Persönlicher Login und Einstieg über das Dashboard</li>
+        <li>Zollanalyse für die verfügbaren Zielländer</li>
+        <li>Zugriff auf Ihre gespeicherten Zollanalysen</li>
+        <li>Weitere Werkzeuge als gesperrte Vorschau sichtbar</li>
+      </ul>
+
+      <p>
+        Diagnose, Analyse, Dokumentenscanner und das Lernhaus gehören
+        zum Vollzugang. Workshops und Lektionen sind noch in Vorbereitung.
+      </p>
+    </div>
   </div>
 </section>
 </main>
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
+  <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS"
+            class="brand-logo"
+            loading="lazy">
+  </a>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
-<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
 </div>
-<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Iteras. Alle Rechte vorbehalten.</div>
+<div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Iteras. Alle Rechte vorbehalten.</div>
 </div>
 </footer>
 <script>
@@ -656,5 +701,7 @@ if (menuBtn && mobileMenu) {
   });
 }
 </script>
-
-</body></html>
+<script src="assets/js/language-placeholder.js" defer></script>
+<script src="assets/js/platform-menu.js" defer></script>
+</body>
+</html>

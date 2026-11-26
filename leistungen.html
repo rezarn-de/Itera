@@ -136,6 +136,13 @@
 .delay-3 { transition-delay: 0.3s; }
 
 </style>
+<!-- Shared public typography and hero styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" href="assets/css/iteras-public.css">
+<link rel="stylesheet" href="assets/css/brand.css">
 </head>
 <body class="text-on-background antialiased">
 
@@ -144,9 +151,13 @@
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
-      Iteras
-    </a></div>
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button>
+      <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS – Startseite"
+            class="brand-logo">
+      </a>
+    </div>
 
     <!-- Navigation Links -->
     <div class="hidden md:flex items-center gap-8">
@@ -227,46 +238,53 @@
 </div>
 
 </nav>
-<main>
+<main class="iteras-public-main">
 <!-- Hero Section -->
-<section class="reveal pt-40 pb-24 px-4 md:px-8 max-w-screen-2xl mx-auto overflow-hidden">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-<div class="lg:col-span-7">
-<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6" style="">
-                        Expertise
-                    </div>
-<h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black text-primary leading-[1.1] tracking-tight mb-8" style="">
-                        Leistungen <span class="text-[#0F4C5C]" style="">für Markteintritt, Compliance und operative Umsetzung</span>
-                    </h1>
-<p class="text-xl text-on-surface-variant leading-relaxed max-w-2xl mb-12" style="">
-                        Wir verbinden KI-gestützte Diagnostik, Zoll- und Dokumentenprozesse sowie persönliche Beratung in einem integrierten Leistungsmodell für grenzüberschreitende Expansion zwischen Deutschland und Lateinamerika.
-                    </p>
-<div class="flex flex-wrap gap-4">
+<section class="classic-hero" aria-labelledby="hero-title">
+  <div class="grid">
+    <div>
+      <span class="classic-kicker">Expertise</span>
 
-<a href="kontakt.html#contact-form"
-         class="px-4 md:px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-bold shadow-lg shadow-primary/10 transition-transform hover:scale-[1.02]">
-        Erstgespräch vereinbaren
-      </a>
+      <h1 id="hero-title">
+        Leistungen für Markteintritt, Compliance und operative Umsetzung
+      </h1>
 
-<a href="leistungen.html#tools" class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors" style="">
-                       Tools ansehen
-                    </a>
-</div>
-</div>
-<div class="lg:col-span-5 relative">
-<div class="relative rounded-2xl overflow-hidden shadow-xl">
-<img alt="Modern professional workspace" class="w-full aspect-[4/3] object-cover object-top" src="assets/images/hero/leistungen-hero.jpeg" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-</div>
-</div>
-</div>
+      <p class="classic-description">
+        Wir verbinden KI-gestützte Diagnostik, Zoll- und Dokumentenprozesse
+        sowie persönliche Beratung in einem integrierten Leistungsmodell
+        für grenzüberschreitende Expansion zwischen Deutschland und
+        Lateinamerika.
+      </p>
+
+      <div class="classic-actions">
+        <a href="kontakt.html#contact-form"
+           class="classic-button classic-button-primary">
+          Erstgespräch vereinbaren
+        </a>
+
+        <a href="#tools"
+           class="classic-button classic-button-secondary">
+          Tools ansehen
+        </a>
+      </div>
+    </div>
+
+    <div class="classic-visual">
+      <div class="classic-image-frame">
+        <img src="assets/images/hero/leistungen-hero.webp"
+          alt="Professionelle Arbeitsumgebung"
+          fetchpriority="high">
+        <div class="classic-image-overlay"></div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Intro Section -->
 <section class="reveal py-24 px-4 md:px-8 bg-surface-container-low border-y border-outline-variant/10">
 <div class="max-w-screen-2xl mx-auto text-center">
 <div class="max-w-3xl mx-auto">
-<span class="material-symbols-outlined text-3xl md:text-5xl text-[#19839e] mb-8" style="">hub</span>
-<h2 class="text-3xl md:text-4xl font-bold text-[#0F4C5C] tracking-tight leading-tight mb-8" style="">
+<span class="material-symbols-outlined text-3xl md:text-5xl text-[#19839e] mb-8">hub</span>
+<h2 class="text-3xl md:text-4xl font-bold text-[#0F4C5C] tracking-tight leading-tight mb-8">
                         Dank unserer Plattform ist unser Tool jederzeit und überall problemlos zugänglich.
                     </h2>
 <div class="w-24 h-1 bg-[#19839e] mx-auto rounded-full"></div>
@@ -349,10 +367,11 @@
           <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
             <div class="h-52 overflow-hidden bg-surface-container">
               <img
-                src="https://placehold.co/1200x800/eef2f4/0f4c5c?text=Umsetzungsplan"
-                alt="Handlungsempfehlungen und Umsetzungsplan"
-                class="w-full h-full object-cover"
-              />
+                src="assets/images/leistungen/handlungsempfehlungen.png"
+                alt="ITERAS Analysebereich mit Diagnoseergebnissen und Handlungsempfehlungen"
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+                decoding="async">
             </div>
             <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
               <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
@@ -449,10 +468,11 @@
           <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
             <div class="h-52 overflow-hidden bg-surface-container">
               <img
-                src="assets/images/leistungen/analyse-result.jpg"
-                alt="KI-gestützte Zolltarifklassifizierung"
-                class="w-full h-full object-cover"
-              />
+                src="assets/images/leistungen/analyse-result.png"
+                alt="ITERAS Zollanalyse mit Produktklassifizierungen und Zolltarifnummern"
+                class="w-full h-full object-cover object-left-top"
+                loading="lazy"
+                decoding="async">
             </div>
             <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
               <div class="w-12 h-12 rounded-2xl bg-[#19839e] flex items-center justify-center text-white mb-6">
@@ -499,9 +519,11 @@
           <div class="service-card-face service-card-front bg-surface border border-surface-variant shadow-sm hover:shadow-xl transition-shadow">
             <div class="h-52 overflow-hidden bg-surface-container">
               <img
-                src="https://placehold.co/1200x800/eef2f4/0f4c5c?text=Dokumente+%26+Compliance"
-                alt="Dokumentenprüfung, Compliance und Integration"
-                class="w-full h-full object-cover"
+                src="assets/images/leistungen/dokumentenprüfung.png"
+                alt="ITERAS Dokumentenscanner mit Dokumentenupload und extrahierten Angaben"
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="p-8 h-[calc(100%-13rem)] flex flex-col">
@@ -580,14 +602,19 @@
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
+  <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS"
+            class="brand-logo"
+            loading="lazy">
+  </a>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
-<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
 </div>
-<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Iteras. Alle Rechte vorbehalten.</div>
+<div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Iteras. Alle Rechte vorbehalten.</div>
 </div>
 </footer>
 <script>
@@ -670,4 +697,6 @@ if (menuBtn && mobileMenu) {
     });
   });
 </script>
-</body></html>
+<script src="assets/js/language-placeholder.js" defer></script>
+</body>
+</html>

@@ -505,6 +505,69 @@
         }
       }
     </style>
+    <style id="iteras-demo-access">
+  .access-lock {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .demo-locked-link {
+    opacity: .7;
+  }
+
+  #dashboard-section > .demo-locked-card {
+    background: #f7f9f9;
+    border-style: dashed;
+    box-shadow: none;
+  }
+
+  .demo-access-note {
+    margin-top: 16px;
+    color: #586e74;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .demo-account #overview-diagnosis-content {
+    display: none !important;
+  }
+
+  .account-identity p {
+    max-width: 145px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+<link rel="stylesheet" href="assets/css/brand.css">
+<style>
+  #sidebar .sidebar-upcoming {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px;
+    color: #bdd2d6;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  #sidebar .sidebar-upcoming .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 21px;
+  }
+
+  #sidebar .sidebar-upcoming-badge {
+    margin-left: auto;
+    padding: 5px 7px;
+    border-radius: 6px;
+    background: #285660;
+    color: #dcebea;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+</style>
 </head>
 <body class="text-on-background">
 
@@ -515,7 +578,9 @@
 <aside id="sidebar" class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-950 flex flex-col gap-2 p-6 z-40">
 <div class="mb-10 px-2">
   <a href="german_dashboard.html" aria-label="Iteras Dashboard">
-    <h1 class="iteras-logo text-[1.35rem]">Iteras</h1>
+    <img src="assets/images/brand/iteras_logo.png"
+     alt="ITERAS"
+     class="brand-logo">
   </a>
   <p class="portal-label">Ihr Außenhandel. Ein Arbeitsbereich.</p>
 </div>
@@ -546,6 +611,13 @@
 <span class="material-symbols-outlined" data-icon="toll">toll</span>
 <span>Zollanalyse</span>
 </a>
+<div class="sidebar-upcoming">
+  <span class="material-symbols-outlined" aria-hidden="true">
+    group
+  </span>
+  <span>Mitglieder</span>
+  <span class="sidebar-upcoming-badge">Demnächst</span>
+</div>
 <a data-section-link="settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg font-['Inter'] text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#settings">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 <span>Einstellungen</span>
@@ -1656,7 +1728,12 @@
 <footer class="w-full py-8 md:py-12 px-4 md:px-12 mt-8 md:mt-12 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/20">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
 <div class="flex flex-col items-center md:items-start">
-<span class="iteras-logo text-[1.2rem] text-0F4C5C">Iteras</span>
+  <a class="brand-link" href="german_dashboard.html#dashboard">
+    <img src="assets/images/brand/iteras_logo.png"
+        alt="ITERAS"
+        class="brand-logo"
+        loading="lazy">
+  </a>
 <p class="text-slate-400 text-[10px] uppercase tracking-widest mt-2">© 2026 Iteras. Alle Rechte vorbehalten.</p>
 </div>
 <div class="flex gap-8">
@@ -1675,6 +1752,121 @@
   const supabaseUrl = 'https://fhwdlgjrgdoaerjfqflb.supabase.co'
   const supabaseKey = 'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg'
   const supabase = createClient(supabaseUrl, supabaseKey)
+    const { data: accountAuth, error: accountAuthError } =
+    await supabase.auth.getUser();
+
+  if (accountAuthError || !accountAuth?.user) {
+    window.location.replace('anmelden.html');
+    throw new Error('Anmeldung erforderlich.');
+  }
+
+  const { data: accountAccess, error: accountAccessError } =
+    await supabase
+      .from('account_access')
+      .select('access_level')
+      .eq('user_id', accountAuth.user.id)
+      .single();
+
+  if (
+    accountAccessError ||
+    !['demo', 'full'].includes(accountAccess?.access_level)
+  ) {
+    document.body.innerHTML = `
+      <main style="max-width:600px;margin:80px auto;padding:24px">
+        <h1>Zugriff konnte nicht geladen werden</h1>
+        <p>Bitte versuchen Sie es erneut oder kontaktieren Sie uns.</p>
+        <p><a href="german_dashboard.html">Erneut versuchen</a></p>
+        <p><a href="anmelden.html">Zur Anmeldung</a></p>
+      </main>
+    `;
+    throw new Error('Kontozugriff konnte nicht geprüft werden.');
+  }
+
+  const isDemo = accountAccess.access_level === 'demo';
+  const demoSections = new Set(['dashboard', 'zollanalyse', 'settings']);
+
+  function showDemoLock() {
+    window.alert(
+      'In der Vollversion verfügbar.\n\n' +
+      'Ihr Demozugang umfasst das Dashboard und die Zollanalyse.'
+    );
+  }
+
+  // Replace the static example identity with the signed-in account.
+  const identity = document.querySelector('#sidebar > .mt-auto > div');
+
+  if (identity) {
+    identity.classList.add('account-identity');
+    const avatar = identity.querySelector('div');
+    const labels = identity.querySelectorAll('p');
+
+    if (avatar) avatar.textContent = isDemo ? 'DE' : 'IT';
+
+    if (labels[0]) {
+      labels[0].textContent = accountAuth.user.email || 'Ihr Konto';
+      labels[0].title = accountAuth.user.email || '';
+    }
+
+    if (labels[1]) {
+      labels[1].textContent = isDemo ? 'Demozugang' : 'Vollzugang';
+    }
+  }
+
+  if (isDemo) {
+    document.body.classList.add('demo-account');
+
+    document.querySelector('.workspace-eyebrow').textContent =
+      'Demozugang · Deutschland & Lateinamerika';
+
+    document.querySelector('.workspace-description').textContent =
+      'Starten Sie eine Zollanalyse und finden Sie Ihre gespeicherten ' +
+      'Ergebnisse direkt hier. Weitere Werkzeuge sind in der Vollversion verfügbar.';
+
+    document.getElementById('overview-diagnosis-state').textContent =
+      'In der Vollversion verfügbar.';
+
+    document.querySelectorAll(
+      '.sidebar-link, [data-open-section]'
+    ).forEach(link => {
+      const target =
+        link.dataset.sectionLink || link.dataset.openSection;
+
+      if (!target || demoSections.has(target)) return;
+
+      link.classList.add('demo-locked-link');
+      link.title = 'In der Vollversion verfügbar';
+
+      const icon = document.createElement('span');
+      icon.className = 'material-symbols-outlined access-lock';
+      icon.textContent = 'lock';
+      icon.setAttribute('aria-hidden', 'true');
+      link.appendChild(icon);
+    });
+
+    document.querySelectorAll(
+      '#dashboard-section > section'
+    ).forEach(card => {
+      const heading = card.querySelector('h4')?.textContent.trim();
+
+      if (!['Analyse', 'Lernhaus', 'Dokumentenscanner'].includes(heading)) {
+        return;
+      }
+
+      card.classList.add('demo-locked-card');
+
+      const note = document.createElement('p');
+      note.className = 'demo-access-note';
+      note.textContent = 'In der Vollversion verfügbar';
+      card.appendChild(note);
+    });
+
+    document.querySelectorAll('a[href^="diagnose.html"]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        showDemoLock();
+      });
+    });
+  }
   window.getDocumentScannerToken = async function () {
     const { data, error } = await supabase.auth.getSession()
 
@@ -1717,6 +1909,10 @@
 
   function showSection(sectionName, updateHash = true) {
     const section = sectionMetadata[sectionName] ? sectionName : 'dashboard'
+        if (isDemo && !demoSections.has(section)) {
+          showDemoLock();
+          return;
+        }
 
     document.querySelectorAll('.platform-section').forEach(el => {
       el.classList.toggle('hidden', el.dataset.section !== section)
@@ -1762,7 +1958,7 @@
     })
   })
 
-  showSection(window.location.hash.replace('#', '') || 'dashboard', false)
+
 
 	document.addEventListener('click', function (event) {
       document.querySelectorAll('.language-switcher').forEach(wrapper => {
@@ -2281,6 +2477,41 @@ function renderOverviewTariffs(entries) {
 }
 
 window.refreshDashboardOverview = async function () {
+    if (isDemo) {
+    if (overviewLoading) return;
+    overviewLoading = true;
+
+    const button = document.getElementById('overview-refresh');
+    const state = document.getElementById('overview-tariff-state');
+
+    button.disabled = true;
+    state.textContent = 'Zollanalysen werden geladen …';
+    document.getElementById('overview-tariff-list').replaceChildren();
+
+    try {
+      const user = await window.getTariffUser();
+
+      const { data, error } = await supabase
+        .from('tariff_analyses')
+        .select('id, country_code, file_name, result, created_at')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: false })
+        .limit(3);
+
+      if (error) throw error;
+      renderOverviewTariffs(data || []);
+    } catch {
+      state.textContent =
+        'Der Zollanalyse-Verlauf konnte nicht geladen werden. ' +
+        'Bitte erneut aktualisieren.';
+    } finally {
+      overviewLoading = false;
+      button.disabled = false;
+    }
+
+    return;
+  }
   if (overviewLoading) {
     overviewReloadRequested = true;
     return;
@@ -2375,9 +2606,7 @@ document.getElementById('overview-refresh').addEventListener('click', () => {
   window.refreshDashboardOverview();
 });
 
-if (!window.location.hash || window.location.hash === '#dashboard') {
-  window.refreshDashboardOverview();
-}
+
   const logoutButton = document.getElementById('logout-button')
 
   logoutButton?.addEventListener('click', async () => {
@@ -2394,10 +2623,18 @@ if (!window.location.hash || window.location.hash === '#dashboard') {
     }
   })
 
-  if ((window.location.hash || '#dashboard').replace('#', '') === 'analyse') {
-    loadDiagnosisHistory()
+    function openRequestedSection() {
+    let requested = window.location.hash.replace('#', '') || 'dashboard';
+
+    if (isDemo && !demoSections.has(requested)) {
+      requested = 'dashboard';
+    }
+
+    showSection(requested);
   }
-  if (window.location.hash === '#zollanalyse') window.loadTariffHistory()
+
+  window.addEventListener('hashchange', openRequestedSection);
+  openRequestedSection();
 </script>
 
 <script>
@@ -2552,9 +2789,14 @@ async function runTariffAnalysis() {
     const user = await window.getTariffUser()
     const base64 = await fileToBase64(selectedFile)
     setProgress(30, 'Produkte werden erkannt…', 'KI analysiert den Inhalt')
+    const token = await window.getDocumentScannerToken();
+
     const response = await fetch('/.netlify/functions/gemini', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      },
       body: JSON.stringify({ base64, mimeType: 'application/pdf', country })
     })
     setProgress(70, 'Tarifnummern werden zugeordnet…', 'Klassifizierungslogik läuft')
@@ -3417,5 +3659,6 @@ if (menuBtn && mobileMenu) {
   });
 })();
 </script>
+<script src="assets/js/language-placeholder.js" defer></script>
 </body>
 </html>

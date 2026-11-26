@@ -1,4 +1,5 @@
 // netlify/functions/gemini.js
+const { requireAccess } = require('./lib/access');
 
 const supportedCountries = new Map([
   ['MX', 'Mexico'],
@@ -20,6 +21,9 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) }
   }
 
+  const access = await requireAccess(event, ['demo', 'full']);
+  if (access.response) return access.response;
+  
   const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINIAPIKEY
   if (!apiKey) {
     return { statusCode: 500, body: JSON.stringify({ error: 'GEMINI_API_KEY is not set in Netlify environment variables.' }) }

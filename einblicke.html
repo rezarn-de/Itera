@@ -53,6 +53,14 @@ tailwind.config = {
   }
 }
 </script>
+
+<!-- Shared public typography and hero styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" href="assets/css/iteras-public.css">
+<link rel="stylesheet" href="assets/css/brand.css">
 </head>
 
 <body class="bg-background text-on-surface">
@@ -62,9 +70,13 @@ tailwind.config = {
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
-      Iteras
-    </a></div>
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button>
+    <a class="brand-link" href="index.html">
+      <img src="assets/images/brand/iteras_logo.png"
+          alt="ITERAS – Startseite"
+          class="brand-logo">
+    </a>
+    </div>
 
     <!-- Navigation Links -->
     <div class="hidden md:flex items-center gap-8">
@@ -142,47 +154,43 @@ tailwind.config = {
 
 </nav>
 
-<main class="pt-32">
+<main class="iteras-public-main">
 
-<section class="reveal px-4 md:px-8 pb-24">
-  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
+<section class="classic-hero" aria-labelledby="hero-title">
+  <div class="grid">
     <div>
-      <div class="inline-flex items-center px-4 py-2 rounded-full bg-[#cbe7f5] text-[#0F4C5C] text-xs font-bold tracking-widest uppercase mb-6">
-        Markt & Zusammenarbeit
-      </div>
+      <span class="classic-kicker">Markt & Zusammenarbeit</span>
 
-      <h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black leading-[1.05] tracking-tight text-[#0F4C5C] mb-8">
+      <h1 id="hero-title">
         Operative Herausforderungen besser verstehen
       </h1>
 
-      <p class="text-xl text-slate-600 leading-relaxed max-w-2xl mb-10">
-        Internationale Kooperationen scheitern selten an der Strategie, sondern häufig an Kommunikation, Prozessen und fehlender operativer Abstimmung.
+      <p class="classic-description">
+        Internationale Kooperationen scheitern selten an der Strategie,
+        sondern häufig an Kommunikation, Prozessen und fehlender
+        operativer Abstimmung.
       </p>
 
-      <div class="flex flex-wrap gap-4">
+      <div class="classic-actions">
         <a href="#faq"
-           class="px-4 md:px-8 py-4 bg-[#0F4C5C] text-white rounded-full font-bold">
+           class="classic-button classic-button-primary">
           FAQ ansehen
         </a>
 
         <a href="kontakt.html#contact-form"
-           class="px-4 md:px-8 py-4 border border-slate-300 rounded-full font-semibold">
+           class="classic-button classic-button-secondary">
           Kontakt aufnehmen
         </a>
       </div>
     </div>
 
-    <div class="relative">
-      <div class="rounded-[2rem] overflow-hidden shadow-2xl">
-        <img
-          src="https://i.ibb.co/GQdr0WSX/IMG-2082.jpg"
-          class="w-full h-[620px] object-cover"
-          alt="International collaboration"
-        >
+    <div class="classic-visual">
+      <div class="classic-image-frame">
+        <img src="https://i.ibb.co/GQdr0WSX/IMG-2082.jpg"
+             alt="Internationale Zusammenarbeit"
+             fetchpriority="high">
       </div>
     </div>
-
   </div>
 </section>
 
@@ -474,14 +482,19 @@ tailwind.config = {
 <!-- Footer -->
 <footer class="bg-slate-50 py-12 px-4 md:px-8 border-t border-slate-200/20">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
+  <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS"
+            class="brand-logo"
+            loading="lazy">
+  </a>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
-<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
 </div>
-<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Iteras. Alle Rechte vorbehalten.</div>
+<div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Iteras. Alle Rechte vorbehalten.</div>
 </div>
 </footer>
 <script>
@@ -560,4 +573,5 @@ if (menuBtn && mobileMenu) {
     });
   });
 </script>
+<script src="assets/js/language-placeholder.js" defer></script>
 </body></html>

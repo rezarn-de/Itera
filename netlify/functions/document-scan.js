@@ -1,4 +1,4 @@
-const { createClient } = require('@supabase/supabase-js');
+const { requireAccess } = require('./lib/access');
 
 const MAX_BYTES = 3 * 1024 * 1024;
 
@@ -77,45 +77,9 @@ exports.handler = async event => {
     return reply(405, { error: 'Nur POST-Anfragen sind erlaubt.' });
   }
 
-  const auth =
-    event.headers?.authorization ||
-    event.headers?.Authorization ||
-    '';
+    const access = await requireAccess(event, ['full']);
+  if (access.response) return access.response;
 
-  const token = auth.match(/^Bearer\s+(.+)$/i)?.[1];
-
-  if (!token) {
-    return reply(401, { error: 'Bitte melden Sie sich an.' });
-  }
-
-  try {
-    const supabase = createClient(
-      process.env.SUPABASE_URL ||
-        'https://fhwdlgjrgdoaerjfqflb.supabase.co',
-
-      process.env.SUPABASE_PUBLISHABLE_KEY ||
-        'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg',
-
-      {
-        auth: {
-          persistSession: false,
-          autoRefreshToken: false
-        }
-      }
-    );
-
-    const { data, error } = await supabase.auth.getUser(token);
-
-    if (error || !data?.user) {
-      return reply(401, {
-        error: 'Ihre Sitzung ist abgelaufen. Bitte erneut anmelden.'
-      });
-    }
-  } catch {
-    return reply(503, {
-      error: 'Die Anmeldung konnte nicht geprüft werden. Bitte erneut versuchen.'
-    });
-  }
 
   const apiKey =
     process.env.GEMINI_API_KEY || process.env.GEMINIAPIKEY;

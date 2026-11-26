@@ -100,6 +100,13 @@
 
 </style>
 
+<!-- Shared public typography and hero styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" href="assets/css/iteras-public.css">
+<link rel="stylesheet" href="assets/css/brand.css">
 </head>
 <body class="bg-background text-on-background antialiased overflow-x-hidden">
 
@@ -107,7 +114,11 @@
 <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
     
-    <a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">Iteras</a>
+    <a class="brand-link" href="index.html">
+      <img src="assets/images/brand/iteras_logo.png"
+          alt="ITERAS – Startseite"
+          class="brand-logo">
+    </a>
 
     <div class="hidden md:flex items-center gap-8">
       <a class="text-slate-500 hover:text-[#0F4C5C] transition-colors font-['Inter'] tracking-tight" href="leistungen.html">Leistungen</a>
@@ -171,74 +182,105 @@
 
 </nav>
 
-<main>
+<main class="iteras-public-main">
 <!-- Hero Section -->
-<section class="reveal pt-40 pb-24 px-4 md:px-8 max-w-screen-2xl mx-auto overflow-hidden">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-<div class="lg:col-span-7">
-<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6" style="">
-                    Internationale Expansion
-                </div>
+<section class="classic-hero" aria-labelledby="hero-title">
+  <div class="grid">
+    <div>
+      <span class="classic-kicker">Internationale Expansion</span>
 
-<p class="text-sm text-slate-500 mb-4 max-w-xl">
-  Entwickelt von Studierenden der Hochschule Osnabrück im RISE Startup!Lab
-</p>
+      <p class="classic-origin">
+        Entwickelt von Studierenden der Hochschule Osnabrück
+        im RISE Startup!Lab
+      </p>
 
-<h1 class="text-3xl md:text-5xl md:text-4xl md:text-7xl font-black text-primary leading-[1.1] tracking-tight mb-8" style="">
-                    Markteintritt und internationale Kooperation <span class="text-[#0F4C5C]" style="">erfolgreich gestalten</span>
-</h1>
-<p class="text-xl text-on-surface-variant leading-relaxed max-w-2xl mb-12">
-  Wir helfen Unternehmen dabei, internationale Kooperationen zwischen Deutschland und Lateinamerika strukturiert aufzubauen, Risiken frühzeitig zu erkennen und konkrete nächste Schritte umzusetzen.
-</p>
+      <h1 id="hero-title">
+        Markteintritt und internationale Kooperation
+        <span class="text-[#0F4C5C]">erfolgreich gestalten</span>
+      </h1>
 
-<div class="flex flex-wrap gap-4">
-<a href="kontakt.html#contact-form"
-         class="px-4 md:px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-bold shadow-lg shadow-primary/10 transition-transform hover:scale-[1.02]">
-        Erstgespräch vereinbaren
-      </a>
+      <p class="classic-description">
+        Wir helfen Unternehmen dabei, internationale Kooperationen
+        zwischen Deutschland und Lateinamerika strukturiert aufzubauen,
+        Risiken frühzeitig zu erkennen und konkrete nächste Schritte
+        umzusetzen.
+      </p>
 
-<a href="index.html#framework-dimensionen"
-         class="px-4 md:px-8 py-4 bg-surface-container-low text-[#0F4C5C] rounded-full font-bold hover:bg-surface-container-high transition-colors">
-        Framework ansehen
-      </a>      
+      <div class="classic-actions">
+        <a href="kontakt.html#contact-form"
+           class="classic-button classic-button-primary">
+          Erstgespräch vereinbaren
+        </a>
 
-</div>
-</div>
-<div class="lg:col-span-5 relative">
-
-  <!-- Image box -->
-  <div class="aspect-square bg-surface-container-high rounded-2xl overflow-hidden relative">
-    <img 
-      class="w-full h-full object-cover" 
-      alt="Our picture two of us" 
-      src="https://i.ibb.co/4Z22d9YV/IMG-0226.jpg"
-    >
-
-    <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-  </div> 
-
-  <!-- Floating Data Card -->
-  <div class="absolute bottom-10 left-4 bg-surface-container-lowest p-6 rounded-2xl shadow-2xl max-w-xs border border-outline-variant/10">
-    <div class="flex items-center gap-3 mb-4">
-      <span class="material-symbols-outlined text-[#0F4C5C]" style="font-variation-settings: 'FILL' 1;">public</span>
-      <span class="font-bold text-primary">DE → LATAM</span>
+        <a href="#framework-dimensionen"
+           class="classic-button classic-button-secondary">
+          Framework ansehen
+        </a>
+      </div>
     </div>
 
-    <p class="text-xs text-on-surface-variant mb-2 font-medium">Kooperation</p>
+    <div class="classic-visual">
+      <div class="classic-image-frame">
+        <img src="assets/images/hero/index-hero.webp"
+             alt="Das ITERAS-Team"
+             fetchpriority="high">
+        <div class="classic-image-overlay"></div>
+      </div>
 
-    <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-      <div class="h-full bg-[#19839e] w-[92%]"></div>
+      <div class="absolute bottom-12 left-4 bg-white p-5 rounded-2xl shadow-xl max-w-xs border border-slate-100">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-[#0F4C5C]"
+                aria-hidden="true">public</span>
+          <span class="font-bold text-primary">DE → LATAM</span>
+        </div>
+
+        <p class="text-xs text-slate-600 mb-2">Kooperation</p>
+
+        <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden"
+             aria-hidden="true">
+          <div class="h-full bg-[#19839e] w-[92%]"></div>
+        </div>
+
+        <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-3 font-bold">
+          Strukturierte Skalierung
+        </p>
+      </div>
+
     </div>
-
-    <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-3 font-bold">Strukturierte Skalierung</p>
   </div>
+</section>
+<!-- Supporters: homepage only -->
+<section class="iteras-supporters"
+         aria-labelledby="supporters-title">
+  <div class="iteras-supporters-inner">
+    <h2 id="supporters-title">Unterstützt von</h2>
 
-  <!-- Caption -->
-  <p class="text-xs text-slate-400 mt-3 ml-1 italic">
-    Quelle: RISE Startup!Lab
-  </p>
+    <ul class="iteras-supporters-logos">
+      <li>
+        <img
+          src="assets/images/partners/logo_der_Hochschule_Osnabrück.svg.webp"
+          alt="Hochschule Osnabrück"
+          class="supporter-hs"
+          loading="lazy">
+      </li>
 
-</div>
+      <li>
+        <img
+          src="assets/images/partners/exist-logo.png"
+          alt="EXIST"
+          class="supporter-exist"
+          loading="lazy">
+      </li>
+
+      <li>
+        <img
+          src="assets/images/partners/logo-rise.png"
+          alt="RISE Startup!Lab"
+          class="supporter-rise"
+          loading="lazy">
+      </li>
+    </ul>
+  </div>
 </section>
 
 <!-- Short Explanation Section -->
@@ -246,18 +288,20 @@
 <div class="max-w-screen-2xl mx-auto">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 <div class="lg:col-span-5">
-<h2 class="text-3xl font-bold text-primary tracking-tight mb-6" style="">Expertise für den Mittelstand</h2>
+<h2 class="text-3xl font-bold text-primary tracking-tight mb-6">
+  Expertise für den Mittelstand
+</h2>
 <div class="w-12 h-1 bg-[#19839e] mb-8"></div>
 </div>
 <div class="lg:col-span-7">
 <div class="space-y-6 text-on-surface-variant text-lg leading-relaxed">
-<p class="" style="">
+<p>
                             Wir unterstützen Unternehmen dabei, internationale Markteintritte und Industriekooperationen zwischen Deutschland und Lateinamerika strukturiert und erfolgreich umzusetzen.
                         </p>
-<p class="" style="">
+<p>
                             Unser Ansatz richtet sich insbesondere an kleine und mittelständische Unternehmen, die ihre internationalen Aktivitäten ausbauen oder optimieren möchten.
                         </p>
-<p class="" style="">
+<p>
                             Durch eine systematische Analyse zentraler Erfolgsfaktoren identifizieren wir Risiken frühzeitig und entwickeln konkrete, praxisnahe Handlungsempfehlungen.
                         </p>
 </div>
@@ -267,56 +311,120 @@
 </section>
 
 <!-- Five Pillars Section -->
-<section id="framework-dimensionen" class="reveal py-24 px-4 md:px-8 bg-white overflow-hidden">
-<div class="max-w-screen-2xl mx-auto">
-<div class="mb-16 text-center max-w-3xl mx-auto">
-<h2 class="text-4xl font-bold text-primary tracking-tight mb-4" style="">Fünf Säulen der Zusammenarbeit</h2>
-<p class="text-on-surface-variant" style="">Unser Framework deckt alle kritischen Dimensionen ab, um Reibungsverluste in der internationalen Kooperation zu minimieren.</p>
-</div>
+<section id="framework-dimensionen"
+         class="iteras-pillars"
+         aria-labelledby="pillars-title">
+  <div class="pillars-layout">
+    <div class="pillars-intro">
+      <p class="pillars-eyebrow">Unser Framework</p>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-<!-- Pillar 1 -->
-<div class="group bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl text-primary" style="">analytics</span>
-</div>
-<h3 class="font-bold text-primary text-lg mb-2" style="">Marktbereitschaft</h3>
-<p class="text-sm text-on-surface-variant leading-relaxed" style="">Analyse des lokalen Umfelds und der Eintrittsbedingungen.</p>
-</div>
-<!-- Pillar 2 -->
-<div class="group bg-[#0F4C5C] p-8 rounded-xl border border-outline-variant/10 text-on-primary flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl text-white" style="">corporate_fare</span>
-</div>
-<h3 class="font-bold text-lg mb-2" style="">Organisationale Ausrichtung</h3>
-<p class="text-sm opacity-80 leading-relaxed" style="">Abstimmung der internen Strukturen beider Partner.</p>
-</div>
-<!-- Pillar 3 -->
-<div class="group bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl text-primary" style="">account_tree</span>
-</div>
-<h3 class="font-bold text-primary text-lg mb-2" style="">Entscheidungs-strukturen</h3>
-<p class="text-sm text-on-surface-variant leading-relaxed" style="">Verständnis für institutionelle Entscheidungsprozesse.</p>
-</div>
-<!-- Pillar 4 -->
-<div class="group bg-primary p-8 rounded-xl border border-outline-variant/10 text-on-primary flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl text-white" style="">gavel</span>
-</div>
-<h3 class="font-bold text-lg mb-2" style="">Regulatorische &amp; Compliance</h3>
-<p class="text-sm opacity-80 leading-relaxed" style="">Sicherer Umgang mit rechtlichen Rahmenbedingungen.</p>
-</div>
-<!-- Pillar 5 -->
-<div class="group bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl text-primary" style="">diversity_3</span>
-</div>
-<h3 class="font-bold text-primary text-lg mb-2" style="">Kulturelle &amp; Kommunikation</h3>
-<p class="text-sm text-on-surface-variant leading-relaxed" style="">Berücksichtigung nuancierter Kommunikationsmuster.</p>
-</div>
-</div>
-</div>
+      <h2 id="pillars-title">
+        Fünf Säulen der Zusammenarbeit
+      </h2>
+
+      <p class="pillars-intro-text">
+        Internationale Kooperation braucht mehr als eine gute Strategie.
+        Unser Framework betrachtet fünf Dimensionen, die im Alltag
+        über das Zusammenspiel zwischen Unternehmen entscheiden.
+      </p>
+
+      <p class="pillars-hint">
+        Entdecken Sie die einzelnen Säulen.
+      </p>
+    </div>
+
+    <div class="pillar-accordion"
+         data-pillar-accordion
+         role="group"
+         aria-label="Die fünf Säulen im Überblick">
+
+      <details class="pillar-panel" name="iteras-pillars" open>
+        <summary class="pillar-summary">
+          <img src="assets/images/pillars/marktbereitschaft.jpg"
+               alt=""
+               loading="lazy">
+          <span class="pillar-number" aria-hidden="true">01</span>
+          <span class="pillar-label">Marktbereitschaft</span>
+        </summary>
+
+        <div class="pillar-description">
+          <p>
+            Lokales Marktumfeld, Nachfrage und Eintrittsbedingungen
+            verstehen – als Grundlage für die nächsten Schritte.
+          </p>
+        </div>
+      </details>
+
+      <details class="pillar-panel" name="iteras-pillars">
+        <summary class="pillar-summary">
+          <img src="assets/images/pillars/organisationale_ausrichtung.webp"
+               alt=""
+               loading="lazy">
+          <span class="pillar-number" aria-hidden="true">02</span>
+          <span class="pillar-label">Organisationale Ausrichtung</span>
+        </summary>
+
+        <div class="pillar-description">
+          <p>
+            Rollen, Ressourcen und Abläufe beider Partner aufeinander
+            abstimmen, damit Zusammenarbeit im Alltag funktioniert.
+          </p>
+        </div>
+      </details>
+
+      <details class="pillar-panel" name="iteras-pillars">
+        <summary class="pillar-summary">
+          <img src="assets/images/pillars/entscheidungs_strukturen.jpg"
+               alt=""
+               loading="lazy">
+          <span class="pillar-number" aria-hidden="true">03</span>
+          <span class="pillar-label">Entscheidungsstrukturen</span>
+        </summary>
+
+        <div class="pillar-description">
+          <p>
+            Zuständigkeiten, Freigaben und Entscheidungswege klären,
+            um Verzögerungen und Missverständnisse zu reduzieren.
+          </p>
+        </div>
+      </details>
+
+      <details class="pillar-panel" name="iteras-pillars">
+        <summary class="pillar-summary">
+          <img src="assets/images/pillars/regulatorische_compliance.jpg"
+               alt=""
+               loading="lazy">
+          <span class="pillar-number" aria-hidden="true">04</span>
+          <span class="pillar-label">Regulierung &amp; Compliance</span>
+        </summary>
+
+        <div class="pillar-description">
+          <p>
+            Rechtliche Rahmenbedingungen, Zollanforderungen und
+            Dokumentationspflichten frühzeitig berücksichtigen.
+          </p>
+        </div>
+      </details>
+
+      <details class="pillar-panel" name="iteras-pillars">
+        <summary class="pillar-summary">
+          <img src="assets/images/pillars/kulturelle_kommunikation.webp"
+               alt=""
+               loading="lazy">
+          <span class="pillar-number" aria-hidden="true">05</span>
+          <span class="pillar-label">Kultur &amp; Kommunikation</span>
+        </summary>
+
+        <div class="pillar-description">
+          <p>
+            Unterschiedliche Erwartungen und Kommunikationsweisen
+            verstehen und eine gemeinsame Arbeitsweise entwickeln.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </div>
 </section>
 
 <!-- How It Works Section (Simple) -->
@@ -386,55 +494,55 @@
 <section class="reveal py-24 px-4 md:px-8 bg-primary text-on-primary">
 <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 <div>
-<h2 class="text-4xl font-bold tracking-tight mb-8" style="">Für wen ist das relevant?</h2>
-<p class="text-xl opacity-80 mb-12" style="">Unsere Lösungen sind maßgeschneidert für Entscheidungsträger, die nachhaltige Werte in der internationalen Kooperation schaffen wollen.</p>
+<h2 class="text-4xl font-bold tracking-tight mb-8">Für wen ist das relevant?</h2>
+<p class="text-xl opacity-80 mb-12">Unsere Lösungen sind maßgeschneidert für Entscheidungsträger, die nachhaltige Werte in der internationalen Kooperation schaffen wollen.</p>
 <div class="space-y-6">
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="">domain</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">domain</span>
 <div>
-<p class="font-bold text-xl" style="">KMU</p>
-<p class="text-sm opacity-70" style="">Mittelständische Unternehmen, die schlanke und effektive Prozesse für den Auslandseinsatz benötigen.</p>
+<p class="font-bold text-xl">KMU</p>
+<p class="text-sm opacity-70">Mittelständische Unternehmen, die schlanke und effektive Prozesse für den Auslandseinsatz benötigen.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="">public</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">public</span>
 <div>
-<p class="font-bold text-xl" style="">Unternehmen mit LATAM-Bezug</p>
-<p class="text-sm opacity-70" style="">Organisationen, die bereits in Lateinamerika aktiv sind oder den Markt erschließen wollen.</p>
+<p class="font-bold text-xl">Unternehmen mit LATAM-Bezug</p>
+<p class="text-sm opacity-70">Organisationen, die bereits in Lateinamerika aktiv sind oder den Markt erschließen wollen.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="">trending_up</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">trending_up</span>
 <div>
-<p class="font-bold text-xl" style="">Export / Expansion</p>
-<p class="text-sm opacity-70" style="">Unternehmen in der Wachstumsphase mit Fokus auf grenzüberschreitende industrielle Projekte.</p>
+<p class="font-bold text-xl">Export / Expansion</p>
+<p class="text-sm opacity-70">Unternehmen in der Wachstumsphase mit Fokus auf grenzüberschreitende industrielle Projekte.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="relative">
 <div class="bg-surface-container-low/10 p-10 rounded-2xl border border-white/10 backdrop-blur-md">
-<h3 class="text-2xl font-bold mb-8" style="">Warum Iteras?</h3>
+<h3 class="text-2xl font-bold mb-8">Warum Iteras?</h3>
 <ul class="space-y-6">
-<li class="flex gap-4 items-start" style="">
-<span class="material-symbols-outlined text-tertiary-fixed" style="">verified</span>
+<li class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary-fixed">verified</span>
 <div>
-<p class="font-bold" style="">Praxisnaher Ansatz</p>
-<p class="text-sm opacity-70" style="">Keine theoretischen Konzepte, sondern direkt anwendbare Blueprints für Ihr Team.</p>
+<p class="font-bold">Praxisnaher Ansatz</p>
+<p class="text-sm opacity-70">Keine theoretischen Konzepte, sondern direkt anwendbare Blueprints für Ihr Team.</p>
 </div>
 </li>
-<li class="flex gap-4 items-start" style="">
-<span class="material-symbols-outlined text-tertiary-fixed" style="">handshake</span>
+<li class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary-fixed">handshake</span>
 <div>
-<p class="font-bold" style="">Kulturelle Brücke</p>
-<p class="text-sm opacity-70" style="">Tiefes Verständnis für die Arbeitsweisen in Deutschland und Lateinamerika.</p>
+<p class="font-bold">Kulturelle Brücke</p>
+<p class="text-sm opacity-70">Tiefes Verständnis für die Arbeitsweisen in Deutschland und Lateinamerika.</p>
 </div>
 </li>
-<li class="flex gap-4 items-start" style="">
-<span class="material-symbols-outlined text-tertiary-fixed" style="">insights</span>
+<li class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary-fixed">insights</span>
 <div>
-<p class="font-bold" style="">Risikominimierung</p>
-<p class="text-sm opacity-70" style="">Frühzeitiges Erkennen von Fallstricken in der Organisationsstruktur.</p>
+<p class="font-bold">Risikominimierung</p>
+<p class="text-sm opacity-70">Frühzeitiges Erkennen von Fallstricken in der Organisationsstruktur.</p>
 </div>
 </li>
 </ul>
@@ -477,14 +585,19 @@
 <!-- Footer -->
 <footer class="bg-slate-50 py-12 px-4 md:px-8 border-t border-slate-200/20">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
+  <a class="brand-link" href="index.html">
+    <img src="assets/images/brand/iteras_logo.png"
+        alt="ITERAS"
+        class="brand-logo"
+        loading="lazy">
+  </a>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
-<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
 </div>
-<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Iteras. Alle Rechte vorbehalten.</div>
+<div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Iteras. Alle Rechte vorbehalten.</div>
 </div>
 </footer>
 <script>
@@ -532,5 +645,7 @@ if(menuBtn && mobileMenu){
  });
 }
 </script>
-
-</body></html>
+<script src="assets/js/pillars.js" defer></script>
+<script src="assets/js/language-placeholder.js" defer></script>
+</body>
+</html>

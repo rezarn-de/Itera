@@ -116,6 +116,173 @@
             line-height: 1;
         }
   </style>
+  <style id="iteras-diagnose-navigation">
+    body,
+    body > main {
+      background: #f3f6f6;
+      color: #163b43;
+    }
+
+    /* Navigation */
+    #sidebar {
+      background: #103b45;
+      border-right: 1px solid #244c55;
+      padding: 32px 18px 24px;
+      gap: 8px;
+    }
+
+    #sidebar .iteras-logo {
+      color: #fff;
+      font-size: 25px;
+      letter-spacing: .24em;
+    }
+
+    #sidebar .portal-label {
+      color: #bdd2d6;
+      font-size: 11px;
+      line-height: 1.7;
+      margin-top: 12px;
+      max-width: 170px;
+    }
+
+    #sidebar nav {
+      gap: 6px;
+    }
+
+    #sidebar .sidebar-link {
+      min-height: 48px;
+      padding: 12px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: #c4d6da;
+      font-size: 13px;
+      font-weight: 500;
+      transform: none;
+      box-shadow: none;
+      transition: background-color .18s, color .18s;
+    }
+
+    #sidebar .sidebar-link:hover {
+      background: #214d57;
+      color: #fff;
+    }
+
+    #sidebar .sidebar-link.bg-white {
+      background: #d5eee7;
+      border-color: #d5eee7;
+      color: #143e45;
+      font-weight: 700;
+    }
+
+    #sidebar .sidebar-link .material-symbols-outlined {
+      font-size: 21px;
+    }
+
+    #sidebar > .mt-auto {
+      border-color: #365b64;
+    }
+
+    #sidebar > .mt-auto > a {
+      background: #285660;
+      border: 1px solid #50747b;
+      border-radius: 10px;
+      color: #fff;
+      box-shadow: none;
+    }
+
+    #sidebar > .mt-auto > a:hover {
+      background: #346670;
+    }
+
+    /* Page header */
+    body > main > .glass-header {
+      background: rgba(255, 255, 255, .95);
+      border-bottom: 1px solid #dce6e7;
+      padding: 20px 32px;
+      gap: 16px;
+    }
+
+    .glass-header h2 {
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -.035em;
+      line-height: 1.3;
+    }
+
+    .glass-header p {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #586e74;
+      opacity: 1;
+    }
+
+    #step-indicator {
+      color: #586e74;
+    }
+
+    /* Keyboard access */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #318773;
+      outline-offset: 4px;
+    }
+
+    #sidebar a:focus-visible {
+      outline-color: #a7e2cd;
+    }
+
+    @media (max-width: 1023px) {
+      body > main > .glass-header {
+        padding-inline: 24px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      body > main > .glass-header {
+        padding: 16px;
+      }
+
+      .glass-header h2 {
+        font-size: 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #sidebar,
+      #sidebar-overlay,
+      #sidebar .sidebar-link {
+        transition: none;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="assets/css/brand.css">  
+<style>
+  #sidebar .sidebar-upcoming {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px;
+    color: #bdd2d6;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  #sidebar .sidebar-upcoming .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 21px;
+  }
+
+  #sidebar .sidebar-upcoming-badge {
+    margin-left: auto;
+    padding: 5px 7px;
+    border-radius: 6px;
+    background: #285660;
+    color: #dcebea;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+</style>
 </head>
 <body class="text-on-background">
 
@@ -123,8 +290,12 @@
 
 <aside id="sidebar" class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col gap-2 p-6 z-40">
   <div class="mb-10 px-2">
-    <a href="german_dashboard.html"><h1 class="iteras-logo text-[1.35rem] text-0F4C5C">Iteras</h1></a>
-    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1 font-semibold">Client-Portal</p>
+    <a href="german_dashboard.html" aria-label="Iteras Dashboard">
+      <img src="assets/images/brand/iteras_logo.png"
+      alt="ITERAS"
+      class="brand-logo">
+    </a>
+    <p class="portal-label">Ihr Außenhandel. Ein Arbeitsbereich.</p>
   </div>
 
   <nav class="flex-1 flex flex-col gap-2">
@@ -142,16 +313,23 @@
     </a>
     <a href="german_dashboard.html#workshops" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
       <span class="material-symbols-outlined">school</span>
-      <span>Workshops & Trainings</span>
+      <span>Lernhaus</span>
     </a>
     <a href="german_dashboard.html#framework" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
       <span class="material-symbols-outlined">description</span>
-      <span>Framework</span>
+      <span>Dokumentenscanner</span>
     </a>
     <a href="german_dashboard.html#zollanalyse" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
       <span class="material-symbols-outlined">toll</span>
       <span>Zollanalyse</span>
     </a>
+    <div class="sidebar-upcoming">
+      <span class="material-symbols-outlined" aria-hidden="true">
+        group
+      </span>
+      <span>Mitglieder</span>
+      <span class="sidebar-upcoming-badge">Demnächst</span>
+    </div>
     <a href="german_dashboard.html#settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200/50 rounded-lg font-Inter text-sm font-medium transition-transform duration-200 hover:translate-x-1">
       <span class="material-symbols-outlined">settings</span>
       <span>Einstellungen</span>
@@ -241,8 +419,35 @@ const supabaseKey = 'sb_publishable_a8XKwDCsVxq9w3an9TbjbQ_8-qRvWPg'
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 // ── Auth guard ──────────────────────────────────────────────────────────────
-const { data: { session } } = await supabase.auth.getSession()
-if (!session) { window.location.href = 'anmelden.html' }
+const { data: { session }, error: sessionError } =
+  await supabase.auth.getSession();
+
+if (sessionError || !session) {
+  window.location.replace('anmelden.html');
+  throw new Error('Anmeldung erforderlich.');
+}
+
+const { data: diagnosisAccess, error: diagnosisAccessError } =
+  await supabase
+    .from('account_access')
+    .select('access_level')
+    .eq('user_id', session.user.id)
+    .single();
+
+if (diagnosisAccessError || !diagnosisAccess) {
+  document.body.innerHTML = `
+    <main style="max-width:600px;margin:80px auto;padding:24px">
+      <h1>Zugriff konnte nicht geprüft werden</h1>
+      <p><a href="german_dashboard.html">Zurück zum Dashboard</a></p>
+    </main>
+  `;
+  throw new Error('Zugriffsprüfung fehlgeschlagen.');
+}
+
+if (diagnosisAccess.access_level !== 'full') {
+  window.location.replace('german_dashboard.html#dashboard');
+  throw new Error('In der Vollversion verfügbar.');
+}
 
 document.getElementById('logout-button')?.addEventListener('click', async () => {
   await supabase.auth.signOut()
@@ -552,11 +757,21 @@ async function submitDiagnose(){
   nextBtn.textContent = 'Wird analysiert…'
 
   try {
+    const { data: sessionData, error: tokenError } =
+      await supabase.auth.getSession();
+
+    if (tokenError || !sessionData.session?.access_token) {
+      throw new Error('Bitte melden Sie sich erneut an.');
+    }
+
     const res = await fetch('/.netlify/functions/diagnose', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + sessionData.session.access_token
+      },
       body: JSON.stringify(answers)
-    })
+    });
 
     const raw = await res.json().catch(() => ({
       ok: false,

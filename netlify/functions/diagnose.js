@@ -1,8 +1,10 @@
+const { requireAccess } = require('./lib/access');
+
 exports.handler = async (event) => {
   const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
 
@@ -22,6 +24,9 @@ exports.handler = async (event) => {
     };
   }
 
+  const access = await requireAccess(event, ['full']);
+  if (access.response) return access.response;
+  
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return {

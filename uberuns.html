@@ -245,6 +245,13 @@
 .delay-3 { transition-delay: 0.3s; }
 
 </style>
+<!-- Shared public typography and hero styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" href="assets/css/iteras-public.css">
+<link rel="stylesheet" href="assets/css/brand.css">
 </head>
 <body class="bg-background text-on-surface">
 
@@ -253,9 +260,13 @@
   <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-screen-2xl mx-auto">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button><a class="iteras-logo text-[1.35rem] text-0F4C5C" href="index.html">
-      Iteras
-    </a></div>
+    <div class="flex items-center gap-3"><button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-lg text-[#0F4C5C]"><span id="menu-icon" class="material-symbols-outlined transition-transform duration-300">menu</span></button>
+      <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS – Startseite"
+            class="brand-logo">
+      </a>
+    </div>
 
     <!-- Navigation Links -->
     <div class="hidden md:flex items-center gap-8">
@@ -331,10 +342,10 @@
 
 </nav>
 
-<main class="flex-grow pt-20">
+<main class="iteras-public-main flex-grow">
 
 <!-- Hero Section -->
-<section class="reveal relative py-24 md:py-32 overflow-hidden">
+<section class="reveal classic-hero">
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6">
     <!-- LEFT: TEXT -->
     <div class="space-y-6">
@@ -354,7 +365,7 @@
       <div class="relative rounded-2xl overflow-hidden shadow-xl">
 
         <img
-          src="https://i.ibb.co/v6K12sRx/IMG-0012.jpg"
+          src="assets/images/hero/uberunshero.jpg"
           alt="Both of us together"
           class="w-full aspect-[4/3] object-cover object-top"
         />
@@ -369,8 +380,6 @@
     </div>
   </div>
 
-  <!-- Decorative Element -->
-  <div class="absolute -right-20 top-20 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
 </section>
 <!-- Mission Vision Purpose Section -->
 <section class="reveal py-24 bg-surface-container-low overflow-hidden">
@@ -563,14 +572,19 @@
 <!-- Footer -->
 <footer class="bg-white py-12 px-4 md:px-8 border-t border-slate-100">
 <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-<div class="iteras-logo text-[1.2rem] text-0F4C5C" style="">Iteras</div>
+  <a class="brand-link" href="index.html">
+        <img src="assets/images/brand/iteras_logo.png"
+            alt="ITERAS"
+            class="brand-logo"
+            loading="lazy">
+  </a>
 <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest font-['Inter'] text-slate-400">
-<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html" style="">Impressum</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html" style="">Datenschutz</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html" style="">Leistungen</a>
-<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html" style="">Kontakt</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="impressum.html">Impressum</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="datenschutz.html">Datenschutz</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="leistungen.html">Leistungen</a>
+<a class="hover:text-[#0F4C5C] transition-colors" href="kontakt.html">Kontakt</a>
 </div>
-<div class="text-xs uppercase tracking-widest text-slate-400" style="">© 2026 Iteras. Alle Rechte vorbehalten.</div>
+<div class="text-xs uppercase tracking-widest text-slate-400">© 2026 Iteras. Alle Rechte vorbehalten.</div>
 </div>
 </footer>
 <script>
@@ -680,4 +694,6 @@ if (menuBtn && mobileMenu) {
     updateCarousel();
   });
 </script>
-</body></html>
+<script src="assets/js/language-placeholder.js" defer></script>
+</body>
+</html>
